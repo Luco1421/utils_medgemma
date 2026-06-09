@@ -1,10 +1,8 @@
 """Entrenamiento LoRA/QLoRA para MedGemma.
 
-Dataset esperado en JSONL:
+El modulo expone `train_lora_medgemma(...)` para notebooks y tambien conserva un
+CLI delgado. El dataset esperado en JSONL es:
     {"image": "images/001.jpg", "prompt": "...", "answer": "..."}
-
-Este script esta pensado para Colab/GPU. Localmente sirve como referencia
-ejecutable, pero no debe correrse sin GPU y dependencias completas.
 """
 
 from __future__ import annotations
@@ -12,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 from pathlib import Path
 from typing import Any
 
@@ -24,6 +23,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--train-jsonl", required=True)
     parser.add_argument("--output-dir", default="checkpoints/medgemma_lora")
     parser.add_argument("--image-root", default=None)
+    parser.add_argument("--hf-token", default=None)
     parser.add_argument("--max-steps", type=int, default=100)
     parser.add_argument("--per-device-train-batch-size", type=int, default=1)
     parser.add_argument("--gradient-accumulation-steps", type=int, default=8)
@@ -35,7 +35,8 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_jsonl(path: str) -> list[dict[str, Any]]:
+def load_jsonl(path: str | Path) -> list[dict[str, Any]]:
+    """Carga ejemplos JSONL y valida campos minimos."""
     rows = []
     with Path(path).open("r", encoding="utf-8") as file:
         for line_number, line in enumerate(file, start=1):
@@ -51,65 +52,25 @@ def load_jsonl(path: str) -> list[dict[str, Any]]:
     return rows
 
 
-def resolve_image_path(image_value: str, image_root: str | None) -> Path:
+def resolve_image_path(image_value: str, image_root: str | Path | None) -> Path:
+    """Resuelve rutas absolutas o relativas al directorio de imagenes."""
     image_path = Path(image_value)
     if image_path.is_absolute() or image_root is None:
         return image_path
     return Path(image_root) / image_path
 
 
-def main() -> None:
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s:%(name)s:%(message)s")
-    args = parse_args()
-
-    try:
-        import torch
-        from peft import LoraConfig
-        from transformers import (
-            AutoModelForImageTextToText,
-            AutoProcessor,
-            BitsAndBytesConfig,
-        )
-        from trl import SFTConfig, SFTTrainer
-    except ImportError as exc:
-        raise ImportError(
-            "Install torch, transformers, accelerate, peft, trl, bitsandbytes and pillow."
-        ) from exc
-
-    rows = load_jsonl(args.train_jsonl)
-    processor = AutoProcessor.from_pretrained(args.model_id)
-
-    quantization_config = None
-    if args.use_qlora:
-        quantization_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.bfloat16,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_use_double_quant=True,
-        )
-
-    model = AutoModelForImageTextToText.from_pretrained(
-        args.model_id,
-        torch_dtype=torch.bfloat16,
-        device_map="auto",
-        quantization_config=quantization_config,
-    )
-    lora_config = LoraConfig(
-        r=args.lora_r,
-        lora_alpha=args.lora_alpha,
-        lora_dropout=args.lora_dropout,
-        bias="none",
-        task_type="CAUSAL_LM",
-        target_modules="all-linear",
-        modules_to_save=["lm_head", "embed_tokens"],
-    )
-
-    dataset_rows = []
+def build_training_conversations(
+    rows: list[dict[str, Any]],
+    image_root: str | Path | None,
+) -> list[dict[str, Any]]:
+    """Convierte JSONL plano a conversaciones multimodales para SFT."""
+    conversations = []
     for row in rows:
-        resolved = resolve_image_path(row["image"], args.image_root)
+        resolved = resolve_image_path(row["image"], image_root)
         if not resolved.exists():
             raise FileNotFoundError(f"Image not found: {resolved}")
-        dataset_rows.append(
+        conversations.append(
             {
                 "messages": [
                     {
@@ -126,19 +87,24 @@ def main() -> None:
                 ]
             }
         )
+    return conversations
 
-    train_dataset = dataset_rows
 
-    def process_vision_info(messages: list[dict[str, Any]]) -> list[Image.Image]:
-        images = []
-        for message in messages:
-            content = message.get("content", [])
-            if not isinstance(content, list):
-                content = [content]
-            for element in content:
-                if isinstance(element, dict) and element.get("type") == "image":
-                    images.append(element["image"].convert("RGB"))
-        return images
+def extract_images(messages: list[dict[str, Any]]) -> list[Image.Image]:
+    """Extrae imagenes PIL desde una conversacion multimodal."""
+    images = []
+    for message in messages:
+        content = message.get("content", [])
+        if not isinstance(content, list):
+            content = [content]
+        for element in content:
+            if isinstance(element, dict) and element.get("type") == "image":
+                images.append(element["image"].convert("RGB"))
+    return images
+
+
+def make_collate_fn(processor: Any):
+    """Crea un collator compatible con SFTTrainer y MedGemma multimodal."""
 
     def collate_fn(examples: list[dict[str, Any]]) -> dict[str, Any]:
         texts = []
@@ -152,7 +118,7 @@ def main() -> None:
                     tokenize=False,
                 ).strip()
             )
-            images.append(process_vision_info(messages))
+            images.append(extract_images(messages))
 
         batch = processor(text=texts, images=images, return_tensors="pt", padding=True)
         labels = batch["input_ids"].clone()
@@ -166,12 +132,73 @@ def main() -> None:
         batch["labels"] = labels
         return batch
 
+    return collate_fn
+
+
+def train_lora_medgemma(
+    model_id: str,
+    train_jsonl: str | Path,
+    output_dir: str | Path,
+    image_root: str | Path | None = None,
+    hf_token: str | None = None,
+    max_steps: int = 100,
+    per_device_train_batch_size: int = 1,
+    gradient_accumulation_steps: int = 8,
+    learning_rate: float = 2e-4,
+    lora_r: int = 16,
+    lora_alpha: int = 32,
+    lora_dropout: float = 0.05,
+    use_qlora: bool = False,
+) -> str:
+    """Entrena un adapter LoRA/QLoRA y retorna su directorio."""
+    try:
+        import torch
+        from peft import LoraConfig
+        from transformers import AutoModelForImageTextToText, AutoProcessor, BitsAndBytesConfig
+        from trl import SFTConfig, SFTTrainer
+    except ImportError as exc:
+        raise ImportError(
+            "Install torch, transformers, accelerate, peft, trl, bitsandbytes and pillow."
+        ) from exc
+
+    token = hf_token or os.environ.get("HF_TOKEN") or True
+    rows = load_jsonl(train_jsonl)
+    train_dataset = build_training_conversations(rows, image_root=image_root)
+
+    processor = AutoProcessor.from_pretrained(model_id, token=token)
+    quantization_config = None
+    if use_qlora:
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_use_double_quant=True,
+        )
+
+    model = AutoModelForImageTextToText.from_pretrained(
+        model_id,
+        torch_dtype=torch.bfloat16,
+        device_map="auto",
+        quantization_config=quantization_config,
+        token=token,
+    )
+
+    lora_config = LoraConfig(
+        r=lora_r,
+        lora_alpha=lora_alpha,
+        lora_dropout=lora_dropout,
+        bias="none",
+        task_type="CAUSAL_LM",
+        target_modules="all-linear",
+        modules_to_save=["lm_head", "embed_tokens"],
+    )
+
     training_args = SFTConfig(
-        output_dir=args.output_dir,
-        max_steps=args.max_steps,
-        per_device_train_batch_size=args.per_device_train_batch_size,
-        gradient_accumulation_steps=args.gradient_accumulation_steps,
-        learning_rate=args.learning_rate,
+        output_dir=str(output_dir),
+        max_steps=max_steps,
+        per_device_train_batch_size=per_device_train_batch_size,
+        gradient_accumulation_steps=gradient_accumulation_steps,
+        learning_rate=learning_rate,
         bf16=True,
         logging_steps=5,
         save_steps=50,
@@ -188,12 +215,33 @@ def main() -> None:
         train_dataset=train_dataset,
         peft_config=lora_config,
         processing_class=processor,
-        data_collator=collate_fn,
+        data_collator=make_collate_fn(processor),
     )
     trainer.train()
-    trainer.save_model(args.output_dir)
-    processor.save_pretrained(args.output_dir)
-    print(f"Saved LoRA adapter: {args.output_dir}")
+    trainer.save_model(str(output_dir))
+    processor.save_pretrained(str(output_dir))
+    return str(output_dir)
+
+
+def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s:%(name)s:%(message)s")
+    args = parse_args()
+    output_dir = train_lora_medgemma(
+        model_id=args.model_id,
+        train_jsonl=args.train_jsonl,
+        output_dir=args.output_dir,
+        image_root=args.image_root,
+        hf_token=args.hf_token,
+        max_steps=args.max_steps,
+        per_device_train_batch_size=args.per_device_train_batch_size,
+        gradient_accumulation_steps=args.gradient_accumulation_steps,
+        learning_rate=args.learning_rate,
+        lora_r=args.lora_r,
+        lora_alpha=args.lora_alpha,
+        lora_dropout=args.lora_dropout,
+        use_qlora=args.use_qlora,
+    )
+    print(f"Saved LoRA adapter: {output_dir}")
 
 
 if __name__ == "__main__":

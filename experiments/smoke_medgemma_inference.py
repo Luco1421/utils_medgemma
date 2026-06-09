@@ -25,6 +25,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run MedGemma baseline or LoRA inference.")
     parser.add_argument("--model-id", default="google/medgemma-1.5-4b-it")
     parser.add_argument("--adapter-path", default=None)
+    parser.add_argument("--hf-token", default=None)
     parser.add_argument("--mode", choices=["text", "image", "image-text"], default="image-text")
     parser.add_argument("--image", default=None, help="Path to an RGB image.")
     parser.add_argument(
@@ -50,6 +51,7 @@ def main() -> None:
         {
             "model_id": args.model_id,
             "adapter_path": args.adapter_path,
+            "hf_token": args.hf_token,
             "max_new_tokens": args.max_new_tokens,
             "torch_dtype": "bfloat16",
             "device_map": "auto",

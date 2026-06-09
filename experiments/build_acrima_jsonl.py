@@ -52,12 +52,16 @@ def iter_images(class_dir: Path) -> list[Path]:
     return sorted(path for path in class_dir.iterdir() if path.is_file() and path.suffix in suffixes)
 
 
-def main() -> None:
-    args = parse_args()
-    dataset_dir = Path(args.dataset_dir)
-    output_path = Path(args.output)
-    random.seed(args.seed)
-
+def build_acrima_jsonl(
+    dataset_dir: str | Path,
+    output: str | Path,
+    max_per_class: int = 20,
+    seed: int = 42,
+) -> list[dict[str, str]]:
+    """Construye un JSONL desde carpetas ACRIMA y retorna las filas creadas."""
+    dataset_dir = Path(dataset_dir)
+    output_path = Path(output)
+    random.seed(seed)
     rows = []
     for class_name, class_config in CLASS_CONFIG.items():
         class_dir = dataset_dir / class_name
@@ -65,8 +69,8 @@ def main() -> None:
             raise FileNotFoundError(f"Missing class folder: {class_dir}")
 
         images = iter_images(class_dir)
-        if args.max_per_class > 0:
-            images = random.sample(images, min(args.max_per_class, len(images)))
+        if max_per_class > 0:
+            images = random.sample(images, min(max_per_class, len(images)))
 
         for image_path in sorted(images):
             rows.append(
@@ -86,7 +90,18 @@ def main() -> None:
         for row in rows:
             file.write(json.dumps(row, ensure_ascii=False) + "\n")
 
-    print(f"Wrote {len(rows)} examples to {output_path}")
+    return rows
+
+
+def main() -> None:
+    args = parse_args()
+    rows = build_acrima_jsonl(
+        dataset_dir=args.dataset_dir,
+        output=args.output,
+        max_per_class=args.max_per_class,
+        seed=args.seed,
+    )
+    print(f"Wrote {len(rows)} examples to {args.output}")
     print("Use this for technical LoRA smoke tests, not as expert clinical supervision.")
 
 

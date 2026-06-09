@@ -41,6 +41,7 @@ modules/
   medgemma_runtime.py        # carga MedGemma y genera texto
   medgemma_conditioner.py    # prepara condiciones A/B/C1/C2/D1/D2
 experiments/
+  notebook_workflows.py       # API limpia para importar desde Colab
   smoke_medgemma_inference.py # pruebas simples: texto, imagen, imagen+texto
   run_ablation_baseline.py    # corre las 6 condiciones del pipeline
   train_lora_medgemma.py      # entrenamiento LoRA/QLoRA
@@ -83,6 +84,22 @@ google/medgemma-1.5-4b-it
 
 ## Smoke Test: Solo Texto
 
+Desde el notebook recomendado, usa imports:
+
+```python
+from experiments.notebook_workflows import run_smoke_inference
+
+result = run_smoke_inference(
+    model_id="google/medgemma-1.5-4b-it",
+    hf_token=HF_TOKEN,
+    prompt="Explain glaucoma in simple clinical terms.",
+    output_path="results/text_only.json",
+)
+print(result["text"])
+```
+
+Tambien existe CLI si se necesita:
+
 ```bash
 python experiments/smoke_medgemma_inference.py \
   --mode text \
@@ -103,6 +120,21 @@ python experiments/smoke_medgemma_inference.py \
 ```
 
 ## Ablation del Pipeline Mejorado
+
+Desde notebook:
+
+```python
+from experiments.notebook_workflows import run_ablation
+
+ablation = run_ablation(
+    model_id="google/medgemma-1.5-4b-it",
+    hf_token=HF_TOKEN,
+    image_path=TEST_IMAGE,
+    prediction="glaucoma",
+    distribution={"glaucoma": 0.92, "normal": 0.08},
+    output_path="results/ablation_dummy.json",
+)
+```
 
 Si tienes imagen y mascara real:
 

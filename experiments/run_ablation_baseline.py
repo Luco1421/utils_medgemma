@@ -42,6 +42,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--make-dummy-mask", action="store_true")
     parser.add_argument("--model-id", default="google/medgemma-1.5-4b-it")
     parser.add_argument("--adapter-path", default=None)
+    parser.add_argument("--hf-token", default=None)
     parser.add_argument("--prediction", default="glaucoma")
     parser.add_argument("--distribution", default='{"glaucoma": 0.92, "normal": 0.08}')
     parser.add_argument("--output", default="results/ablation_medgemma.json")
@@ -84,6 +85,7 @@ def main() -> None:
         {
             "model_id": args.model_id,
             "adapter_path": args.adapter_path,
+            "hf_token": args.hf_token,
             "torch_dtype": "bfloat16",
             "device_map": "auto",
             "max_new_tokens": 512,

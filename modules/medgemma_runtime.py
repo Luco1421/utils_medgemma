@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import os
 from pathlib import Path
 from typing import Any
 
@@ -31,6 +32,7 @@ class MedGemmaRuntime:
         self.max_new_tokens = int(self.config.get("max_new_tokens", 512))
         self.do_sample = bool(self.config.get("do_sample", False))
         self.temperature = float(self.config.get("temperature", 0.0))
+        self.token = self.config.get("hf_token") or os.environ.get("HF_TOKEN") or True
 
         self.processor: Any | None = None
         self.model: Any | None = None
@@ -108,11 +110,12 @@ class MedGemmaRuntime:
         self._torch = torch
         dtype = getattr(torch, self.torch_dtype)
         LOGGER.info("Loading MedGemma: %s", self.model_id)
-        self.processor = AutoProcessor.from_pretrained(self.model_id)
+        self.processor = AutoProcessor.from_pretrained(self.model_id, token=self.token)
         self.model = AutoModelForImageTextToText.from_pretrained(
             self.model_id,
             torch_dtype=dtype,
             device_map=self.device_map,
+            token=self.token,
         )
 
         if self.adapter_path:
