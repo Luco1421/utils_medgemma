@@ -1,9 +1,0 @@
-seed: 42
-
-medgemma:
-  model_id: "google/medgemma-1.5-4b-it"
-  torch_dtype: "bfloat16"
-  device_map: "auto"
-  max_new_tokens: 512
-  do_sample: false
-  overlay_alpha: 0.4

@@ -1,4 +1,6 @@
+hf_transfer
 accelerate
+bert-score
 bitsandbytes
 datasets
 peft
