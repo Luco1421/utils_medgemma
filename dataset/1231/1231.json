@@ -1,0 +1,66 @@
+[
+  {
+    "id": 246,
+    "image_filename": "1231_left.jpg",
+    "label": "Pathological",
+    "transcription": "This optic nerve head has a cup to disc ratio of 0.8, there is a splinter hemorrhage in the superior portion of the neuroretinal rim, which has diffuse thinning, there are wedge and generalized RNFL defect. The vessels have nasalization and bayoneting. ",
+    "doctor_name": "Dra. Erika Quesada",
+    "session_id": "0e54cfa2-fbb3-4f79-be3b-5d2ba21d7c87",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 4,
+        "disc_hemorrhage": 1,
+        "peripapillary_atrophy": 1,
+        "rnfl_defect": 3,
+        "disc_pallor": 0,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "erika_quesada",
+    "created_at": "2026-05-11T00:35:41.380523+00:00",
+    "updated_at": "2026-05-11T00:40:11.651041+00:00",
+    "filename_hash": "5948db2551f709eca1bdf5b1fe016504abc454ed0e195f5dad1b80fe99b3b350",
+    "session_hash": "589e6546a8cd4603e50852d97c0e02acc0726dc225aea25665cfcad83213b45e",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 247,
+    "image_filename": "1231_right.jpg",
+    "label": "Pathological",
+    "transcription": "This image has a cup to disc ratio of 0.7, there are diffuse RNFL defects. The neuroretinal rim has a notch defect in the inferior portion, it has a normal color, no splinter hemorrhages. \n",
+    "doctor_name": "Dra. Erika Quesada",
+    "session_id": "0e54cfa2-fbb3-4f79-be3b-5d2ba21d7c87",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 2,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 2,
+        "disc_pallor": 0,
+        "vessel_changes": 2
+      }
+    },
+    "source": "gcp",
+    "creator_username": "erika_quesada",
+    "created_at": "2026-05-11T00:40:26.213909+00:00",
+    "updated_at": "2026-05-11T00:43:01.047744+00:00",
+    "filename_hash": "aa3f1cc0ca9d7156251556af147f428d8d42e49e91f135af1198a5a47b1c779a",
+    "session_hash": "589e6546a8cd4603e50852d97c0e02acc0726dc225aea25665cfcad83213b45e",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

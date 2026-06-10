@@ -1,0 +1,21 @@
+[
+  {
+    "id": 476,
+    "image_filename": "1485_left.jpg",
+    "label": "Bad quality",
+    "transcription": "Defocused image, partially visible optic nerve",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "4975011e-525f-4bd2-ad09-7c2b78326b5c",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-27T17:41:16.062817+00:00",
+    "updated_at": "2026-05-27T17:41:39.832397+00:00",
+    "filename_hash": "081adb0a25e3ab59efe490d2359b3869fabd35e0515b009af13c8a7cf61971a6",
+    "session_hash": "19a05d3c5a75c7027b8b3ffdcfc52988524c9bf3167b6d6622e44b0026258869",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

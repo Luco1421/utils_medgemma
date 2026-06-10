@@ -1,0 +1,34 @@
+[
+  {
+    "id": 451,
+    "image_filename": "1262_right.jpg",
+    "label": "Pathological",
+    "transcription": "Total cupping, mildly pale optic nerve, near-total loss of the neuroretinal rim, nasalization of vessels",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "943b0714-660e-4de8-8b39-f0e287e749a1",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 4,
+        "neuroretinal_rim": 4,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 2,
+        "disc_pallor": 1,
+        "vessel_changes": 2
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-26T04:05:14.156717+00:00",
+    "updated_at": "2026-05-26T04:06:53.886590+00:00",
+    "filename_hash": "c8561e9a9a063f5e249cf3755bb5844d655f10f9069246ef252248ded59fc3be",
+    "session_hash": "2272b97db18db241a1d1a0015e26759feebba181986547faf1b618e44e65e92c",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

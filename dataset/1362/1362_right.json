@@ -1,0 +1,34 @@
+[
+  {
+    "id": 383,
+    "image_filename": "1362_right.jpg",
+    "label": "Pathological",
+    "transcription": "Optic nerve with a 0.8 cup-to-disc ratio, thinning of the inferior-temporal neuroretinal rim, a wedge defect in the retinal nerve fiber layer, mild pallor of the optic disc, as well as bayoneting and nasalization of the vessels",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "871c1a0f-1c13-4b56-bf5a-e0f3cf4a6829",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "neuroretinal_rim": 2,
+        "cup_to_disc_ratio": 3,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 1,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-15T21:31:15.727834+00:00",
+    "updated_at": "2026-05-15T21:34:46.168252+00:00",
+    "filename_hash": "5834e768cc7aa48372e6c1b85c80b985cc9684d607e00bedcb0063440526b3e7",
+    "session_hash": "838687a5b8a0ef4287b42a8365808756b39b3c4675e5a447933570cdc3fe2fa3",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

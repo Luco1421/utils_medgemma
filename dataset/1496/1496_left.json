@@ -1,0 +1,21 @@
+[
+  {
+    "id": 486,
+    "image_filename": "1496_left.jpg",
+    "label": "Normal",
+    "transcription": "Cup-to-disc ratio 0.4, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "f91893d1-05ae-4620-8c6a-1e43b8684172",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-27T18:26:22.297436+00:00",
+    "updated_at": "2026-05-27T18:26:36.648401+00:00",
+    "filename_hash": "b2335bd85dcc82d392abb39146c0dea951ddcf3c038e4f344d59d02eaf4e2736",
+    "session_hash": "01435b47c1700c4e081227a462cb5461fd8b7233e5920d644fbefe7a78032652",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

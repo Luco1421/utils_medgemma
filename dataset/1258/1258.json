@@ -1,0 +1,66 @@
+[
+  {
+    "id": 260,
+    "image_filename": "1258_left.jpg",
+    "label": "Pathological",
+    "transcription": "exc 0.8, superior temporal thinning, bayonet vessels and nasalization thereof, pale optic nerve",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "b6771eca-19d3-4a47-9d74-e79f9f6c4f21",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 1,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 0,
+        "disc_pallor": 2,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-13T16:26:52.095066+00:00",
+    "updated_at": "2026-05-13T16:33:42.345926+00:00",
+    "filename_hash": "637eaf35134c3b2427ef9cd3eb070ead5851b61028b621fc4be80c4a3a9209f7",
+    "session_hash": "e434e2ef59e1559fcf31fbd34709f3097dd82a1a16b125129e08ab9b846039c5",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 261,
+    "image_filename": "1258_right.jpg",
+    "label": "Pathological",
+    "transcription": "excavation 0.6, nasalization of vessels, superior thinning, peripapillary atrophy, significant pallor",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "b6771eca-19d3-4a47-9d74-e79f9f6c4f21",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 2,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 2,
+        "rnfl_defect": 0,
+        "disc_pallor": 2,
+        "vessel_changes": 2
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-13T16:34:02.740149+00:00",
+    "updated_at": "2026-05-13T16:47:07.859879+00:00",
+    "filename_hash": "94107379b72499170da2278ed11742658cc7726b07283219407dcc9a5f1bc830",
+    "session_hash": "e434e2ef59e1559fcf31fbd34709f3097dd82a1a16b125129e08ab9b846039c5",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

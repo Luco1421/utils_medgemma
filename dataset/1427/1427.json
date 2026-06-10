@@ -1,0 +1,40 @@
+[
+  {
+    "id": 454,
+    "image_filename": "1427_left.jpg",
+    "label": "Bad quality",
+    "transcription": "Defocused image, apparent cup-to-disc ratio 0.7, mild pallor of the optic nerve, choroidal fundus",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "576c7f3b-1c1b-496d-9b4d-b9296c6aa8b8",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-26T04:14:04.870848+00:00",
+    "updated_at": "2026-05-26T04:14:57.789266+00:00",
+    "filename_hash": "6cfd6834e6ad801efc1ffccf556480b30ab73ce3070e6119afc10c5533f00072",
+    "session_hash": "665126dc90b57cbd234400cdde50fb3e059ef814c4cbedac9fac97eedc749c3e",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 455,
+    "image_filename": "1427_right.jpg",
+    "label": "Needs dilation",
+    "transcription": "Partially visible optic nerve, wide apparent cup-to-disc ratio 0.9, mild pallor",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "576c7f3b-1c1b-496d-9b4d-b9296c6aa8b8",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-26T04:15:07.729182+00:00",
+    "updated_at": "2026-05-26T04:15:51.404619+00:00",
+    "filename_hash": "df8fe8365ab513176a39be9c1cc06554abaf6af6895019a42fd8b2b0485a795e",
+    "session_hash": "665126dc90b57cbd234400cdde50fb3e059ef814c4cbedac9fac97eedc749c3e",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 462,
+    "image_filename": "1440_left.jpg",
+    "label": "Pathological",
+    "transcription": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, alpha and beta peripapillary atrophy",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 3,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 2,
+        "rnfl_defect": 0,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-26T23:23:18.922493+00:00",
+    "updated_at": "2026-05-26T23:26:00.645913+00:00",
+    "filename_hash": "af2c9a07c7c2abaa5f57f99f1b999c787fdcc6499ba06bb0c8b089fb31e0ebe3",
+    "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 463,
+    "image_filename": "1440_right.jpg",
+    "label": "Pathological",
+    "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, alpha and beta peripapillary atrophy",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 3,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 1,
+        "rnfl_defect": 0,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-26T23:26:23.667053+00:00",
+    "updated_at": "2026-05-26T23:29:19.958546+00:00",
+    "filename_hash": "a9c9b3e1ec3e0abf9b7db10cf1551cc2af0e648569839d613dfcc9e8f2dd8e55",
+    "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "id": 379,
+    "image_filename": "1307_right.jpg",
+    "label": "Normal",
+    "transcription": "Optic nerve with well-defined margins, preserved neuroretinal rim, good color, ISNT rule respected",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "893851ad-52af-42e1-a3a5-17130e49a02f",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-15T19:47:21.069814+00:00",
+    "updated_at": "2026-05-15T19:53:04.087374+00:00",
+    "filename_hash": "e77f2ad77042c7311540da700e455983b10d48c29670e95d3da86d976d7f50a1",
+    "session_hash": "7dcae4046cce47003abadca8ef1576479fd28a540488da2d0b1a2710321ec62c",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

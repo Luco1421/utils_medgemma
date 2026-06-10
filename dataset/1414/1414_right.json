@@ -1,0 +1,21 @@
+[
+  {
+    "id": 403,
+    "image_filename": "1414_right.jpg",
+    "label": "Normal",
+    "transcription": "0.4 cup-to-disc ratio, optic disc with well-defined margins and normal color, peripapillary atrophy, central emergence of vessels.",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "8c5f6864-57c1-4b0f-812f-a956fec15ad9",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-21T04:27:19.111215+00:00",
+    "updated_at": "2026-05-21T04:34:55.788302+00:00",
+    "filename_hash": "da38683aa50ba4810fa4014e47ccdb2213b5ba29c13fffe26b31eaa03e400163",
+    "session_hash": "bce2da12bc0c532e331e15eb3dca682932a1e7a09a7dd879ad98aa398ab37ad7",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

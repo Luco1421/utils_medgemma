@@ -1,0 +1,53 @@
+[
+  {
+    "id": 480,
+    "image_filename": "1491_left.jpg",
+    "label": "Pathological",
+    "transcription": "Cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "4975011e-525f-4bd2-ad09-7c2b78326b5c",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 2,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 1,
+        "disc_pallor": 0,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-27T17:45:44.020860+00:00",
+    "updated_at": "2026-05-27T17:47:07.346182+00:00",
+    "filename_hash": "0766d1fb1985d7bee0b42b29d4495fca3bf0f29af88411af7f26aae2befe50ca",
+    "session_hash": "19a05d3c5a75c7027b8b3ffdcfc52988524c9bf3167b6d6622e44b0026258869",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 481,
+    "image_filename": "1491_right.jpg",
+    "label": "Normal",
+    "transcription": "Cup-to-disc ratio 0.4, optic disc with well-defined margins and good color, preserved neuroretinal rim",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "4975011e-525f-4bd2-ad09-7c2b78326b5c",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-27T17:47:15.983076+00:00",
+    "updated_at": "2026-05-27T17:48:15.396595+00:00",
+    "filename_hash": "aa057482a6faa8511134217b573dbae531d46428641bc3ebd4265a2e8fb173a7",
+    "session_hash": "19a05d3c5a75c7027b8b3ffdcfc52988524c9bf3167b6d6622e44b0026258869",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

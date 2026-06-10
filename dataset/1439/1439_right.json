@@ -1,0 +1,21 @@
+[
+  {
+    "id": 461,
+    "image_filename": "1439_right.jpg",
+    "label": "Normal",
+    "transcription": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.2, preserved neuroretinal rim, no retinal nerve fiber layer defect",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "d8efee6e-dddb-4bb7-a495-3c6e4de8bd19",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-26T04:25:58.984650+00:00",
+    "updated_at": "2026-05-26T04:27:21.678713+00:00",
+    "filename_hash": "17256265b4188c13a6d2a3d5340565f55afb0ea115736aff0704922c9ae62a6d",
+    "session_hash": "56a0ec2027698b2c7f3dcde29be9e90981dd32057b0227b7419d448486e9841e",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]
