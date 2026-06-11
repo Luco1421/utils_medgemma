@@ -1,0 +1,44 @@
+seed: 42
+
+data:
+  dataset_root: "../../dataset"
+  split_file: "../../dataset/split_repetition_1.json"
+  description_prompt: "Describe the ophthalmological findings in this fundus image."
+
+model:
+  model_id: "google/medgemma-1.5-4b-it"
+  device: "cuda:0"
+  dtype: "auto"
+  max_new_tokens: 384
+  load_in_4bit: true
+  use_double_quant: true
+  quant_type: "nf4"
+
+lora:
+  output_dir: "checkpoints/official_medgemma_qlora_description"
+  r: 16
+  alpha: 16
+  dropout: 0.05
+  bias: "none"
+  target_modules: "all-linear"
+
+training:
+  train_limit:
+  max_steps: 60
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 4
+  learning_rate: 0.0002
+  logging_steps: 5
+  save_steps: 10
+  save_total_limit: 2
+
+evaluation:
+  split: "test"
+  bertscore_lang: "en"
+  rescale_with_baseline: true
+
+outputs:
+  results_dir: "results"
+  base_results_file: "base_results.json"
+  lora_results_file: "lora_results.json"
+  comparison_file: "comparison.json"
