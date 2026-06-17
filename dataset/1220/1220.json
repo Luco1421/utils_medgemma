@@ -1,0 +1,66 @@
+[
+  {
+    "id": 168,
+    "image_filename": "1220_left.jpg",
+    "label": "Pathological",
+    "transcription": "Optic disc with mild increased cupping, with slight thinning of the neuroretinal rim, without optic disc hemorrhages",
+    "doctor_name": "Dr. Eduardo Anchia",
+    "session_id": "d3635378-7ff0-418f-a713-ac5775634957",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 1,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 1,
+        "rnfl_defect": 0,
+        "disc_pallor": 0,
+        "vessel_changes": 1
+      }
+    },
+    "source": "gcp",
+    "creator_username": "eduardo26",
+    "created_at": "2026-04-30T17:02:28.432607+00:00",
+    "updated_at": "2026-04-30T19:43:06.423414+00:00",
+    "filename_hash": "132bdd37aa6972ad11bb3d92e9404673731e9dd4dc39ff0be36d11ffe2b7ce10",
+    "session_hash": "3ad6f8bf54090f0bfd4e290081cc878b57b39fc47ef4d4a9a64e464395d72645",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 169,
+    "image_filename": "1220_right.jpg",
+    "label": "Pathological",
+    "transcription": "Optic disc with mild increased cupping, with slight thinning of the neuroretinal rim, without optic disc hemorrhages",
+    "doctor_name": "Dr. Eduardo Anchia",
+    "session_id": "aca8c397-fecf-4475-9a55-722d1e313d95",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 1,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 1,
+        "rnfl_defect": 0,
+        "disc_pallor": 0,
+        "vessel_changes": 1
+      }
+    },
+    "source": "gcp",
+    "creator_username": "eduardo26",
+    "created_at": "2026-04-30T19:44:21.688855+00:00",
+    "updated_at": "2026-04-30T19:48:16.284865+00:00",
+    "filename_hash": "7cba1b9423633d4b27ca56b085c19123a1461055c25ae49f077b67b5c7903f6b",
+    "session_hash": "0b0c51d0ebcf3d8becdabe2feb1ff7916cb613e515e06ef86484fedd83f71c10",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "id": 392,
+    "image_filename": "1371_left.jpg",
+    "label": "Bad quality",
+    "transcription": "There is a media opacity  that covers the optic nerve head",
+    "doctor_name": "Dra. Erika Quesada",
+    "session_id": "ae611548-1ae7-437d-9d59-263be02355ec",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "erika_quesada",
+    "created_at": "2026-05-21T03:09:07.606962+00:00",
+    "updated_at": "2026-05-21T03:13:09.104618+00:00",
+    "filename_hash": "74561374aaaadbfbc47c044db4a18526819ed28bb68969924504fadf12a60668",
+    "session_hash": "b433188c72f572a844584425fd8ba724b4eb6ecd084d1d0fd5cb55f22568bafd",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

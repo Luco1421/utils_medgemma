@@ -1,0 +1,34 @@
+[
+  {
+    "id": 252,
+    "image_filename": "1232_left.jpg",
+    "label": "Pathological",
+    "transcription": "Subtotal optic nerve cupping with mild pallor, nasalization of the vasculature, and vessel bayonetting. Additionally, peripapillary atrophy and diffuse RNFL loss were observed, consistent with advanced glaucomatous damage",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "de6bc018-b106-4707-9bc1-cf05760aebce",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 4,
+        "neuroretinal_rim": 4,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 1,
+        "rnfl_defect": 2,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-12T05:07:02.781504+00:00",
+    "updated_at": "2026-05-12T05:17:52.553074+00:00",
+    "filename_hash": "04eb207ee84639fb3e21eda115acae115fa936b61d25e5003849a7f0a4701ec9",
+    "session_hash": "d92c539692dfb413b5f326cd165f857375adeace357581b3ef77d21aeca216c9",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

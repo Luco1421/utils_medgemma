@@ -1,0 +1,21 @@
+[
+  {
+    "id": 266,
+    "image_filename": "1281_left.jpg",
+    "label": "Bad quality",
+    "transcription": "the fundus is not visible in the photo, it could be an opacity or no dilation ",
+    "doctor_name": "Dra. Erika Quesada",
+    "session_id": "94e6b38c-5711-4c3d-8e2c-aacc5dd1f4e9",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "erika_quesada",
+    "created_at": "2026-05-13T23:08:49.046903+00:00",
+    "updated_at": "2026-05-13T23:09:17.878478+00:00",
+    "filename_hash": "67d1eb3aa4566281de3858690b9d4b8af3fe0233c6f449198083bb779ab25295",
+    "session_hash": "b528bbe6167904baa32de6070fedc05880e2d87773a896642f5d139c407ea546",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

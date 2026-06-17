@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-06-12T23:15:21.908561+00:00",
+  "model_id": "google/medgemma-1.5-4b-it",
+  "split": "test",
+  "prompt": "You are evaluating a color fundus photograph for glaucoma screening.\nChoose exactly one label from this list:\n- glaucoma\n- non_glaucoma\n\nReply with only the label and no explanation.",
+  "metrics": {
+    "total": 1,
+    "known_predictions": 1,
+    "unknown": 0,
+    "accuracy_known_only": 0.0,
+    "accuracy_with_unknown_as_wrong": 0.0,
+    "sensitivity_glaucoma": 0.0,
+    "specificity_non_glaucoma": null,
+    "confusion": {
+      "tp": 0,
+      "tn": 0,
+      "fp": 0,
+      "fn": 1
+    }
+  },
+  "results": [
+    {
+      "image": "dataset\\1217\\1217_right.jpg",
+      "label": "Pathological",
+      "conditions": [
+        "glaucoma"
+      ],
+      "true_label": "glaucoma",
+      "raw_text": "non_glaucoma",
+      "pred_label": "non_glaucoma",
+      "correct": false
+    }
+  ]
+}

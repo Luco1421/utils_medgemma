@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-06-12T23:15:48.788493+00:00",
+  "model_id": "google/medgemma-1.5-4b-it",
+  "split": "test_subset",
+  "mask_kind": "disc",
+  "results": []
+}

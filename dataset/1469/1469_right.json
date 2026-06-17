@@ -1,0 +1,34 @@
+[
+  {
+    "id": 467,
+    "image_filename": "1469_right.jpg",
+    "label": "Pathological",
+    "transcription": "Mildly pale optic nerve, cup-to-disc ratio 0.7, nasalization and bayoneting of vessels, thinning of the inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 2,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 1,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-26T23:38:07.352864+00:00",
+    "updated_at": "2026-05-26T23:40:41.797308+00:00",
+    "filename_hash": "7b0a7bacd2bac7e6ff3fb09eb3885e34ffe7a92c9ef8ed049cd2e80831bb3647",
+    "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

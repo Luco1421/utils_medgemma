@@ -1,0 +1,66 @@
+[
+  {
+    "id": 151,
+    "image_filename": "1209_right.jpg",
+    "label": "Pathological",
+    "transcription": "Clinical photograph of the right eye showing the optic nerve head with advanced cupping (C/D ratio ~0.9), neuroretinal rim loss, mild pallor, bayonetting of vessels with nasal displacement, and a generalized retinal nerve fiber layer defect.",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "a7a8e254-de9b-47e8-a6f8-42f158e445fc",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 3,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 2,
+        "rnfl_defect": 2,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-04-21T15:29:41.837597+00:00",
+    "updated_at": "2026-04-21T15:31:08.958086+00:00",
+    "filename_hash": "e027c0d144a8defe046a901a9adf02c4533bf78cf390e87b6081ef62107b551a",
+    "session_hash": "6faeb11472b5507fd4598a95eb34776ba08dd86095841958e2dafa012dda1d57",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 150,
+    "image_filename": "1209_left.jpg",
+    "label": "Pathological",
+    "transcription": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "a7a8e254-de9b-47e8-a6f8-42f158e445fc",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 4,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 0,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-04-21T15:28:07.697867+00:00",
+    "updated_at": "2026-04-21T15:29:18.798810+00:00",
+    "filename_hash": "71ea9c9cf766bb35a368da118e4f7bda9c7e3328925f2dd664d9aa17787e62ab",
+    "session_hash": "6faeb11472b5507fd4598a95eb34776ba08dd86095841958e2dafa012dda1d57",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

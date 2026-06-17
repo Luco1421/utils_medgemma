@@ -1,0 +1,53 @@
+[
+  {
+    "id": 492,
+    "image_filename": "1959_left.jpg",
+    "label": "Bad quality",
+    "transcription": "Defocused, cupping appears advanced at 0.9",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "554640f2-13d5-4335-8d34-ef61d5fb7beb",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-27T18:53:54.877250+00:00",
+    "updated_at": "2026-05-27T18:53:59.348593+00:00",
+    "filename_hash": "5662b0af68a142d012744e5695d43bb8141a640fa097841c52cb253ff838ab52",
+    "session_hash": "62bba0bd4d16056cbba87e99f4eb87076c820eac507ba839e855a489fd3186f7",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 493,
+    "image_filename": "1959_right.jpg",
+    "label": "Pathological",
+    "transcription": "Cup-to-disc ratio 0.9, 360\u00b0 thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, beta peripapillary atrophy",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "554640f2-13d5-4335-8d34-ef61d5fb7beb",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 3,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 2,
+        "rnfl_defect": 0,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-27T18:55:10.579897+00:00",
+    "updated_at": "2026-05-27T18:55:51.718376+00:00",
+    "filename_hash": "05087ea8ced25bd078856440c694d14fd7fd2d3dd489faa4928f0f73be731490",
+    "session_hash": "62bba0bd4d16056cbba87e99f4eb87076c820eac507ba839e855a489fd3186f7",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

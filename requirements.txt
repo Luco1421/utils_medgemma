@@ -1,0 +1,10 @@
+torch --index-url https://download.pytorch.org/whl/cu128
+transformers>=4.50.0
+hf_transfer
+accelerate
+bert-score
+datasets
+jupyter
+peft
+pillow
+trl

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 482,
+    "image_filename": "1493_left.jpg",
+    "label": "Pathological",
+    "transcription": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim with loss of the normal pattern, mildly pale optic nerve, nasalization and bayoneting of vessels,",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "f91893d1-05ae-4620-8c6a-1e43b8684172",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 1,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 0,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-27T17:57:11.967601+00:00",
+    "updated_at": "2026-05-27T17:58:48.026181+00:00",
+    "filename_hash": "2f85d4f34eca7d249c666a33f0aed76fc799a90a06cdba9e6b03ec95256f608c",
+    "session_hash": "01435b47c1700c4e081227a462cb5461fd8b7233e5920d644fbefe7a78032652",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

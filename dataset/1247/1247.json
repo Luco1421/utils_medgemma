@@ -1,0 +1,66 @@
+[
+  {
+    "id": 257,
+    "image_filename": "1247_right.jpg",
+    "label": "Pathological",
+    "transcription": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "76a3668b-0395-43a9-841f-37c57066ff90",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 3,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 0,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-13T16:12:20.611312+00:00",
+    "updated_at": "2026-05-13T16:15:33.849174+00:00",
+    "filename_hash": "b93b151c0ca08748c534bfb6657ff2c732fa872dee18a46073217587248297d7",
+    "session_hash": "920911551212427d3ccd9acadbe0455e217553b6bfb4a02662d2a6d8b764bdfa",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  },
+  {
+    "id": 254,
+    "image_filename": "1247_left.jpg",
+    "label": "Pathological",
+    "transcription": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "76a3668b-0395-43a9-841f-37c57066ff90",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 3,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 0,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-13T15:55:57.108444+00:00",
+    "updated_at": "2026-05-13T16:01:12.238064+00:00",
+    "filename_hash": "1f57c76510c12baff154314805a043a54c6b1adf76bfc720ac6a2fa6e74cbc69",
+    "session_hash": "920911551212427d3ccd9acadbe0455e217553b6bfb4a02662d2a6d8b764bdfa",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

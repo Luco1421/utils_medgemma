@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-06-12T23:13:31.803330+00:00",
+  "model_id": "google/medgemma-1.5-4b-it",
+  "adapter_dir": "checkpoints/official_medgemma_lora_description",
+  "run_mode": "smoke",
+  "split": "test",
+  "train_examples": 1,
+  "test_examples": 1,
+  "max_steps": 1,
+  "comparison": {
+    "base": {
+      "count": 1,
+      "bertscore_precision_mean": -0.19437694549560547,
+      "bertscore_recall_mean": 0.028537774458527565,
+      "bertscore_f1_mean": -0.08371104300022125
+    },
+    "lora": {
+      "count": 1,
+      "bertscore_precision_mean": -0.1867133229970932,
+      "bertscore_recall_mean": 0.032198112457990646,
+      "bertscore_f1_mean": -0.07796403765678406
+    },
+    "delta_f1": 0.005747005343437195
+  },
+  "base_results": [
+    {
+      "image": "dataset\\1217\\1217_right.jpg",
+      "label": "Pathological",
+      "conditions": [
+        "glaucoma"
+      ],
+      "reference": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "generated": "Based on the fundus image, here are the key ophthalmological findings:\n\n*   **Retinal Hemorrhages:** There are several areas of retinal hemorrhages, particularly in the macula and periphery. These appear as red or dark red spots.\n*   **Cotton Wool Spots:** There are some cotton wool spots, which are small, white or yellowish-white lesions that represent areas of nerve fiber layer infarction.\n*   **Macular Edema:** The macula appears slightly blurred, which could indicate macular edema.\n*   **Possible Vitreous Opacities:** There are some hazy areas in the vitreous, which could be due to vitreous opacities.\n*   **Intraocular Pressure:** The image shows a relatively high intraocular pressure, indicated by the presence of a large lens.\n\nOverall, the image suggests a possible retinal vascular issue, potentially related to hypertension or diabetes. Further evaluation is needed to confirm the diagnosis and determine the appropriate treatment.\n\n**Disclaimer:** This is a preliminary interpretation based on the provided image. A definitive diagnosis requires a comprehensive ophthalmological examination by a qualified professional.",
+      "bertscore_precision": -0.19437694549560547,
+      "bertscore_recall": 0.028537774458527565,
+      "bertscore_f1": -0.08371104300022125
+    }
+  ],
+  "lora_results": [
+    {
+      "image": "dataset\\1217\\1217_right.jpg",
+      "label": "Pathological",
+      "conditions": [
+        "glaucoma"
+      ],
+      "reference": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "generated": "Based on the fundus image, here are the key ophthalmological findings:\n\n*   **Retinal Hemorrhages:** There are several areas of retinal hemorrhages, which appear as red or blood-colored spots within the retina. These are indicative of bleeding within the retinal vessels.\n*   **Cotton Wool Spots:** There are some cotton wool spots, which are small, white or yellowish-white lesions that represent areas of retinal nerve fiber layer infarction.\n*   **Macular Edema:** There is some evidence of macular edema, which is swelling of the macula, the central part of the retina responsible for sharp, central vision. This can be seen as a hazy or blurred area in the macula.\n*   **Optic Disc:** The optic disc appears relatively normal in size and shape.\n*   **Vitreous Opacities:** There are some vitreous opacities, which are cloudy areas in the vitreous humor (the gel-like substance that fills the space between the lens and the retina).\n\nOverall, the image suggests a possible retinal vascular issue, potentially related to hypertension, diabetes, or other vascular diseases. Further evaluation by an ophthalmologist is recommended to determine the underlying cause and appropriate management.",
+      "bertscore_precision": -0.1867133229970932,
+      "bertscore_recall": 0.032198112457990646,
+      "bertscore_f1": -0.07796403765678406
+    }
+  ]
+}

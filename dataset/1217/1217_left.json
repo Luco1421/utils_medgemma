@@ -1,0 +1,21 @@
+[
+  {
+    "id": 148,
+    "image_filename": "1217_left.jpg",
+    "label": "Needs dilation",
+    "transcription": "Clinical photograph of the left eye with poor image quality; however, the optic nerve head can be visualized with well-defined margins, an estimated cup-to-disc ratio of approximately 0.45, bayonetting of the vessels, and temporal peripapillary atrophy.",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "d7a37f3b-b705-49b6-b595-88274069a00a",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-04-21T15:13:08.991022+00:00",
+    "updated_at": "2026-04-21T15:17:07.881874+00:00",
+    "filename_hash": "e55ebdd0375a1de957a75d19937d2f950d42ee4fa91e1a2d7b76baccfd1d9829",
+    "session_hash": "6f6021f277301889244bd5e57449a58854e480d112adbf24dc7b0214a5a1c4fd",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

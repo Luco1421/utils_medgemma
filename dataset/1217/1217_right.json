@@ -1,0 +1,34 @@
+[
+  {
+    "id": 154,
+    "image_filename": "1217_right.jpg",
+    "label": "Pathological",
+    "transcription": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "5ddd61a9-0d1f-4647-8df7-31b6e9ba26e7",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 2,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 1,
+        "rnfl_defect": 0,
+        "disc_pallor": 0,
+        "vessel_changes": 0
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-04-23T22:15:40.415895+00:00",
+    "updated_at": "2026-04-23T22:21:28.930391+00:00",
+    "filename_hash": "4dc9392079f1d3d5d7026f33fc702a209ae5cf63c3ffec3cafda8f6b857832bc",
+    "session_hash": "1b44bb9a906ac72a6ff6af95313729310d8d243d12c0f1a7a33696699d05335f",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

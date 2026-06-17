@@ -1,0 +1,34 @@
+[
+  {
+    "id": 402,
+    "image_filename": "1414_left.jpg",
+    "label": "Pathological",
+    "transcription": "0.9 cup-to-disc ratio, diffuse neuroretinal rim thinning, peripapillary atrophy, pale optic disc, bayonet sign and nasalization of vessels.",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "8c5f6864-57c1-4b0f-812f-a956fec15ad9",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 3,
+        "neuroretinal_rim": 1,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 1,
+        "rnfl_defect": 0,
+        "disc_pallor": 1,
+        "vessel_changes": 3
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-21T03:55:41.807525+00:00",
+    "updated_at": "2026-05-21T04:17:00.627768+00:00",
+    "filename_hash": "da5c6e2e32870180626091fca304171451bfe6efa09a8538e70b53dc992256dd",
+    "session_hash": "bce2da12bc0c532e331e15eb3dca682932a1e7a09a7dd879ad98aa398ab37ad7",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

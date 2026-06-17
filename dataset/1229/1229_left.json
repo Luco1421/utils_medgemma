@@ -1,0 +1,21 @@
+[
+  {
+    "id": 244,
+    "image_filename": "1229_left.jpg",
+    "label": "Normal",
+    "transcription": "C-D ratio is 0.3, neuroretinal rim follows ISNT rule, the optic nerve head has normal color, vessels are slightly nasalized.",
+    "doctor_name": "Dra. Erika Quesada",
+    "session_id": "fd952630-d43a-486b-b589-e0402bb5d975",
+    "locs_data": {},
+    "source": "gcp",
+    "creator_username": "erika_quesada",
+    "created_at": "2026-05-11T00:20:12.698849+00:00",
+    "updated_at": "2026-05-11T00:21:24.413267+00:00",
+    "filename_hash": "162eb6d412983c47c1ea39cffcad2c1ddd884813cfbf87fd7ffcd6ae112363d0",
+    "session_hash": "d82b516b6e2194f624b234aa67ff2a863152f1ea8655db9d110f221e58abd4e5",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

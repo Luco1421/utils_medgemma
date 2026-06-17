@@ -1,0 +1,34 @@
+[
+  {
+    "id": 399,
+    "image_filename": "1393_right.jpg",
+    "label": "Pathological",
+    "transcription": "Total cupping, near-total loss of the neuroretinal rim, peripapillary atrophy, diffuse retinal nerve fiber layer thinning, pale optic disc, nasalization of vessels",
+    "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+    "session_id": "63b5b217-6e9b-4e87-b996-42528b35b760",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 4,
+        "neuroretinal_rim": 4,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 1,
+        "rnfl_defect": 2,
+        "disc_pallor": 1,
+        "vessel_changes": 2
+      }
+    },
+    "source": "gcp",
+    "creator_username": "gabriel_alejandro",
+    "created_at": "2026-05-21T03:38:04.280690+00:00",
+    "updated_at": "2026-05-21T03:45:14.196194+00:00",
+    "filename_hash": "2e1d801e992e7132635e55dcb9f07efc8439fe81435636219253ae238f5ca0c4",
+    "session_hash": "2e8544ad8d466788ca102108d5e14b89096c15ca41dea17ac197f2e043b29b04",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]

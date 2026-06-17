@@ -1,0 +1,34 @@
+[
+  {
+    "id": 394,
+    "image_filename": "1388_left.jpg",
+    "label": "Pathological",
+    "transcription": "This left eye fundus photography has a suspicious excavation of 0.7, however, the ISNT rule isn't violated. It shows some nasalization of the vessels, and there are some exudates close to the superior temporal arcade ",
+    "doctor_name": "Dra. Erika Quesada",
+    "session_id": "ae611548-1ae7-437d-9d59-263be02355ec",
+    "locs_data": {
+      "conditions": [
+        "glaucoma"
+      ],
+      "glaucoma": {
+        "cup_to_disc_ratio": 2,
+        "neuroretinal_rim": 0,
+        "disc_hemorrhage": 0,
+        "peripapillary_atrophy": 0,
+        "rnfl_defect": 1,
+        "disc_pallor": 0,
+        "vessel_changes": 2
+      }
+    },
+    "source": "gcp",
+    "creator_username": "erika_quesada",
+    "created_at": "2026-05-21T03:14:10.154369+00:00",
+    "updated_at": "2026-05-21T03:17:20.380432+00:00",
+    "filename_hash": "01b31081ba8992b384928eb5f8a54f2fe5d59044818b74a8c55f1b1ce3eaadca",
+    "session_hash": "b433188c72f572a844584425fd8ba724b4eb6ecd084d1d0fd5cb55f22568bafd",
+    "patient_metadata": null,
+    "is_complete": true,
+    "bucket_name": "open_labeling_images",
+    "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+  }
+]
