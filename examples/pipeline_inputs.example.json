@@ -1,0 +1,15 @@
+[
+  {
+    "image_id": "1217_right",
+    "image": "dataset/1217/1217_right.jpg",
+    "mask": "outputs/wsss/1217_right.npy",
+    "prediction": "glaucoma",
+    "distribution": {
+      "glaucoma": 0.73,
+      "non_glaucoma": 0.27
+    },
+    "reference": "Clinical photograph of the right eye...",
+    "mask_source": "wsss",
+    "input_source": "real_pipeline"
+  }
+]

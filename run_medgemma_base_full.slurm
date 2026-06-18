@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=medgemma_lora_smoke
-#SBATCH --output=/data/jperez/projects/utils_medgemma/results/slurm_medgemma_lora_%j.out
-#SBATCH --error=/data/jperez/projects/utils_medgemma/results/slurm_medgemma_lora_%j.err
+#SBATCH --job-name=medgemma_base_full
+#SBATCH --output=/data/jperez/projects/utils_medgemma/results/slurm_medgemma_base_full_%j.out
+#SBATCH --error=/data/jperez/projects/utils_medgemma/results/slurm_medgemma_base_full_%j.err
 #SBATCH --partition=nukwa-l40s
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=96G
+#SBATCH --mem=64G
 #SBATCH --time=04:00:00
 #SBATCH --propagate=NONE
 
@@ -20,7 +20,7 @@ export HF_HOME=/data/jperez/app_data/huggingface
 export XDG_CACHE_HOME=/data/jperez/app_data/cache
 export TORCH_HOME=/data/jperez/app_data/cache/torch
 export HF_HUB_DISABLE_XET=1
-export MEDGEMMA_RUN_MODE=smoke
+export MEDGEMMA_RUN_MODE=full
 mkdir -p "$MPLCONFIGDIR" "$HF_HOME" "$XDG_CACHE_HOME" "$TORCH_HOME"
 
 "$PYTHON" - <<'PY'
@@ -35,20 +35,14 @@ assert get_token(), "Hugging Face login missing; run: hf auth login"
 print("CUDA device:", torch.cuda.get_device_name(0))
 PY
 
-TRAIN_LIMIT="${MEDGEMMA_TRAIN_LIMIT:-1}"
-EVAL_LIMIT="${MEDGEMMA_LIMIT:-1}"
-MAX_STEPS="${MEDGEMMA_MAX_STEPS:-1}"
-GRAD_ACCUM="${MEDGEMMA_GRAD_ACCUM:-1}"
-ADAPTER_DIR="${MEDGEMMA_ADAPTER_DIR:-checkpoints/smoke_medgemma_lora_${SLURM_JOB_ID}}"
-OUTPUT="${MEDGEMMA_OUTPUT:-results/smoke_conditioned_lora_${SLURM_JOB_ID}.json}"
+LIMIT="${MEDGEMMA_LIMIT:-}"
+OUTPUT="${MEDGEMMA_OUTPUT:-results/full_conditioned_base_${SLURM_JOB_ID}.json}"
 
-"$PYTHON" -m scripts.train_medgemma_lora \
-  --train-limit "$TRAIN_LIMIT" \
-  --max-steps "$MAX_STEPS" \
-  --gradient-accumulation-steps "$GRAD_ACCUM" \
-  --output-dir "$ADAPTER_DIR"
+RUN_ARGS=()
+if [[ -n "$LIMIT" ]]; then
+  RUN_ARGS+=(--limit "$LIMIT")
+fi
 
 "$PYTHON" -m scripts.run_conditioned_medgemma \
-  --limit "$EVAL_LIMIT" \
-  --adapter-path "$ADAPTER_DIR" \
+  "${RUN_ARGS[@]}" \
   --output "$OUTPUT"

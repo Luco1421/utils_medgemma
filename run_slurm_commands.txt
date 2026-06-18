@@ -1,0 +1,15 @@
+Smoke base:
+sbatch run_medgemma_base.slurm
+
+Smoke LoRA:
+sbatch run_medgemma_lora.slurm
+
+Full base:
+sbatch run_medgemma_base_full.slurm
+
+Full LoRA:
+sbatch run_medgemma_lora_full.slurm
+
+Optional overrides:
+MEDGEMMA_LIMIT=3 sbatch run_medgemma_base_full.slurm
+MEDGEMMA_TRAIN_LIMIT=64 MEDGEMMA_MAX_STEPS=120 MEDGEMMA_GRAD_ACCUM=4 sbatch run_medgemma_lora_full.slurm

@@ -1,0 +1,2372 @@
+{
+  "timestamp": "2026-06-18T09:06:42.092103+00:00",
+  "model_name": "google/medgemma-1.5-4b-it",
+  "adapter_path": "checkpoints/full_medgemma_lora",
+  "summary_by_condition": {
+    "A": {
+      "count": 19,
+      "bertscore_f1_mean": 0.9448305086085671,
+      "bertscore_f1_std": 0.022392812617947004,
+      "delta_f1_vs_A": 0.0
+    },
+    "B": {
+      "count": 19,
+      "bertscore_f1_mean": 0.9506363021700006,
+      "bertscore_f1_std": 0.023984062895161234,
+      "delta_f1_vs_A": 0.005805793561433514
+    },
+    "C1": {
+      "count": 19,
+      "bertscore_f1_mean": 0.9491292112752011,
+      "bertscore_f1_std": 0.024495550076993812,
+      "delta_f1_vs_A": 0.004298702666634013
+    },
+    "C2": {
+      "count": 19,
+      "bertscore_f1_mean": 0.9522965958243922,
+      "bertscore_f1_std": 0.024756083905253606,
+      "delta_f1_vs_A": 0.00746608721582509
+    },
+    "D1": {
+      "count": 19,
+      "bertscore_f1_mean": 0.9503578888742548,
+      "bertscore_f1_std": 0.02489048055122506,
+      "delta_f1_vs_A": 0.005527380265687665
+    },
+    "D2": {
+      "count": 19,
+      "bertscore_f1_mean": 0.9519851866521334,
+      "bertscore_f1_std": 0.024110827358087974,
+      "delta_f1_vs_A": 0.007154678043566287
+    }
+  },
+  "paired_comparisons_vs_A": {
+    "B": {
+      "paired_count": 19,
+      "mean_delta_f1": 0.005805793561433491,
+      "median_delta_f1": 0.0,
+      "improved_fraction": 0.47368421052631576,
+      "wilcoxon_statistic": 28.0,
+      "wilcoxon_p_value": 0.12404279309009482,
+      "significant_at_0_05": false
+    },
+    "C1": {
+      "paired_count": 19,
+      "mean_delta_f1": 0.004298702666634007,
+      "median_delta_f1": 0.0,
+      "improved_fraction": 0.3684210526315789,
+      "wilcoxon_statistic": 39.0,
+      "wilcoxon_p_value": 0.6496440323317323,
+      "significant_at_0_05": false
+    },
+    "C2": {
+      "paired_count": 19,
+      "mean_delta_f1": 0.007466087215825131,
+      "median_delta_f1": 9.888410568237305e-05,
+      "improved_fraction": 0.5263157894736842,
+      "wilcoxon_statistic": 16.0,
+      "wilcoxon_p_value": 0.03924327615032667,
+      "significant_at_0_05": true
+    },
+    "D1": {
+      "paired_count": 19,
+      "mean_delta_f1": 0.005527380265687641,
+      "median_delta_f1": 0.0,
+      "improved_fraction": 0.3684210526315789,
+      "wilcoxon_statistic": 38.0,
+      "wilcoxon_p_value": 0.3626859408352129,
+      "significant_at_0_05": false
+    },
+    "D2": {
+      "paired_count": 19,
+      "mean_delta_f1": 0.007154678043566252,
+      "median_delta_f1": 9.888410568237305e-05,
+      "improved_fraction": 0.5263157894736842,
+      "wilcoxon_statistic": 13.0,
+      "wilcoxon_p_value": 0.041389404009149304,
+      "significant_at_0_05": true
+    }
+  },
+  "results": [
+    {
+      "image_id": "1217_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9384265542030334,
+      "bertscore_recall": 0.9364407062530518,
+      "bertscore_f1": 0.9374326467514038
+    },
+    {
+      "image_id": "1217_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9384265542030334,
+      "bertscore_recall": 0.9364407062530518,
+      "bertscore_f1": 0.9374326467514038
+    },
+    {
+      "image_id": "1217_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9384265542030334,
+      "bertscore_recall": 0.9364407062530518,
+      "bertscore_f1": 0.9374326467514038
+    },
+    {
+      "image_id": "1217_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9384265542030334,
+      "bertscore_recall": 0.9364407062530518,
+      "bertscore_f1": 0.9374326467514038
+    },
+    {
+      "image_id": "1217_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9384265542030334,
+      "bertscore_recall": 0.9364407062530518,
+      "bertscore_f1": 0.9374326467514038
+    },
+    {
+      "image_id": "1217_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9384265542030334,
+      "bertscore_recall": 0.9364407062530518,
+      "bertscore_f1": 0.9374326467514038
+    },
+    {
+      "image_id": "1218_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye showing advanced cupping (C/D ratio ~0.8), a well-defined optic nerve head, mild pallor, visible lamina cribrosa, inferotemporal notching with wedge-shaped and diffuse retinal nerve fiber layer defects, and bayonetting of vessels with nasal displacement.",
+      "generated": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "text": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.950700581073761,
+      "bertscore_recall": 0.9122099876403809,
+      "bertscore_f1": 0.9310576915740967
+    },
+    {
+      "image_id": "1218_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye showing advanced cupping (C/D ratio ~0.8), a well-defined optic nerve head, mild pallor, visible lamina cribrosa, inferotemporal notching with wedge-shaped and diffuse retinal nerve fiber layer defects, and bayonetting of vessels with nasal displacement.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9469725489616394,
+      "bertscore_recall": 0.9285863041877747,
+      "bertscore_f1": 0.9376893043518066
+    },
+    {
+      "image_id": "1218_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye showing advanced cupping (C/D ratio ~0.8), a well-defined optic nerve head, mild pallor, visible lamina cribrosa, inferotemporal notching with wedge-shaped and diffuse retinal nerve fiber layer defects, and bayonetting of vessels with nasal displacement.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9469725489616394,
+      "bertscore_recall": 0.9285863041877747,
+      "bertscore_f1": 0.9376893043518066
+    },
+    {
+      "image_id": "1218_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye showing advanced cupping (C/D ratio ~0.8), a well-defined optic nerve head, mild pallor, visible lamina cribrosa, inferotemporal notching with wedge-shaped and diffuse retinal nerve fiber layer defects, and bayonetting of vessels with nasal displacement.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9469725489616394,
+      "bertscore_recall": 0.9285863041877747,
+      "bertscore_f1": 0.9376893043518066
+    },
+    {
+      "image_id": "1218_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye showing advanced cupping (C/D ratio ~0.8), a well-defined optic nerve head, mild pallor, visible lamina cribrosa, inferotemporal notching with wedge-shaped and diffuse retinal nerve fiber layer defects, and bayonetting of vessels with nasal displacement.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9469725489616394,
+      "bertscore_recall": 0.9285863041877747,
+      "bertscore_f1": 0.9376893043518066
+    },
+    {
+      "image_id": "1218_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the right eye showing advanced cupping (C/D ratio ~0.8), a well-defined optic nerve head, mild pallor, visible lamina cribrosa, inferotemporal notching with wedge-shaped and diffuse retinal nerve fiber layer defects, and bayonetting of vessels with nasal displacement.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9469725489616394,
+      "bertscore_recall": 0.9285863041877747,
+      "bertscore_f1": 0.9376893043518066
+    },
+    {
+      "image_id": "1247_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "This right eye fundus photography has a 0.6 excavation, the inferior temporal neuroretinal rim is thinned, there is nasalization of vessels and bayoneting of vessels",
+      "text": "This right eye fundus photography has a 0.6 excavation, the inferior temporal neuroretinal rim is thinned, there is nasalization of vessels and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9400772452354431,
+      "bertscore_recall": 0.9472377896308899,
+      "bertscore_f1": 0.9436439275741577
+    },
+    {
+      "image_id": "1247_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9565103650093079,
+      "bertscore_recall": 0.9573312997817993,
+      "bertscore_f1": 0.9569206237792969
+    },
+    {
+      "image_id": "1247_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.8, mild pallor of the optic nerve, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.8, mild pallor of the optic nerve, nasalization of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9502402544021606,
+      "bertscore_recall": 0.9416914582252502,
+      "bertscore_f1": 0.9459465146064758
+    },
+    {
+      "image_id": "1247_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "This right eye fundus photography has a 0.8 cup-to-disc ratio, diffuse thinning of the neuroretinal rim, mild pallor of the optic disc, bayoneting and nasalization of the vessels",
+      "text": "This right eye fundus photography has a 0.8 cup-to-disc ratio, diffuse thinning of the neuroretinal rim, mild pallor of the optic disc, bayoneting and nasalization of the vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9429136514663696,
+      "bertscore_recall": 0.9490821361541748,
+      "bertscore_f1": 0.94598788022995
+    },
+    {
+      "image_id": "1247_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9565749168395996,
+      "bertscore_recall": 0.9575212001800537,
+      "bertscore_f1": 0.9570478200912476
+    },
+    {
+      "image_id": "1247_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9583439826965332,
+      "bertscore_recall": 0.9482089877128601,
+      "bertscore_f1": 0.9532495141029358
+    },
+    {
+      "image_id": "1388_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "This right eye fundus photography with an excavation of 0.9, there is nasalization of vessels, and peripapillary atrophy.",
+      "generated": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "text": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.934912919998169,
+      "bertscore_recall": 0.9262881278991699,
+      "bertscore_f1": 0.9305805563926697
+    },
+    {
+      "image_id": "1388_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "This right eye fundus photography with an excavation of 0.9, there is nasalization of vessels, and peripapillary atrophy.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels, nasalization of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9256823062896729,
+      "bertscore_recall": 0.9338476657867432,
+      "bertscore_f1": 0.9297471046447754
+    },
+    {
+      "image_id": "1388_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "This right eye fundus photography with an excavation of 0.9, there is nasalization of vessels, and peripapillary atrophy.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9255557060241699,
+      "bertscore_recall": 0.9332233667373657,
+      "bertscore_f1": 0.9293737411499023
+    },
+    {
+      "image_id": "1388_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "This right eye fundus photography with an excavation of 0.9, there is nasalization of vessels, and peripapillary atrophy.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9282505512237549,
+      "bertscore_recall": 0.9347929954528809,
+      "bertscore_f1": 0.9315102696418762
+    },
+    {
+      "image_id": "1388_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "This right eye fundus photography with an excavation of 0.9, there is nasalization of vessels, and peripapillary atrophy.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9281601309776306,
+      "bertscore_recall": 0.9354708194732666,
+      "bertscore_f1": 0.9318010807037354
+    },
+    {
+      "image_id": "1388_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "This right eye fundus photography with an excavation of 0.9, there is nasalization of vessels, and peripapillary atrophy.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9281601309776306,
+      "bertscore_recall": 0.9354708194732666,
+      "bertscore_f1": 0.9318010807037354
+    },
+    {
+      "image_id": "1439_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.2, preserved neuroretinal rim, no retinal nerve fiber layer defect",
+      "generated": "Optic disc with well-defined margins, good color, with a cup-to-disc ratio of 0.7, without signs of optic disc hemorrhages",
+      "text": "Optic disc with well-defined margins, good color, with a cup-to-disc ratio of 0.7, without signs of optic disc hemorrhages",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9734383821487427,
+      "bertscore_recall": 0.9643748998641968,
+      "bertscore_f1": 0.9688854813575745
+    },
+    {
+      "image_id": "1439_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.2, preserved neuroretinal rim, no retinal nerve fiber layer defect",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim, bayoneting of vessels, nasalization of them",
+      "text": "Cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim, bayoneting of vessels, nasalization of them",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9357682466506958,
+      "bertscore_recall": 0.943618893623352,
+      "bertscore_f1": 0.9396771788597107
+    },
+    {
+      "image_id": "1439_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.2, preserved neuroretinal rim, no retinal nerve fiber layer defect",
+      "generated": "Optic disc with well-defined margins, good color, with a cup-to-disc ratio of 0.7, without signs of optic disc hemorrhages",
+      "text": "Optic disc with well-defined margins, good color, with a cup-to-disc ratio of 0.7, without signs of optic disc hemorrhages",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: non_glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9734383821487427,
+      "bertscore_recall": 0.9643748998641968,
+      "bertscore_f1": 0.9688854813575745
+    },
+    {
+      "image_id": "1439_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.2, preserved neuroretinal rim, no retinal nerve fiber layer defect",
+      "generated": "Optic disc with well-defined margins, good color, with a cup-to-disc ratio of 0.7, without significant neuroretinal rim loss, without optic disc hemorrhages",
+      "text": "Optic disc with well-defined margins, good color, with a cup-to-disc ratio of 0.7, without significant neuroretinal rim loss, without optic disc hemorrhages",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: non_glaucoma (80%), glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9748136401176453,
+      "bertscore_recall": 0.9719277620315552,
+      "bertscore_f1": 0.9733685851097107
+    },
+    {
+      "image_id": "1439_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.2, preserved neuroretinal rim, no retinal nerve fiber layer defect",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: non_glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9534661769866943,
+      "bertscore_recall": 0.9496086239814758,
+      "bertscore_f1": 0.9515334963798523
+    },
+    {
+      "image_id": "1439_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.2, preserved neuroretinal rim, no retinal nerve fiber layer defect",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: non_glaucoma (80%), glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9534661769866943,
+      "bertscore_recall": 0.9496086239814758,
+      "bertscore_f1": 0.9515334963798523
+    },
+    {
+      "image_id": "1510_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cup-to-disc ratio 0.5 is visible, neuroretinal rim apparently preserved",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9340642690658569,
+      "bertscore_recall": 0.9511222839355469,
+      "bertscore_f1": 0.9425160884857178
+    },
+    {
+      "image_id": "1510_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cup-to-disc ratio 0.5 is visible, neuroretinal rim apparently preserved",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9399110078811646,
+      "bertscore_recall": 0.9508771896362305,
+      "bertscore_f1": 0.9453622698783875
+    },
+    {
+      "image_id": "1510_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cup-to-disc ratio 0.5 is visible, neuroretinal rim apparently preserved",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: non_glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9271174073219299,
+      "bertscore_recall": 0.9438103437423706,
+      "bertscore_f1": 0.9353893995285034
+    },
+    {
+      "image_id": "1510_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cup-to-disc ratio 0.5 is visible, neuroretinal rim apparently preserved",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: non_glaucoma (80%), glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9291380643844604,
+      "bertscore_recall": 0.9440338611602783,
+      "bertscore_f1": 0.9365267157554626
+    },
+    {
+      "image_id": "1510_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cup-to-disc ratio 0.5 is visible, neuroretinal rim apparently preserved",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: non_glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9344810247421265,
+      "bertscore_recall": 0.9506134390830994,
+      "bertscore_f1": 0.9424782395362854
+    },
+    {
+      "image_id": "1510_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cup-to-disc ratio 0.5 is visible, neuroretinal rim apparently preserved",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: non_glaucoma (80%), glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9457817077636719,
+      "bertscore_recall": 0.9520895481109619,
+      "bertscore_f1": 0.9489251375198364
+    },
+    {
+      "image_id": "1246_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "text": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9700860381126404,
+      "bertscore_recall": 0.9330900311470032,
+      "bertscore_f1": 0.9512284398078918
+    },
+    {
+      "image_id": "1246_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9910542368888855,
+      "bertscore_recall": 0.9763056039810181,
+      "bertscore_f1": 0.9836246371269226
+    },
+    {
+      "image_id": "1246_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9904681444168091,
+      "bertscore_recall": 0.9831594824790955,
+      "bertscore_f1": 0.9868003129959106
+    },
+    {
+      "image_id": "1246_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9904681444168091,
+      "bertscore_recall": 0.9831594824790955,
+      "bertscore_f1": 0.9868003129959106
+    },
+    {
+      "image_id": "1246_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9901978969573975,
+      "bertscore_recall": 0.982890784740448,
+      "bertscore_f1": 0.9865307807922363
+    },
+    {
+      "image_id": "1246_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9904681444168091,
+      "bertscore_recall": 0.9831594824790955,
+      "bertscore_f1": 0.9868003129959106
+    },
+    {
+      "image_id": "1477_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.988945484161377,
+      "bertscore_recall": 0.9818621277809143,
+      "bertscore_f1": 0.9853911399841309
+    },
+    {
+      "image_id": "1477_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.988945484161377,
+      "bertscore_recall": 0.9818621277809143,
+      "bertscore_f1": 0.9853911399841309
+    },
+    {
+      "image_id": "1477_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9812875986099243,
+      "bertscore_recall": 0.9676600694656372,
+      "bertscore_f1": 0.9744262099266052
+    },
+    {
+      "image_id": "1477_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.988945484161377,
+      "bertscore_recall": 0.9818621277809143,
+      "bertscore_f1": 0.9853911399841309
+    },
+    {
+      "image_id": "1477_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.988945484161377,
+      "bertscore_recall": 0.9818621277809143,
+      "bertscore_f1": 0.9853911399841309
+    },
+    {
+      "image_id": "1477_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.988945484161377,
+      "bertscore_recall": 0.9818621277809143,
+      "bertscore_f1": 0.9853911399841309
+    },
+    {
+      "image_id": "1365_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.8 excavation, with diffuse thinning of the rim and nasalization of vessels. This image has bad quality. ",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9276376962661743,
+      "bertscore_recall": 0.937076985836029,
+      "bertscore_f1": 0.9323334693908691
+    },
+    {
+      "image_id": "1365_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.8 excavation, with diffuse thinning of the rim and nasalization of vessels. This image has bad quality. ",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9276376962661743,
+      "bertscore_recall": 0.937076985836029,
+      "bertscore_f1": 0.9323334693908691
+    },
+    {
+      "image_id": "1365_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.8 excavation, with diffuse thinning of the rim and nasalization of vessels. This image has bad quality. ",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9276376962661743,
+      "bertscore_recall": 0.937076985836029,
+      "bertscore_f1": 0.9323334693908691
+    },
+    {
+      "image_id": "1365_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.8 excavation, with diffuse thinning of the rim and nasalization of vessels. This image has bad quality. ",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9276376962661743,
+      "bertscore_recall": 0.937076985836029,
+      "bertscore_f1": 0.9323334693908691
+    },
+    {
+      "image_id": "1365_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.8 excavation, with diffuse thinning of the rim and nasalization of vessels. This image has bad quality. ",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9276376962661743,
+      "bertscore_recall": 0.937076985836029,
+      "bertscore_f1": 0.9323334693908691
+    },
+    {
+      "image_id": "1365_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.8 excavation, with diffuse thinning of the rim and nasalization of vessels. This image has bad quality. ",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9276376962661743,
+      "bertscore_recall": 0.937076985836029,
+      "bertscore_f1": 0.9323334693908691
+    },
+    {
+      "image_id": "1493_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.3, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "generated": "This right eye fundus photography has a 0.6 excavation, the inferior temporal neuroretinal rim is thinned, there is nasalization of vessels and bayoneting of vessels",
+      "text": "This right eye fundus photography has a 0.6 excavation, the inferior temporal neuroretinal rim is thinned, there is nasalization of vessels and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9147984385490417,
+      "bertscore_recall": 0.9209253787994385,
+      "bertscore_f1": 0.9178516864776611
+    },
+    {
+      "image_id": "1493_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.3, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9493007659912109,
+      "bertscore_recall": 0.9513392448425293,
+      "bertscore_f1": 0.9503188729286194
+    },
+    {
+      "image_id": "1493_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.3, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "generated": "This right eye fundus photography has a 0.6 excavation, the inferior temporal neuroretinal rim is visible, the nasalization of vessels is observed, the optic nerve has a good color",
+      "text": "This right eye fundus photography has a 0.6 excavation, the inferior temporal neuroretinal rim is visible, the nasalization of vessels is observed, the optic nerve has a good color",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: non_glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9247138500213623,
+      "bertscore_recall": 0.9242050051689148,
+      "bertscore_f1": 0.9244593381881714
+    },
+    {
+      "image_id": "1493_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.3, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: non_glaucoma (80%), glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9564107656478882,
+      "bertscore_recall": 0.9513391256332397,
+      "bertscore_f1": 0.9538682103157043
+    },
+    {
+      "image_id": "1493_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.3, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: non_glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9379963874816895,
+      "bertscore_recall": 0.9440509080886841,
+      "bertscore_f1": 0.9410139322280884
+    },
+    {
+      "image_id": "1493_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.3, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "generated": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: non_glaucoma (80%), glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9564107656478882,
+      "bertscore_recall": 0.9513391256332397,
+      "bertscore_f1": 0.9538682103157043
+    },
+    {
+      "image_id": "1247_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9565103650093079,
+      "bertscore_recall": 0.9573312997817993,
+      "bertscore_f1": 0.9569206237792969
+    },
+    {
+      "image_id": "1247_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.953498125076294,
+      "bertscore_recall": 0.9501879215240479,
+      "bertscore_f1": 0.9518401622772217
+    },
+    {
+      "image_id": "1247_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9565749168395996,
+      "bertscore_recall": 0.9575212001800537,
+      "bertscore_f1": 0.9570478200912476
+    },
+    {
+      "image_id": "1247_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9535804986953735,
+      "bertscore_recall": 0.9504609107971191,
+      "bertscore_f1": 0.9520182013511658
+    },
+    {
+      "image_id": "1247_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9535804986953735,
+      "bertscore_recall": 0.9504609107971191,
+      "bertscore_f1": 0.9520182013511658
+    },
+    {
+      "image_id": "1247_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.953498125076294,
+      "bertscore_recall": 0.9501879215240479,
+      "bertscore_f1": 0.9518401622772217
+    },
+    {
+      "image_id": "1209_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
+      "generated": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "text": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9449489116668701,
+      "bertscore_recall": 0.9093565344810486,
+      "bertscore_f1": 0.9268110990524292
+    },
+    {
+      "image_id": "1209_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9409011006355286,
+      "bertscore_recall": 0.9230470657348633,
+      "bertscore_f1": 0.9318885803222656
+    },
+    {
+      "image_id": "1209_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.942034125328064,
+      "bertscore_recall": 0.9240394830703735,
+      "bertscore_f1": 0.9329500198364258
+    },
+    {
+      "image_id": "1209_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
+      "generated": "Total cupping, mild pallor of the optic nerve, nasalization of vessels",
+      "text": "Total cupping, mild pallor of the optic nerve, nasalization of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9575188755989075,
+      "bertscore_recall": 0.9170692563056946,
+      "bertscore_f1": 0.9368576407432556
+    },
+    {
+      "image_id": "1209_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
+      "generated": "Cup-to-disc ratio 0.9, optic disc with well-defined margins and good color, preserved neuroretinal rim",
+      "text": "Cup-to-disc ratio 0.9, optic disc with well-defined margins and good color, preserved neuroretinal rim",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9281762838363647,
+      "bertscore_recall": 0.9131625890731812,
+      "bertscore_f1": 0.9206082224845886
+    },
+    {
+      "image_id": "1209_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.942034125328064,
+      "bertscore_recall": 0.9240394830703735,
+      "bertscore_f1": 0.9329500198364258
+    },
+    {
+      "image_id": "1959_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cupping appears advanced at 0.9",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.8891902565956116,
+      "bertscore_recall": 0.906593918800354,
+      "bertscore_f1": 0.8978077173233032
+    },
+    {
+      "image_id": "1959_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cupping appears advanced at 0.9",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.8877724409103394,
+      "bertscore_recall": 0.9053975343704224,
+      "bertscore_f1": 0.8964983820915222
+    },
+    {
+      "image_id": "1959_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cupping appears advanced at 0.9",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: non_glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.8891902565956116,
+      "bertscore_recall": 0.906593918800354,
+      "bertscore_f1": 0.8978077173233032
+    },
+    {
+      "image_id": "1959_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cupping appears advanced at 0.9",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: non_glaucoma (80%), glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.8891902565956116,
+      "bertscore_recall": 0.906593918800354,
+      "bertscore_f1": 0.8978077173233032
+    },
+    {
+      "image_id": "1959_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cupping appears advanced at 0.9",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: non_glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.8885313272476196,
+      "bertscore_recall": 0.9059611558914185,
+      "bertscore_f1": 0.897161602973938
+    },
+    {
+      "image_id": "1959_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused, cupping appears advanced at 0.9",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: non_glaucoma (80%), glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.8891902565956116,
+      "bertscore_recall": 0.906593918800354,
+      "bertscore_f1": 0.8978077173233032
+    },
+    {
+      "image_id": "1428_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels and bayoneting of vessels",
+      "generated": "This right eye fundus photography has a 0.6 excavation, there is a 0.55 cup to disc ratio, the optic disc has a well-defined margin and good color, there is nasalization of vessels",
+      "text": "This right eye fundus photography has a 0.6 excavation, there is a 0.55 cup to disc ratio, the optic disc has a well-defined margin and good color, there is nasalization of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.933142900466919,
+      "bertscore_recall": 0.9410787224769592,
+      "bertscore_f1": 0.9370940923690796
+    },
+    {
+      "image_id": "1428_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels and bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9944968223571777,
+      "bertscore_recall": 0.9851219654083252,
+      "bertscore_f1": 0.989787220954895
+    },
+    {
+      "image_id": "1428_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels and bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9946295022964478,
+      "bertscore_recall": 0.9924103021621704,
+      "bertscore_f1": 0.9935186505317688
+    },
+    {
+      "image_id": "1428_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels and bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9946295022964478,
+      "bertscore_recall": 0.9924103021621704,
+      "bertscore_f1": 0.9935186505317688
+    },
+    {
+      "image_id": "1428_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels and bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9932664036750793,
+      "bertscore_recall": 0.9912819266319275,
+      "bertscore_f1": 0.9922731518745422
+    },
+    {
+      "image_id": "1428_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels and bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9946295022964478,
+      "bertscore_recall": 0.9924103021621704,
+      "bertscore_f1": 0.9935186505317688
+    },
+    {
+      "image_id": "167_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9825301766395569,
+      "bertscore_recall": 0.9902819395065308,
+      "bertscore_f1": 0.9863907694816589
+    },
+    {
+      "image_id": "167_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9825301766395569,
+      "bertscore_recall": 0.9902819395065308,
+      "bertscore_f1": 0.9863907694816589
+    },
+    {
+      "image_id": "167_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9825301766395569,
+      "bertscore_recall": 0.9902819395065308,
+      "bertscore_f1": 0.9863907694816589
+    },
+    {
+      "image_id": "167_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9825301766395569,
+      "bertscore_recall": 0.9902819395065308,
+      "bertscore_f1": 0.9863907694816589
+    },
+    {
+      "image_id": "167_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9825301766395569,
+      "bertscore_recall": 0.9902819395065308,
+      "bertscore_f1": 0.9863907694816589
+    },
+    {
+      "image_id": "167_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, bayoneting of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9825301766395569,
+      "bertscore_recall": 0.9902819395065308,
+      "bertscore_f1": 0.9863907694816589
+    },
+    {
+      "image_id": "1414_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.9 cup-to-disc ratio, diffuse neuroretinal rim thinning, peripapillary atrophy, pale optic disc, bayonet sign and nasalization of vessels.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9664267897605896,
+      "bertscore_recall": 0.9666283130645752,
+      "bertscore_f1": 0.96652752161026
+    },
+    {
+      "image_id": "1414_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.9 cup-to-disc ratio, diffuse neuroretinal rim thinning, peripapillary atrophy, pale optic disc, bayonet sign and nasalization of vessels.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9659855365753174,
+      "bertscore_recall": 0.9661432504653931,
+      "bertscore_f1": 0.9660643935203552
+    },
+    {
+      "image_id": "1414_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.9 cup-to-disc ratio, diffuse neuroretinal rim thinning, peripapillary atrophy, pale optic disc, bayonet sign and nasalization of vessels.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim, bayoneting of vessels, nasalization of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9606174826622009,
+      "bertscore_recall": 0.9579561352729797,
+      "bertscore_f1": 0.9592849612236023
+    },
+    {
+      "image_id": "1414_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.9 cup-to-disc ratio, diffuse neuroretinal rim thinning, peripapillary atrophy, pale optic disc, bayonet sign and nasalization of vessels.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9664267897605896,
+      "bertscore_recall": 0.9666283130645752,
+      "bertscore_f1": 0.96652752161026
+    },
+    {
+      "image_id": "1414_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.9 cup-to-disc ratio, diffuse neuroretinal rim thinning, peripapillary atrophy, pale optic disc, bayonet sign and nasalization of vessels.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9654365181922913,
+      "bertscore_recall": 0.9658079147338867,
+      "bertscore_f1": 0.9656221866607666
+    },
+    {
+      "image_id": "1414_left",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "0.9 cup-to-disc ratio, diffuse neuroretinal rim thinning, peripapillary atrophy, pale optic disc, bayonet sign and nasalization of vessels.",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9664267897605896,
+      "bertscore_recall": 0.9666283130645752,
+      "bertscore_f1": 0.96652752161026
+    },
+    {
+      "image_id": "1496_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, thinning of the superior and inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "generated": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9838367104530334,
+      "bertscore_recall": 0.9599021673202515,
+      "bertscore_f1": 0.9717220664024353
+    },
+    {
+      "image_id": "1496_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, thinning of the superior and inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9841562509536743,
+      "bertscore_recall": 0.9600932002067566,
+      "bertscore_f1": 0.9719758629798889
+    },
+    {
+      "image_id": "1496_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, thinning of the superior and inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9829782247543335,
+      "bertscore_recall": 0.9500249028205872,
+      "bertscore_f1": 0.9662206768989563
+    },
+    {
+      "image_id": "1496_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, thinning of the superior and inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9841562509536743,
+      "bertscore_recall": 0.9600932002067566,
+      "bertscore_f1": 0.9719758629798889
+    },
+    {
+      "image_id": "1496_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, thinning of the superior and inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9841562509536743,
+      "bertscore_recall": 0.9600932002067566,
+      "bertscore_f1": 0.9719758629798889
+    },
+    {
+      "image_id": "1496_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "Mildly pale optic nerve, cup-to-disc ratio 0.7, thinning of the superior and inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9841562509536743,
+      "bertscore_recall": 0.9600932002067566,
+      "bertscore_f1": 0.9719758629798889
+    },
+    {
+      "image_id": "1258_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "excavation 0.6, nasalization of vessels, superior thinning, peripapillary atrophy, significant pallor",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9307780265808105,
+      "bertscore_recall": 0.9428144693374634,
+      "bertscore_f1": 0.9367576241493225
+    },
+    {
+      "image_id": "1258_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "excavation 0.6, nasalization of vessels, superior thinning, peripapillary atrophy, significant pallor",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels, nasalization of them",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels, nasalization of them",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9332785606384277,
+      "bertscore_recall": 0.9434163570404053,
+      "bertscore_f1": 0.9383201003074646
+    },
+    {
+      "image_id": "1258_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "excavation 0.6, nasalization of vessels, superior thinning, peripapillary atrophy, significant pallor",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9307780265808105,
+      "bertscore_recall": 0.9428144693374634,
+      "bertscore_f1": 0.9367576241493225
+    },
+    {
+      "image_id": "1258_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "excavation 0.6, nasalization of vessels, superior thinning, peripapillary atrophy, significant pallor",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting and nasalization of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: glaucoma (80%), non_glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9307898283004761,
+      "bertscore_recall": 0.9426949620246887,
+      "bertscore_f1": 0.9367045164108276
+    },
+    {
+      "image_id": "1258_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "excavation 0.6, nasalization of vessels, superior thinning, peripapillary atrophy, significant pallor",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9307780265808105,
+      "bertscore_recall": 0.9428144693374634,
+      "bertscore_f1": 0.9367576241493225
+    },
+    {
+      "image_id": "1258_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "glaucoma",
+      "distribution": {
+        "glaucoma": 0.8,
+        "non_glaucoma": 0.19999999999999996
+      },
+      "reference": "excavation 0.6, nasalization of vessels, superior thinning, peripapillary atrophy, significant pallor",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: glaucoma (80%), non_glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9307780265808105,
+      "bertscore_recall": 0.9428144693374634,
+      "bertscore_f1": 0.9367576241493225
+    },
+    {
+      "image_id": "1475_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused image, apparent cup-to-disc ratio 0.5",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "A",
+      "prompt_used": "Describe the ophthalmological findings in this fundus image.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9224234819412231,
+      "bertscore_recall": 0.9393851161003113,
+      "bertscore_f1": 0.9308270215988159
+    },
+    {
+      "image_id": "1475_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused image, apparent cup-to-disc ratio 0.5",
+      "generated": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "B",
+      "prompt_used": "The region highlighted in red was identified by an automatic segmentation system. Describe the ophthalmological findings, focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9224234819412231,
+      "bertscore_recall": 0.9393851161003113,
+      "bertscore_f1": 0.9308270215988159
+    },
+    {
+      "image_id": "1475_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused image, apparent cup-to-disc ratio 0.5",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding in this fundus image as: non_glaucoma. Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9221475720405579,
+      "bertscore_recall": 0.9394949674606323,
+      "bertscore_f1": 0.9307403564453125
+    },
+    {
+      "image_id": "1475_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused image, apparent cup-to-disc ratio 0.5",
+      "generated": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "C2",
+      "prompt_used": "An ophthalmological classifier analyzed this fundus image and estimates: non_glaucoma (80%), glaucoma (20%). Describe the ophthalmological findings.",
+      "image_was_overlaid": false,
+      "bertscore_precision": 0.9221764206886292,
+      "bertscore_recall": 0.9398429989814758,
+      "bertscore_f1": 0.9309259057044983
+    },
+    {
+      "image_id": "1475_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused image, apparent cup-to-disc ratio 0.5",
+      "generated": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D1",
+      "prompt_used": "An ophthalmological classifier identifies the primary finding as: non_glaucoma. The region highlighted in red indicates the area where this finding is located. Describe the findings focusing on the highlighted region.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9221475720405579,
+      "bertscore_recall": 0.9394949674606323,
+      "bertscore_f1": 0.9307403564453125
+    },
+    {
+      "image_id": "1475_right",
+      "model_variant": "medgemma_lora",
+      "input_source": "dataset_oracle_mock",
+      "mask_source": "ground_truth_disc",
+      "prediction": "non_glaucoma",
+      "distribution": {
+        "non_glaucoma": 0.8,
+        "glaucoma": 0.19999999999999996
+      },
+      "reference": "Defocused image, apparent cup-to-disc ratio 0.5",
+      "generated": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "text": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "condition": "D2",
+      "prompt_used": "An ophthalmological classifier estimates: non_glaucoma (80%), glaucoma (20%). The region highlighted in red indicates the area where the main finding is located. Describe the findings in detail, focusing on the highlighted region and its relationship with the suggested diagnosis.",
+      "image_was_overlaid": true,
+      "bertscore_precision": 0.9221764206886292,
+      "bertscore_recall": 0.9398429989814758,
+      "bertscore_f1": 0.9309259057044983
+    }
+  ]
+}
