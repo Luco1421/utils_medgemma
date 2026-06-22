@@ -1,15 +1,45 @@
-Smoke base:
-sbatch run_medgemma_base.slurm
-
-Smoke LoRA:
-sbatch run_medgemma_lora.slurm
-
-Full base:
+Full base (sin entrenamiento, solo conditioning sobre MedGemma de fabrica):
 sbatch run_medgemma_base_full.slurm
 
-Full LoRA:
-sbatch run_medgemma_lora_full.slurm
+Experimental MedGemma-LoRA full (entrenado con prompt generico tipo-A):
+sbatch run_experimental_medgemma_lora_full.slurm
 
-Optional overrides:
-MEDGEMMA_LIMIT=3 sbatch run_medgemma_base_full.slurm
-MEDGEMMA_TRAIN_LIMIT=64 MEDGEMMA_MAX_STEPS=120 MEDGEMMA_GRAD_ACCUM=4 sbatch run_medgemma_lora_full.slurm
+Experimental MedGemma-LoRA full por-condicion (entrenado con cada condicion):
+sbatch run_experimental_medgemma_lora_conditioned_full.slurm
+
+Los tres comparten test=26. Las dos variantes LoRA entrenan sobre train=77.
+- generic: 60 steps, 1 ejemplo (prompt tipo-A) por imagen -> 77 ejemplos.
+- conditioned: 270 steps, 1 ejemplo por condicion aplicable (6 por glaucoma,
+  3 por normal) -> 354 ejemplos, con overlay rojo y pistas de clase, igual que
+  en la evaluacion. Ambas usan gradient accumulation 4.
+
+Estos tres jobs son una corrida rapida de un solo punto. Para investigacion usar
+el protocolo de barrido validado de abajo.
+
+
+=====================================================================
+PROTOCOLO DE INVESTIGACION (barrido validado + test multi-semilla)
+=====================================================================
+
+Grilla reducida: rank=8 y lr=1e-4 fijos; se busca epocas{3,6,9} x modo{generic,
+conditioned} = 6 configuraciones (alpha = 2*rank). Dataset completo, sin limites.
+
+1) BARRIDO en validacion (array de 6 tareas):
+   sbatch run_lora_sweep.slurm
+   -> cada tarea entrena y evalua en VALIDATION; escribe results/sweep/val_idx<i>.json
+
+2) AGREGAR y elegir ganador por metrica combinada (z-score de BERTScore-F1 +
+   SBERT calibrado + finding_mentioned):
+   python -m scripts.aggregate_sweep
+   -> imprime ranking y escribe results/sweep/summary.json
+
+3) TEST final del ganador con 5 semillas (test se toca una sola vez):
+   sbatch --export=ALL,SELECTOR=conditioned run_lora_final_test.slurm
+   sbatch --export=ALL,SELECTOR=generic     run_lora_final_test.slurm
+   -> results/final/test_<selector>_seed<42..46>.json (reportar media +/- std)
+
+SELECTOR: overall | generic | conditioned. Comparar contra el job base (sin
+entrenamiento) para aislar el efecto del fine-tuning y del conditioning.
+
+Nota: el barrido deja ~54 adapters en checkpoints/sweep/ (regenerables, se
+pueden borrar tras el paso 2). Inspeccionar la perdida en results/sweep/*.out.

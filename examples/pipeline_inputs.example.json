@@ -1,15 +1,36 @@
 [
   {
     "image_id": "1217_right",
-    "image": "dataset/1217/1217_right.jpg",
+    "image": "dataset/1217_right.jpg",
     "mask": "outputs/wsss/1217_right.npy",
     "prediction": "glaucoma",
     "distribution": {
       "glaucoma": 0.73,
-      "non_glaucoma": 0.27
+      "normal": 0.27
     },
     "reference": "Clinical photograph of the right eye...",
     "mask_source": "wsss",
-    "input_source": "real_pipeline"
+    "input_source": "real_pipeline",
+    "expected_finding": "glaucoma",
+    "ground_truth_mask": "dataset/1217_right_disc.png",
+    "mask_target": "optic_disc",
+    "segmentation_status": "predicted_mask"
+  },
+  {
+    "image_id": "2472_right",
+    "image": "dataset/2472_right.jpg",
+    "mask": null,
+    "prediction": "normal",
+    "distribution": {
+      "glaucoma": 0.08,
+      "normal": 0.92
+    },
+    "reference": "Color fundus photography of a right eye...",
+    "mask_source": "not_applicable_normal",
+    "input_source": "real_pipeline",
+    "expected_finding": "normal",
+    "ground_truth_mask": null,
+    "mask_target": "optic_disc",
+    "segmentation_status": "bypassed_normal"
   }
 ]

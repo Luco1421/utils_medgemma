@@ -3,12 +3,10 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Callable, Mapping, Sequence
+from typing import Any, Mapping
 
 import numpy as np
 from PIL import Image
-
-from .inputs import ConditioningInput
 
 CONDITIONS = ("A", "B", "C1", "C2", "D1", "D2")
 MASK_CONDITIONS = frozenset({"B", "D1", "D2"})
@@ -89,60 +87,55 @@ def format_distribution(distribution: Mapping[str, float]) -> str:
     )
 
 
-def build_condition_request(
+def validate_condition_inputs(
     condition: str,
-    sample: ConditioningInput,
-) -> dict[str, Any]:
+    mask: Any = None,
+    prediction: str | None = None,
+    distribution: Mapping[str, float] | None = None,
+) -> str:
     condition = condition.upper()
-    if condition not in CONDITIONS:
-        raise ValueError(f"unknown condition: {condition}")
-
-    image = (
-        make_overlay(sample.image, sample.mask)
-        if condition in MASK_CONDITIONS
-        else sample.image
-    )
-    prompt = PROMPT_TEMPLATES[condition].format(
-        prediction=sample.prediction,
-        distribution=format_distribution(sample.distribution),
-    )
-    return {
-        "condition": condition,
-        "image": image,
-        "prompt": prompt,
-        "image_was_overlaid": condition in MASK_CONDITIONS,
+    required = {
+        "A": (False, False, False),
+        "B": (True, False, False),
+        "C1": (False, True, False),
+        "C2": (False, False, True),
+        "D1": (True, True, False),
+        "D2": (True, False, True),
     }
+    if condition not in required:
+        raise ValueError(f"Unknown condition: {condition}")
+    needs_mask, needs_prediction, needs_distribution = required[condition]
+    if needs_mask != (mask is not None):
+        action = "requires" if needs_mask else "does not accept"
+        raise ValueError(f"Condition {condition} {action} mask")
+    if needs_prediction != (prediction is not None):
+        action = "requires" if needs_prediction else "does not accept"
+        raise ValueError(f"Condition {condition} {action} prediction")
+    if needs_distribution != (distribution is not None):
+        action = "requires" if needs_distribution else "does not accept"
+        raise ValueError(f"Condition {condition} {action} distribution")
+    if prediction is not None and not str(prediction).strip():
+        raise ValueError("prediction cannot be empty")
+    if distribution is not None:
+        probabilities = [float(value) for value in distribution.values()]
+        if not distribution or any(value < 0 for value in probabilities):
+            raise ValueError("distribution must contain non-negative values")
+        if not np.isclose(sum(probabilities), 1.0, atol=1e-4):
+            raise ValueError("distribution probabilities must sum to 1")
+    return condition
 
 
-def run_condition_experiment(
-    sample: ConditioningInput,
+def build_prompt(
+    condition: str,
     *,
-    generate: Callable[[str, Any, int], str],
-    model_variant: str,
-    max_new_tokens: int = 384,
-    conditions: Sequence[str] = CONDITIONS,
-) -> list[dict[str, Any]]:
-    results = []
-    for condition in conditions:
-        request = build_condition_request(condition, sample)
-        generated = generate(
-            request["prompt"],
-            request["image"],
-            max_new_tokens,
-        ).strip()
-        results.append(
-            {
-                "image_id": sample.image_id,
-                "condition": condition,
-                "model_variant": model_variant,
-                "input_source": sample.input_source,
-                "mask_source": sample.mask_source,
-                "prediction": sample.prediction,
-                "distribution": sample.distribution,
-                "prompt_used": request["prompt"],
-                "image_was_overlaid": request["image_was_overlaid"],
-                "reference": sample.reference,
-                "generated": generated,
-            }
-        )
-    return results
+    prediction: str | None = None,
+    distribution: Mapping[str, float] | None = None,
+) -> str:
+    return PROMPT_TEMPLATES[condition].format(
+        prediction=prediction,
+        distribution=(
+            format_distribution(distribution)
+            if distribution is not None
+            else None
+        ),
+    )

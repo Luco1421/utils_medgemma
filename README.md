@@ -1,239 +1,167 @@
 # Utils MedGemma
 
-Flujo actual: MedGemma con el dataset oficial incluido en `dataset/`.
+Implementación modular de M7 (`MedGemmaConditioner`) y M8 (`Evaluator`) para
+los experimentos de condicionamiento descritos en
+`ref/Medgemma_Segmentation_CIARP_2026/`.
 
-El trabajo actual corre sobre los splits `dataset/split_repetition_*.json`.
+`ref/` se considera fuente contractual y no se modifica. La directiva adicional
+de `ref/SPEC.md` establece que la segmentación de este proyecto usa únicamente
+el disco óptico.
 
-## Contrato de referencia
+## Alcance
 
-Los PDFs de `ref/` no definen el contrato de M7:
+La ruta oficial usa `google/medgemma-1.5-4b-it` como caja negra, sin modificar
+sus pesos. Implementa las seis condiciones:
 
-- `Glaucoma_labels.pdf` documenta las etiquetas clínicas.
-- `A_Benchmark_of_Eye_Anterior_Image_Semantic_Segmentation_in_Scarcely_Labeled_Datasets.pdf`
-  es el paper de benchmark de segmentación.
+| Condición | Imagen | Información del prompt |
+|---|---|---|
+| A | Original | Genérico |
+| B | Overlay del disco óptico | Región resaltada |
+| C1 | Original | Clase predicha |
+| C2 | Original | Distribución del clasificador |
+| D1 | Overlay del disco óptico | Clase y región |
+| D2 | Overlay del disco óptico | Distribución y región |
 
-El contrato de M7 está en `ref/.../experimental_design.md`,
-`AGENTS.md` y `Pipeline Modules Explanation/M7_MedGemmaConditioner.md`. Es una
-interfaz Python en memoria:
+El overlay conserva 60% de la imagen y añade 40% de rojo dentro de la máscara.
+La generación es determinista (`do_sample=False`) y usa hasta 512 tokens.
 
-```python
-generate(
-    condition,
-    image_raw,
-    mask=None,
-    prediction=None,
-    distribution=None,
-)
-```
+## Dataset actual
 
-La implementación pública compatible está en
-`modules/medgemma_conditioner.py`.
+El dataset es plano: `annotations.json`, `split.json`, imágenes y máscaras
+están directamente en `dataset/`.
 
-## Implementacion Python
+| Split | Total | Glaucoma | Normal | Máscara GT de disco |
+|---|---:|---:|---:|---:|
+| Train | 77 | 41 | 36 | 41 |
+| Validation | 26 | 14 | 12 | 14 |
+| Test | 26 | 14 | 12 | 14 |
 
-La implementación para integración está en Python:
+Reglas aplicadas:
 
-- `modules/medgemma_conditioner.py`: interfaz pública M7 indicada por `ref`.
-- `medgemma_utils/medgemma_conditioner.py`: carga y generación con MedGemma.
-- `medgemma_utils/conditioning.py`: prompts y overlays A-D2.
-- `medgemma_utils/evaluation.py`: BERTScore médico y comparaciones.
-- `medgemma_utils/dataset.py`: adaptación del dataset compartido.
-- `medgemma_utils/lora_training.py`: entrenamiento LoRA estándar.
-- `medgemma_utils/experiment.py`: ejecución completa A-D2.
-- `scripts/run_conditioned_medgemma.py`: ejecución sin notebook.
-- `scripts/train_medgemma_lora.py`: entrenamiento sin notebook.
+- `dataset/split.json` se usa exactamente como fue entregado.
+- Los 69 casos de glaucoma tienen máscara GT de disco óptico.
+- Los 60 casos normales no tienen máscara y no pasan por SAM.
+- Los archivos de copa existen como información adicional del dataset, pero no
+  forman parte de M7/M8 ni del objetivo de segmentación definido por `ref`.
+- El adaptador usa `*_disc.png`, validado contra imagen y anotación.
 
-La clase que consumirá el orquestador del proyecto real es:
+La auditoría detallada está en [DATASET.md](DATASET.md).
 
-```python
-from modules.medgemma_conditioner import MedGemmaConditioner
+## Flujo de segmentación
 
-conditioner = MedGemmaConditioner(config["medgemma"])
-result = conditioner.generate(
-    condition="D2",
-    image_raw=image,
-    mask=mask,
-    distribution=classification["distribution"],
-)
-```
+En el pipeline real, el clasificador se ejecuta antes de SAM:
 
-## Alcance actual
+1. Predicción `normal`: se omite SAM; se evalúan A, C1 y C2.
+2. Predicción `glaucoma`: se ejecuta el segmentador; si produce máscara, también
+   se evalúan B, D1 y D2.
+3. IoU, Dice y SSIM solo se calculan cuando existe una máscara predicha y una
+   GT de disco óptico.
 
-Este repositorio implementa y prueba solamente el componente MedGemma. La
-clasificacion, las mascaras segmentadas y las distribuciones de probabilidad
-seran producidas por los otros modulos del pipeline al integrarlos.
+No se fabrican máscaras vacías para normales y no se compara una GT contra sí
+misma como si fuera una predicción.
 
-Mientras esos modulos no esten conectados, la ablation usa:
+Mientras llegan CNN y SAM, el experimento oracle usa:
 
-- Las mascaras ground truth del disco optico como entrada visual de prueba.
-- Una distribucion mock 80/20 derivada de la etiqueta del dataset.
+- Clase derivada de la anotación.
+- Distribución 80/20 configurable.
+- Máscara GT de disco únicamente para condicionar B, D1 y D2.
 
-Estos valores simulados sirven para validar la interfaz de MedGemma; no deben
-reportarse como resultados del clasificador o segmentador.
+Esto produce 120 textos por variante:
 
-## Separacion entre entrada y experimento
+- A, C1 y C2: 26 imágenes de test.
+- B, D1 y D2: 14 imágenes de glaucoma con máscara.
+- Comparaciones pareadas A-D2: las mismas 14 imágenes.
 
-La logica se divide en tres archivos:
+## M8
 
-- `medgemma_utils/conditioning.py`: M7, condiciones A-D2, prompts y overlay.
-- `medgemma_utils/evaluation.py`: BERTScore medico y comparaciones
-  estadisticas.
-- `medgemma_utils/mock_inputs.py`: adapta el dataset actual a entradas mock
-  80/20.
-- `medgemma_utils/inputs.py`: define el contrato comun y permite cargar
-  entradas reales desde JSON.
-
-El experimento no busca probabilidades dentro de las anotaciones ni mezcla
-fuentes. Por defecto usa el proveedor mock:
+`modules/evaluator.py` expone:
 
 ```python
-from medgemma_utils.mock_inputs import build_dataset_mock_inputs
+evaluator.evaluate_segmentation(pred_mask, gt_mask)
+evaluator.evaluate_text(generated_text, reference_text, expected_finding)
+evaluator.statistical_test(scores_a, scores_b)
 ```
 
-Cuando existan resultados reales no hay que cambiar el notebook. Se indica el
-JSON de entrada:
+M8 calcula IoU, Dice, SSIM, BERTScore con BiomedBERT, similitud sBERT con
+Bioclinical ModernBERT, precisión de hallazgo, Wilcoxon pareado, effect size y
+corrección Holm. También guarda baselines de referencias permutadas y scores
+calibrados para interpretar el piso elevado de las métricas semánticas.
+
+El campo Likert queda reservado para revisión clínica ciega mediante
+`scripts/export_likert_review.py`.
+
+## MedGemma-LoRA experimental
+
+Además de M7 oficial se conserva un experimento separado de LoRA estándar sobre
+MedGemma. No es QLoRA y no debe confundirse con SAM-LoRA de M3/M9.
+
+Se entrena únicamente con las 77 muestras de `train`:
+
+```text
+imagen original + prompt genérico → transcripción del especialista
+```
+
+No usa máscaras, clases ni distribuciones durante el entrenamiento. Después se
+evalúa con el mismo protocolo A-D2 para estudiar generalización y posible
+memorización.
+
+## Configuración
+
+`config.yaml` centraliza semilla, dataset, modelo, evaluación y el experimento
+LoRA. Los scripts validan que:
+
+- El objetivo sea `optic_disc`.
+- Los normales omitan segmentación.
+- El resumen del dataset coincida con 77/26/26.
+
+Preflight local:
 
 ```bash
-export MEDGEMMA_INPUTS_JSON=outputs/pipeline_inputs.json
+/data/jperez/app_data/miniconda/envs/medgemma/bin/python \
+  -m scripts.preflight
 ```
 
-El JSON real esperado es una lista con este contrato:
+## Ejecución en Kabre
 
-```json
-[
-  {
-    "image_id": "1217_right",
-    "image": "dataset/1217/1217_right.jpg",
-    "mask": "outputs/wsss/1217_right.npy",
-    "prediction": "glaucoma",
-    "distribution": {
-      "glaucoma": 0.73,
-      "non_glaucoma": 0.27
-    },
-    "reference": "Clinical photograph...",
-    "mask_source": "wsss",
-    "input_source": "real_pipeline"
-  }
-]
-```
-
-Hay un archivo de ejemplo en `examples/pipeline_inputs.example.json`.
-
-El proveedor mock usa la etiqueta real y sirve para estudiar el efecto del
-condicionamiento, no para medir rendimiento predictivo. Su confianza se puede
-cambiar con:
+Full base:
 
 ```bash
-export MEDGEMMA_MOCK_CONFIDENCE=0.80
+sbatch run_medgemma_base_full.slurm
 ```
 
-Si `MEDGEMMA_INPUTS_JSON` no está definido se usan mocks. Si está definido se
-usa exclusivamente ese JSON.
-
-## Evaluacion textual
-
-BERTScore usa:
-
-- Modelo: `microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext`.
-- Capa: 12.
-- Scores crudos, sin `rescale_with_baseline`, porque BERTScore no incluye una
-  baseline precalculada para este checkpoint.
-
-Cada condicion guarda Precision, Recall y F1 por imagen. El resumen reporta
-media, desviacion estandar y diferencia de F1 respecto a la condicion A.
-Tambien realiza comparaciones pareadas por imagen contra A: delta medio y
-mediano, fraccion de casos que mejoran y test de Wilcoxon.
-
-## Mapeo del dataset
-
-Cada entrada de split tiene rutas relativas al dataset:
-
-- `image`: imagen de fondo de ojo.
-- `annotation`: JSON con `label`, `transcription` y `locs_data.conditions`.
-- `mask_cup_npy` / `mask_disc_npy`: mascaras reales para copa y disco.
-
-La etiqueta medible se deriva asi:
-
-- `glaucoma` si `locs_data.conditions` contiene `glaucoma`.
-- `non_glaucoma` en caso contrario.
-
-La descripcion medible usa `transcription` como referencia textual.
-
-## Orden recomendado
-
-1. Corre `scripts/run_conditioned_medgemma.py`.
-2. Revisa los JSON en `results/` para clasificacion, descripcion y ablation.
-3. Si el flujo base esta bien, corre `scripts/train_medgemma_lora.py` y luego `scripts/run_conditioned_medgemma.py` con `--adapter-path`.
-4. Para una prueba rapida usa los jobs `smoke`; para corrida completa usa los jobs `full`.
-
-En modo `full`, el experimento condicionado usa todo el conjunto de test. Para
-limitarlo manualmente:
+Full LoRA experimental (entrenado con prompt genérico tipo-A):
 
 ```bash
-export MEDGEMMA_ABLATION_LIMIT=3
+sbatch run_experimental_medgemma_lora_full.slurm
 ```
 
-## Ejecucion
-
-Los scripts asumen que el repo ya está clonado y que el entorno de Python/GPU ya fue preparado por el cluster o la maquina local.
-
-En Kabre, lo esperado es entrar al repo, activar el entorno que tenga CUDA/PyTorch y lanzar el job Slurm correspondiente.
-
-Los jobs de Kabre guardan modelos y cachés fuera de `home`:
+Full LoRA experimental por-condición (entrenado con cada condición, con overlay
+y pistas de clase, igual que en la evaluación):
 
 ```bash
-HF_HOME=/data/jperez/app_data/huggingface
-XDG_CACHE_HOME=/data/jperez/app_data/cache
-TORCH_HOME=/data/jperez/app_data/cache/torch
+sbatch run_experimental_medgemma_lora_conditioned_full.slurm
 ```
 
-## Prueba local
+El modo de entrenamiento se elige con `--prompt-mode {generic,conditioned}` en
+`scripts.train_experimental_medgemma_lora`. La variante `generic` aprende solo el
+estilo del experto; la `conditioned` además aprende a usar la máscara y la clase.
 
-Para probar en una maquina local con GPU NVIDIA:
+Todos los jobs ejecutan preflight de dataset, CUDA y token de Hugging Face antes
+de cargar los modelos. Los jobs full no aplican límites de muestras.
 
-```bash
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --upgrade pip setuptools wheel
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-```
+## Integración con M9
 
-Smoke de MedGemma base con un ejemplo:
+Las salidas futuras de los otros módulos se reciben con
+`--inputs-json`. El contrato está ejemplificado en
+`examples/pipeline_inputs.example.json` e incluye imagen, predicción,
+distribución, máscara predicha opcional, GT opcional, objetivo
+`optic_disc` y estado de segmentación.
 
-```bash
-$env:HF_TOKEN="..."
-$env:MEDGEMMA_RUN_MODE="smoke"
-$env:MEDGEMMA_EVAL_LIMIT="1"
-$env:MEDGEMMA_ABLATION_LIMIT="1"
-.\.venv\Scripts\python.exe -m scripts.run_conditioned_medgemma --limit 1 --output results\local_smoke_base.json
-```
+M7 no decide si se ejecuta SAM; consume la salida ya enrutada por M9. Si
+`mask=None`, omite B, D1 y D2.
 
-Smoke de LoRA con un ejemplo y un step:
+## Resultados
 
-```bash
-$env:HF_TOKEN="..."
-$env:MEDGEMMA_RUN_MODE="smoke"
-$env:MEDGEMMA_TRAIN_LIMIT="1"
-$env:MEDGEMMA_EVAL_LIMIT="1"
-$env:MEDGEMMA_MAX_STEPS="1"
-$env:MEDGEMMA_GRAD_ACCUM="1"
-.\.venv\Scripts\python.exe -m scripts.train_medgemma_lora --train-limit 1 --max-steps 1 --gradient-accumulation-steps 1 --output-dir checkpoints\local_smoke_lora
-.\.venv\Scripts\python.exe -m scripts.run_conditioned_medgemma --limit 1 --adapter-path checkpoints\local_smoke_lora --output results\local_smoke_lora.json
-```
-
-Los scripts Slurm incluidos asumen un entorno conda llamado `medgemma`:
-
-```bash
-conda activate medgemma
-```
-
-Tambien esperan que el token de Hugging Face este disponible como variable de entorno:
-
-```bash
-export HF_TOKEN=...
-```
-
-Los jobs Slurm fuerzan:
-
-```bash
-export MEDGEMMA_RUN_MODE=smoke  # o full, segun el job
-```
+Los resultados nuevos usan `schema_version: m7-m8-v2` y se guardan en
+`results/`. No se conservan resultados de contratos o datasets anteriores.
+El formato se documenta en `results/README.md`.

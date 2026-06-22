@@ -10,7 +10,12 @@ import numpy as np
 import torch
 from PIL import Image
 
-from .conditioning import MASK_CONDITIONS, PROMPT_TEMPLATES, format_distribution, make_overlay
+from .conditioning import (
+    MASK_CONDITIONS,
+    build_prompt,
+    make_overlay,
+    validate_condition_inputs,
+)
 
 
 class MedGemmaConditioner:
@@ -22,7 +27,7 @@ class MedGemmaConditioner:
         self.max_new_tokens = int(config.get("max_new_tokens", 512))
         self.seed = int(config.get("seed", 42))
         self.token = config.get("token")
-        self.device_map = config.get("device_map")
+        self.device_map = config.get("device_map", "auto")
         self._set_seed()
 
         from transformers import AutoModelForImageTextToText, AutoProcessor
@@ -30,6 +35,7 @@ class MedGemmaConditioner:
         self.processor = AutoProcessor.from_pretrained(
             self.model_name,
             token=self.token,
+            use_fast=False,
         )
         dtype = self._resolve_dtype(config.get("torch_dtype", "auto"))
         model_kwargs = {
@@ -43,11 +49,6 @@ class MedGemmaConditioner:
             self.model_name,
             **model_kwargs,
         )
-        adapter_path = config.get("adapter_path")
-        if adapter_path:
-            from peft import PeftModel
-
-            self.model = PeftModel.from_pretrained(self.model, adapter_path)
         if self.device_map is None:
             if not torch.cuda.is_available():
                 raise RuntimeError("MedGemma requires a CUDA GPU")
@@ -112,23 +113,12 @@ class MedGemmaConditioner:
         prediction: str | None,
         distribution: dict[str, float] | None,
     ) -> None:
-        required = {
-            "A": (False, False, False),
-            "B": (True, False, False),
-            "C1": (False, True, False),
-            "C2": (False, False, True),
-            "D1": (True, True, False),
-            "D2": (True, False, True),
-        }
-        if condition not in required:
-            raise ValueError(f"Unknown condition: {condition}")
-        needs_mask, needs_prediction, needs_distribution = required[condition]
-        if needs_mask and mask is None:
-            raise ValueError(f"Condition {condition} requires mask")
-        if needs_prediction and prediction is None:
-            raise ValueError(f"Condition {condition} requires prediction")
-        if needs_distribution and distribution is None:
-            raise ValueError(f"Condition {condition} requires distribution")
+        validate_condition_inputs(
+            condition,
+            mask=mask,
+            prediction=prediction,
+            distribution=distribution,
+        )
 
     def _model_device(self) -> torch.device | str:
         if hasattr(self.model, "hf_device_map"):
@@ -153,13 +143,10 @@ class MedGemmaConditioner:
         if image_was_overlaid:
             image = make_overlay(image, mask)
 
-        prompt = PROMPT_TEMPLATES[condition].format(
+        prompt = build_prompt(
+            condition,
             prediction=prediction,
-            distribution=(
-                format_distribution(distribution)
-                if distribution is not None
-                else None
-            ),
+            distribution=distribution,
         )
         messages = [{
             "role": "user",
@@ -182,15 +169,23 @@ class MedGemmaConditioner:
         }
         input_length = inputs["input_ids"].shape[-1]
         with torch.inference_mode():
+            pad_token_id = getattr(
+                getattr(self.processor, "tokenizer", None),
+                "eos_token_id",
+                None,
+            )
             output = self.model.generate(
                 **inputs,
                 max_new_tokens=self.max_new_tokens,
                 do_sample=False,
+                pad_token_id=pad_token_id,
             )
         text = self.processor.decode(
             output[0, input_length:],
             skip_special_tokens=True,
         ).strip()
+        if not text:
+            raise RuntimeError(f"MedGemma generated empty text for condition {condition}")
         return {
             "text": text,
             "condition": condition,

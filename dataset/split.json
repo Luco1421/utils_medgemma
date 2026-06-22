@@ -1,0 +1,3367 @@
+{
+  "train": [
+    {
+      "id": 151,
+      "image_filename": "1209_right.jpg",
+      "label": "Pathological",
+      "transcription": "Clinical photograph of the right eye showing the optic nerve head with advanced cupping (C/D ratio ~0.9), neuroretinal rim loss, mild pallor, bayonetting of vessels with nasal displacement, and a generalized retinal nerve fiber layer defect.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "a7a8e254-de9b-47e8-a6f8-42f158e445fc",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 2,
+          "rnfl_defect": 2,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-04-21T15:29:41.837597+00:00",
+      "updated_at": "2026-04-21T15:31:08.958086+00:00",
+      "filename_hash": "e027c0d144a8defe046a901a9adf02c4533bf78cf390e87b6081ef62107b551a",
+      "session_hash": "6faeb11472b5507fd4598a95eb34776ba08dd86095841958e2dafa012dda1d57",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 293,
+      "image_filename": "2472_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.6, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:50:22.170991+00:00",
+      "updated_at": "2026-05-14T14:51:43.556714+00:00",
+      "filename_hash": "eea96ebdad3cfabece5c0fb91dcf0a935c564e6bad5ff5e24b84872964bfa5e2",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 344,
+      "image_filename": "2427_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:32:03.142952+00:00",
+      "updated_at": "2026-05-14T23:32:27.473134+00:00",
+      "filename_hash": "099b85f44dc6d4c88d389555eaeed710c30c57e0ef10bb24b92a1ff90ce243a0",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 300,
+      "image_filename": "3231_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:13:14.554087+00:00",
+      "updated_at": "2026-05-14T15:13:35.843374+00:00",
+      "filename_hash": "319d3f3efbbfef4e483781c892426d2ca400c52072d595f9c873bd7eadddbfe8",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 380,
+      "image_filename": "1334_left.jpg",
+      "label": "Pathological",
+      "transcription": "Optic nerve with a 0.8 cup-to-disc ratio, diffuse thinning of the neuroretinal rim, mild pallor of the optic disc, bayoneting and nasalization of the vessels.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "871c1a0f-1c13-4b56-bf5a-e0f3cf4a6829",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-15T20:54:43.497844+00:00",
+      "updated_at": "2026-05-15T21:35:00.453497+00:00",
+      "filename_hash": "2bf6abaaf618819850de15b8f93b3e4c3c0016be8cba857159d68951ad25a0ee",
+      "session_hash": "838687a5b8a0ef4287b42a8365808756b39b3c4675e5a447933570cdc3fe2fa3",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 323,
+      "image_filename": "2811_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "e61c651d-058a-41cf-ad46-31465a795028",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T22:41:18.949306+00:00",
+      "updated_at": "2026-05-14T22:41:39.495721+00:00",
+      "filename_hash": "8376e1cd4cf71a0567ebb34b60a79ffe46df0316f37bdb3f120aae58101c6d88",
+      "session_hash": "8395d03eac8b660d20236c5b302f471a42df2f91face007eca030383c4aaf5d1",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 466,
+      "image_filename": "1469_left.jpg",
+      "label": "Normal",
+      "transcription": "Cup-to-disc ratio 0.3, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T23:36:26.793808+00:00",
+      "updated_at": "2026-05-26T23:37:21.480915+00:00",
+      "filename_hash": "587f86c1bdd523483c65a928ee989e7b18620c94da956a6172ad01fbc49ec88f",
+      "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 480,
+      "image_filename": "1491_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "4975011e-525f-4bd2-ad09-7c2b78326b5c",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:45:44.020860+00:00",
+      "updated_at": "2026-05-27T17:47:07.346182+00:00",
+      "filename_hash": "0766d1fb1985d7bee0b42b29d4495fca3bf0f29af88411af7f26aae2befe50ca",
+      "session_hash": "19a05d3c5a75c7027b8b3ffdcfc52988524c9bf3167b6d6622e44b0026258869",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 289,
+      "image_filename": "2423_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:45:17.839786+00:00",
+      "updated_at": "2026-05-14T14:45:52.034356+00:00",
+      "filename_hash": "1b95821b74a84ba0461381771ca40b9140b2514cdddbcc0ac0e3c6140692f113",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 477,
+      "image_filename": "1485_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "4975011e-525f-4bd2-ad09-7c2b78326b5c",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:41:51.923326+00:00",
+      "updated_at": "2026-05-27T17:42:36.862925+00:00",
+      "filename_hash": "a33f7b453a43caface5fe907512a09966aa015b46aa104521e5226a16c03728e",
+      "session_hash": "19a05d3c5a75c7027b8b3ffdcfc52988524c9bf3167b6d6622e44b0026258869",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 470,
+      "image_filename": "1475_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T23:57:00.287303+00:00",
+      "updated_at": "2026-05-26T23:58:09.450891+00:00",
+      "filename_hash": "082e7e11ba05b1bb8ac3443acdc66100790eb0eff85163b36752f10f6dbc9edb",
+      "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 261,
+      "image_filename": "1258_right.jpg",
+      "label": "Pathological",
+      "transcription": "excavation 0.6, nasalization of vessels, superior thinning, peripapillary atrophy, significant pallor",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "b6771eca-19d3-4a47-9d74-e79f9f6c4f21",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 2,
+          "rnfl_defect": 0,
+          "disc_pallor": 2,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-13T16:34:02.740149+00:00",
+      "updated_at": "2026-05-13T16:47:07.859879+00:00",
+      "filename_hash": "94107379b72499170da2278ed11742658cc7726b07283219407dcc9a5f1bc830",
+      "session_hash": "e434e2ef59e1559fcf31fbd34709f3097dd82a1a16b125129e08ab9b846039c5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 459,
+      "image_filename": "1434_right.jpg",
+      "label": "Pathological",
+      "transcription": "Total cupping, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels, alpha and beta peripapillary atrophy",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "d8efee6e-dddb-4bb7-a495-3c6e4de8bd19",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 4,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:22:22.924135+00:00",
+      "updated_at": "2026-05-26T04:23:24.660592+00:00",
+      "filename_hash": "fde436fc5baed43a5df58cddfb94fa02f1036de7f1bd50e0a02f5dd0b111e4d4",
+      "session_hash": "56a0ec2027698b2c7f3dcde29be9e90981dd32057b0227b7419d448486e9841e",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 252,
+      "image_filename": "1232_left.jpg",
+      "label": "Pathological",
+      "transcription": "Subtotal optic nerve cupping with mild pallor, nasalization of the vasculature, and vessel bayonetting. Additionally, peripapillary atrophy and diffuse RNFL loss were observed, consistent with advanced glaucomatous damage",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "de6bc018-b106-4707-9bc1-cf05760aebce",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 4,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 2,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-12T05:07:02.781504+00:00",
+      "updated_at": "2026-05-12T05:17:52.553074+00:00",
+      "filename_hash": "04eb207ee84639fb3e21eda115acae115fa936b61d25e5003849a7f0a4701ec9",
+      "session_hash": "d92c539692dfb413b5f326cd165f857375adeace357581b3ef77d21aeca216c9",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 474,
+      "image_filename": "1482_left.jpg",
+      "label": "Pathological",
+      "transcription": "Total cupping, mildly pale optic nerve, nasalization of vessels, beta peripapillary atrophy",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "2fbef747-1ac8-46ba-b53a-4e6b45a9ec3a",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 4,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 2,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T00:12:20.280826+00:00",
+      "updated_at": "2026-05-27T00:12:51.162875+00:00",
+      "filename_hash": "bc100cb87231101173c8a2ebf0dbf64e65642e3e3d53d488f38fb9cc0e80754a",
+      "session_hash": "21783b25fa88a028c7d0f4a006709813b2652d002605149f0d4745f3617dfe72",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 313,
+      "image_filename": "3045_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:27:52.074467+00:00",
+      "updated_at": "2026-05-14T15:28:04.650653+00:00",
+      "filename_hash": "25dbe94750798c687dcf64299451382ba6e781f94ba0436de5b4fc2b849a8a74",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 478,
+      "image_filename": "1487_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "4975011e-525f-4bd2-ad09-7c2b78326b5c",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:42:53.148648+00:00",
+      "updated_at": "2026-05-27T17:43:34.400525+00:00",
+      "filename_hash": "7b14da64d0eaa2fbf563d2da5ca3d5e91d7695ae3b354507d6e95dbbaaec52b1",
+      "session_hash": "19a05d3c5a75c7027b8b3ffdcfc52988524c9bf3167b6d6622e44b0026258869",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 290,
+      "image_filename": "3354_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:47:26.747909+00:00",
+      "updated_at": "2026-05-14T14:47:41.402885+00:00",
+      "filename_hash": "0aa6d69995e0bdf298a20b370fc9ccd1b13d47d5ee5a25cf7272d7c3ac1e811a",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 339,
+      "image_filename": "2604_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, peripapillary atrophy,  normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:20:45.323118+00:00",
+      "updated_at": "2026-05-14T23:21:47.535005+00:00",
+      "filename_hash": "c99721b29731f4ff0a19d6e36c9d1956b600d7af1a0af521331417c83087c618",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 485,
+      "image_filename": "1494_right.jpg",
+      "label": "Normal",
+      "transcription": "Cup-to-disc ratio 0.4, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "f91893d1-05ae-4620-8c6a-1e43b8684172",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:59:58.096421+00:00",
+      "updated_at": "2026-05-27T18:00:07.685759+00:00",
+      "filename_hash": "d06136d535d99c087be4bf286f88f19c00af6d7244f29bb2f7cf795de07b09b0",
+      "session_hash": "01435b47c1700c4e081227a462cb5461fd8b7233e5920d644fbefe7a78032652",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 262,
+      "image_filename": "1265_left.jpg",
+      "label": "Pathological",
+      "transcription": "This left eye fundus photography demonstrates a optic nerve head with an 0.8 excavation, with peripapillary atrophy, the vessels are bayoneting and there's nasalization",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "94e6b38c-5711-4c3d-8e2c-aacc5dd1f4e9",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 2,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-13T22:50:05.891323+00:00",
+      "updated_at": "2026-05-13T23:15:35.743208+00:00",
+      "filename_hash": "e1b8b46ca92ff449a7e37b433d240a96709eed04685c65262f74bcdff74ccc64",
+      "session_hash": "b528bbe6167904baa32de6070fedc05880e2d87773a896642f5d139c407ea546",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 481,
+      "image_filename": "1491_right.jpg",
+      "label": "Normal",
+      "transcription": "Cup-to-disc ratio 0.4, optic disc with well-defined margins and good color, preserved neuroretinal rim",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "4975011e-525f-4bd2-ad09-7c2b78326b5c",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:47:15.983076+00:00",
+      "updated_at": "2026-05-27T17:48:15.396595+00:00",
+      "filename_hash": "aa057482a6faa8511134217b573dbae531d46428641bc3ebd4265a2e8fb173a7",
+      "session_hash": "19a05d3c5a75c7027b8b3ffdcfc52988524c9bf3167b6d6622e44b0026258869",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 288,
+      "image_filename": "2423_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:44:01.790044+00:00",
+      "updated_at": "2026-05-14T14:45:06.564831+00:00",
+      "filename_hash": "0accff76fcc6ff3058669735a41cb76d541a63395529d60cfa476c54b9043892",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 395,
+      "image_filename": "1388_right.jpg",
+      "label": "Pathological",
+      "transcription": "This right eye fundus photography with an excavation of 0.9, there is nasalization of vessels, and peripapillary atrophy.",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "ae611548-1ae7-437d-9d59-263be02355ec",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 2,
+          "disc_pallor": 0,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-21T03:17:46.484617+00:00",
+      "updated_at": "2026-05-21T03:21:30.153100+00:00",
+      "filename_hash": "b1d4709d1a698815fdcb2b0bf12629fd8be113b94e1c586a41dc8d53374c30c4",
+      "session_hash": "b433188c72f572a844584425fd8ba724b4eb6ecd084d1d0fd5cb55f22568bafd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 473,
+      "image_filename": "1477_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.8, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "2fbef747-1ac8-46ba-b53a-4e6b45a9ec3a",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T00:10:59.174319+00:00",
+      "updated_at": "2026-05-27T00:11:24.118404+00:00",
+      "filename_hash": "11f6416b5e183aa709646f3aba5ae548bc5a4fa5969d5c07e76a8f59f563519b",
+      "session_hash": "21783b25fa88a028c7d0f4a006709813b2652d002605149f0d4745f3617dfe72",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 458,
+      "image_filename": "1434_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, alpha and beta peripapillary atrophy",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "d8efee6e-dddb-4bb7-a495-3c6e4de8bd19",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:21:14.286051+00:00",
+      "updated_at": "2026-05-26T04:21:56.306006+00:00",
+      "filename_hash": "d00f18e0c4bd65d1f72c54538a7c511d0976ef22e72d1df6d073bf294d1691f9",
+      "session_hash": "56a0ec2027698b2c7f3dcde29be9e90981dd32057b0227b7419d448486e9841e",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 263,
+      "image_filename": "1265_right.jpg",
+      "label": "Normal",
+      "transcription": "This right eye fundus photography has a normal excavation, with peripapillary atrophy ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "94e6b38c-5711-4c3d-8e2c-aacc5dd1f4e9",
+      "locs_data": {
+        "conditions": [],
+        "glaucoma": {
+          "cup_to_disc_ratio": 0,
+          "neuroretinal_rim": 0,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 2,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 0
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-13T22:54:32.552777+00:00",
+      "updated_at": "2026-05-13T23:15:46.186682+00:00",
+      "filename_hash": "7adf17fae368ee80dfc68592d1b99167b798aea39163d58a5fff061ebba05f65",
+      "session_hash": "b528bbe6167904baa32de6070fedc05880e2d87773a896642f5d139c407ea546",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 278,
+      "image_filename": "2370_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.4, with a crescent shaped temporal peripapillary atrophy",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:06:57.609915+00:00",
+      "updated_at": "2026-05-14T14:08:11.026322+00:00",
+      "filename_hash": "598ed7dfa5900d5ad7a16f95bb852ba65414349a1844e113367a1f548ef2aa5a",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 332,
+      "image_filename": "2646_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:10:53.745397+00:00",
+      "updated_at": "2026-05-14T23:11:36.682015+00:00",
+      "filename_hash": "90376706715f32b48e66e9554751d55fb94d08aece97a67842fd4a0a272f1cff",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 254,
+      "image_filename": "1247_left.jpg",
+      "label": "Pathological",
+      "transcription": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "76a3668b-0395-43a9-841f-37c57066ff90",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-13T15:55:57.108444+00:00",
+      "updated_at": "2026-05-13T16:01:12.238064+00:00",
+      "filename_hash": "1f57c76510c12baff154314805a043a54c6b1adf76bfc720ac6a2fa6e74cbc69",
+      "session_hash": "920911551212427d3ccd9acadbe0455e217553b6bfb4a02662d2a6d8b764bdfa",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 267,
+      "image_filename": "1281_right.jpg",
+      "label": "Pathological",
+      "transcription": "This right eye fundus photography shows an optic nerve head that has important pallor, which makes it difficult to analize, the excavation looks like 0.7, with thinning of the inferior and superior portions, nasalization of vessels and bayoneting ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "94e6b38c-5711-4c3d-8e2c-aacc5dd1f4e9",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 2,
+          "disc_pallor": 2,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-13T23:09:30.837071+00:00",
+      "updated_at": "2026-05-13T23:15:06.856819+00:00",
+      "filename_hash": "0f4e6079566a6c6f2fa4d60364812bf2317f78ca8388b616302a2884d7ed62e0",
+      "session_hash": "b528bbe6167904baa32de6070fedc05880e2d87773a896642f5d139c407ea546",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 490,
+      "image_filename": "167_left.jpg",
+      "label": "Pathological",
+      "transcription": "Mildly pale optic nerve, cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "554640f2-13d5-4335-8d34-ef61d5fb7beb",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 1
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T18:41:51.100739+00:00",
+      "updated_at": "2026-05-27T18:44:33.530472+00:00",
+      "filename_hash": "dd94c53b1876f7aba6161287a5bfca6f7f9e61fe1c3a722afe606ead18459e4e",
+      "session_hash": "62bba0bd4d16056cbba87e99f4eb87076c820eac507ba839e855a489fd3186f7",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 258,
+      "image_filename": "1248_left.jpg",
+      "label": "Pathological",
+      "transcription": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc, 360° peripapillary atrophy",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "b6771eca-19d3-4a47-9d74-e79f9f6c4f21",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-13T16:17:03.418180+00:00",
+      "updated_at": "2026-05-13T16:18:44.057755+00:00",
+      "filename_hash": "c7a5f9c2c0c7a0ab3b21bc4f55a8ab33c7f8ea5a5c1020e8d34421ed30404f3f",
+      "session_hash": "e434e2ef59e1559fcf31fbd34709f3097dd82a1a16b125129e08ab9b846039c5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 351,
+      "image_filename": "3138_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:44:08.150179+00:00",
+      "updated_at": "2026-05-14T23:44:25.899383+00:00",
+      "filename_hash": "687a39373721e08d7906728234b4db49d7de386d3ed6c77e5614bff49f6129ea",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 281,
+      "image_filename": "2410_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc raito of 0.3, normal macula, no vascular abnormalities ",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:13:47.879922+00:00",
+      "updated_at": "2026-05-14T14:15:12.004525+00:00",
+      "filename_hash": "0a1071982d694de60b77c21d307da67a7a305e6d8d15b529e008f60241813e6d",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 307,
+      "image_filename": "3098_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.6, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:22:20.579606+00:00",
+      "updated_at": "2026-05-14T15:22:34.142561+00:00",
+      "filename_hash": "dae356526e2bde2f7a5ff713a1c21b9dcadf231a4ffda9d29b4065db179b7c0b",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 487,
+      "image_filename": "1496_right.jpg",
+      "label": "Pathological",
+      "transcription": "Mildly pale optic nerve, cup-to-disc ratio 0.7, thinning of the superior and inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "f91893d1-05ae-4620-8c6a-1e43b8684172",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T18:26:48.907453+00:00",
+      "updated_at": "2026-05-27T18:36:31.740321+00:00",
+      "filename_hash": "a1a164922ab6618c8dbfaa756d84aeb2bda5ec6167602ad237a7a57cc0986ec8",
+      "session_hash": "01435b47c1700c4e081227a462cb5461fd8b7233e5920d644fbefe7a78032652",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 469,
+      "image_filename": "1473_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T23:42:21.500756+00:00",
+      "updated_at": "2026-05-26T23:43:15.271757+00:00",
+      "filename_hash": "ccddf5c941d5330c0e0244b5b065d366fe37b8e31ca291917b78384677405f26",
+      "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 494,
+      "image_filename": "1975_left.jpg",
+      "label": "Pathological",
+      "transcription": "Mildly pale optic nerve, cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "554640f2-13d5-4335-8d34-ef61d5fb7beb",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T18:56:22.744562+00:00",
+      "updated_at": "2026-05-27T18:57:22.532714+00:00",
+      "filename_hash": "c75cb2607f54cf01a85d1cc71a14fded4eb1fcae44bbf24d9aa0cca672deeb16",
+      "session_hash": "62bba0bd4d16056cbba87e99f4eb87076c820eac507ba839e855a489fd3186f7",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 482,
+      "image_filename": "1493_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.7, thinning of the neuroretinal rim with loss of the normal pattern, mildly pale optic nerve, nasalization and bayoneting of vessels,",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "f91893d1-05ae-4620-8c6a-1e43b8684172",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:57:11.967601+00:00",
+      "updated_at": "2026-05-27T17:58:48.026181+00:00",
+      "filename_hash": "2f85d4f34eca7d249c666a33f0aed76fc799a90a06cdba9e6b03ec95256f608c",
+      "session_hash": "01435b47c1700c4e081227a462cb5461fd8b7233e5920d644fbefe7a78032652",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 260,
+      "image_filename": "1258_left.jpg",
+      "label": "Pathological",
+      "transcription": "exc 0.8, superior temporal thinning, bayonet vessels and nasalization thereof, pale optic nerve",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "b6771eca-19d3-4a47-9d74-e79f9f6c4f21",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 2,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-13T16:26:52.095066+00:00",
+      "updated_at": "2026-05-13T16:33:42.345926+00:00",
+      "filename_hash": "637eaf35134c3b2427ef9cd3eb070ead5851b61028b621fc4be80c4a3a9209f7",
+      "session_hash": "e434e2ef59e1559fcf31fbd34709f3097dd82a1a16b125129e08ab9b846039c5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 489,
+      "image_filename": "1510_right.jpg",
+      "label": "Pathological",
+      "transcription": "cup-to-disc ratio 0.7, thinning of the superior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect, bayoneting and nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "554640f2-13d5-4335-8d34-ef61d5fb7beb",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T18:39:31.754047+00:00",
+      "updated_at": "2026-05-27T18:40:25.354063+00:00",
+      "filename_hash": "35fa67cf85a8f1a5495743c9425482239874f1f0c7c768d99e7b5d931fc4a821",
+      "session_hash": "62bba0bd4d16056cbba87e99f4eb87076c820eac507ba839e855a489fd3186f7",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 348,
+      "image_filename": "2470_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.5, diffuse peripapillary atrophy, normal macula, no vascular abnormalities, tessellated fundus appearance, myopic ",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:38:17.652405+00:00",
+      "updated_at": "2026-05-14T23:40:04.953641+00:00",
+      "filename_hash": "5d0dedc03705c07aa564203eb0a1018320f7c2f305e5010ff28184371e704a64",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 268,
+      "image_filename": "1294_left.jpg",
+      "label": "Pathological",
+      "transcription": "This left eye fundus photography, has a 0.7 excavation, the ISNT rule is affected, the inferior rim is the thinner than the superior and nasal, it appears to have a localized wedge defect of nerve fiber layer ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "94e6b38c-5711-4c3d-8e2c-aacc5dd1f4e9",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-13T23:24:55.795618+00:00",
+      "updated_at": "2026-05-13T23:30:30.704341+00:00",
+      "filename_hash": "b1d34de7e6ab06d178185304234a1be52f31450d36248e81f3415f956d1605e1",
+      "session_hash": "b528bbe6167904baa32de6070fedc05880e2d87773a896642f5d139c407ea546",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 483,
+      "image_filename": "1493_right.jpg",
+      "label": "Normal",
+      "transcription": "Cup-to-disc ratio 0.3, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "f91893d1-05ae-4620-8c6a-1e43b8684172",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:58:56.620577+00:00",
+      "updated_at": "2026-05-27T17:59:20.863845+00:00",
+      "filename_hash": "f6b29ebd9e234a844412f332aeb268c86863bccab622e32b9555d0d44a412772",
+      "session_hash": "01435b47c1700c4e081227a462cb5461fd8b7233e5920d644fbefe7a78032652",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 311,
+      "image_filename": "3066_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:25:29.688645+00:00",
+      "updated_at": "2026-05-14T15:25:43.523803+00:00",
+      "filename_hash": "b0b28c2213b5e3c7f8b12f3e1724caec76c2d4692618fc3fbafc1ff32585d0af",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 330,
+      "image_filename": "2738_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:07:39.492828+00:00",
+      "updated_at": "2026-05-14T23:08:03.711843+00:00",
+      "filename_hash": "290f3ed70522f7c512b43eed8449bbf8fc74f51ece13211bad2eac1f644678ac",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 403,
+      "image_filename": "1414_right.jpg",
+      "label": "Normal",
+      "transcription": "0.4 cup-to-disc ratio, optic disc with well-defined margins and normal color, peripapillary atrophy, central emergence of vessels.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "8c5f6864-57c1-4b0f-812f-a956fec15ad9",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-21T04:27:19.111215+00:00",
+      "updated_at": "2026-05-21T04:34:55.788302+00:00",
+      "filename_hash": "da38683aa50ba4810fa4014e47ccdb2213b5ba29c13fffe26b31eaa03e400163",
+      "session_hash": "bce2da12bc0c532e331e15eb3dca682932a1e7a09a7dd879ad98aa398ab37ad7",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 472,
+      "image_filename": "1477_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.8, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "2fbef747-1ac8-46ba-b53a-4e6b45a9ec3a",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3,
+          "disc_hemorrhage": 0
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T00:09:15.357474+00:00",
+      "updated_at": "2026-05-27T00:15:26.260442+00:00",
+      "filename_hash": "505e8248ded8927eff9dbe5f2f6036456d06233cf3d7f6a9a52fda487eed9ffe",
+      "session_hash": "21783b25fa88a028c7d0f4a006709813b2652d002605149f0d4745f3617dfe72",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 315,
+      "image_filename": "3031_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:29:08.228640+00:00",
+      "updated_at": "2026-05-14T15:29:23.313767+00:00",
+      "filename_hash": "d413f6fe553433dd1043df1ac78d3a2f6aa16be1de4fc0e784b05f53aaff55d5",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 246,
+      "image_filename": "1231_left.jpg",
+      "label": "Pathological",
+      "transcription": "This optic nerve head has a cup to disc ratio of 0.8, there is a splinter hemorrhage in the superior portion of the neuroretinal rim, which has diffuse thinning, there are wedge and generalized RNFL defect. The vessels have nasalization and bayoneting. ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "0e54cfa2-fbb3-4f79-be3b-5d2ba21d7c87",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 1,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 3,
+          "disc_pallor": 0,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-11T00:35:41.380523+00:00",
+      "updated_at": "2026-05-11T00:40:11.651041+00:00",
+      "filename_hash": "5948db2551f709eca1bdf5b1fe016504abc454ed0e195f5dad1b80fe99b3b350",
+      "session_hash": "589e6546a8cd4603e50852d97c0e02acc0726dc225aea25665cfcad83213b45e",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 383,
+      "image_filename": "1362_right.jpg",
+      "label": "Pathological",
+      "transcription": "Optic nerve with a 0.8 cup-to-disc ratio, thinning of the inferior-temporal neuroretinal rim, a wedge defect in the retinal nerve fiber layer, mild pallor of the optic disc, as well as bayoneting and nasalization of the vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "871c1a0f-1c13-4b56-bf5a-e0f3cf4a6829",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "neuroretinal_rim": 2,
+          "cup_to_disc_ratio": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-15T21:31:15.727834+00:00",
+      "updated_at": "2026-05-15T21:34:46.168252+00:00",
+      "filename_hash": "5834e768cc7aa48372e6c1b85c80b985cc9684d607e00bedcb0063440526b3e7",
+      "session_hash": "838687a5b8a0ef4287b42a8365808756b39b3c4675e5a447933570cdc3fe2fa3",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 475,
+      "image_filename": "1482_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, thinning of the neuroretinal rim with loss of the normal pattern, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "2fbef747-1ac8-46ba-b53a-4e6b45a9ec3a",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T00:14:40.497101+00:00",
+      "updated_at": "2026-05-27T00:15:15.075236+00:00",
+      "filename_hash": "ddfdf3f8a2c3cf7430f7496b17e8ad712bd5c74fbab4358fc790cd868268cac1",
+      "session_hash": "21783b25fa88a028c7d0f4a006709813b2652d002605149f0d4745f3617dfe72",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 460,
+      "image_filename": "1439_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.7, thinning of the inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "d8efee6e-dddb-4bb7-a495-3c6e4de8bd19",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:23:59.858176+00:00",
+      "updated_at": "2026-05-26T04:25:49.277199+00:00",
+      "filename_hash": "1e498b04a6b76cc566752614af730f015d5252db0e5ab0c79bd72b81967b849b",
+      "session_hash": "56a0ec2027698b2c7f3dcde29be9e90981dd32057b0227b7419d448486e9841e",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 349,
+      "image_filename": "2470_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.7, diffuse peripapillary atrophy, normal macula, no vascular abnormalities, tessellated fundus appeatance, suggestive of myopia",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:40:20.300729+00:00",
+      "updated_at": "2026-05-14T23:41:08.505094+00:00",
+      "filename_hash": "3145383c6ef211e002806ae78280476048aaa55ce258f6681b94ddc7694c0139",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 384,
+      "image_filename": "1365_left.jpg",
+      "label": "Pathological",
+      "transcription": "0.8 excavation, with diffuse thinning of the rim and nasalization of vessels. This image has bad quality. ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "e7a1a324-eaef-41dc-9445-f648ec2c953a",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "vessel_changes": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-19T02:23:48.682998+00:00",
+      "updated_at": "2026-05-21T03:44:32.586561+00:00",
+      "filename_hash": "c5e6790a98f1f37b492f058324537e7e9c81b316b8683fc6e418cc7c784c58bd",
+      "session_hash": "c58d4447d0c8b9a6d3fc471c2115ee6cda3753ae4ce3446bc5e42c7122d8db6d",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 461,
+      "image_filename": "1439_right.jpg",
+      "label": "Normal",
+      "transcription": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.2, preserved neuroretinal rim, no retinal nerve fiber layer defect",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "d8efee6e-dddb-4bb7-a495-3c6e4de8bd19",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:25:58.984650+00:00",
+      "updated_at": "2026-05-26T04:27:21.678713+00:00",
+      "filename_hash": "17256265b4188c13a6d2a3d5340565f55afb0ea115736aff0704922c9ae62a6d",
+      "session_hash": "56a0ec2027698b2c7f3dcde29be9e90981dd32057b0227b7419d448486e9841e",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 452,
+      "image_filename": "1269_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "576c7f3b-1c1b-496d-9b4d-b9296c6aa8b8",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:11:48.964847+00:00",
+      "updated_at": "2026-05-26T04:12:41.847380+00:00",
+      "filename_hash": "96046a0ec1fa6a7bc602b5ea78f1a7464e16429eef58da207f1a5cc5db8e398f",
+      "session_hash": "665126dc90b57cbd234400cdde50fb3e059ef814c4cbedac9fac97eedc749c3e",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 457,
+      "image_filename": "1428_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels and bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "576c7f3b-1c1b-496d-9b4d-b9296c6aa8b8",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3,
+          "neuroretinal_rim": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:16:30.359958+00:00",
+      "updated_at": "2026-05-26T04:18:49.064346+00:00",
+      "filename_hash": "117a916b52975e3ae5cc5958b0b8b27a84bd9c2e6eaeea4318a3c474cd77c4ad",
+      "session_hash": "665126dc90b57cbd234400cdde50fb3e059ef814c4cbedac9fac97eedc749c3e",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 320,
+      "image_filename": "2840_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.5, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "e61c651d-058a-41cf-ad46-31465a795028",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T22:37:14.341220+00:00",
+      "updated_at": "2026-05-14T22:37:47.891408+00:00",
+      "filename_hash": "50fff3f7036df4f07cc8592bee2dda056a13a18a58f7f12a7d1dd0f5edd2b1c5",
+      "session_hash": "8395d03eac8b660d20236c5b302f471a42df2f91face007eca030383c4aaf5d1",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 479,
+      "image_filename": "1487_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.8, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "4975011e-525f-4bd2-ad09-7c2b78326b5c",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:45:03.394660+00:00",
+      "updated_at": "2026-05-27T17:45:31.620311+00:00",
+      "filename_hash": "314800f1599c7961653c4b876f8de7b60b9896045ba058fead053c5e793d2294",
+      "session_hash": "19a05d3c5a75c7027b8b3ffdcfc52988524c9bf3167b6d6622e44b0026258869",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 342,
+      "image_filename": "2554_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:27:48.594432+00:00",
+      "updated_at": "2026-05-14T23:28:16.640954+00:00",
+      "filename_hash": "6acc19884cd54272ccaec157a77a90cf1f9761133ff601b505f4b45c665c8038",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 269,
+      "image_filename": "1294_right.jpg",
+      "label": "Pathological",
+      "transcription": "This right eye fundus photography has an 0.7 excavation, there is a localized defect of the RFNL ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "94e6b38c-5711-4c3d-8e2c-aacc5dd1f4e9",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-13T23:31:04.112938+00:00",
+      "updated_at": "2026-05-13T23:35:19.988692+00:00",
+      "filename_hash": "0879e7301a292e36d20637c15bf30a37356e8eef53b23c22cf4b317490217639",
+      "session_hash": "b528bbe6167904baa32de6070fedc05880e2d87773a896642f5d139c407ea546",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 322,
+      "image_filename": "2811_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities, there is a white spot over the inferior temporal vascular arcade that seems to be an artifact ",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "e61c651d-058a-41cf-ad46-31465a795028",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T22:40:00.397092+00:00",
+      "updated_at": "2026-05-14T22:41:07.189565+00:00",
+      "filename_hash": "2e3995f63be34162dc6d6c26013711b947d27a158df838ef0b640255839ffec8",
+      "session_hash": "8395d03eac8b660d20236c5b302f471a42df2f91face007eca030383c4aaf5d1",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 242,
+      "image_filename": "1222_left.jpg",
+      "label": "Pathological",
+      "transcription": "The cup-to-disc ratio is 0.7, with a violation to ISNT rule; here, the inferior border is the thinnest. Peripapillar atrophy is present. The vessels have nasalization and there is bayoneting in the temporal inferior vessels",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "2e1e332d-88f2-4b3e-935c-5d17430f425c",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-10T23:58:53.393862+00:00",
+      "updated_at": "2026-05-11T00:05:18.267018+00:00",
+      "filename_hash": "2d23c73b5888285c08b82d009307f53145e566debda11d049a868a147f3a62ee",
+      "session_hash": "f20edc7cd66abdd386aa06224cbcd1b9605adc16f869b836711f1ce39cd5dd47",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 169,
+      "image_filename": "1220_right.jpg",
+      "label": "Pathological",
+      "transcription": "Optic disc with mild increased cupping, with slight thinning of the neuroretinal rim, without optic disc hemorrhages",
+      "doctor_name": "Dr. Eduardo Anchia",
+      "session_id": "aca8c397-fecf-4475-9a55-722d1e313d95",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 0,
+          "vessel_changes": 1
+        }
+      },
+      "source": "gcp",
+      "creator_username": "eduardo26",
+      "created_at": "2026-04-30T19:44:21.688855+00:00",
+      "updated_at": "2026-04-30T19:48:16.284865+00:00",
+      "filename_hash": "7cba1b9423633d4b27ca56b085c19123a1461055c25ae49f077b67b5c7903f6b",
+      "session_hash": "0b0c51d0ebcf3d8becdabe2feb1ff7916cb613e515e06ef86484fedd83f71c10",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 247,
+      "image_filename": "1231_right.jpg",
+      "label": "Pathological",
+      "transcription": "This image has a cup to disc ratio of 0.7, there are diffuse RNFL defects. The neuroretinal rim has a notch defect in the inferior portion, it has a normal color, no splinter hemorrhages. \n",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "0e54cfa2-fbb3-4f79-be3b-5d2ba21d7c87",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 2,
+          "disc_pallor": 0,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-11T00:40:26.213909+00:00",
+      "updated_at": "2026-05-11T00:43:01.047744+00:00",
+      "filename_hash": "aa3f1cc0ca9d7156251556af147f428d8d42e49e91f135af1198a5a47b1c779a",
+      "session_hash": "589e6546a8cd4603e50852d97c0e02acc0726dc225aea25665cfcad83213b45e",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 306,
+      "image_filename": "3098_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.5, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:21:37.454832+00:00",
+      "updated_at": "2026-05-14T15:22:11.437421+00:00",
+      "filename_hash": "ea5a94b74a2da597b66a9d815e8a405f535892f216f080f0a259d1783897c928",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 393,
+      "image_filename": "1371_right.jpg",
+      "label": "Pathological",
+      "transcription": "This right eye fundus photography shows an optic nerve head that has a 0.5 excavation, with pallor and peripapillary atrophy, there's some nasalization of the vessels ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "ae611548-1ae7-437d-9d59-263be02355ec",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 1,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 2,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-21T03:10:27.446497+00:00",
+      "updated_at": "2026-05-21T03:13:48.572468+00:00",
+      "filename_hash": "1b414157cbe51d03efe5aded17d47d45dbae09a9668339cbafcbf992dcbfbd99",
+      "session_hash": "b433188c72f572a844584425fd8ba724b4eb6ecd084d1d0fd5cb55f22568bafd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 355,
+      "image_filename": "3352_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:50:15.013413+00:00",
+      "updated_at": "2026-05-14T23:52:59.931806+00:00",
+      "filename_hash": "54a2ff6842b0cb47b1c23bce4805ebbd23233678fd11de59437312d5fb8c4fad",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 244,
+      "image_filename": "1229_left.jpg",
+      "label": "Normal",
+      "transcription": "C-D ratio is 0.3, neuroretinal rim follows ISNT rule, the optic nerve head has normal color, vessels are slightly nasalized.",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "fd952630-d43a-486b-b589-e0402bb5d975",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-11T00:20:12.698849+00:00",
+      "updated_at": "2026-05-11T00:21:24.413267+00:00",
+      "filename_hash": "162eb6d412983c47c1ea39cffcad2c1ddd884813cfbf87fd7ffcd6ae112363d0",
+      "session_hash": "d82b516b6e2194f624b234aa67ff2a863152f1ea8655db9d110f221e58abd4e5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 304,
+      "image_filename": "3102_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:19:29.250336+00:00",
+      "updated_at": "2026-05-14T15:19:58.821886+00:00",
+      "filename_hash": "a2197a2b14b9efff70b5cd7114e38529d74dd2c9e1562507e1848ceab83c5a35",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 486,
+      "image_filename": "1496_left.jpg",
+      "label": "Normal",
+      "transcription": "Cup-to-disc ratio 0.4, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "f91893d1-05ae-4620-8c6a-1e43b8684172",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T18:26:22.297436+00:00",
+      "updated_at": "2026-05-27T18:26:36.648401+00:00",
+      "filename_hash": "b2335bd85dcc82d392abb39146c0dea951ddcf3c038e4f344d59d02eaf4e2736",
+      "session_hash": "01435b47c1700c4e081227a462cb5461fd8b7233e5920d644fbefe7a78032652",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 309,
+      "image_filename": "3086_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:23:57.549802+00:00",
+      "updated_at": "2026-05-14T15:24:12.942559+00:00",
+      "filename_hash": "3b25b0f28ec755dc175deb11d893e2a6912d3f628b791ab751a44d022292f631",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 270,
+      "image_filename": "1307_left.jpg",
+      "label": "Pathological",
+      "transcription": "Optic cup of 0.7, superotemporal neuroretinal rim thinning, superotemporal RNFL wedge defect",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "1821d0a0-7617-4ecb-a3d6-3a0e1f22c50c",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 0
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-14T01:13:01.944436+00:00",
+      "updated_at": "2026-05-15T19:57:24.070673+00:00",
+      "filename_hash": "2a1a4710858db8106c34b6ef833e2d335ab49cb836c7b76bdd0418f460664175",
+      "session_hash": "1e8c4d4965684cafee42d70c9aa2443c0d8fe79c00af30b5299eadee53d6a060",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 449,
+      "image_filename": "1246_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse loss of the neuroretinal rim and inferior temporal thinning, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "943b0714-660e-4de8-8b39-f0e287e749a1",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:02:10.160875+00:00",
+      "updated_at": "2026-05-26T04:03:14.242109+00:00",
+      "filename_hash": "bd99aeaed3ab61b47f57f67fc0c99fe1f50d79856b5f839b61f085fda000453f",
+      "session_hash": "2272b97db18db241a1d1a0015e26759feebba181986547faf1b618e44e65e92c",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 345,
+      "image_filename": "2427_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.4, peripapillary atrophy, normal macula, no vascular abnormalities, white spot over inferior temporal vascular arcade is an artifact ",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:32:35.628415+00:00",
+      "updated_at": "2026-05-14T23:33:21.255545+00:00",
+      "filename_hash": "d12d6af90fc075361d5c47c2c672c458bc63ef3293e5345264cc5a716630fbdd",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    }
+  ],
+  "test": [
+    {
+      "id": 301,
+      "image_filename": "3231_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.6, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:13:42.361106+00:00",
+      "updated_at": "2026-05-14T15:13:57.193255+00:00",
+      "filename_hash": "84cc6ab7ca132b11ebd250a291bc61d50a60d47264e304c586728cc45de0ab99",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 379,
+      "image_filename": "1307_right.jpg",
+      "label": "Normal",
+      "transcription": "Optic nerve with well-defined margins, preserved neuroretinal rim, good color, ISNT rule respected",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "893851ad-52af-42e1-a3a5-17130e49a02f",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-15T19:47:21.069814+00:00",
+      "updated_at": "2026-05-15T19:53:04.087374+00:00",
+      "filename_hash": "e77f2ad77042c7311540da700e455983b10d48c29670e95d3da86d976d7f50a1",
+      "session_hash": "7dcae4046cce47003abadca8ef1576479fd28a540488da2d0b1a2710321ec62c",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 310,
+      "image_filename": "3066_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:25:01.330397+00:00",
+      "updated_at": "2026-05-14T15:25:19.667584+00:00",
+      "filename_hash": "9f10bf1dad84be215dc9b387d7e50159a38db8c6ff674ba195a426b1d342ebc6",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 291,
+      "image_filename": "3354_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:47:49.577000+00:00",
+      "updated_at": "2026-05-14T14:48:02.569122+00:00",
+      "filename_hash": "0804e77cc35fdc64582f99b7a41475e93dac03b1bfa6a5292005b04cc338b98e",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 447,
+      "image_filename": "1239_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "943b0714-660e-4de8-8b39-f0e287e749a1",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T03:59:48.418863+00:00",
+      "updated_at": "2026-05-26T04:00:13.485048+00:00",
+      "filename_hash": "051916ac7944a87a8a36483501eaa13416a5ef59a11706ec7dd3148f2e9e811e",
+      "session_hash": "2272b97db18db241a1d1a0015e26759feebba181986547faf1b618e44e65e92c",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 243,
+      "image_filename": "1222_right.jpg",
+      "label": "Pathological",
+      "transcription": "This image has low light, the nerve can be visualized and the cup to disc ratio is 0.7,  there is nasalization of vessels and peripapillary atrophy ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "2e1e332d-88f2-4b3e-935c-5d17430f425c",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-11T00:03:02.552130+00:00",
+      "updated_at": "2026-05-11T00:05:13.036208+00:00",
+      "filename_hash": "de9e00a1a0eeae6dc89c6f41c7a140b4e7acf0d4b550f3e661518e61640c8442",
+      "session_hash": "f20edc7cd66abdd386aa06224cbcd1b9605adc16f869b836711f1ce39cd5dd47",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 450,
+      "image_filename": "1262_left.jpg",
+      "label": "Normal",
+      "transcription": "Optic disc with well-defined margins, good color, cup-to-disc ratio 0.1, preserved neuroretinal rim, choroidal fundus",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "943b0714-660e-4de8-8b39-f0e287e749a1",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:03:38.253406+00:00",
+      "updated_at": "2026-05-26T04:05:01.323594+00:00",
+      "filename_hash": "81f04395d92e6cf981af6859fd8f6fd5b3473a04e70293373ece105a3cd7efa0",
+      "session_hash": "2272b97db18db241a1d1a0015e26759feebba181986547faf1b618e44e65e92c",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 493,
+      "image_filename": "1959_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, 360° thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, beta peripapillary atrophy",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "554640f2-13d5-4335-8d34-ef61d5fb7beb",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 2,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T18:55:10.579897+00:00",
+      "updated_at": "2026-05-27T18:55:51.718376+00:00",
+      "filename_hash": "05087ea8ced25bd078856440c694d14fd7fd2d3dd489faa4928f0f73be731490",
+      "session_hash": "62bba0bd4d16056cbba87e99f4eb87076c820eac507ba839e855a489fd3186f7",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 168,
+      "image_filename": "1220_left.jpg",
+      "label": "Pathological",
+      "transcription": "Optic disc with mild increased cupping, with slight thinning of the neuroretinal rim, without optic disc hemorrhages",
+      "doctor_name": "Dr. Eduardo Anchia",
+      "session_id": "d3635378-7ff0-418f-a713-ac5775634957",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 0,
+          "vessel_changes": 1
+        }
+      },
+      "source": "gcp",
+      "creator_username": "eduardo26",
+      "created_at": "2026-04-30T17:02:28.432607+00:00",
+      "updated_at": "2026-04-30T19:43:06.423414+00:00",
+      "filename_hash": "132bdd37aa6972ad11bb3d92e9404673731e9dd4dc39ff0be36d11ffe2b7ce10",
+      "session_hash": "3ad6f8bf54090f0bfd4e290081cc878b57b39fc47ef4d4a9a64e464395d72645",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 150,
+      "image_filename": "1209_left.jpg",
+      "label": "Pathological",
+      "transcription": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "a7a8e254-de9b-47e8-a6f8-42f158e445fc",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-04-21T15:28:07.697867+00:00",
+      "updated_at": "2026-04-21T15:29:18.798810+00:00",
+      "filename_hash": "71ea9c9cf766bb35a368da118e4f7bda9c7e3328925f2dd664d9aa17787e62ab",
+      "session_hash": "6faeb11472b5507fd4598a95eb34776ba08dd86095841958e2dafa012dda1d57",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 382,
+      "image_filename": "1362_left.jpg",
+      "label": "Pathological",
+      "transcription": "Optic nerve with a 0.65 cup-to-disc ratio, good color, diffuse thinning of the inferior retinal nerve fiber layer, and bayoneting of the vessels.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "871c1a0f-1c13-4b56-bf5a-e0f3cf4a6829",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 0,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 2,
+          "disc_pallor": 0,
+          "vessel_changes": 1
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-15T21:14:57.848778+00:00",
+      "updated_at": "2026-05-15T21:30:57.294914+00:00",
+      "filename_hash": "8dcc91e0ccc5d39aad46a1b82542183f67540d43bd77bd8ab9c2cd98cecec73e",
+      "session_hash": "838687a5b8a0ef4287b42a8365808756b39b3c4675e5a447933570cdc3fe2fa3",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 445,
+      "image_filename": "1215_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.95, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "01fdf6e8-6fad-4fb9-afb2-8330068750b8",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 2,
+          "peripapillary_atrophy": 0
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T03:54:42.432478+00:00",
+      "updated_at": "2026-05-26T03:56:22.823733+00:00",
+      "filename_hash": "fdaf2200a25de97838bab6865f5f8dead6d9b40dffe3c91ad9c3e51cb1cec6e4",
+      "session_hash": "bc282835a74eec66ffe71bccb75b95882e7d4ef3f8ca158779545279377ab57a",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 397,
+      "image_filename": "1393_left.jpg",
+      "label": "Normal",
+      "transcription": "0.6 cup-to-disc ratio, preserved neuroretinal rim, optic disc of normal color",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "63b5b217-6e9b-4e87-b996-42528b35b760",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-21T03:34:21.779681+00:00",
+      "updated_at": "2026-05-21T03:45:53.927316+00:00",
+      "filename_hash": "7b889e993d23cf61bc00ba648ef6d9b95d47d9f6ac90e352b5bc2480bfdef7b9",
+      "session_hash": "2e8544ad8d466788ca102108d5e14b89096c15ca41dea17ac197f2e043b29b04",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 324,
+      "image_filename": "2775_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "e61c651d-058a-41cf-ad46-31465a795028",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T22:43:21.371856+00:00",
+      "updated_at": "2026-05-14T22:43:40.395798+00:00",
+      "filename_hash": "bba334c95f7e53f39e26255d081c0a8c805d7ebbfb99c4095017a326c0afcf40",
+      "session_hash": "8395d03eac8b660d20236c5b302f471a42df2f91face007eca030383c4aaf5d1",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 468,
+      "image_filename": "1473_left.jpg",
+      "label": "Pathological",
+      "transcription": "Total cupping, mildly pale optic nerve, nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 4,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T23:40:54.377130+00:00",
+      "updated_at": "2026-05-26T23:41:52.498567+00:00",
+      "filename_hash": "67d0fe3b8502a28dec1f1c33ff984e1cf500b46ddfadd240f80ce0ad09411716",
+      "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 463,
+      "image_filename": "1440_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, alpha and beta peripapillary atrophy",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T23:26:23.667053+00:00",
+      "updated_at": "2026-05-26T23:29:19.958546+00:00",
+      "filename_hash": "a9c9b3e1ec3e0abf9b7db10cf1551cc2af0e648569839d613dfcc9e8f2dd8e55",
+      "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 381,
+      "image_filename": "1334_right.jpg",
+      "label": "Pathological",
+      "transcription": "Optic nerve with a 0.8 cup-to-disc ratio, diffuse thinning of the neuroretinal rim, mild pallor of the optic disc, bayoneting and nasalization of the vessels.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "871c1a0f-1c13-4b56-bf5a-e0f3cf4a6829",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-15T21:01:53.569147+00:00",
+      "updated_at": "2026-05-15T21:04:30.123274+00:00",
+      "filename_hash": "11802d28234099cc830fdf45b1a85aa1689df8a5d215cceb9d39e4b178374031",
+      "session_hash": "838687a5b8a0ef4287b42a8365808756b39b3c4675e5a447933570cdc3fe2fa3",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 308,
+      "image_filename": "3086_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:23:44.094200+00:00",
+      "updated_at": "2026-05-14T15:23:53.786379+00:00",
+      "filename_hash": "eeb8ba0922d81931b2444caf67b73e564238dca75970323cb9a782eb8f1f597f",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 326,
+      "image_filename": "2759_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, normal macula, no vascular abnormalities ",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "e61c651d-058a-41cf-ad46-31465a795028",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T22:46:37.926130+00:00",
+      "updated_at": "2026-05-14T22:47:14.270902+00:00",
+      "filename_hash": "77fbff93b0db9d80259b23b6204e8ecc77c2ebbdaca718e159fea4abfa1b0e92",
+      "session_hash": "8395d03eac8b660d20236c5b302f471a42df2f91face007eca030383c4aaf5d1",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 305,
+      "image_filename": "3102_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.5, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:20:05.699888+00:00",
+      "updated_at": "2026-05-14T15:20:23.056224+00:00",
+      "filename_hash": "5d3d5378144a22ffdda9c274f6fad6e7e5f19b37d7837ce28cc4009a0a79afad",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 462,
+      "image_filename": "1440_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, alpha and beta peripapillary atrophy",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 2,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T23:23:18.922493+00:00",
+      "updated_at": "2026-05-26T23:26:00.645913+00:00",
+      "filename_hash": "af2c9a07c7c2abaa5f57f99f1b999c787fdcc6499ba06bb0c8b089fb31e0ebe3",
+      "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 340,
+      "image_filename": "2927_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, myelinization of RNFL, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:22:34.616882+00:00",
+      "updated_at": "2026-05-14T23:24:07.927131+00:00",
+      "filename_hash": "2aad58dae868781b79fde892d111d36818111a426ff32a272bdb054f2bdaa63e",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 484,
+      "image_filename": "1494_left.jpg",
+      "label": "Normal",
+      "transcription": "Cup-to-disc ratio 0.5, optic disc with well-defined margins and good color, central vessel emergence, preserved neuroretinal rim",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "f91893d1-05ae-4620-8c6a-1e43b8684172",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T17:59:40.112457+00:00",
+      "updated_at": "2026-05-27T17:59:47.613294+00:00",
+      "filename_hash": "42c3bed7260ef9d479925528bb972f18cc607d7d6f4b943dc1809c8431dae0dc",
+      "session_hash": "01435b47c1700c4e081227a462cb5461fd8b7233e5920d644fbefe7a78032652",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 444,
+      "image_filename": "1215_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "01fdf6e8-6fad-4fb9-afb2-8330068750b8",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T03:41:14.100355+00:00",
+      "updated_at": "2026-05-26T03:54:30.045402+00:00",
+      "filename_hash": "63265a680159efc3929ff86175ab402efbbc883b2167e6e94f5111fee6e17061",
+      "session_hash": "bc282835a74eec66ffe71bccb75b95882e7d4ef3f8ca158779545279377ab57a",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 451,
+      "image_filename": "1262_right.jpg",
+      "label": "Pathological",
+      "transcription": "Total cupping, mildly pale optic nerve, near-total loss of the neuroretinal rim, nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "943b0714-660e-4de8-8b39-f0e287e749a1",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 4,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 2,
+          "disc_pallor": 1,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:05:14.156717+00:00",
+      "updated_at": "2026-05-26T04:06:53.886590+00:00",
+      "filename_hash": "c8561e9a9a063f5e249cf3755bb5844d655f10f9069246ef252248ded59fc3be",
+      "session_hash": "2272b97db18db241a1d1a0015e26759feebba181986547faf1b618e44e65e92c",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 446,
+      "image_filename": "1239_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "943b0714-660e-4de8-8b39-f0e287e749a1",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T03:58:10.941998+00:00",
+      "updated_at": "2026-05-26T03:59:31.121892+00:00",
+      "filename_hash": "8b0771de5eb5565d0b3f9982adef75e675d4b67b2117b97fbde067bf27a194b7",
+      "session_hash": "2272b97db18db241a1d1a0015e26759feebba181986547faf1b618e44e65e92c",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    }
+  ],
+  "validation": [
+    {
+      "id": 394,
+      "image_filename": "1388_left.jpg",
+      "label": "Pathological",
+      "transcription": "This left eye fundus photography has a suspicious excavation of 0.7, however, the ISNT rule isn't violated. It shows some nasalization of the vessels, and there are some exudates close to the superior temporal arcade ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "ae611548-1ae7-437d-9d59-263be02355ec",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 0,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 0,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-21T03:14:10.154369+00:00",
+      "updated_at": "2026-05-21T03:17:20.380432+00:00",
+      "filename_hash": "01b31081ba8992b384928eb5f8a54f2fe5d59044818b74a8c55f1b1ce3eaadca",
+      "session_hash": "b433188c72f572a844584425fd8ba724b4eb6ecd084d1d0fd5cb55f22568bafd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 298,
+      "image_filename": "3233_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, crescent- shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:11:08.095145+00:00",
+      "updated_at": "2026-05-14T15:11:38.251216+00:00",
+      "filename_hash": "89fa1a73d00b090a4e66da6609d30fef1c651992f47e60249fa3b0c7be418d64",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 402,
+      "image_filename": "1414_left.jpg",
+      "label": "Pathological",
+      "transcription": "0.9 cup-to-disc ratio, diffuse neuroretinal rim thinning, peripapillary atrophy, pale optic disc, bayonet sign and nasalization of vessels.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "8c5f6864-57c1-4b0f-812f-a956fec15ad9",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-21T03:55:41.807525+00:00",
+      "updated_at": "2026-05-21T04:17:00.627768+00:00",
+      "filename_hash": "da5c6e2e32870180626091fca304171451bfe6efa09a8538e70b53dc992256dd",
+      "session_hash": "bce2da12bc0c532e331e15eb3dca682932a1e7a09a7dd879ad98aa398ab37ad7",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 257,
+      "image_filename": "1247_right.jpg",
+      "label": "Pathological",
+      "transcription": "Excavation 0.8, diffuse thinning of the neuroretinal rim, bayonet vessels and nasalization of these, slightly pale optic disc",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "76a3668b-0395-43a9-841f-37c57066ff90",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-13T16:12:20.611312+00:00",
+      "updated_at": "2026-05-13T16:15:33.849174+00:00",
+      "filename_hash": "b93b151c0ca08748c534bfb6657ff2c732fa872dee18a46073217587248297d7",
+      "session_hash": "920911551212427d3ccd9acadbe0455e217553b6bfb4a02662d2a6d8b764bdfa",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 331,
+      "image_filename": "2738_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.5, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities, perifoveal white spot is an artifact ",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:08:14.230536+00:00",
+      "updated_at": "2026-05-14T23:08:50.156737+00:00",
+      "filename_hash": "e4e32126bfcba02fe9f6ec7573ef887a684c3836f11c00a6e36df75db603e817",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 292,
+      "image_filename": "2472_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:49:43.434197+00:00",
+      "updated_at": "2026-05-14T14:50:01.734566+00:00",
+      "filename_hash": "32a078733f476e777531c2c3881db8928a2aae6a9bed9e8ab86f005f1cf0b259",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 321,
+      "image_filename": "2840_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.5, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "e61c651d-058a-41cf-ad46-31465a795028",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T22:37:58.383814+00:00",
+      "updated_at": "2026-05-14T22:38:15.866017+00:00",
+      "filename_hash": "d07ffd118b30ed2287c9d3d90f6cfe633cc055488f8799134444ed71077ff674",
+      "session_hash": "8395d03eac8b660d20236c5b302f471a42df2f91face007eca030383c4aaf5d1",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 333,
+      "image_filename": "2646_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.4, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "95ba1f4b-b799-4544-8b55-f73b44b733a6",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T23:11:50.176851+00:00",
+      "updated_at": "2026-05-14T23:12:09.503512+00:00",
+      "filename_hash": "e7a4c82d08302239a50802f43c31f1bd13d858079e78bd668cd52a7e6d1b084f",
+      "session_hash": "501a34c9660e53f298e71715daebf17f06b46425f102f0554bda21565fad1de4",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 401,
+      "image_filename": "1401_right.jpg",
+      "label": "Pathological",
+      "transcription": "This right eye fundus photography has a 0.8 excavation, with diffuse thinning of the rim, theres bayoneting and nasalization of vessels. in the inferior temporal arcade there are some exudates. ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "ae611548-1ae7-437d-9d59-263be02355ec",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 3,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 0,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-21T03:40:39.604051+00:00",
+      "updated_at": "2026-05-21T03:43:08.700809+00:00",
+      "filename_hash": "5f320929119cdc984aa5fb594b585c3d412364d3907d523b1f4f46fbf3cadd5f",
+      "session_hash": "b433188c72f572a844584425fd8ba724b4eb6ecd084d1d0fd5cb55f22568bafd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 264,
+      "image_filename": "1271_left.jpg",
+      "label": "Pathological",
+      "transcription": "This is a bad quality photograph of the left eye fundus, the optic nerve head has a 0.8 excavation, there is nasalization of the vessels ",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "94e6b38c-5711-4c3d-8e2c-aacc5dd1f4e9",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-13T23:00:24.104583+00:00",
+      "updated_at": "2026-05-13T23:08:08.945611+00:00",
+      "filename_hash": "9ebde95422d153943b0e56414b2da2552ce654c37a3c9c13e519640e44d94ac5",
+      "session_hash": "b528bbe6167904baa32de6070fedc05880e2d87773a896642f5d139c407ea546",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 399,
+      "image_filename": "1393_right.jpg",
+      "label": "Pathological",
+      "transcription": "Total cupping, near-total loss of the neuroretinal rim, peripapillary atrophy, diffuse retinal nerve fiber layer thinning, pale optic disc, nasalization of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "63b5b217-6e9b-4e87-b996-42528b35b760",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 4,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 2,
+          "disc_pallor": 1,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-21T03:38:04.280690+00:00",
+      "updated_at": "2026-05-21T03:45:14.196194+00:00",
+      "filename_hash": "2e1d801e992e7132635e55dcb9f07efc8439fe81435636219253ae238f5ca0c4",
+      "session_hash": "2e8544ad8d466788ca102108d5e14b89096c15ca41dea17ac197f2e043b29b04",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 279,
+      "image_filename": "2400_left.jpg",
+      "label": "Normal",
+      "transcription": "Color fundus photography of a left eye, cup-to-disc ratio of 0.5, macula with no alterations, and no vascular abnormalities ",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T14:09:20.112092+00:00",
+      "updated_at": "2026-05-14T14:10:26.055519+00:00",
+      "filename_hash": "3744a5c847cb4ffcf364b5a5eb8f586855fb2c5009249538bc937a883f5c3207",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 467,
+      "image_filename": "1469_right.jpg",
+      "label": "Pathological",
+      "transcription": "Mildly pale optic nerve, cup-to-disc ratio 0.7, nasalization and bayoneting of vessels, thinning of the inferior temporal neuroretinal rim coinciding with a wedge-shaped retinal nerve fiber layer defect",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 1,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T23:38:07.352864+00:00",
+      "updated_at": "2026-05-26T23:40:41.797308+00:00",
+      "filename_hash": "7b0a7bacd2bac7e6ff3fb09eb3885e34ffe7a92c9ef8ed049cd2e80831bb3647",
+      "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 327,
+      "image_filename": "2759_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.6, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "e61c651d-058a-41cf-ad46-31465a795028",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T22:47:23.772366+00:00",
+      "updated_at": "2026-05-14T22:47:44.807000+00:00",
+      "filename_hash": "6d69d82c9d711b522d1e89ba8e153040158e4a05252b7ed2de71cc6ba3f7c468",
+      "session_hash": "8395d03eac8b660d20236c5b302f471a42df2f91face007eca030383c4aaf5d1",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 325,
+      "image_filename": "2775_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a right eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "e61c651d-058a-41cf-ad46-31465a795028",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T22:45:36.286996+00:00",
+      "updated_at": "2026-05-14T22:45:59.328461+00:00",
+      "filename_hash": "2ce2775a3e97300878ca07dfbe4e2430730fea0d9d93f3e10de3baf2dfe2cb91",
+      "session_hash": "8395d03eac8b660d20236c5b302f471a42df2f91face007eca030383c4aaf5d1",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 495,
+      "image_filename": "1975_right.jpg",
+      "label": "Normal",
+      "transcription": "Optic disc with well-defined margins and good color, cup-to-disc ratio 0.4",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "554640f2-13d5-4335-8d34-ef61d5fb7beb",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T18:57:30.217174+00:00",
+      "updated_at": "2026-05-27T18:58:35.579824+00:00",
+      "filename_hash": "4df52942f8b170d39555d43167f080e56d8074279aeb6f039fd3aca9578aa7e1",
+      "session_hash": "62bba0bd4d16056cbba87e99f4eb87076c820eac507ba839e855a489fd3186f7",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 448,
+      "image_filename": "1246_left.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "943b0714-660e-4de8-8b39-f0e287e749a1",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T04:00:49.374327+00:00",
+      "updated_at": "2026-05-26T04:01:20.127444+00:00",
+      "filename_hash": "9173876a7d95c480ff1c2665b6f510786adeb23d2949c0e3decfc0a10b5e32dd",
+      "session_hash": "2272b97db18db241a1d1a0015e26759feebba181986547faf1b618e44e65e92c",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 245,
+      "image_filename": "1229_right.jpg",
+      "label": "Pathological",
+      "transcription": "There is generalized thinning in the neuroretinal rim, the cup to disc ratio is 0.8. There is mild pallor in the optic nerve head, important nasalization of vessels.",
+      "doctor_name": "Dra. Erika Quesada",
+      "session_id": "fd952630-d43a-486b-b589-e0402bb5d975",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 2,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "erika_quesada",
+      "created_at": "2026-05-11T00:21:29.754523+00:00",
+      "updated_at": "2026-05-11T00:43:31.033511+00:00",
+      "filename_hash": "66629c7e33e286b033176f6d5a2dde915c1c9427a15b3d64873ce4f095c6bae2",
+      "session_hash": "d82b516b6e2194f624b234aa67ff2a863152f1ea8655db9d110f221e58abd4e5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 491,
+      "image_filename": "167_right.jpg",
+      "label": "Pathological",
+      "transcription": "Total cupping, near-total loss of the neuroretinal rim, mild pallor, nasalization of vessels, bayoneting of vessels, beta peripapillary atrophy",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "554640f2-13d5-4335-8d34-ef61d5fb7beb",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 4,
+          "neuroretinal_rim": 4,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 2,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 2
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-27T18:44:42.960627+00:00",
+      "updated_at": "2026-05-27T18:46:59.700163+00:00",
+      "filename_hash": "c109a35e69a138677bd76c9864cccb48f4b159d7e6c41e6e0e8fd282d815198f",
+      "session_hash": "62bba0bd4d16056cbba87e99f4eb87076c820eac507ba839e855a489fd3186f7",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 314,
+      "image_filename": "3031_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:28:47.667909+00:00",
+      "updated_at": "2026-05-14T15:28:59.678680+00:00",
+      "filename_hash": "8494eefe61037491f4276511db70db63aac5ca9212e96eaa0165df38523c493a",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 154,
+      "image_filename": "1217_right.jpg",
+      "label": "Pathological",
+      "transcription": "Clinical photograph of the right eye, out of focus, showing moderate cupping (C/D ratio ~0.7), well-defined optic nerve head, apparent inferotemporal thinning of the neuroretinal rim, temporal peripapillary atrophy, and no evident retinal nerve fiber layer defects.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "5ddd61a9-0d1f-4647-8df7-31b6e9ba26e7",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 0,
+          "vessel_changes": 0
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-04-23T22:15:40.415895+00:00",
+      "updated_at": "2026-04-23T22:21:28.930391+00:00",
+      "filename_hash": "4dc9392079f1d3d5d7026f33fc702a209ae5cf63c3ffec3cafda8f6b857832bc",
+      "session_hash": "1b44bb9a906ac72a6ff6af95313729310d8d243d12c0f1a7a33696699d05335f",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 153,
+      "image_filename": "1218_right.jpg",
+      "label": "Pathological",
+      "transcription": "Clinical photograph of the right eye showing advanced cupping (C/D ratio ~0.8), a well-defined optic nerve head, mild pallor, visible lamina cribrosa, inferotemporal notching with wedge-shaped and diffuse retinal nerve fiber layer defects, and bayonetting of vessels with nasal displacement.",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "153a2f7a-3aea-4e16-8eec-00033f21140d",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 3,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-04-21T18:52:04.485613+00:00",
+      "updated_at": "2026-04-21T18:55:10.117906+00:00",
+      "filename_hash": "df144840ff9c4615a66d62432053affe9a3718c0fb23e625c112a19b6ff43596",
+      "session_hash": "abb0f4c6055c029c99c75d99d96f88b38f7282893cd17fb4e509ced8f9d4ede0",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 465,
+      "image_filename": "1465_right.jpg",
+      "label": "Pathological",
+      "transcription": "Cup-to-disc ratio 0.9, thinning of the neuroretinal rim with loss of the normal pattern, mildly pale optic nerve, nasalization and bayoneting of vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "0e4fb341-aff1-403f-ab23-af9c8ecef625",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 3,
+          "neuroretinal_rim": 1,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 0,
+          "rnfl_defect": 0,
+          "disc_pallor": 1,
+          "vessel_changes": 3
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-26T23:30:12.729829+00:00",
+      "updated_at": "2026-05-26T23:31:34.987370+00:00",
+      "filename_hash": "60b80c2e7f130dd319dfa992dd3bd437e6462ee7a4f464a0d5b8e625e9a47598",
+      "session_hash": "f81d0d543bce64d74833975d322bf9fe9b82eae1453c8feb8355cec101d563d5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 299,
+      "image_filename": "3233_right.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a rigth eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:11:51.277431+00:00",
+      "updated_at": "2026-05-14T15:12:11.995320+00:00",
+      "filename_hash": "99b10f9fcd5af70b3e99814ecf1031b8fa83b2a4c13b3a6e1950613934387c7e",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 259,
+      "image_filename": "1248_right.jpg",
+      "label": "Pathological",
+      "transcription": "excavation 0.7, thinning of the inferior temporal neuroretinal rim, peripapillary atrophy in the beta zone, bayonet vessels",
+      "doctor_name": "Dr. Gabriel Alejandro Osorio Navarro",
+      "session_id": "b6771eca-19d3-4a47-9d74-e79f9f6c4f21",
+      "locs_data": {
+        "conditions": [
+          "glaucoma"
+        ],
+        "glaucoma": {
+          "cup_to_disc_ratio": 2,
+          "neuroretinal_rim": 2,
+          "disc_hemorrhage": 0,
+          "peripapillary_atrophy": 1,
+          "rnfl_defect": 0,
+          "disc_pallor": 0,
+          "vessel_changes": 1
+        }
+      },
+      "source": "gcp",
+      "creator_username": "gabriel_alejandro",
+      "created_at": "2026-05-13T16:19:02.110647+00:00",
+      "updated_at": "2026-05-13T16:24:21.473202+00:00",
+      "filename_hash": "d2d197182dc139f89c280d2f7b2446e327d2fe2acedddbc5f0598255b1c1ce85",
+      "session_hash": "e434e2ef59e1559fcf31fbd34709f3097dd82a1a16b125129e08ab9b846039c5",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    },
+    {
+      "id": 312,
+      "image_filename": "3045_left.jpg",
+      "label": "Normal",
+      "transcription": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, crescent-shaped temporal peripapillary atrophy, normal macula, no vascular abnormalities",
+      "doctor_name": "Dra. Génesis Chen Li",
+      "session_id": "5968fb1e-388b-439e-a7e0-e578bcc6f9ac",
+      "locs_data": {},
+      "source": "gcp",
+      "creator_username": "genesis chen",
+      "created_at": "2026-05-14T15:27:11.412658+00:00",
+      "updated_at": "2026-05-14T15:27:40.183520+00:00",
+      "filename_hash": "b3020f61aa266b4377071e670cc4bca371df16f594718cfc161e48b0997b95b9",
+      "session_hash": "3992569aee99fe04cd82912617c44e0d552d49276d0d3771498f5389acc333fd",
+      "patient_metadata": null,
+      "is_complete": true,
+      "bucket_name": "open_labeling_images",
+      "bucket_hash": "67e61a176015917ab2ac0e8057d1e01cb2af28bfcc9d1b86265b3e24726ba967"
+    }
+  ]
+}

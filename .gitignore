@@ -8,6 +8,7 @@ __pycache__/
 .DS_Store
 .agents/
 .codex/
+mem.txt
 checkpoints/
 results/slurm_*.out
 results/slurm_*.err

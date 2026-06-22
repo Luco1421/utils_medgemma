@@ -1,8 +1,4 @@
-"""M7 public module.
-
-The implementation lives in medgemma_utils so notebooks and the integrated
-pipeline use the same code.
-"""
+"""M7 public module defined by the reference architecture."""
 
 from medgemma_utils.medgemma_conditioner import MedGemmaConditioner
 

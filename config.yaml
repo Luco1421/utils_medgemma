@@ -1,0 +1,45 @@
+seed: 42
+
+data:
+  split_file: dataset/split.json
+  mask_target: optic_disc
+  normal_bypasses_segmentation: true
+  oracle_confidence: 0.80
+  expected_splits:
+    train:
+      total: 77
+      glaucoma: 41
+      normal: 36
+      with_optic_disc_mask: 41
+    validation:
+      total: 26
+      glaucoma: 14
+      normal: 12
+      with_optic_disc_mask: 14
+    test:
+      total: 26
+      glaucoma: 14
+      normal: 12
+      with_optic_disc_mask: 14
+
+medgemma:
+  model_name: google/medgemma-1.5-4b-it
+  torch_dtype: auto
+  device_map: auto
+  max_new_tokens: 512
+
+evaluation:
+  bertscore_model: microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext
+  bertscore_num_layers: 12
+  sbert_model: NeuML/bioclinical-modernbert-base-embeddings
+  significance_level: 0.05
+  batch_size: 16
+  baseline_permutations: 5
+
+experimental_medgemma_lora:
+  max_steps: 60
+  learning_rate: 0.0002
+  gradient_accumulation_steps: 4
+  lora_rank: 16
+  lora_alpha: 16
+  lora_dropout: 0.05
