@@ -1,8 +1,0 @@
-INFO: Dataset: {"test": {"glaucoma": 14, "normal": 12, "total": 26, "with_optic_disc_mask": 14}, "train": {"glaucoma": 41, "normal": 36, "total": 77, "with_optic_disc_mask": 41}, "validation": {"glaucoma": 14, "normal": 12, "total": 26, "with_optic_disc_mask": 14}}
-INFO: Mask target: optic_disc
-INFO: Validated binary optic-disc masks: 69
-INFO: Normal images bypass segmentation: true
-INFO: Hugging Face token available: True
-INFO: CUDA available: true
-INFO: CUDA device: NVIDIA L40S
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:28<00:28, 28.91s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:49<00:00, 24.23s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:49<00:00, 24.93s/it]

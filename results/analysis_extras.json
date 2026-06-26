@@ -1,0 +1,109 @@
+{
+  "note": "Extras de analisis (NO contractuales). M8 es lo principal; estas metricas existen porque las de similitud de M8 estan infladas por el boilerplate de los informes. recall_at_1 mide especificidad de imagen (azar=1/N); el diagnostico por clase delata el colapso de clase.",
+  "models": {
+    "base": {
+      "recall_at_1": {
+        "ALL": 0.07023809523809522,
+        "_n_images": 26,
+        "A": 0.038461538461538464,
+        "C1": 0.0934065934065934,
+        "C2": 0.038461538461538464,
+        "B": 0.07142857142857142,
+        "D1": 0.14285714285714285,
+        "D2": 0.07142857142857142
+      },
+      "diagnostic": {
+        "A_acc": 0.46153846153846156,
+        "A_balanced_acc": 0.48809523809523814,
+        "A_recall_glaucoma": 0.14285714285714285,
+        "A_recall_normal": 0.8333333333333334,
+        "A_unknown": 0.34615384615384615,
+        "normal_recall_all": 0.5277777777777778
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.9051518221696218,
+        "sbert_similarity": 0.5594178706407547,
+        "finding_mentioned": 0.725,
+        "sbert_calibrated": 0.019705167756183074
+      }
+    },
+    "lora_seed42": {
+      "recall_at_1": {
+        "ALL": 0.07916666666666666,
+        "_n_images": 26,
+        "A": 0.11538461538461539,
+        "C1": 0.07692307692307693,
+        "C2": 0.11538461538461539,
+        "B": 0.0,
+        "D1": 0.07142857142857142,
+        "D2": 0.03571428571428571
+      },
+      "diagnostic": {
+        "A_acc": 0.5384615384615384,
+        "A_balanced_acc": 0.5,
+        "A_recall_glaucoma": 1.0,
+        "A_recall_normal": 0.0,
+        "A_unknown": 0.0,
+        "normal_recall_all": 0.0
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.939171202480793,
+        "sbert_similarity": 0.7277416626612345,
+        "finding_mentioned": 1.0,
+        "sbert_calibrated": -0.017591362630870813
+      }
+    },
+    "lora_seed43": {
+      "recall_at_1": {
+        "ALL": 0.07916666666666666,
+        "_n_images": 26,
+        "A": 0.1346153846153846,
+        "C1": 0.07692307692307693,
+        "C2": 0.11538461538461539,
+        "B": 0.07142857142857142,
+        "D1": 0.0,
+        "D2": 0.0
+      },
+      "diagnostic": {
+        "A_acc": 0.5384615384615384,
+        "A_balanced_acc": 0.5,
+        "A_recall_glaucoma": 1.0,
+        "A_recall_normal": 0.0,
+        "A_unknown": 0.0,
+        "normal_recall_all": 0.0
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.9439386213819186,
+        "sbert_similarity": 0.7473921510080497,
+        "finding_mentioned": 1.0,
+        "sbert_calibrated": 0.04967421711335192
+      }
+    },
+    "lora_seed44": {
+      "recall_at_1": {
+        "ALL": 0.075,
+        "_n_images": 26,
+        "A": 0.1346153846153846,
+        "C1": 0.07692307692307693,
+        "C2": 0.11538461538461539,
+        "B": 0.03571428571428571,
+        "D1": 0.0,
+        "D2": 0.0
+      },
+      "diagnostic": {
+        "A_acc": 0.5384615384615384,
+        "A_balanced_acc": 0.5,
+        "A_recall_glaucoma": 1.0,
+        "A_recall_normal": 0.0,
+        "A_unknown": 0.0,
+        "normal_recall_all": 0.0
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.9416455045342446,
+        "sbert_similarity": 0.7386878048380215,
+        "finding_mentioned": 1.0,
+        "sbert_calibrated": 0.011443233008806904
+      }
+    }
+  }
+}

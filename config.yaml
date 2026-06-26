@@ -37,9 +37,20 @@ evaluation:
   baseline_permutations: 5
 
 experimental_medgemma_lora:
+  # Config justa por defecto (extra no contractual): rank=8, alpha=2*rank,
+  # lr=1e-4. El SLURM entrena por epocas (--num-epochs 3); max_steps queda como
+  # fallback para corridas manuales sin --num-epochs.
   max_steps: 60
-  learning_rate: 0.0002
+  learning_rate: 0.0001
   gradient_accumulation_steps: 4
-  lora_rank: 16
+  lora_rank: 8
   lora_alpha: 16
   lora_dropout: 0.05
+  logging_steps: 5
+  save_steps: 50
+  save_total_limit: 2
+
+tracking:
+  wandb_project: utils-medgemma
+  wandb_entity:
+  wandb_mode: online

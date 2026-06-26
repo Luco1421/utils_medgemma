@@ -10,13 +10,6 @@ from typing import Any
 import numpy as np
 from PIL import Image
 
-from .conditioning import (
-    CONDITIONS,
-    MASK_CONDITIONS,
-    build_prompt,
-    make_overlay,
-)
-
 SPLIT_NAMES = ("train", "validation", "test")
 MASK_TARGET = "optic_disc"
 
@@ -279,50 +272,4 @@ def build_sft_examples(
         with Image.open(row["image"]) as source:
             image = source.convert("RGB")
         examples.append(_sft_example(image, prompt, transcription))
-    return examples
-
-
-def build_conditioned_sft_examples(
-    rows: Sequence[Mapping[str, Any]],
-    *,
-    confidence: float = 0.80,
-) -> list[dict[str, Any]]:
-    """Build SFT examples mirroring the six inference conditions.
-
-    For each image one example is created per applicable condition, reusing the
-    exact prompts and red overlay from :mod:`conditioning`. The adapter therefore
-    learns to use the mask, predicted class and distribution, matching how it is
-    evaluated. Oracle prediction/distribution use the dataset label, consistent
-    with :func:`oracle_inputs.build_dataset_oracle_inputs`.
-    """
-
-    if not 0.0 <= confidence <= 1.0:
-        raise ValueError("confidence must be between 0 and 1")
-
-    examples = []
-    for row in rows:
-        transcription = str(row.get("transcription") or "").strip()
-        if not transcription:
-            continue
-        prediction = str(row["target_label"])
-        other = "normal" if prediction == "glaucoma" else "glaucoma"
-        distribution = {prediction: confidence, other: 1.0 - confidence}
-        mask = row.get("ground_truth_mask")
-        with Image.open(row["image"]) as source:
-            base_image = source.convert("RGB")
-        overlay_image = make_overlay(base_image, mask) if mask else None
-
-        for condition in CONDITIONS:
-            if condition in MASK_CONDITIONS:
-                if not mask:
-                    continue
-                image = overlay_image
-            else:
-                image = base_image
-            prompt = build_prompt(
-                condition,
-                prediction=prediction if condition in {"C1", "D1"} else None,
-                distribution=distribution if condition in {"C2", "D2"} else None,
-            )
-            examples.append(_sft_example(image, prompt, transcription))
     return examples

@@ -1,45 +1,39 @@
-Full base (sin entrenamiento, solo conditioning sobre MedGemma de fabrica):
-sbatch run_medgemma_base_full.slurm
-
-Experimental MedGemma-LoRA full (entrenado con prompt generico tipo-A):
-sbatch run_experimental_medgemma_lora_full.slurm
-
-Experimental MedGemma-LoRA full por-condicion (entrenado con cada condicion):
-sbatch run_experimental_medgemma_lora_conditioned_full.slurm
-
-Los tres comparten test=26. Las dos variantes LoRA entrenan sobre train=77.
-- generic: 60 steps, 1 ejemplo (prompt tipo-A) por imagen -> 77 ejemplos.
-- conditioned: 270 steps, 1 ejemplo por condicion aplicable (6 por glaucoma,
-  3 por normal) -> 354 ejemplos, con overlay rojo y pistas de clase, igual que
-  en la evaluacion. Ambas usan gradient accumulation 4.
-
-Estos tres jobs son una corrida rapida de un solo punto. Para investigacion usar
-el protocolo de barrido validado de abajo.
-
-
 =====================================================================
-PROTOCOLO DE INVESTIGACION (barrido validado + test multi-semilla)
+EXPERIMENTO: conditioning sobre MedGemma  base (sin LoRA) vs con LoRA
 =====================================================================
 
-Grilla reducida: rank=8 y lr=1e-4 fijos; se busca epocas{3,6,9} x modo{generic,
-conditioned} = 6 configuraciones (alpha = 2*rank). Dataset completo, sin limites.
+El conditioning M7 + la evaluacion M8 son la parte contractual (ref). El LoRA
+sobre MedGemma es un EXTRA no contractual: ref dice explicitamente que a MedGemma
+no se le aplica LoRA (M7), y las semillas/ranks de ref pertenecen al CNN (M2) y a
+SAM-LoRA (M3b), no a M7/M8. Lo agregamos solo para comparar.
 
-1) BARRIDO en validacion (array de 6 tareas):
-   sbatch run_lora_sweep.slurm
-   -> cada tarea entrena y evalua en VALIDATION; escribe results/sweep/val_idx<i>.json
+No hay sweep ni seleccion de hiperparametros. Se usa UNA config justa de LoRA y
+se repite con 3 semillas. El rigor de la comparacion lo da el Wilcoxon pareado de
+M8 (base vs LoRA sobre los mismos items), no el numero de configuraciones.
 
-2) AGREGAR y elegir ganador por metrica combinada (z-score de BERTScore-F1 +
-   SBERT calibrado + finding_mentioned):
-   python -m scripts.aggregate_sweep
-   -> imprime ranking y escribe results/sweep/summary.json
 
-3) TEST final del ganador con 5 semillas (test se toca una sola vez):
-   sbatch --export=ALL,SELECTOR=conditioned run_lora_final_test.slurm
-   sbatch --export=ALL,SELECTOR=generic     run_lora_final_test.slurm
-   -> results/final/test_<selector>_seed<42..46>.json (reportar media +/- std)
+1) BASE sin entrenamiento = M7/M8 oficial. Las 6 ablaciones en una sola corrida
+   sobre test. Generacion determinista (do_sample=False) -> NO necesita semillas.
+   sbatch run_medgemma_base_full.slurm
+   -> results/baseline/conditioned_base.json
 
-SELECTOR: overall | generic | conditioned. Comparar contra el job base (sin
-entrenamiento) para aislar el efecto del fine-tuning y del conditioning.
+2) LoRA generico, config justa, 3 semillas (array 0-2 -> seeds 42,43,44):
+   - rank=8, alpha=16 (alpha=2*rank), lr=1e-4, 3 epocas, gradient accumulation 4.
+   - entrena sobre train=77 con prompt generico tipo-A (imagen -> transcripcion);
+     nunca ve mascaras/clases/distribuciones (sin sesgo de formato).
+   - cada semilla entrena y evalua en test con el mismo protocolo A-D2.
+   sbatch run_experimental_medgemma_lora_full.slurm
+   -> results/lora/test_lora_seed<42..44>.json
+   Para apagar W&B:
+   sbatch --export=ALL,WANDB_MODE=disabled run_experimental_medgemma_lora_full.slurm
 
-Nota: el barrido deja ~54 adapters en checkpoints/sweep/ (regenerables, se
-pueden borrar tras el paso 2). Inspeccionar la perdida en results/sweep/*.out.
+3) COMPARACION: media +/- std de los 3 seeds de LoRA, y Wilcoxon pareado de M8
+   contra el base, para aislar el efecto del fine-tuning sobre el conditioning.
+
+
+Notas:
+- Los SLURM usan nukwa-long con 24h. Los tiempos reportables se guardan desde
+  Python en training_metadata.json y en runtime de los JSON de evaluacion.
+- LoRA se aplica con target_modules="all-linear" (todo el modelo, incluida la
+  parte de vision). Inspeccionar la perdida en results/lora/logs/*.out o en W&B.
+- Los checkpoints quedan en checkpoints/lora/seed<N>/ (regenerables).

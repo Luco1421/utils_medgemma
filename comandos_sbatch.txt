@@ -1,0 +1,60 @@
+==============================================================================
+COMANDOS sbatch — utils_medgemma
+==============================================================================
+Solo los comandos para lanzar los jobs. La explicacion esta en
+run_slurm_commands.txt y en el README.
+
+El experimento compara DOS cosas: el conditioning sobre MedGemma SIN LoRA
+(M7/M8 oficial, contractual) vs CON LoRA (extra no contractual, solo para
+comparar). El LoRA se entrena siempre con el prompt generico tipo-A
+(imagen -> transcripcion), nunca con las pistas de condicionamiento.
+
+No hay sweep ni seleccion de hiperparametros: se usa UNA config justa de LoRA
+(rank=8, alpha=16, lr=1e-4, 3 epocas) repetida con 3 semillas (42,43,44). El
+rigor de la comparacion lo da el Wilcoxon pareado de M8 (base vs LoRA sobre los
+mismos items), no el numero de configuraciones.
+
+Regla rapida sobre --export:
+  - El default de Slurm ya es --export=ALL (el job hereda tu entorno).
+  - Normalmente NO hace falta poner --export.
+  - Para inyectar una variable usar SIEMPRE el prefijo ALL, p.ej.:
+        --export=ALL,WANDB_MODE=disabled
+
+
+------------------------------------------------------------------------------
+EXPERIMENTO (base sin LoRA  vs  LoRA generico)
+------------------------------------------------------------------------------
+# (1) Base sin LoRA = M7/M8 oficial: las 6 ablaciones en una sola corrida sobre
+#     test. Determinista -> NO necesita semillas. Puede ir en paralelo con (2).
+sbatch run_medgemma_base_full.slurm
+
+# (2) LoRA generico, config justa, 3 semillas (array 0-2 -> seeds 42,43,44).
+#     Entrena y evalua en test cada semilla.
+sbatch run_experimental_medgemma_lora_full.slurm
+#   Para apagar W&B:
+sbatch --export=ALL,WANDB_MODE=disabled run_experimental_medgemma_lora_full.slurm
+
+# (3) Analisis post-hoc (extras NO contractuales): Recall@1 + diagnostico por
+#     clase. CPU puro. Se puede correr a mano en el login node:
+python -m scripts.analyze_results        # escribe results/analysis_extras.json
+
+# (3-bis) O encadenado en SLURM: analysis corre solo cuando terminan (1) y (2).
+#     Necesita los JOBIDs, por eso se usa --parsable:
+B=$(sbatch --parsable run_medgemma_base_full.slurm)
+L=$(sbatch --parsable run_experimental_medgemma_lora_full.slurm)
+sbatch --dependency=afterok:$B:$L run_analysis.slurm
+
+# (4) Comparar base (1) vs LoRA (2): M8 (principal) + calibrados + Recall@1 +
+#     diagnostico por clase. Con eso se concluye (la lectura clinica fina
+#     requiere revision cualitativa de oftalmologos).
+
+
+------------------------------------------------------------------------------
+UTILIDADES
+------------------------------------------------------------------------------
+# Ver mis jobs en cola
+squeue -u jperez
+
+# Cancelar un job
+scancel <JOBID>
+==============================================================================

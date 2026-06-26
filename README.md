@@ -74,7 +74,7 @@ Esto produce 120 textos por variante:
 
 ## M8
 
-`modules/evaluator.py` expone:
+`medgemma_utils/evaluation.py` expone la clase `Evaluator`:
 
 ```python
 evaluator.evaluate_segmentation(pred_mask, gt_mask)
@@ -86,6 +86,26 @@ M8 calcula IoU, Dice, SSIM, BERTScore con BiomedBERT, similitud sBERT con
 Bioclinical ModernBERT, precisión de hallazgo, Wilcoxon pareado, effect size y
 corrección Holm. También guarda baselines de referencias permutadas y scores
 calibrados para interpretar el piso elevado de las métricas semánticas.
+
+### Extras de análisis (no contractuales)
+
+M8 es la evaluación principal, pero sus métricas de similitud (BERTScore, sBERT)
+están **infladas por el boilerplate** de los informes: todos hablan de disco,
+cup-to-disc, rim… así que el texto generado se parece a *cualquier* referencia.
+Las calibradas ya lo exponen (≈0). Para una conclusión defendible se agregan, en
+`scripts/analyze_results.py` (post-hoc, sin GPU, escribe
+`results/analysis_extras.json`):
+
+- **Recall@1**: ¿el texto generado identifica *su* imagen entre las referencias?
+  (azar = 1/N). Mide especificidad de imagen.
+- **Diagnóstico por clase (negación-aware)**: extrae la clase del texto y la
+  compara con la etiqueta real; el **recall por clase** delata el colapso de
+  clase que la accuracy esconde.
+
+Hallazgo con el LoRA actual: las métricas de similitud suben mucho, pero Recall@1
+queda en azar y el LoRA colapsa a "siempre glaucoma" (recall de la clase normal =
+0.00). Es decir, aprende el **estilo/plantilla** del informe, no a diagnosticar.
+La interpretación clínica fina requiere revisión cualitativa de oftalmólogos.
 
 El campo Likert queda reservado para revisión clínica ciega mediante
 `scripts/export_likert_review.py`.
@@ -105,6 +125,15 @@ No usa máscaras, clases ni distribuciones durante el entrenamiento. Después se
 evalúa con el mismo protocolo A-D2 para estudiar generalización y posible
 memorización.
 
+Es un extra **no contractual**: `ref` (M7) establece que a MedGemma no se le
+aplica LoRA, y las semillas/ranks de `ref` pertenecen al CNN (M2) y a SAM-LoRA
+(M3b), no a M7/M8. Por eso no se hace barrido de hiperparámetros: se usa **una
+config justa** (rank 8, alpha 16, lr 1e-4, 3 épocas) repetida con **3 semillas**
+(42, 43, 44) para reportar media ± std. El rigor de la comparación lo aporta el
+Wilcoxon pareado de M8 (base vs LoRA sobre los mismos ítems), no la cantidad de
+configuraciones. LoRA se aplica con `target_modules="all-linear"` (todo el
+modelo, incluida la parte de visión).
+
 ## Configuración
 
 `config.yaml` centraliza semilla, dataset, modelo, evaluación y el experimento
@@ -114,13 +143,6 @@ LoRA. Los scripts validan que:
 - Los normales omitan segmentación.
 - El resumen del dataset coincida con 77/26/26.
 
-Preflight local:
-
-```bash
-/data/jperez/app_data/miniconda/envs/medgemma/bin/python \
-  -m scripts.preflight
-```
-
 ## Ejecución en Kabre
 
 Full base:
@@ -129,25 +151,66 @@ Full base:
 sbatch run_medgemma_base_full.slurm
 ```
 
-Full LoRA experimental (entrenado con prompt genérico tipo-A):
+LoRA experimental (config justa, 3 semillas en un array `0-2` → seeds 42/43/44):
 
 ```bash
 sbatch run_experimental_medgemma_lora_full.slurm
 ```
 
-Full LoRA experimental por-condición (entrenado con cada condición, con overlay
-y pistas de clase, igual que en la evaluación):
+El LoRA se entrena siempre con el prompt genérico tipo-A (imagen original →
+transcripción del experto), por lo que aprende solo el estilo del experto y nunca
+ve las pistas de condicionamiento usadas en la evaluación. Así la comparación
+base-vs-LoRA aísla el efecto del fine-tuning sin sesgo de formato. Cada semilla
+entrena y evalúa en test con el mismo protocolo A–D2 que el base
+(`results/lora/test_lora_seed<42..44>.json`).
+
+Los jobs oficiales no aplican límites de muestras: entrenan con todo `train` y
+evalúan en el split indicado por el protocolo. Cada SLURM usa `nukwa-long` con
+`--time=24:00:00`, pero los tiempos reportables se registran desde Python en
+`training_metadata.json` y en `runtime` de los JSON de evaluación.
+
+Los CLIs conservan flags manuales para ejecuciones controladas fuera del
+protocolo oficial: `--train-limit` en entrenamiento y `--limit`/`--masked-only`
+en evaluación. Cuando se usan, la metadata marca que la corrida no fue full.
+
+Los jobs LoRA guardan:
+
+- Checkpoints intermedios del adapter (`save_strategy=epoch` cuando se entrena
+  por épocas; `save_strategy=steps` para corridas por `max_steps`).
+- Adapter final (`adapter_model.safetensors` y `adapter_config.json`).
+- Processor/tokenizer junto al adapter.
+- `training_metadata.json` con configuración, resumen del dataset, métricas de
+  entrenamiento, artefactos guardados y duración total.
+
+Las curvas de entrenamiento (loss, learning rate, tiempos) se ven gráficamente
+en el proyecto de W&B:
+
+**https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma**
+
+El caché local de W&B (`results/wandb/`) no se versiona: son binarios pesados que
+GitHub no renderiza y que ya están en el enlace de arriba. Los JSON de evaluación
+y los logs de Slurm sí se versionan en `results/`.
+
+W&B está integrado en `scripts.train_experimental_medgemma_lora` con los
+argumentos `--wandb-project`, `--wandb-entity`, `--wandb-run-name`,
+`--wandb-mode {online,offline,disabled}` y `--wandb-tags`. Por defecto corre en
+modo online, igual que el script de referencia de
+`imagine-laboratory/vlm-od-agriculture`:
 
 ```bash
-sbatch run_experimental_medgemma_lora_conditioned_full.slurm
+sbatch run_experimental_medgemma_lora_full.slurm
 ```
 
-El modo de entrenamiento se elige con `--prompt-mode {generic,conditioned}` en
-`scripts.train_experimental_medgemma_lora`. La variante `generic` aprende solo el
-estilo del experto; la `conditioned` además aprende a usar la máscara y la clase.
+Si se quiere correr sin subir a W&B:
 
-Todos los jobs ejecutan preflight de dataset, CUDA y token de Hugging Face antes
-de cargar los modelos. Los jobs full no aplican límites de muestras.
+```bash
+sbatch --export=ALL,WANDB_MODE=disabled run_experimental_medgemma_lora_full.slurm
+```
+
+Los JSON de evaluación incluyen `dataset_audit` y `runtime`. Ahí queda explícito
+si una corrida usó el split completo (`full_selected_split: true`), entradas
+externas por `--inputs-json`, un límite manual con `--limit`, o el filtro
+`--masked-only`.
 
 ## Integración con M9
 

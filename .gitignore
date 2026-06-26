@@ -10,6 +10,8 @@ __pycache__/
 .codex/
 mem.txt
 checkpoints/
-results/slurm_*.out
-results/slurm_*.err
-results/smoke_*.json
+# results/ se versiona (JSONs de evaluacion + logs de Slurm) para poder comparar
+# entre versiones. Solo se ignora el cache local de W&B (binario pesado, ya
+# duplicado en W&B online).
+wandb/
+results/wandb/

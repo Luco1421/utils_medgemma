@@ -1,0 +1,61 @@
+INFO: Training uses the full train split: 77/77 rows, 77 SFT examples
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/jperez/.netrc.
+wandb: Currently logged in as: byluco1421 (byluco1421-tecnol-gico-de-costa-rica) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.28.0
+wandb: Run data is saved locally in /data/jperez/projects/utils_medgemma/results/wandb/wandb/run-20260626_061429-red85mzx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lora_generic_seed42_582121_0
+wandb: ⭐️ View project at https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma
+wandb: 🚀 View run at https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma/runs/red85mzx
+INFO: W&B enabled: project=utils-medgemma entity=<default> mode=online run=lora_generic_seed42_582121_0
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+INFO: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:27<00:27, 27.07s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:46<00:00, 22.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:46<00:00, 23.28s/it]
+/data/jperez/projects/utils_medgemma/medgemma_utils/experimental_lora_training.py:182: FutureWarning: The default `loss_type` will change from `'nll'` to `'chunked_nll'` in TRL 1.7. For standard models this is transparent (same math, lower memory) and no action is needed — you'll get the new default automatically on upgrade. If you use a custom model, check ahead of time that `loss_type='chunked_nll'` runs and yields the same loss as `'nll'`; if it doesn't, pin `loss_type='nll'` to keep the current behavior and please open an issue at https://github.com/huggingface/trl/issues so we can address the edge case.
+  training_args = SFTConfig(
+The model is already on multiple devices. Skipping the move to device specified in `args`.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 1, 'bos_token_id': 2, 'pad_token_id': 0}.
+  0%|          | 0/60 [00:00<?, ?it/s]  2%|▏         | 1/60 [00:09<08:53,  9.04s/it]  3%|▎         | 2/60 [00:13<05:58,  6.19s/it]  5%|▌         | 3/60 [00:17<04:52,  5.13s/it]  7%|▋         | 4/60 [00:21<04:23,  4.71s/it]  8%|▊         | 5/60 [00:25<04:03,  4.42s/it]                                                8%|▊         | 5/60 [00:25<04:03,  4.42s/it] 10%|█         | 6/60 [00:29<03:50,  4.27s/it] 12%|█▏        | 7/60 [00:32<03:36,  4.09s/it] 13%|█▎        | 8/60 [00:36<03:30,  4.04s/it] 15%|█▌        | 9/60 [00:40<03:20,  3.93s/it] 17%|█▋        | 10/60 [00:44<03:17,  3.96s/it]                                                17%|█▋        | 10/60 [00:44<03:17,  3.96s/it] 18%|█▊        | 11/60 [00:48<03:11,  3.91s/it] 20%|██        | 12/60 [00:52<03:09,  3.95s/it] 22%|██▏       | 13/60 [00:56<03:03,  3.90s/it] 23%|██▎       | 14/60 [00:59<02:58,  3.89s/it] 25%|██▌       | 15/60 [01:03<02:52,  3.83s/it]                                                25%|██▌       | 15/60 [01:03<02:52,  3.83s/it] 27%|██▋       | 16/60 [01:07<02:50,  3.87s/it] 28%|██▊       | 17/60 [01:11<02:43,  3.81s/it] 30%|███       | 18/60 [01:15<02:40,  3.83s/it] 32%|███▏      | 19/60 [01:18<02:33,  3.75s/it] 33%|███▎      | 20/60 [01:19<01:54,  2.86s/it]                                                33%|███▎      | 20/60 [01:19<01:54,  2.86s/it] 35%|███▌      | 21/60 [01:28<02:58,  4.59s/it] 37%|███▋      | 22/60 [01:31<02:46,  4.37s/it] 38%|███▊      | 23/60 [01:35<02:35,  4.21s/it] 40%|████      | 24/60 [01:39<02:24,  4.01s/it] 42%|████▏     | 25/60 [01:43<02:19,  3.98s/it]                                                42%|████▏     | 25/60 [01:43<02:19,  3.98s/it] 43%|████▎     | 26/60 [01:46<02:12,  3.90s/it] 45%|████▌     | 27/60 [01:50<02:09,  3.91s/it] 47%|████▋     | 28/60 [01:54<02:03,  3.86s/it] 48%|████▊     | 29/60 [01:58<02:01,  3.92s/it] 50%|█████     | 30/60 [02:02<01:56,  3.88s/it]                                                50%|█████     | 30/60 [02:02<01:56,  3.88s/it] 52%|█████▏    | 31/60 [02:06<01:52,  3.89s/it] 53%|█████▎    | 32/60 [02:10<01:47,  3.85s/it] 55%|█████▌    | 33/60 [02:14<01:46,  3.93s/it] 57%|█████▋    | 34/60 [02:17<01:40,  3.86s/it] 58%|█████▊    | 35/60 [02:21<01:37,  3.88s/it]                                                58%|█████▊    | 35/60 [02:21<01:37,  3.88s/it] 60%|██████    | 36/60 [02:25<01:31,  3.81s/it] 62%|██████▏   | 37/60 [02:29<01:28,  3.85s/it] 63%|██████▎   | 38/60 [02:33<01:22,  3.77s/it] 65%|██████▌   | 39/60 [02:36<01:19,  3.79s/it] 67%|██████▋   | 40/60 [02:37<00:57,  2.88s/it]                                                67%|██████▋   | 40/60 [02:37<00:57,  2.88s/it] 68%|██████▊   | 41/60 [02:45<01:25,  4.51s/it] 70%|███████   | 42/60 [02:50<01:19,  4.39s/it] 72%|███████▏  | 43/60 [02:53<01:12,  4.25s/it] 73%|███████▎  | 44/60 [02:57<01:05,  4.09s/it] 75%|███████▌  | 45/60 [03:01<01:00,  4.00s/it]                                                75%|███████▌  | 45/60 [03:01<01:00,  4.00s/it] 77%|███████▋  | 46/60 [03:05<00:55,  3.97s/it] 78%|███████▊  | 47/60 [03:09<00:51,  3.99s/it] 80%|████████  | 48/60 [03:13<00:46,  3.88s/it] 82%|████████▏ | 49/60 [03:17<00:43,  3.91s/it] 83%|████████▎ | 50/60 [03:20<00:38,  3.85s/it]                                                83%|████████▎ | 50/60 [03:20<00:38,  3.85s/it] 85%|████████▌ | 51/60 [03:24<00:34,  3.89s/it] 87%|████████▋ | 52/60 [03:28<00:30,  3.82s/it] 88%|████████▊ | 53/60 [03:32<00:26,  3.82s/it] 90%|█████████ | 54/60 [03:35<00:22,  3.77s/it] 92%|█████████▏| 55/60 [03:39<00:18,  3.80s/it]                                                92%|█████████▏| 55/60 [03:39<00:18,  3.80s/it] 93%|█████████▎| 56/60 [03:43<00:15,  3.77s/it] 95%|█████████▌| 57/60 [03:47<00:11,  3.80s/it] 97%|█████████▋| 58/60 [03:50<00:07,  3.75s/it] 98%|█████████▊| 59/60 [03:54<00:03,  3.81s/it]100%|██████████| 60/60 [03:55<00:00,  2.90s/it]                                               100%|██████████| 60/60 [03:55<00:00,  2.90s/it]                                               100%|██████████| 60/60 [04:00<00:00,  2.90s/it]100%|██████████| 60/60 [04:00<00:00,  4.00s/it]
+INFO: Saved LoRA adapter and metadata to checkpoints/lora/seed42 (14 files)
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading history steps 14-14, summary, console lines 10-22
+wandb: 
+wandb: Run history:
+wandb: artifacts/final_file_count ▁
+wandb:      data/full_train_split ▁
+wandb:          data/sft_examples ▁
+wandb:      data/train_rows_total ▁
+wandb:       data/train_rows_used ▁
+wandb:  runtime/train_job_seconds ▁
+wandb:              train/entropy ▆███▄▄▄▃▃▁▂▂
+wandb:                train/epoch ▁▂▂▃▄▄▅▅▆▇▇██
+wandb:          train/global_step ▁▂▂▃▄▄▅▅▆▇▇███
+wandb:            train/grad_norm ▃▃▁▃█▅▃▃▁▅▅▇
+wandb:                         +4 ...
+wandb: 
+wandb: Run summary:
+wandb: artifacts/final_file_count 14
+wandb:      data/full_train_split 1
+wandb:          data/sft_examples 77
+wandb:      data/train_rows_total 77
+wandb:       data/train_rows_used 77
+wandb:  runtime/train_job_seconds 375.14
+wandb:                 total_flos 1596621181111488.0
+wandb:              train/entropy 0.783
+wandb:                train/epoch 3
+wandb:          train/global_step 60
+wandb:                         +9 ...
+wandb: 
+wandb: 🚀 View run lora_generic_seed42_582121_0 at: https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma/runs/red85mzx
+wandb: ⭐️ View project at: https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./results/wandb/wandb/run-20260626_061429-red85mzx/logs
+INFO: Evaluation uses the full test split: 26 samples
+INFO: Model and evaluator load started at 2026-06-26T12:20:08.905683+00:00
+INFO: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.16s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.30s/it]
+INFO: Model and evaluator load finished at 2026-06-26T12:20:29.114058+00:00 in 20s
+INFO: Conditioned generation and evaluation started at 2026-06-26T12:20:29.114215+00:00
+INFO: Conditioned generation and evaluation finished at 2026-06-26T12:23:08.017949+00:00 in 2m 39s
+INFO: Wrote results/lora/test_lora_seed42.json with 120 generated rows in 2m 59s

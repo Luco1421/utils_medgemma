@@ -1,0 +1,22 @@
+
+===================== RECALL@1 (identificacion de imagen) =====================
+¿el texto generado identifica SU imagen entre las referencias? (azar ~ 1/N)
+  [base        ] ALL=0.070 (azar=0.038)   A:0.04  B:0.07  C1:0.09  C2:0.04  D1:0.14  D2:0.07
+  [lora_seed42 ] ALL=0.079 (azar=0.038)   A:0.12  B:0.00  C1:0.08  C2:0.12  D1:0.07  D2:0.04
+  [lora_seed43 ] ALL=0.079 (azar=0.038)   A:0.13  B:0.07  C1:0.08  C2:0.12  D1:0.00  D2:0.00
+  [lora_seed44 ] ALL=0.075 (azar=0.038)   A:0.13  B:0.04  C1:0.08  C2:0.12  D1:0.00  D2:0.00
+
+===================== DIAGNOSTICO por clase (condicion A, balanceada) =========
+A no le da la clase al modelo. balanced_acc y recall por clase delatan colapso.
+  [base        ] balanced_acc=0.488  recall[glaucoma]=0.14  recall[normal]=0.83  unknown=0.35  | recall_normal(global)=0.53
+  [lora_seed42 ] balanced_acc=0.500  recall[glaucoma]=1.00  recall[normal]=0.00  unknown=0.00  | recall_normal(global)=0.00
+  [lora_seed43 ] balanced_acc=0.500  recall[glaucoma]=1.00  recall[normal]=0.00  unknown=0.00  | recall_normal(global)=0.00
+  [lora_seed44 ] balanced_acc=0.500  recall[glaucoma]=1.00  recall[normal]=0.00  unknown=0.00  | recall_normal(global)=0.00
+
+===================== CONTEXTO M8 (inflado por boilerplate) ====================
+  [base        ] bertF1=0.905  sbert=0.559  find=0.725  sbert_calib=+0.020
+  [lora_seed42 ] bertF1=0.939  sbert=0.728  find=1.000  sbert_calib=-0.018
+  [lora_seed43 ] bertF1=0.944  sbert=0.747  find=1.000  sbert_calib=+0.050
+  [lora_seed44 ] bertF1=0.942  sbert=0.739  find=1.000  sbert_calib=+0.011
+
+Wrote results/analysis_extras.json

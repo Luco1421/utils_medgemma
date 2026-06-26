@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
-
-import torch
 
 
 @dataclass(frozen=True)
@@ -13,18 +13,78 @@ class MedGemmaLoRAConfig:
     output_dir: str
     max_steps: int = 60
     num_epochs: float | None = None
-    learning_rate: float = 2e-4
+    # Defaults match the documented fair config (config.yaml). The training CLI
+    # always overrides these from config/flags; they are only a fallback for
+    # direct programmatic construction.
+    learning_rate: float = 1e-4
     gradient_accumulation_steps: int = 4
-    lora_rank: int = 16
+    lora_rank: int = 8
     lora_alpha: int = 16
     lora_dropout: float = 0.05
     seed: int = 42
+    logging_steps: int = 5
+    save_strategy: str = "steps"
+    save_steps: int = 50
+    save_total_limit: int | None = 2
+    report_to: str = "none"
+    run_name: str | None = None
 
     def __post_init__(self) -> None:
         # num_epochs, when set, takes precedence over max_steps so the schedule
         # is dataset-relative (the right unit for small-data SFT comparisons).
         if self.num_epochs is not None and self.num_epochs <= 0:
             raise ValueError("num_epochs must be positive when provided")
+        if self.save_strategy not in {"no", "steps", "epoch"}:
+            raise ValueError("save_strategy must be one of: no, steps, epoch")
+        if self.save_steps <= 0:
+            raise ValueError("save_steps must be positive")
+        if self.logging_steps <= 0:
+            raise ValueError("logging_steps must be positive")
+
+
+@dataclass(frozen=True)
+class LoRATrainingResult:
+    model: Any
+    train_metrics: dict[str, Any]
+    saved_artifacts: dict[str, int]
+
+
+def _collect_saved_artifacts(output_dir: str | Path) -> dict[str, int]:
+    output_path = Path(output_dir)
+    if not output_path.is_dir():
+        raise RuntimeError(f"LoRA output directory was not created: {output_path}")
+
+    adapter_config = output_path / "adapter_config.json"
+    adapter_weights = [
+        output_path / "adapter_model.safetensors",
+        output_path / "adapter_model.bin",
+    ]
+    if not adapter_config.is_file():
+        raise RuntimeError(f"Missing saved LoRA adapter config: {adapter_config}")
+    if not any(path.is_file() for path in adapter_weights):
+        expected = ", ".join(str(path) for path in adapter_weights)
+        raise RuntimeError(
+            "Missing saved LoRA adapter weights; expected one of "
+            f"{expected}"
+        )
+
+    artifacts: dict[str, int] = {}
+    for path in sorted(output_path.iterdir()):
+        if path.is_file():
+            artifacts[path.name] = path.stat().st_size
+    return artifacts
+
+
+def write_training_metadata(
+    output_dir: str | Path,
+    metadata: dict[str, Any],
+) -> None:
+    output_path = Path(output_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+    (output_path / "training_metadata.json").write_text(
+        json.dumps(metadata, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
 
 
 def _extract_image(messages: list[dict[str, Any]]):
@@ -95,9 +155,10 @@ def train_lora(
     processor: Any,
     train_dataset: list[dict[str, Any]],
     config: MedGemmaLoRAConfig,
-):
+) -> LoRATrainingResult:
     """Train a full-precision base model with PEFT LoRA adapters."""
 
+    import torch
     from peft import LoraConfig
     from trl import SFTConfig, SFTTrainer
 
@@ -125,10 +186,13 @@ def train_lora(
         learning_rate=config.learning_rate,
         bf16=dtype == torch.bfloat16,
         fp16=dtype == torch.float16,
-        logging_steps=5,
-        save_strategy="no",
+        logging_steps=config.logging_steps,
+        save_strategy=config.save_strategy,
+        save_steps=config.save_steps,
+        save_total_limit=config.save_total_limit,
         remove_unused_columns=False,
-        report_to="none",
+        report_to=config.report_to,
+        run_name=config.run_name,
         seed=config.seed,
         data_seed=config.seed,
         dataset_text_field="",
@@ -143,8 +207,14 @@ def train_lora(
         processing_class=processor,
         data_collator=build_response_only_collator(processor),
     )
-    trainer.train()
+    train_output = trainer.train()
+    trainer.save_state()
     trainer.save_model(config.output_dir)
     processor.save_pretrained(config.output_dir)
+    saved_artifacts = _collect_saved_artifacts(config.output_dir)
     trainer.model.eval()
-    return trainer.model
+    return LoRATrainingResult(
+        model=trainer.model,
+        train_metrics=dict(train_output.metrics),
+        saved_artifacts=saved_artifacts,
+    )

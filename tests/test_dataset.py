@@ -97,7 +97,7 @@ class DatasetAdapterTests(unittest.TestCase):
         self.assertEqual(sample.segmentation_status, "bypassed_normal")
         self.assertIsNone(sample.ground_truth_mask)
 
-    def test_oracle_inputs_can_require_a_mask_for_smoke(self):
+    def test_oracle_inputs_can_require_a_mask_when_requested(self):
         row = {
             "image_id": "normal",
             "image": "normal.jpg",

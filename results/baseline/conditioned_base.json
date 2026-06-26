@@ -1,10 +1,64 @@
 {
   "schema_version": "m7-m8-v2",
-  "timestamp": "2026-06-21T17:58:28.873102+00:00",
+  "timestamp": "2026-06-26T12:22:31.426280+00:00",
   "model_name": "google/medgemma-1.5-4b-it",
   "adapter_path": null,
   "split_name": "test",
   "seed": 42,
+  "dataset_audit": {
+    "input_mode": "dataset_oracle",
+    "split_file": "dataset/split.json",
+    "split_summary": {
+      "train": {
+        "total": 77,
+        "glaucoma": 41,
+        "normal": 36,
+        "with_optic_disc_mask": 41
+      },
+      "validation": {
+        "total": 26,
+        "glaucoma": 14,
+        "normal": 12,
+        "with_optic_disc_mask": 14
+      },
+      "test": {
+        "total": 26,
+        "glaucoma": 14,
+        "normal": 12,
+        "with_optic_disc_mask": 14
+      }
+    },
+    "selected_split": "test",
+    "selected_rows_before_filters": 26,
+    "selected_rows_after_filters": 26,
+    "samples_before_limit": 26,
+    "limit": null,
+    "masked_only": false,
+    "full_selected_split": true,
+    "samples_evaluated": 26
+  },
+  "runtime": {
+    "started_at": "2026-06-26T12:13:48.313846+00:00",
+    "finished_at": "2026-06-26T12:22:31.426290+00:00",
+    "duration_seconds": 523.112,
+    "duration": "8m 43s",
+    "stages": [
+      {
+        "label": "Model and evaluator load",
+        "started_at": "2026-06-26T12:13:48.995971+00:00",
+        "finished_at": "2026-06-26T12:15:22.875373+00:00",
+        "duration_seconds": 93.879,
+        "duration": "1m 34s"
+      },
+      {
+        "label": "Conditioned generation and evaluation",
+        "started_at": "2026-06-26T12:15:22.875710+00:00",
+        "finished_at": "2026-06-26T12:22:31.426114+00:00",
+        "duration_seconds": 428.55,
+        "duration": "7m 09s"
+      }
+    ]
+  },
   "config": {
     "medgemma": {
       "model_name": "google/medgemma-1.5-4b-it",
@@ -52,10 +106,10 @@
     },
     "C1": {
       "count": 26,
-      "bertscore_f1_mean": 0.9097328667457287,
-      "bertscore_f1_std": 0.007209840153901688,
-      "bertscore_calibrated_mean": 0.01591960756251445,
-      "bertscore_calibrated_std": 0.05777175368436406,
+      "bertscore_f1_mean": 0.9097328644532424,
+      "bertscore_f1_std": 0.0072098385876156225,
+      "bertscore_calibrated_mean": 0.01591958263172553,
+      "bertscore_calibrated_std": 0.05777172652889719,
       "sbert_similarity_mean": 0.5843329578638077,
       "sbert_similarity_std": 0.0942745279724799,
       "sbert_calibrated_mean": 0.01510859510073295,
@@ -78,10 +132,10 @@
     },
     "D1": {
       "count": 14,
-      "bertscore_f1_mean": 0.9072568203721728,
-      "bertscore_f1_std": 0.009260994416596394,
-      "bertscore_calibrated_mean": 0.01072335456098829,
-      "bertscore_calibrated_std": 0.06390137995735862,
+      "bertscore_f1_mean": 0.9072568331445966,
+      "bertscore_f1_std": 0.009260996060502093,
+      "bertscore_calibrated_mean": 0.010723486542701721,
+      "bertscore_calibrated_std": 0.06390146787537711,
       "sbert_similarity_mean": 0.5495768295867103,
       "sbert_similarity_std": 0.08881898801346998,
       "sbert_calibrated_mean": -0.00786824936845473,
@@ -154,18 +208,18 @@
     },
     "C1": {
       "count": 14,
-      "bertscore_f1_mean": 0.9071389394147056,
-      "bertscore_f1_std": 0.005580010379330157,
-      "bertscore_calibrated_mean": 0.014209177211991377,
-      "bertscore_calibrated_std": 0.06363235137508927,
+      "bertscore_f1_mean": 0.9071389351572309,
+      "bertscore_f1_std": 0.005580004641759537,
+      "bertscore_calibrated_mean": 0.014209130911954812,
+      "bertscore_calibrated_std": 0.06363230434374857,
       "sbert_similarity_mean": 0.5273335214172091,
       "sbert_similarity_std": 0.061400324592626045,
       "sbert_calibrated_mean": -0.06552611796983651,
       "sbert_calibrated_std": 0.1775208411829508,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_A": 0.01015726157597141,
-      "delta_bertscore_calibrated_vs_A": 0.010171434908573116,
+      "delta_bertscore_f1_vs_A": 0.010157257318496704,
+      "delta_bertscore_calibrated_vs_A": 0.010171388608536551,
       "delta_sbert_similarity_vs_A": 0.030314364603587607,
       "delta_sbert_calibrated_vs_A": -0.02478969434741885,
       "delta_finding_mentioned_vs_A": 0.7857142857142857
@@ -190,18 +244,18 @@
     },
     "D1": {
       "count": 14,
-      "bertscore_f1_mean": 0.9072568203721728,
-      "bertscore_f1_std": 0.009260994416596394,
-      "bertscore_calibrated_mean": 0.01072335456098829,
-      "bertscore_calibrated_std": 0.06390137995735862,
+      "bertscore_f1_mean": 0.9072568331445966,
+      "bertscore_f1_std": 0.009260996060502093,
+      "bertscore_calibrated_mean": 0.010723486542701721,
+      "bertscore_calibrated_std": 0.06390146787537711,
       "sbert_similarity_mean": 0.5495768295867103,
       "sbert_similarity_std": 0.08881898801346998,
       "sbert_calibrated_mean": -0.00786824936845473,
       "sbert_calibrated_std": 0.1332555147965626,
       "finding_mentioned_mean": 0.5,
       "finding_mentioned_std": 0.5,
-      "delta_bertscore_f1_vs_A": 0.010275142533438641,
-      "delta_bertscore_calibrated_vs_A": 0.006685612257570028,
+      "delta_bertscore_f1_vs_A": 0.010275155305862427,
+      "delta_bertscore_calibrated_vs_A": 0.00668574423928346,
       "delta_sbert_similarity_vs_A": 0.05255767277308876,
       "delta_sbert_calibrated_vs_A": 0.032868174253962934,
       "delta_finding_mentioned_vs_A": 0.2857142857142857
@@ -279,7 +333,7 @@
     "C1": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": 0.01015726157597133,
+        "mean_delta": 0.010157257318496704,
         "median_delta": 0.009218811988830566,
         "improved_fraction": 1.0,
         "statistic": 0.0,
@@ -291,7 +345,7 @@
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": 0.010171434908573116,
+        "mean_delta": 0.01017138860853655,
         "median_delta": 0.006684288382530212,
         "improved_fraction": 0.6428571428571429,
         "statistic": 41.0,
@@ -379,7 +433,7 @@
     "D1": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": 0.010275142533438546,
+        "mean_delta": 0.010275155305862427,
         "median_delta": 0.00946885347366333,
         "improved_fraction": 0.9285714285714286,
         "statistic": 6.0,
@@ -391,7 +445,7 @@
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": 0.006685612257570028,
+        "mean_delta": 0.00668574423928346,
         "median_delta": 0.006387082859873772,
         "improved_fraction": 0.5714285714285714,
         "statistic": 39.0,
@@ -1202,10 +1256,10 @@
       "segmentation_metrics": null,
       "text_metrics": {
         "bertscore_precision": 0.8971570134162903,
-        "bertscore_recall": 0.9328570365905762,
-        "bertscore_f1": 0.9146588444709778,
+        "bertscore_recall": 0.9328569769859314,
+        "bertscore_f1": 0.914658784866333,
         "bertscore_random_baseline": 0.9073539972305298,
-        "bertscore_calibrated": 0.07884687185287476,
+        "bertscore_calibrated": 0.07884622365236282,
         "sbert_similarity": 0.4674763083457947,
         "sbert_random_baseline": 0.5533989071846008,
         "sbert_calibrated": -0.1923922747373581,
@@ -3371,8 +3425,8 @@
       "expected_finding": "normal",
       "segmentation_metrics": null,
       "text_metrics": {
-        "bertscore_precision": 0.9104494452476501,
-        "bertscore_recall": 0.9174600839614868,
+        "bertscore_precision": 0.9104495048522949,
+        "bertscore_recall": 0.9174601435661316,
         "bertscore_f1": 0.9139413833618164,
         "bertscore_random_baseline": 0.9104238748550415,
         "bertscore_calibrated": 0.0392683707177639,
@@ -3512,7 +3566,7 @@
       "segmentation_metrics": null,
       "text_metrics": {
         "bertscore_precision": 0.8971544504165649,
-        "bertscore_recall": 0.9139600992202759,
+        "bertscore_recall": 0.9139601588249207,
         "bertscore_f1": 0.9054793119430542,
         "bertscore_random_baseline": 0.9061688184738159,
         "bertscore_calibrated": -0.00734837306663394,
@@ -4352,7 +4406,7 @@
       "segmentation_metrics": null,
       "text_metrics": {
         "bertscore_precision": 0.89384925365448,
-        "bertscore_recall": 0.9205842614173889,
+        "bertscore_recall": 0.9205843210220337,
         "bertscore_f1": 0.9070197939872742,
         "bertscore_random_baseline": 0.9026710391044617,
         "bertscore_calibrated": 0.044680994004011154,
@@ -4422,10 +4476,10 @@
       "segmentation_metrics": null,
       "text_metrics": {
         "bertscore_precision": 0.9021621346473694,
-        "bertscore_recall": 0.9148236513137817,
-        "bertscore_f1": 0.9084486961364746,
+        "bertscore_recall": 0.9148237705230713,
+        "bertscore_f1": 0.9084488749504089,
         "bertscore_random_baseline": 0.9032953381538391,
-        "bertscore_calibrated": 0.05328965559601784,
+        "bertscore_calibrated": 0.053291503340005875,
         "sbert_similarity": 0.5772345066070557,
         "sbert_random_baseline": 0.5509439706802368,
         "sbert_calibrated": 0.05854622647166252,
@@ -4678,5 +4732,6 @@
         "likert_score": null
       }
     }
-  ]
+  ],
+  "generated_result_count": 120
 }
