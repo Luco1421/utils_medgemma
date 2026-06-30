@@ -1,4 +1,15 @@
-"""Normalized input contract consumed by the MedGemma experiment."""
+"""Normalized input contract consumed by the MedGemma experiment.
+
+A ``ConditioningInput`` carries everything M7 needs for one image, already in
+final form. The conditioner never builds overlays: it receives the raw image
+and, when available, the pre-rendered overlay image (red segmentation mask
+composited onto the fundus). Two providers build these inputs:
+
+* ``oracle_inputs.build_dataset_oracle_inputs`` — the curated dataset with
+  ground-truth optic-disc masks (stand-in for the classifier/segmentor).
+* ``pipeline_inputs.load_pipeline_dir_inputs`` / ``load_json_inputs`` — the
+  real upstream pipeline (classifier prediction + segmentor mask/overlay).
+"""
 
 from __future__ import annotations
 
@@ -12,12 +23,12 @@ from typing import Any
 class ConditioningInput:
     image_id: str
     image: Any
-    mask: Any | None
     prediction: str
-    distribution: dict[str, float]
     reference: str
     mask_source: str
     input_source: str
+    overlay_image: Any | None = None
+    mask: Any | None = None
     expected_finding: str | None = None
     ground_truth_mask: Any | None = None
     mask_target: str = "optic_disc"
@@ -25,7 +36,12 @@ class ConditioningInput:
 
 
 def load_json_inputs(path: str | Path) -> list[ConditioningInput]:
-    """Load future real pipeline outputs using one explicit JSON schema."""
+    """Load real pipeline outputs using one explicit JSON schema.
+
+    Each record provides the classifier ``prediction`` and, optionally, the
+    segmentor's ``overlay_image`` (pre-rendered) and/or ``mask`` (for
+    segmentation scoring). Overlays are no longer derived from the mask.
+    """
 
     records = json.loads(Path(path).read_text(encoding="utf-8"))
     if not isinstance(records, list):
@@ -41,26 +57,5 @@ def load_json_inputs(path: str | Path) -> list[ConditioningInput]:
             raise ValueError(
                 f"Unsupported prediction for {sample.image_id}: "
                 f"{sample.prediction!r}"
-            )
-        probabilities = {
-            str(label): float(value)
-            for label, value in sample.distribution.items()
-        }
-        if set(probabilities) != {"glaucoma", "normal"}:
-            raise ValueError(
-                f"Distribution for {sample.image_id} must contain exactly "
-                "'glaucoma' and 'normal'"
-            )
-        if any(value < 0.0 for value in probabilities.values()):
-            raise ValueError(
-                f"Distribution for {sample.image_id} contains negative values"
-            )
-        if abs(sum(probabilities.values()) - 1.0) > 1e-4:
-            raise ValueError(
-                f"Distribution for {sample.image_id} must sum to 1"
-            )
-        if sample.prediction == "normal" and sample.mask is not None:
-            raise ValueError(
-                f"Normal prediction must bypass segmentation: {sample.image_id}"
             )
     return inputs

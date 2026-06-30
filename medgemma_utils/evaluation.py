@@ -10,7 +10,7 @@ from typing import Any
 
 import numpy as np
 
-from .conditioning import CONDITIONS, load_mask
+from .conditioning import BASELINE_CONDITION, CONDITIONS, load_mask
 
 DEFAULT_BERTSCORE_MODEL = (
     "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext"
@@ -377,7 +377,7 @@ TEXT_METRICS = (
 def summarize_by_condition(
     results: Sequence[Mapping[str, Any]],
     *,
-    include_delta_vs_a: bool = True,
+    include_delta_vs_baseline: bool = True,
 ) -> dict[str, Any]:
     summary: dict[str, Any] = {}
     for condition in CONDITIONS:
@@ -396,15 +396,16 @@ def summarize_by_condition(
                 metrics[f"{metric}_std"] = float(np.std(values))
         summary[condition] = metrics
 
-    if include_delta_vs_a and "A" in summary:
+    if include_delta_vs_baseline and BASELINE_CONDITION in summary:
+        baseline = summary[BASELINE_CONDITION]
         for condition, metrics in summary.items():
-            if condition == "A":
+            if condition == BASELINE_CONDITION:
                 continue
             for metric in TEXT_METRICS:
                 key = f"{metric}_mean"
-                if key in metrics and key in summary["A"]:
-                    metrics[f"delta_{metric}_vs_A"] = (
-                        metrics[key] - summary["A"][key]
+                if key in metrics and key in baseline:
+                    metrics[f"delta_{metric}_vs_baseline"] = (
+                        metrics[key] - baseline[key]
                     )
     return summary
 
@@ -412,7 +413,7 @@ def summarize_by_condition(
 def paired_comparisons_to_baseline(
     results: Sequence[Mapping[str, Any]],
     evaluator: Evaluator,
-    baseline_condition: str = "A",
+    baseline_condition: str = BASELINE_CONDITION,
 ) -> dict[str, Any]:
     comparisons: dict[str, Any] = {}
     for condition in CONDITIONS:

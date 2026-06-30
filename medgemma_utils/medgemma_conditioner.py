@@ -10,12 +10,7 @@ import numpy as np
 import torch
 from PIL import Image
 
-from .conditioning import (
-    MASK_CONDITIONS,
-    build_prompt,
-    make_overlay,
-    validate_condition_inputs,
-)
+from .conditioning import CONDITION_SPECS, ConditionSpec
 
 
 class MedGemmaConditioner:
@@ -107,18 +102,11 @@ class MedGemmaConditioner:
         return Image.fromarray(np.asarray(image_raw).astype(np.uint8)).convert("RGB")
 
     @staticmethod
-    def _validate_inputs(
-        condition: str,
-        mask: np.ndarray | None,
-        prediction: str | None,
-        distribution: dict[str, float] | None,
-    ) -> None:
-        validate_condition_inputs(
-            condition,
-            mask=mask,
-            prediction=prediction,
-            distribution=distribution,
-        )
+    def _resolve_condition(condition: str) -> ConditionSpec:
+        spec = CONDITION_SPECS.get(condition)
+        if spec is None:
+            raise ValueError(f"Unknown condition: {condition}")
+        return spec
 
     def _model_device(self) -> torch.device | str:
         if hasattr(self.model, "hf_device_map"):
@@ -131,23 +119,17 @@ class MedGemmaConditioner:
         self,
         condition: str,
         image_raw: np.ndarray,
-        mask: np.ndarray | None = None,
-        prediction: str | None = None,
-        distribution: dict[str, float] | None = None,
     ) -> dict[str, Any]:
-        condition = condition.upper()
-        self._validate_inputs(condition, mask, prediction, distribution)
+        """Generate a description. ``image_raw`` is the final image to send:
+        the caller passes the raw image or the pre-rendered overlay according
+        to the condition."""
+
+        spec = self._resolve_condition(condition)
 
         image = self._as_image(image_raw)
-        image_was_overlaid = condition in MASK_CONDITIONS
-        if image_was_overlaid:
-            image = make_overlay(image, mask)
+        image_was_overlaid = spec.use_overlay
 
-        prompt = build_prompt(
-            condition,
-            prediction=prediction,
-            distribution=distribution,
-        )
+        prompt = spec.prompt
         messages = [{
             "role": "user",
             "content": [

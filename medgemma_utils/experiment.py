@@ -5,7 +5,11 @@ from __future__ import annotations
 from collections.abc import Sequence
 from typing import Any
 
-from .conditioning import CONDITIONS, MASK_CONDITIONS
+from .conditioning import (
+    BASELINE_CONDITION,
+    CONDITION_SPECS,
+    condition_applies,
+)
 from .evaluation import (
     Evaluator,
     evaluate_generated_texts,
@@ -38,18 +42,17 @@ def run_conditioned_experiment(
         else:
             segmentation_by_image[sample.image_id] = None
 
-        for condition in CONDITIONS:
-            if condition in MASK_CONDITIONS and sample.mask is None:
+        for condition, spec in CONDITION_SPECS.items():
+            if not condition_applies(
+                spec,
+                sample.prediction,
+                has_overlay=sample.overlay_image is not None,
+            ):
                 continue
             m7_result = conditioner.generate(
                 condition=condition,
-                image_raw=sample.image,
-                mask=sample.mask if condition in MASK_CONDITIONS else None,
-                prediction=(
-                    sample.prediction if condition in {"C1", "D1"} else None
-                ),
-                distribution=(
-                    sample.distribution if condition in {"C2", "D2"} else None
+                image_raw=(
+                    sample.overlay_image if spec.use_overlay else sample.image
                 ),
             )
             results.append({
@@ -67,7 +70,6 @@ def run_conditioned_experiment(
                 "image_was_overlaid": m7_result["image_was_overlaid"],
                 "classification": {
                     "prediction": sample.prediction,
-                    "distribution": sample.distribution,
                 },
                 "expected_finding": sample.expected_finding,
                 "segmentation_metrics": segmentation_by_image[sample.image_id],
@@ -75,29 +77,27 @@ def run_conditioned_experiment(
 
     evaluate_generated_texts(results, evaluator=evaluator)
 
-    conditions_by_image: dict[str, set[str]] = {}
-    for item in results:
-        conditions_by_image.setdefault(item["image_id"], set()).add(
-            item["condition"]
-        )
-    paired_image_ids = sorted(
-        image_id
-        for image_id, available in conditions_by_image.items()
-        if set(CONDITIONS).issubset(available)
+    # Conditions are applied per classified label, so no image carries every
+    # condition. Comparisons are made against the label-agnostic baseline
+    # (``without_overlay``), which each image always receives.
+    baseline_image_ids = sorted(
+        {
+            item["image_id"]
+            for item in results
+            if item["condition"] == BASELINE_CONDITION
+        }
     )
-    paired_results = [
-        item for item in results if item["image_id"] in paired_image_ids
-    ]
     return {
+        "baseline_condition": BASELINE_CONDITION,
         "coverage_summary_by_condition": summarize_by_condition(
             results,
-            include_delta_vs_a=False,
+            include_delta_vs_baseline=False,
         ),
-        "paired_image_count": len(paired_image_ids),
-        "paired_image_ids": paired_image_ids,
-        "summary_by_condition": summarize_by_condition(paired_results),
-        "paired_comparisons_vs_A": paired_comparisons_to_baseline(
-            paired_results,
+        "baseline_image_count": len(baseline_image_ids),
+        "baseline_image_ids": baseline_image_ids,
+        "summary_by_condition": summarize_by_condition(results),
+        "paired_comparisons_vs_baseline": paired_comparisons_to_baseline(
+            results,
             evaluator,
         ),
         "results": results,

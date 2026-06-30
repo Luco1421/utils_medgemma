@@ -1,45 +1,104 @@
-"""MedGemma ablation conditions and medical-text evaluation."""
+"""MedGemma conditioning: prompt specs loaded from prompts.json and overlays.
+
+The six experimental conditions are no longer hardcoded templates with a
+probability distribution. They are now static prompts defined in
+``prompts.json`` at the repository root, combined along two axes:
+
+* overlay vs. no overlay (``use_overlay``)
+* prompt family by classifier label: glaucoma, normal, or unspecified
+  (derived from the condition name suffix)
+"""
 
 from __future__ import annotations
 
+import json
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 import numpy as np
 from PIL import Image
 
-CONDITIONS = ("A", "B", "C1", "C2", "D1", "D2")
-MASK_CONDITIONS = frozenset({"B", "D1", "D2"})
+PROMPTS_PATH = Path(__file__).resolve().parent.parent / "prompts.json"
 
-PROMPT_TEMPLATES = {
-    "A": "Describe the ophthalmological findings in this fundus image.",
-    "B": (
-        "The region highlighted in red was identified by an automatic "
-        "segmentation system. Describe the ophthalmological findings, "
-        "focusing on the highlighted region."
-    ),
-    "C1": (
-        "An ophthalmological classifier identifies the primary finding in "
-        "this fundus image as: {prediction}. Describe the ophthalmological "
-        "findings."
-    ),
-    "C2": (
-        "An ophthalmological classifier analyzed this fundus image and "
-        "estimates: {distribution}. Describe the ophthalmological findings."
-    ),
-    "D1": (
-        "An ophthalmological classifier identifies the primary finding as: "
-        "{prediction}. The region highlighted in red indicates the area where "
-        "this finding is located. Describe the findings focusing on the "
-        "highlighted region."
-    ),
-    "D2": (
-        "An ophthalmological classifier estimates: {distribution}. The region "
-        "highlighted in red indicates the area where the main finding is "
-        "located. Describe the findings in detail, focusing on the highlighted "
-        "region and its relationship with the suggested diagnosis."
-    ),
-}
+# The unspecified, no-overlay prompt is the reference condition for every
+# paired comparison (no class hint, raw image): the analogue of the old "A".
+BASELINE_CONDITION = "without_overlay"
+
+
+@dataclass(frozen=True)
+class ConditionSpec:
+    """One experimental condition declared in prompts.json."""
+
+    name: str
+    use_overlay: bool
+    prompt: str
+    label_scope: str  # "glaucoma" | "normal" | "any"
+
+
+def _label_scope(name: str) -> str:
+    if name.endswith("_glaucoma"):
+        return "glaucoma"
+    if name.endswith("_normal"):
+        return "normal"
+    return "any"
+
+
+def load_condition_specs(
+    path: str | Path = PROMPTS_PATH,
+) -> dict[str, ConditionSpec]:
+    """Load the condition specifications from prompts.json (order preserved)."""
+
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError("prompts.json must contain an object keyed by condition")
+    specs: dict[str, ConditionSpec] = {}
+    for name, entry in data.items():
+        if "use_overlay" not in entry or "prompt" not in entry:
+            raise ValueError(
+                f"Condition {name!r} must define 'use_overlay' and 'prompt'"
+            )
+        prompt = str(entry["prompt"]).strip()
+        if not prompt:
+            raise ValueError(f"Condition {name!r} has an empty prompt")
+        specs[name] = ConditionSpec(
+            name=name,
+            use_overlay=bool(entry["use_overlay"]),
+            prompt=prompt,
+            label_scope=_label_scope(name),
+        )
+    if BASELINE_CONDITION not in specs:
+        raise ValueError(
+            f"prompts.json must define the baseline condition "
+            f"{BASELINE_CONDITION!r}"
+        )
+    return specs
+
+
+CONDITION_SPECS = load_condition_specs()
+CONDITIONS = tuple(CONDITION_SPECS)
+MASK_CONDITIONS = frozenset(
+    name for name, spec in CONDITION_SPECS.items() if spec.use_overlay
+)
+
+
+def condition_applies(
+    spec: ConditionSpec,
+    prediction: str,
+    *,
+    has_overlay: bool,
+) -> bool:
+    """Whether a condition is run for a sample with the given label/overlay.
+
+    A condition runs only when its prompt family matches the classified label
+    (or is unspecified), and overlay conditions require an overlay image.
+    """
+
+    if spec.label_scope not in ("any", prediction):
+        return False
+    if spec.use_overlay and not has_overlay:
+        return False
+    return True
 
 
 def load_mask(mask: str | Path | np.ndarray) -> np.ndarray:
@@ -76,66 +135,3 @@ def make_overlay(image: Any, mask: Any, alpha: float = 0.4) -> Image.Image:
         + np.array([255.0, 0.0, 0.0]) * alpha
     )
     return Image.fromarray(np.rint(overlay).clip(0, 255).astype(np.uint8))
-
-
-def format_distribution(distribution: Mapping[str, float]) -> str:
-    return ", ".join(
-        f"{label} ({probability:.0%})"
-        for label, probability in sorted(
-            distribution.items(), key=lambda item: item[1], reverse=True
-        )
-    )
-
-
-def validate_condition_inputs(
-    condition: str,
-    mask: Any = None,
-    prediction: str | None = None,
-    distribution: Mapping[str, float] | None = None,
-) -> str:
-    condition = condition.upper()
-    required = {
-        "A": (False, False, False),
-        "B": (True, False, False),
-        "C1": (False, True, False),
-        "C2": (False, False, True),
-        "D1": (True, True, False),
-        "D2": (True, False, True),
-    }
-    if condition not in required:
-        raise ValueError(f"Unknown condition: {condition}")
-    needs_mask, needs_prediction, needs_distribution = required[condition]
-    if needs_mask != (mask is not None):
-        action = "requires" if needs_mask else "does not accept"
-        raise ValueError(f"Condition {condition} {action} mask")
-    if needs_prediction != (prediction is not None):
-        action = "requires" if needs_prediction else "does not accept"
-        raise ValueError(f"Condition {condition} {action} prediction")
-    if needs_distribution != (distribution is not None):
-        action = "requires" if needs_distribution else "does not accept"
-        raise ValueError(f"Condition {condition} {action} distribution")
-    if prediction is not None and not str(prediction).strip():
-        raise ValueError("prediction cannot be empty")
-    if distribution is not None:
-        probabilities = [float(value) for value in distribution.values()]
-        if not distribution or any(value < 0 for value in probabilities):
-            raise ValueError("distribution must contain non-negative values")
-        if not np.isclose(sum(probabilities), 1.0, atol=1e-4):
-            raise ValueError("distribution probabilities must sum to 1")
-    return condition
-
-
-def build_prompt(
-    condition: str,
-    *,
-    prediction: str | None = None,
-    distribution: Mapping[str, float] | None = None,
-) -> str:
-    return PROMPT_TEMPLATES[condition].format(
-        prediction=prediction,
-        distribution=(
-            format_distribution(distribution)
-            if distribution is not None
-            else None
-        ),
-    )
