@@ -13,20 +13,80 @@ from pathlib import Path
 from huggingface_hub import get_token
 
 from medgemma_utils.config import load_project_config
-from medgemma_utils.dataset import load_split_rows, summarize_splits
+from medgemma_utils.dataset import load_split_rows
 from medgemma_utils.evaluation import Evaluator
 from medgemma_utils.experiment import run_conditioned_experiment
 from medgemma_utils.inputs import load_json_inputs
 from medgemma_utils.oracle_inputs import build_dataset_oracle_inputs
+from medgemma_utils.pipeline_inputs import load_pipeline_dir_inputs
 from medgemma_utils.runtime import format_duration, timed_stage, utc_now_iso
 
 LOGGER = logging.getLogger(__name__)
+
+# Classifier output encodes the label as 1=glaucoma, 0=normal.
+_CLASSIFIER_LABELS = {1: "glaucoma", 0: "normal"}
+
+
+def load_pipeline_classifications(
+    classifications_path: str,
+) -> tuple[dict[str, str], dict[str, str]]:
+    """Read the pipeline classifier file (per_image y_pred/y_true) into two maps.
+
+    Returns ``(predictions, ground_truth_labels)``, both keyed by ``image_id``
+    with ``"glaucoma"``/``"normal"`` values, so the classifier prediction and
+    the ground-truth label used to judge it share one traceable source.
+    """
+
+    data = json.loads(Path(classifications_path).read_text(encoding="utf-8"))
+    per_image = data["per_image"]
+    predictions: dict[str, str] = {}
+    ground_truth_labels: dict[str, str] = {}
+    for row in per_image:
+        image_id = str(row["image_id"])
+        predictions[image_id] = _CLASSIFIER_LABELS[int(row["y_pred"])]
+        ground_truth_labels[image_id] = _CLASSIFIER_LABELS[int(row["y_true"])]
+    LOGGER.info(
+        "Loaded %d classifier predictions and ground-truth labels from %s",
+        len(predictions),
+        classifications_path,
+    )
+    return predictions, ground_truth_labels
+
+
+def _label_counts(samples) -> dict[str, int]:
+    """Count evaluated images by ground-truth label."""
+
+    counts = {"total": len(samples), "glaucoma": 0, "normal": 0}
+    for sample in samples:
+        label = sample.expected_finding
+        if label in counts:
+            counts[label] += 1
+    return counts
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="config.yaml")
     parser.add_argument("--inputs-json")
+    parser.add_argument(
+        "--pipeline-dir",
+        help="Folder with pipeline-style inputs (image + segmentor overlay), "
+        "e.g. dataset/test. Uses GT labels as classifier stand-in unless "
+        "--predictions-json is given.",
+    )
+    parser.add_argument(
+        "--predictions-json",
+        help="Optional JSON mapping image_id -> 'glaucoma'/'normal' for "
+        "--pipeline-dir (real classifier output).",
+    )
+    parser.add_argument(
+        "--pipeline-classifications-json",
+        help="Pipeline classifier file (e.g. pipeline_classifications.json) "
+        "with a 'per_image' list of {image_id, y_pred, y_true}. Derives BOTH "
+        "the classifier prediction (y_pred) and the ground-truth label used to "
+        "judge it (y_true) from the same artifact for traceability. "
+        "Mapping: 1=glaucoma, 0=normal.",
+    )
     parser.add_argument("--split-file")
     parser.add_argument(
         "--split-name",
@@ -39,7 +99,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--masked-only", action="store_true")
     parser.add_argument("--adapter-path")
-    parser.add_argument("--oracle-confidence", type=float)
     return parser.parse_args()
 
 
@@ -55,64 +114,66 @@ def main() -> None:
     seed = int(project_config["seed"])
     split_file = args.split_file or project_config["data"]["split_file"]
     split_rows = load_split_rows(split_file)
-    split_summary = summarize_splits(split_rows)
-    oracle_confidence = (
-        args.oracle_confidence
-        if args.oracle_confidence is not None
-        else float(project_config["data"]["oracle_confidence"])
-    )
-    if args.inputs_json:
+    if args.pipeline_dir:
+        dataset_dir = Path(split_file).parent
+        predictions = None
+        ground_truth_labels = None
+        if args.pipeline_classifications_json:
+            predictions, ground_truth_labels = load_pipeline_classifications(
+                args.pipeline_classifications_json
+            )
+        if args.predictions_json:
+            # Explicit predictions override the metrics-derived y_pred.
+            predictions = json.loads(
+                Path(args.predictions_json).read_text(encoding="utf-8")
+            )
+        # Segmentation scoring (predicted mask vs GT disc) is deferred to the
+        # analysis phase: the segmentor mask and the GT disc live at different
+        # resolutions, so comparing them needs explicit alignment handling.
+        # Omitting dataset_root keeps ground_truth_mask=None and skips it here.
+        samples = load_pipeline_dir_inputs(
+            args.pipeline_dir,
+            annotations_file=dataset_dir / "annotations.json",
+            predictions=predictions,
+            ground_truth_labels=ground_truth_labels,
+        )
+        dataset_audit = {
+            "input_mode": "pipeline_dir",
+            "pipeline_dir": args.pipeline_dir,
+            "pipeline_classifications_json": args.pipeline_classifications_json,
+        }
+    elif args.inputs_json:
         samples = load_json_inputs(args.inputs_json)
         dataset_audit = {
             "input_mode": "inputs_json",
             "inputs_json": args.inputs_json,
-            "split_file": split_file,
-            "split_summary": split_summary,
-            "samples_before_limit": len(samples),
-            "limit": args.limit,
-            "masked_only": args.masked_only,
-            "full_selected_split": False,
         }
     else:
         rows = split_rows[args.split_name]
-        selected_rows_before_filters = len(rows)
         if args.masked_only:
             rows = [row for row in rows if row["has_ground_truth_mask"]]
-        selected_rows_after_filters = len(rows)
         samples = build_dataset_oracle_inputs(
             rows,
-            confidence=oracle_confidence,
             require_mask=args.masked_only,
         )
         dataset_audit = {
             "input_mode": "dataset_oracle",
             "split_file": split_file,
-            "split_summary": split_summary,
             "selected_split": args.split_name,
-            "selected_rows_before_filters": selected_rows_before_filters,
-            "selected_rows_after_filters": selected_rows_after_filters,
-            "samples_before_limit": len(samples),
-            "limit": args.limit,
-            "masked_only": args.masked_only,
-            "full_selected_split": args.limit is None and not args.masked_only,
         }
     if args.limit is not None:
         samples = samples[: args.limit]
+        dataset_audit["limit"] = args.limit
+    if args.masked_only:
+        dataset_audit["masked_only"] = True
     dataset_audit["samples_evaluated"] = len(samples)
-    if dataset_audit["full_selected_split"]:
-        LOGGER.info(
-            "Evaluation uses the full %s split: %d samples",
-            args.split_name,
-            len(samples),
-        )
-    else:
-        LOGGER.warning(
-            "Evaluation uses a limited/custom input: mode=%s samples=%d limit=%s masked_only=%s",
-            dataset_audit["input_mode"],
-            len(samples),
-            args.limit,
-            args.masked_only,
-        )
+    dataset_audit["evaluated_counts"] = _label_counts(samples)
+    LOGGER.info(
+        "Evaluation: mode=%s samples=%d %s",
+        dataset_audit["input_mode"],
+        len(samples),
+        dataset_audit["evaluated_counts"],
+    )
 
     config = {
         **project_config["medgemma"],
@@ -146,7 +207,6 @@ def main() -> None:
             conditioner,
             evaluator,
             samples,
-            pipeline_name="dataset_oracle",
             model_variant=(
                 "medgemma_lora" if args.adapter_path else "medgemma_base"
             ),
@@ -154,12 +214,13 @@ def main() -> None:
     stage_timings.append(stage)
 
     elapsed = time.perf_counter() - run_started
+    # ``seed`` is reported once at the top level; it is the single project seed
+    # shared by the model and the evaluator, so it is stripped from both config
+    # blocks below to avoid three copies of the same number.
     payload = {
-        "schema_version": "m7-m8-v2",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "model_name": config["model_name"],
         "adapter_path": args.adapter_path,
-        "split_name": args.split_name,
         "seed": config["seed"],
         "dataset_audit": dataset_audit,
         "runtime": {
@@ -171,12 +232,14 @@ def main() -> None:
         },
         "config": {
             "medgemma": {
-                key: value for key, value in config.items() if key != "token"
+                key: value
+                for key, value in config.items()
+                if key not in {"token", "seed"}
             },
             "evaluation": {
                 key: value
                 for key, value in evaluation_config.items()
-                if key != "token"
+                if key not in {"token", "seed"}
             },
         },
         **experiment,

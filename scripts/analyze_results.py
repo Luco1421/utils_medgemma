@@ -29,6 +29,7 @@ from typing import Any
 
 import numpy as np
 
+from medgemma_utils.conditioning import BASELINE_CONDITION, CONDITIONS
 from medgemma_utils.evaluation import GLAUCOMA_TERMS, NORMAL_TERMS
 
 _WORD = re.compile(r"[a-z0-9]+")
@@ -121,33 +122,101 @@ def _recall(pairs: list[tuple[str, str]], cls: str) -> float:
     return float(np.mean([p == cls for p in items]))
 
 
+def _clopper_pearson(successes: int, total: int, alpha: float = 0.05) -> list[float]:
+    """Exact binomial (Clopper-Pearson) confidence interval for a proportion."""
+
+    from scipy.stats import beta
+
+    if total == 0:
+        return [float("nan"), float("nan")]
+    lower = 0.0 if successes == 0 else float(
+        beta.ppf(alpha / 2, successes, total - successes + 1)
+    )
+    upper = 1.0 if successes == total else float(
+        beta.ppf(1 - alpha / 2, successes + 1, total - successes)
+    )
+    return [lower, upper]
+
+
+def _sensitivity_ci(pairs: list[tuple[str, str]], cls: str) -> dict[str, Any]:
+    """Per-class sensitivity (recall) with an exact 95% CI."""
+
+    truths = [(p, t) for p, t in pairs if t == cls]
+    total = len(truths)
+    successes = sum(1 for p, _ in truths if p == cls)
+    point = float("nan") if total == 0 else successes / total
+    return {
+        "value": point,
+        "ci95": _clopper_pearson(successes, total),
+        "support": total,
+    }
+
+
+def _cohens_kappa(pairs: list[tuple[str, str]]) -> float:
+    """Cohen's kappa between the text-asserted class and the ground truth,
+    over the cases the model committed to a class (unknown excluded)."""
+
+    decided = [(p, t) for p, t in pairs if p in {"glaucoma", "normal"}]
+    n = len(decided)
+    if n == 0:
+        return float("nan")
+    labels = ("glaucoma", "normal")
+    observed = np.mean([p == t for p, t in decided])
+    p_pred = {c: np.mean([p == c for p, _ in decided]) for c in labels}
+    p_true = {c: np.mean([t == c for _, t in decided]) for c in labels}
+    expected = sum(p_pred[c] * p_true[c] for c in labels)
+    if np.isclose(expected, 1.0):
+        return float("nan")
+    return float((observed - expected) / (1 - expected))
+
+
+def _confusion(pairs: list[tuple[str, str]]) -> dict[str, dict[str, int]]:
+    """Row = ground truth, column = text-asserted class (incl. ``unknown``)."""
+
+    matrix = {
+        truth: {"glaucoma": 0, "normal": 0, "unknown": 0}
+        for truth in ("glaucoma", "normal")
+    }
+    for pred, truth in pairs:
+        if truth in matrix and pred in matrix[truth]:
+            matrix[truth][pred] += 1
+    return matrix
+
+
 def _diagnostic(payload: dict[str, Any]) -> dict[str, Any]:
     """Per-class diagnosis quality. Accuracy alone hides class collapse, so we
-    report balanced accuracy and per-class recall. Condition A is the only
-    balanced, no-class-given condition; B/D1/D2 contain glaucoma images only."""
+    report balanced accuracy and per-class recall. The baseline condition
+    (without_overlay) is the balanced, no-class-given test; the glaucoma/normal
+    prompts bake the class into the text, so they only measure echoing."""
 
     by_condition: dict[str, list[tuple[str, str]]] = defaultdict(list)
     for row in payload["results"]:
-        truth = row.get("expected_finding")
+        truth = row["classification"].get("ground_truth")
         if truth not in {"glaucoma", "normal"}:
             continue
         by_condition[row["condition"]].append((predicted_class(row["generated_text"]), truth))
 
-    a = by_condition.get("A", [])
+    a = by_condition.get(BASELINE_CONDITION, [])
     rec_g, rec_n = _recall(a, "glaucoma"), _recall(a, "normal")
     all_normal = [pair for pairs in by_condition.values() for pair in pairs if pair[1] == "normal"]
     return {
-        "A_acc": float(np.mean([p == t for p, t in a])) if a else float("nan"),
-        "A_balanced_acc": float(np.nanmean([rec_g, rec_n])),
-        "A_recall_glaucoma": rec_g,
-        "A_recall_normal": rec_n,
-        "A_unknown": float(np.mean([p == "unknown" for p, _ in a])) if a else float("nan"),
+        "baseline_acc": float(np.mean([p == t for p, t in a])) if a else float("nan"),
+        "baseline_balanced_acc": float(np.nanmean([rec_g, rec_n])),
+        "baseline_recall_glaucoma": rec_g,
+        "baseline_recall_normal": rec_n,
+        "baseline_unknown": float(np.mean([p == "unknown" for p, _ in a])) if a else float("nan"),
         "normal_recall_all": _recall(all_normal, "normal"),
+        # Publication-grade packaging for the honest (baseline) diagnostic probe.
+        "baseline_cohens_kappa": _cohens_kappa(a),
+        "baseline_sensitivity_glaucoma": _sensitivity_ci(a, "glaucoma"),
+        "baseline_sensitivity_normal": _sensitivity_ci(a, "normal"),
+        "baseline_confusion": _confusion(a),
     }
 
 
 def _context_means(payload: dict[str, Any]) -> dict[str, float]:
-    metrics = ("bertscore_f1", "sbert_similarity", "finding_mentioned", "sbert_calibrated")
+    metrics = ("bertscore_f1", "sbert_similarity", "rouge_l", "bleu",
+               "finding_mentioned", "sbert_calibrated")
     out = {}
     for metric in metrics:
         vals = [
@@ -188,27 +257,44 @@ def main() -> None:
             "m8_context_means": _context_means(payload),
         }
 
+    # Model-independent similarity control (in-category vs cross-category over
+    # the expert references), computed at generation time on the base run.
+    reference_baseline = models["base"].get("reference_similarity_baseline")
+    if reference_baseline:
+        summary["reference_similarity_baseline"] = reference_baseline
+
     print("\n===================== RECALL@1 (identificacion de imagen) =====================")
     print("¿el texto generado identifica SU imagen entre las referencias? (azar ~ 1/N)")
     for name, payload in models.items():
         r = _recall_at_1(payload)
         chance = 1.0 / r["_n_images"]
-        conds = "  ".join(f"{c}:{r[c]:.2f}" for c in ("A", "B", "C1", "C2", "D1", "D2") if c in r)
+        conds = "  ".join(f"{c}:{r[c]:.2f}" for c in CONDITIONS if c in r)
         print(f"  [{name:12s}] ALL={r['ALL']:.3f} (azar={chance:.3f})   {conds}")
 
-    print("\n===================== DIAGNOSTICO por clase (condicion A, balanceada) =========")
-    print("A no le da la clase al modelo. balanced_acc y recall por clase delatan colapso.")
+    print(f"\n============ DIAGNOSTICO por clase (condicion {BASELINE_CONDITION}, balanceada) ============")
+    print(f"{BASELINE_CONDITION} no le da la clase al modelo. balanced_acc y recall por clase delatan colapso.")
     for name, payload in models.items():
         d = _diagnostic(payload)
-        print(f"  [{name:12s}] balanced_acc={d['A_balanced_acc']:.3f}  "
-              f"recall[glaucoma]={d['A_recall_glaucoma']:.2f}  recall[normal]={d['A_recall_normal']:.2f}  "
-              f"unknown={d['A_unknown']:.2f}  | recall_normal(global)={d['normal_recall_all']:.2f}")
+        print(f"  [{name:12s}] balanced_acc={d['baseline_balanced_acc']:.3f}  "
+              f"recall[glaucoma]={d['baseline_recall_glaucoma']:.2f}  recall[normal]={d['baseline_recall_normal']:.2f}  "
+              f"unknown={d['baseline_unknown']:.2f}  | recall_normal(global)={d['normal_recall_all']:.2f}")
 
     print("\n===================== CONTEXTO M8 (inflado por boilerplate) ====================")
     for name, payload in models.items():
         c = _context_means(payload)
         print(f"  [{name:12s}] bertF1={c['bertscore_f1']:.3f}  sbert={c['sbert_similarity']:.3f}  "
+              f"rougeL={c['rouge_l']:.3f}  bleu={c['bleu']:.3f}  "
               f"find={c['finding_mentioned']:.3f}  sbert_calib={c['sbert_calibrated']:+.3f}")
+
+    if reference_baseline and "bertscore_f1" in reference_baseline:
+        print("\n========= CROSS-VALIDATION BASELINE (referencia vs referencia) =========")
+        print("in-category vs cross-category: si cross sigue alto, la metrica premia boilerplate.")
+        for metric in ("bertscore_f1", "sbert_similarity", "rouge_l", "bleu"):
+            block = reference_baseline[metric]
+            inc, cro = block["in_category"], block["cross_category"]
+            print(f"  {metric:16s} in={inc['mean']:.3f} [{inc['ci_lower']:.3f},{inc['ci_upper']:.3f}]  "
+                  f"cross={cro['mean']:.3f} [{cro['ci_lower']:.3f},{cro['ci_upper']:.3f}]  "
+                  f"p={block['mann_whitney']['p_value']:.1e}  delta={block['mann_whitney']['cliffs_delta']:+.2f}")
 
     Path(args.output).write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(f"\nWrote {args.output}")

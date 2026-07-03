@@ -1,0 +1,430 @@
+{
+  "note": "Extras de analisis (NO contractuales). M8 es lo principal; estas metricas existen porque las de similitud de M8 estan infladas por el boilerplate de los informes. recall_at_1 mide especificidad de imagen (azar=1/N); el diagnostico por clase delata el colapso de clase.",
+  "models": {
+    "base": {
+      "recall_at_1": {
+        "ALL": 0.0625,
+        "_n_images": 26,
+        "without_overlay_normal": 0.0,
+        "without_overlay": 0.07692307692307693,
+        "with_overlay_glaucoma": 0.07142857142857142,
+        "without_overlay_glaucoma": 0.07142857142857142,
+        "with_overlay": 0.07142857142857142
+      },
+      "diagnostic": {
+        "baseline_acc": 0.5,
+        "baseline_balanced_acc": 0.4642857142857143,
+        "baseline_recall_glaucoma": 0.9285714285714286,
+        "baseline_recall_normal": 0.0,
+        "baseline_unknown": 0.038461538461538464,
+        "normal_recall_all": 0.4166666666666667,
+        "baseline_cohens_kappa": -0.07913669064748204,
+        "baseline_sensitivity_glaucoma": {
+          "value": 0.9285714285714286,
+          "ci95": [
+            0.6613155100681788,
+            0.9981932193408746
+          ],
+          "support": 14
+        },
+        "baseline_sensitivity_normal": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.2646484693970512
+          ],
+          "support": 12
+        },
+        "baseline_confusion": {
+          "glaucoma": {
+            "glaucoma": 13,
+            "normal": 1,
+            "unknown": 0
+          },
+          "normal": {
+            "glaucoma": 11,
+            "normal": 0,
+            "unknown": 1
+          }
+        }
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.9049558795988559,
+        "sbert_similarity": 0.5553781505674124,
+        "rouge_l": 0.0929931545338863,
+        "bleu": 0.010091764738272706,
+        "finding_mentioned": 0.9375,
+        "sbert_calibrated": 0.011353679961757734
+      }
+    },
+    "medgemma_lora_dataset_seed1024": {
+      "recall_at_1": {
+        "ALL": 0.034375,
+        "_n_images": 26,
+        "without_overlay_normal": 0.16666666666666666,
+        "without_overlay": 0.028846153846153848,
+        "with_overlay_glaucoma": 0.0,
+        "without_overlay_glaucoma": 0.0,
+        "with_overlay": 0.0
+      },
+      "diagnostic": {
+        "baseline_acc": 0.5384615384615384,
+        "baseline_balanced_acc": 0.5,
+        "baseline_recall_glaucoma": 1.0,
+        "baseline_recall_normal": 0.0,
+        "baseline_unknown": 0.0,
+        "normal_recall_all": 0.0,
+        "baseline_cohens_kappa": 0.0,
+        "baseline_sensitivity_glaucoma": {
+          "value": 1.0,
+          "ci95": [
+            0.7683642383498834,
+            1.0
+          ],
+          "support": 14
+        },
+        "baseline_sensitivity_normal": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.2646484693970512
+          ],
+          "support": 12
+        },
+        "baseline_confusion": {
+          "glaucoma": {
+            "glaucoma": 14,
+            "normal": 0,
+            "unknown": 0
+          },
+          "normal": {
+            "glaucoma": 12,
+            "normal": 0,
+            "unknown": 0
+          }
+        }
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.9441415317356586,
+        "sbert_similarity": 0.763236990571022,
+        "rouge_l": 0.3824131437746142,
+        "bleu": 0.19304417038353147,
+        "finding_mentioned": 0.9125,
+        "sbert_calibrated": 0.05799365018028766
+      }
+    },
+    "medgemma_lora_dataset_seed123": {
+      "recall_at_1": {
+        "ALL": 0.0625,
+        "_n_images": 26,
+        "without_overlay_normal": 0.16666666666666666,
+        "without_overlay": 0.11538461538461539,
+        "with_overlay_glaucoma": 0.0,
+        "without_overlay_glaucoma": 0.0,
+        "with_overlay": 0.0
+      },
+      "diagnostic": {
+        "baseline_acc": 0.5384615384615384,
+        "baseline_balanced_acc": 0.5,
+        "baseline_recall_glaucoma": 1.0,
+        "baseline_recall_normal": 0.0,
+        "baseline_unknown": 0.0,
+        "normal_recall_all": 0.0,
+        "baseline_cohens_kappa": 0.0,
+        "baseline_sensitivity_glaucoma": {
+          "value": 1.0,
+          "ci95": [
+            0.7683642383498834,
+            1.0
+          ],
+          "support": 14
+        },
+        "baseline_sensitivity_normal": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.2646484693970512
+          ],
+          "support": 12
+        },
+        "baseline_confusion": {
+          "glaucoma": {
+            "glaucoma": 14,
+            "normal": 0,
+            "unknown": 0
+          },
+          "normal": {
+            "glaucoma": 12,
+            "normal": 0,
+            "unknown": 0
+          }
+        }
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.9417973645031452,
+        "sbert_similarity": 0.7624060459434986,
+        "rouge_l": 0.36104835432844495,
+        "bleu": 0.17848962749198843,
+        "finding_mentioned": 0.8875,
+        "sbert_calibrated": 0.038292269929661414
+      }
+    },
+    "medgemma_lora_dataset_seed42": {
+      "recall_at_1": {
+        "ALL": 0.04375,
+        "_n_images": 26,
+        "without_overlay_normal": 0.16666666666666666,
+        "without_overlay": 0.057692307692307696,
+        "with_overlay_glaucoma": 0.0,
+        "without_overlay_glaucoma": 0.0,
+        "with_overlay": 0.0
+      },
+      "diagnostic": {
+        "baseline_acc": 0.5384615384615384,
+        "baseline_balanced_acc": 0.5,
+        "baseline_recall_glaucoma": 1.0,
+        "baseline_recall_normal": 0.0,
+        "baseline_unknown": 0.0,
+        "normal_recall_all": 0.0,
+        "baseline_cohens_kappa": 0.0,
+        "baseline_sensitivity_glaucoma": {
+          "value": 1.0,
+          "ci95": [
+            0.7683642383498834,
+            1.0
+          ],
+          "support": 14
+        },
+        "baseline_sensitivity_normal": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.2646484693970512
+          ],
+          "support": 12
+        },
+        "baseline_confusion": {
+          "glaucoma": {
+            "glaucoma": 14,
+            "normal": 0,
+            "unknown": 0
+          },
+          "normal": {
+            "glaucoma": 12,
+            "normal": 0,
+            "unknown": 0
+          }
+        }
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.9462802603840827,
+        "sbert_similarity": 0.77546316832304,
+        "rouge_l": 0.4082656008391415,
+        "bleu": 0.21312463466285783,
+        "finding_mentioned": 0.95,
+        "sbert_calibrated": 0.06130334555637092
+      }
+    },
+    "medgemma_lora_dataset_seed456": {
+      "recall_at_1": {
+        "ALL": 0.0375,
+        "_n_images": 26,
+        "without_overlay_normal": 0.16666666666666666,
+        "without_overlay": 0.038461538461538464,
+        "with_overlay_glaucoma": 0.0,
+        "without_overlay_glaucoma": 0.0,
+        "with_overlay": 0.0
+      },
+      "diagnostic": {
+        "baseline_acc": 0.5384615384615384,
+        "baseline_balanced_acc": 0.5,
+        "baseline_recall_glaucoma": 1.0,
+        "baseline_recall_normal": 0.0,
+        "baseline_unknown": 0.0,
+        "normal_recall_all": 0.0,
+        "baseline_cohens_kappa": 0.0,
+        "baseline_sensitivity_glaucoma": {
+          "value": 1.0,
+          "ci95": [
+            0.7683642383498834,
+            1.0
+          ],
+          "support": 14
+        },
+        "baseline_sensitivity_normal": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.2646484693970512
+          ],
+          "support": 12
+        },
+        "baseline_confusion": {
+          "glaucoma": {
+            "glaucoma": 14,
+            "normal": 0,
+            "unknown": 0
+          },
+          "normal": {
+            "glaucoma": 12,
+            "normal": 0,
+            "unknown": 0
+          }
+        }
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.944891507178545,
+        "sbert_similarity": 0.7669839493930339,
+        "rouge_l": 0.35769309575490305,
+        "bleu": 0.17214306198580598,
+        "finding_mentioned": 0.9,
+        "sbert_calibrated": 0.04274354247609154
+      }
+    },
+    "medgemma_lora_dataset_seed789": {
+      "recall_at_1": {
+        "ALL": 0.05,
+        "_n_images": 26,
+        "without_overlay_normal": 0.16666666666666666,
+        "without_overlay": 0.07692307692307693,
+        "with_overlay_glaucoma": 0.0,
+        "without_overlay_glaucoma": 0.0,
+        "with_overlay": 0.0
+      },
+      "diagnostic": {
+        "baseline_acc": 0.5384615384615384,
+        "baseline_balanced_acc": 0.5,
+        "baseline_recall_glaucoma": 1.0,
+        "baseline_recall_normal": 0.0,
+        "baseline_unknown": 0.0,
+        "normal_recall_all": 0.0,
+        "baseline_cohens_kappa": 0.0,
+        "baseline_sensitivity_glaucoma": {
+          "value": 1.0,
+          "ci95": [
+            0.7683642383498834,
+            1.0
+          ],
+          "support": 14
+        },
+        "baseline_sensitivity_normal": {
+          "value": 0.0,
+          "ci95": [
+            0.0,
+            0.2646484693970512
+          ],
+          "support": 12
+        },
+        "baseline_confusion": {
+          "glaucoma": {
+            "glaucoma": 14,
+            "normal": 0,
+            "unknown": 0
+          },
+          "normal": {
+            "glaucoma": 12,
+            "normal": 0,
+            "unknown": 0
+          }
+        }
+      },
+      "m8_context_means": {
+        "bertscore_f1": 0.9450567066669464,
+        "sbert_similarity": 0.7721675544977188,
+        "rouge_l": 0.39909665371195036,
+        "bleu": 0.2135171915931479,
+        "finding_mentioned": 1.0,
+        "sbert_calibrated": 0.08100156474974937
+      }
+    }
+  },
+  "reference_similarity_baseline": {
+    "pair_count": 650,
+    "in_category_pairs": 314,
+    "cross_category_pairs": 336,
+    "bertscore_f1": {
+      "in_category": {
+        "mean": 0.9598027249430395,
+        "std": 0.024638758671169957,
+        "ci_lower": 0.9571400550472888,
+        "ci_upper": 0.962535042951631,
+        "n": 314
+      },
+      "cross_category": {
+        "mean": 0.9353257045149803,
+        "std": 0.009583974486303236,
+        "ci_lower": 0.9343214262099493,
+        "ci_upper": 0.9363558655028187,
+        "n": 336
+      },
+      "mann_whitney": {
+        "u_statistic": 85188.0,
+        "p_value": 7.122347947444008e-42,
+        "cliffs_delta": 0.614877161055505
+      }
+    },
+    "sbert_similarity": {
+      "in_category": {
+        "mean": 0.8004576635968154,
+        "std": 0.13695852589214372,
+        "ci_lower": 0.7854143445943571,
+        "ci_upper": 0.8156769669407113,
+        "n": 314
+      },
+      "cross_category": {
+        "mean": 0.6703649814284983,
+        "std": 0.07351680812969444,
+        "ci_lower": 0.6621254944042968,
+        "ci_upper": 0.6781931066774719,
+        "n": 336
+      },
+      "mann_whitney": {
+        "u_statistic": 83148.0,
+        "p_value": 5.5416530750380375e-37,
+        "cliffs_delta": 0.5762056414922656
+      }
+    },
+    "rouge_l": {
+      "in_category": {
+        "mean": 0.5029006782653566,
+        "std": 0.28119360524251774,
+        "ci_lower": 0.47287618622677946,
+        "ci_upper": 0.5343413753966137,
+        "n": 314
+      },
+      "cross_category": {
+        "mean": 0.22470227467946557,
+        "std": 0.08880674725850089,
+        "ci_lower": 0.21512057066086654,
+        "ci_upper": 0.23438252508161989,
+        "n": 336
+      },
+      "mann_whitney": {
+        "u_statistic": 87150.0,
+        "p_value": 6.756406404169194e-47,
+        "cliffs_delta": 0.6520700636942676
+      }
+    },
+    "bleu": {
+      "in_category": {
+        "mean": 0.31684810827135795,
+        "std": 0.29101277744855036,
+        "ci_lower": 0.2846778385280786,
+        "ci_upper": 0.34993689572594616,
+        "n": 314
+      },
+      "cross_category": {
+        "mean": 0.08113016086826577,
+        "std": 0.06366045084752997,
+        "ci_lower": 0.07426383794561423,
+        "ci_upper": 0.08796975526518165,
+        "n": 336
+      },
+      "mann_whitney": {
+        "u_statistic": 83977.5,
+        "p_value": 5.985503157217132e-39,
+        "cliffs_delta": 0.5919301637852594
+      }
+    }
+  }
+}

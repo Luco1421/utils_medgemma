@@ -59,7 +59,7 @@ def main() -> None:
             key.append({
                 "review_id": review_id,
                 "image_id": row["image_id"],
-                "pipeline": row.get("pipeline"),
+                "source_data": row.get("source_data"),
                 "model_variant": row.get("model_variant"),
                 "condition": row["condition"],
             })

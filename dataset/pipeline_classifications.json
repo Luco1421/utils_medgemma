@@ -1,0 +1,286 @@
+{
+  "point": {
+    "auc": 0.8333333333333334,
+    "accuracy": 0.8076923076923077,
+    "sensitivity": 0.9285714285714286,
+    "specificity": 0.6666666666666666,
+    "f1": 0.8387096774193549,
+    "ppv": 0.7647058823529411,
+    "npv": 0.8888888888888888
+  },
+  "bootstrap": {
+    "auc": {
+      "mean": 0.8346809523809523,
+      "std": 0.0910528968829002,
+      "median": 0.8392857142857143,
+      "ci_lower": 0.6369047619047619,
+      "ci_upper": 0.9940476190476191,
+      "n_valid": 5000
+    },
+    "accuracy": {
+      "mean": 0.8075769230769231,
+      "std": 0.07299703550644017,
+      "median": 0.8076923076923077,
+      "ci_lower": 0.6538461538461539,
+      "ci_upper": 0.9230769230769231,
+      "n_valid": 5000
+    },
+    "sensitivity": {
+      "mean": 0.9294714285714286,
+      "std": 0.06832635688479086,
+      "median": 0.9285714285714286,
+      "ci_lower": 0.7857142857142857,
+      "ci_upper": 1.0,
+      "n_valid": 5000
+    },
+    "specificity": {
+      "mean": 0.6653666666666666,
+      "std": 0.13766662783726497,
+      "median": 0.6666666666666666,
+      "ci_lower": 0.4166666666666667,
+      "ci_upper": 0.9166666666666666,
+      "n_valid": 5000
+    },
+    "f1": {
+      "mean": 0.8399783688592619,
+      "std": 0.05748192590875705,
+      "median": 0.8387096774193549,
+      "ci_lower": 0.7272727272727273,
+      "ci_upper": 0.9333333333333333,
+      "n_valid": 5000
+    },
+    "ppv": {
+      "mean": 0.7706956794956438,
+      "std": 0.0763270543683756,
+      "median": 0.7647058823529411,
+      "ci_lower": 0.631578947368421,
+      "ci_upper": 0.9333333333333333,
+      "n_valid": 5000
+    },
+    "npv": {
+      "mean": 0.8964023931623931,
+      "std": 0.09560307282545455,
+      "median": 0.9,
+      "ci_lower": 0.7,
+      "ci_upper": 1.0,
+      "n_valid": 5000
+    }
+  },
+  "clopper_pearson": {
+    "sensitivity": {
+      "k": 13,
+      "n": 14,
+      "ci": [
+        0.6613155100681788,
+        0.9981932193408746
+      ]
+    },
+    "specificity": {
+      "k": 8,
+      "n": 12,
+      "ci": [
+        0.34887550641881554,
+        0.9007539088504167
+      ]
+    },
+    "accuracy": {
+      "k": 21,
+      "n": 26,
+      "ci": [
+        0.6064944720606781,
+        0.9344518912632175
+      ]
+    },
+    "ppv": {
+      "k": 13,
+      "n": 17,
+      "ci": [
+        0.5010067267954199,
+        0.9318922595626433
+      ]
+    },
+    "npv": {
+      "k": 8,
+      "n": 9,
+      "ci": [
+        0.517503485082663,
+        0.9971908632534008
+      ]
+    }
+  },
+  "confusion_matrix": [
+    [
+      8,
+      4
+    ],
+    [
+      1,
+      13
+    ]
+  ],
+  "n_total": 26,
+  "n_glaucoma": 14,
+  "n_normal": 12,
+  "seed": 42,
+  "n_bootstrap": 5000,
+  "ci": 0.95,
+  "pth_path": "/content/drive/MyDrive/results_meta_nshot/efficientnet_b0/meta/seed_1024/model_N6.pth",
+  "per_image": [
+    {
+      "image_id": "3231_right",
+      "y_true": 0,
+      "p_glaucoma": 1.831792906159535e-05,
+      "y_pred": 0
+    },
+    {
+      "image_id": "1307_right",
+      "y_true": 0,
+      "p_glaucoma": 0.9998412132263184,
+      "y_pred": 1
+    },
+    {
+      "image_id": "3066_left",
+      "y_true": 0,
+      "p_glaucoma": 0.7991727590560913,
+      "y_pred": 1
+    },
+    {
+      "image_id": "3354_right",
+      "y_true": 0,
+      "p_glaucoma": 3.0802450510236667e-06,
+      "y_pred": 0
+    },
+    {
+      "image_id": "1239_right",
+      "y_true": 1,
+      "p_glaucoma": 0.9999967813491821,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1222_right",
+      "y_true": 1,
+      "p_glaucoma": 0.9983671307563782,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1262_left",
+      "y_true": 0,
+      "p_glaucoma": 0.0012726777931675315,
+      "y_pred": 0
+    },
+    {
+      "image_id": "1959_right",
+      "y_true": 1,
+      "p_glaucoma": 0.9982789754867554,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1220_left",
+      "y_true": 1,
+      "p_glaucoma": 0.9942261576652527,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1209_left",
+      "y_true": 1,
+      "p_glaucoma": 0.9998621940612793,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1362_left",
+      "y_true": 1,
+      "p_glaucoma": 0.26157861948013306,
+      "y_pred": 0
+    },
+    {
+      "image_id": "1215_right",
+      "y_true": 1,
+      "p_glaucoma": 0.8758808970451355,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1393_left",
+      "y_true": 0,
+      "p_glaucoma": 0.5365716218948364,
+      "y_pred": 1
+    },
+    {
+      "image_id": "2775_left",
+      "y_true": 0,
+      "p_glaucoma": 0.268210232257843,
+      "y_pred": 0
+    },
+    {
+      "image_id": "1473_left",
+      "y_true": 1,
+      "p_glaucoma": 0.6078007221221924,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1440_right",
+      "y_true": 1,
+      "p_glaucoma": 0.9982196688652039,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1334_right",
+      "y_true": 1,
+      "p_glaucoma": 0.9930272698402405,
+      "y_pred": 1
+    },
+    {
+      "image_id": "3086_left",
+      "y_true": 0,
+      "p_glaucoma": 0.0004225747543387115,
+      "y_pred": 0
+    },
+    {
+      "image_id": "2759_left",
+      "y_true": 0,
+      "p_glaucoma": 0.3705410063266754,
+      "y_pred": 0
+    },
+    {
+      "image_id": "3102_right",
+      "y_true": 0,
+      "p_glaucoma": 0.011347673833370209,
+      "y_pred": 0
+    },
+    {
+      "image_id": "1440_left",
+      "y_true": 1,
+      "p_glaucoma": 0.9985445737838745,
+      "y_pred": 1
+    },
+    {
+      "image_id": "2927_left",
+      "y_true": 0,
+      "p_glaucoma": 1.7431231754017062e-05,
+      "y_pred": 0
+    },
+    {
+      "image_id": "1494_left",
+      "y_true": 0,
+      "p_glaucoma": 0.9995298385620117,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1215_left",
+      "y_true": 1,
+      "p_glaucoma": 0.8547265529632568,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1262_right",
+      "y_true": 1,
+      "p_glaucoma": 0.999738872051239,
+      "y_pred": 1
+    },
+    {
+      "image_id": "1239_left",
+      "y_true": 1,
+      "p_glaucoma": 0.998150646686554,
+      "y_pred": 1
+    }
+  ]
+}

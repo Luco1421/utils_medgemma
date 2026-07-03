@@ -26,6 +26,7 @@ def load_pipeline_dir_inputs(
     *,
     annotations_file: str | Path | None = None,
     predictions: Mapping[str, str] | None = None,
+    ground_truth_labels: Mapping[str, str] | None = None,
     dataset_root: str | Path | None = None,
     overlay_subdir: str = "overlays_rojos/Imagenes_overlay",
     overlay_suffix: str = "_overlay",
@@ -36,9 +37,13 @@ def load_pipeline_dir_inputs(
     """Build inputs from a pipeline folder such as ``dataset/test``.
 
     ``predictions`` maps ``image_id`` to ``"glaucoma"``/``"normal"`` and, when
-    given, replaces the ground-truth stand-in. ``dataset_root`` (the flat
-    dataset directory) is only needed to locate GT disc masks for segmentation
-    scoring; it is optional.
+    given, replaces the ground-truth stand-in. ``ground_truth_labels`` (same
+    mapping shape) sets ``expected_finding`` from the pipeline artifact for
+    traceability; when omitted it falls back to the label in
+    ``annotations.json``. The reference transcription always comes from
+    ``annotations.json`` (the pipeline metrics carry no text). ``dataset_root``
+    (the flat dataset directory) is only needed to locate GT disc masks for
+    segmentation scoring; it is optional.
     """
 
     image_dir = Path(image_dir)
@@ -61,9 +66,17 @@ def load_pipeline_dir_inputs(
         image_id = image_path.stem
 
         annotation = annotations_by_id.get(image_id)
-        ground_truth_label = (
-            _target_label(annotation) if annotation is not None else None
-        )
+        if ground_truth_labels is not None and image_id in ground_truth_labels:
+            ground_truth_label = str(ground_truth_labels[image_id]).casefold()
+            if ground_truth_label not in {"glaucoma", "normal"}:
+                raise ValueError(
+                    f"Unsupported ground-truth label for {image_id}: "
+                    f"{ground_truth_label!r}"
+                )
+        elif annotation is not None:
+            ground_truth_label = _target_label(annotation)
+        else:
+            ground_truth_label = None
 
         if predictions is not None and image_id in predictions:
             prediction = str(predictions[image_id]).casefold()
@@ -102,11 +115,10 @@ def load_pipeline_dir_inputs(
                 mask=mask,
                 prediction=prediction,
                 reference=reference,
-                mask_source="segmentor" if mask else "none",
-                input_source="pipeline",
+                mask_source="pipeline" if mask else "none",
+                source_data="pipeline",
                 expected_finding=ground_truth_label,
                 ground_truth_mask=ground_truth_mask,
-                segmentation_status="predicted" if mask else "none",
             )
         )
     return inputs

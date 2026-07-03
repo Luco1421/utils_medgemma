@@ -1,4 +1,4 @@
-"""Non-contractual MedGemma-LoRA training experiment (not QLoRA)."""
+"""Experimental MedGemma-LoRA fine-tuning on the GT train split (not QLoRA)."""
 
 from __future__ import annotations
 

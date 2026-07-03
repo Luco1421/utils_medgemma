@@ -26,13 +26,11 @@ class ConditioningInput:
     prediction: str
     reference: str
     mask_source: str
-    input_source: str
+    source_data: str
     overlay_image: Any | None = None
     mask: Any | None = None
     expected_finding: str | None = None
     ground_truth_mask: Any | None = None
-    mask_target: str = "optic_disc"
-    segmentation_status: str | None = None
 
 
 def load_json_inputs(path: str | Path) -> list[ConditioningInput]:
@@ -48,11 +46,6 @@ def load_json_inputs(path: str | Path) -> list[ConditioningInput]:
         raise ValueError("Pipeline input JSON must contain a list")
     inputs = [ConditioningInput(**record) for record in records]
     for sample in inputs:
-        if sample.mask_target != "optic_disc":
-            raise ValueError(
-                f"Unsupported mask target for {sample.image_id}: "
-                f"{sample.mask_target!r}; ref requires 'optic_disc'"
-            )
         if sample.prediction not in {"glaucoma", "normal"}:
             raise ValueError(
                 f"Unsupported prediction for {sample.image_id}: "

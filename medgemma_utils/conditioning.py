@@ -1,8 +1,7 @@
 """MedGemma conditioning: prompt specs loaded from prompts.json and overlays.
 
-The six experimental conditions are no longer hardcoded templates with a
-probability distribution. They are now static prompts defined in
-``prompts.json`` at the repository root, combined along two axes:
+The six experimental conditions are static prompts defined in
+``dataset/prompts.json``, combined along two axes:
 
 * overlay vs. no overlay (``use_overlay``)
 * prompt family by classifier label: glaucoma, normal, or unspecified
@@ -19,7 +18,7 @@ from typing import Any
 import numpy as np
 from PIL import Image
 
-PROMPTS_PATH = Path(__file__).resolve().parent.parent / "prompts.json"
+PROMPTS_PATH = Path(__file__).resolve().parent.parent / "dataset" / "prompts.json"
 
 # The unspecified, no-overlay prompt is the reference condition for every
 # paired comparison (no class hint, raw image): the analogue of the old "A".

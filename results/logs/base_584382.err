@@ -1,0 +1,17 @@
+INFO: Evaluation: mode=dataset_oracle samples=26 {'total': 26, 'glaucoma': 14, 'normal': 12}
+INFO: Model and evaluator load started at 2026-07-03T04:26:30.674602+00:00
+INFO: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:28<00:28, 28.13s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:47<00:00, 23.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:47<00:00, 23.89s/it]
+INFO: Model and evaluator load finished at 2026-07-03T04:28:21.250698+00:00 in 1m 51s
+INFO: Conditioned generation and evaluation started at 2026-07-03T04:28:21.251019+00:00
+INFO: Conditioned generation and evaluation finished at 2026-07-03T04:36:37.513766+00:00 in 8m 16s
+INFO: Wrote results/medgemma_base_dataset.json with 80 generated rows in 10m 11s
+INFO: Loaded 26 classifier predictions and ground-truth labels from dataset/pipeline_classifications.json
+INFO: Evaluation: mode=pipeline_dir samples=26 {'total': 26, 'glaucoma': 14, 'normal': 12}
+INFO: Model and evaluator load started at 2026-07-03T04:36:43.593315+00:00
+INFO: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.98s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.23s/it]
+INFO: Model and evaluator load finished at 2026-07-03T04:37:04.211843+00:00 in 21s
+INFO: Conditioned generation and evaluation started at 2026-07-03T04:37:04.212085+00:00
+INFO: Conditioned generation and evaluation finished at 2026-07-03T04:45:45.987931+00:00 in 8m 42s
+INFO: Wrote results/medgemma_base_pipeline.json with 104 generated rows in 9m 03s

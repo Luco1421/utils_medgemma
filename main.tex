@@ -1,0 +1,524 @@
+\documentclass[runningheads]{llncs}
+%
+\usepackage[T1]{fontenc}
+% T1 fonts will be used to generate the final print and online PDFs,
+% so please use T1 fonts in your manuscript whenever possible.
+% Other font encondings may result in incorrect characters.
+%
+\usepackage[acronym]{glossaries}
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{pdfcomment}
+
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following two lines
+% to display URLs in blue roman font according to Springer's eBook style:
+%\usepackage{color}
+%\renewcommand\UrlFont{\color{blue}\rmfamily}
+%\urlstyle{rm}
+%
+
+\makeglossaries
+\newacronym{SAM}{SAM}{Segment Anything Model}
+\newacronym{KDE}{KDE}{Kernel Density Estimation}
+\newacronym{FSL}{FSL}{Few-shot Learning}
+\newacronym{LoRA}{LoRA}{Low-Rank Adaption}
+\newacronym{Grad-CAM}{Grad-CAM}{Gradient-weighted Class Activation Mapping}
+\newacronym{LLM}{LLM}{Large Language Models}
+\newacronym{MedVQA}{MedVQA}{Medical Visual Question Answering}
+
+\hyphenation{
+  seg-men-ta-tion-con-di-tioned
+  mul-ti-mo-dal
+  oph-thal-mol-o-gy
+  med-ge-mma
+}
+\begin{document}
+
+\title{Multimodal MedGemma for Ophthalmology: Integrating SAM-Segmented Retinal Images and Conditioned Descriptions for Medical Visual Question Answer}
+
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+
+% -------------------------------------
+% Authors information paper
+% -------------------------------------
+%\author{Miguel Abreu-Cárdenas \inst{1}\orcidID{0009-0009-8096-7572} \and
+%  Second Author\inst{2,3}\orcidID{1111-2222-3333-4444} \and
+%Third Author\inst{3}\orcidID{2222--3333-4444-5555}}
+%
+%\authorrunning{F. Author et al.}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+%\institute{Instituto Tecnológico de Costa Rica, Costa Rica \and
+%  Springer Heidelberg, Tiergartenstr. 17, 69121 Heidelberg, Germany
+%  \email{lncs@springer.com}\\
+%  \url{http://www.springer.com/gp/computer-science/lncs} \and
+%  ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
+%\email{\{abc,lncs\}@uni-heidelberg.de}}
+
+\maketitle  % typeset the header of the contribution
+
+% ---------------------------------------
+% Abstract section
+% ---------------------------------------
+\begin{abstract}
+  The abstract should briefly summarize the contents of the paper in
+  150--250 words.
+
+  \keywords{Ophthalmic Visual Question Answering \and Medical Vision-Language Models \and MedGemma \and Segment Anything Model \and Retinal Image Analysis}
+\end{abstract}
+
+%--------------------------------------------------
+% Introduction
+% --------------------------------------------------
+\section{Introduction}
+
+\todo{Danny}
+%% Calidad de respuesta de MedGemma condicionada.
+% MedGemma \cite{sellergren_medgemma_2026}
+
+% Preguntas de investigación
+% ¿Cuál es el rendimiento de MedGemma para datos de entrada Multimodal (Imagen segmentada y la descripción condicionada con la segmentación de la imagen)?
+% % Entrenando MedGemma vs sin entrenar MedGemma (pretrained) con pocos datos etiquetados
+% % Módulo de segmentación con SAM LoRA con el threshold de mayor confianza vs SAM LoRA Automatic mask generator + Mask selector vs
+
+% Asignar tareas
+% Samir con Alexander, identificar clasificador a usar, medir rendimiento con métrica.
+% Miguel está trabajando con SAM y LoRA
+% Danny y Pablo, MedGemma, baseline (pretrained) vs LoRA código.
+% Pablo correr el modelo de MedGemma v1.5 4B y programar el código de entrenamiento con LoRA.
+% % Correr MedGemma con huggingFace (pipeline) en Colab usando GPU, proveer ejemplos, con imágenes, luego texto y imagen, y solo texto a nivel de inferencia.
+% % Construir el código de entrenamiento con LoRA Low Rank Adaption.
+% Miguel, con Marisell identificar el prompt a usar para pasar a MedGemma y los datos a utilizar.
+% Miguel se centrar Weakly segmentation, Alexander y Samir feature density.
+
+% % Otro idea de paper
+% % % Módulo de segmentación con SAM LoRA con el threshold de mayor confianza vs SAM LoRA Automatic mask generator + Mask selector vs SAM pretrained
+% % % ¿Qué módulos dentro de la arquitectura de SAM vale la pena entrenar para llegar a un rendimiento similar a hacer fine tune del todo modelo?
+
+\gls{MedVQA} has emerged as a promising research area at the intersection of computer vision, natural language processing, and healthcare. The objective of \gls{MedVQA} is to automatically answer clinically relevant questions based on medical images, enabling more effective access to visual information and supporting healthcare professionals in diagnostic and decision-making processes. Recent advances in multimodal foundation models have significantly improved the capability of systems to jointly reason over visual and textual information, leading to notable progress in medical image understanding and question answering tasks.
+
+Among these models, MedGemma has recently demonstrated strong performance across a variety of medical multimodal benchmarks by leveraging large-scale pretraining and instruction tuning. However, despite these advances, medical visual question answering remains challenging due to the complexity of medical imagery, the presence of subtle pathological findings, and the need for precise localization of clinically relevant regions. Conventional multimodal models typically process entire images, which may introduce irrelevant visual information and reduce the model's ability to focus on diagnostically important structures.
+
+Segmentation techniques offer a potential solution by explicitly highlighting regions of interest within medical images. The \gls{SAM} and its medical adaptations have shown remarkable capabilities in generating accurate segmentation masks with limited supervision. By isolating relevant anatomical structures or pathological regions, segmentation can guide multimodal models toward more focused visual reasoning. Furthermore, textual descriptions conditioned on segmented regions can provide complementary semantic information, enriching the visual representation with clinically meaningful context.
+
+Motivated by these observations, this work proposes Multimodal MedGemma, a framework that integrates \gls{SAM}-based segmented medical images and segmentation-conditioned textual descriptions as multimodal inputs for \gls{MedVQA}. The proposed approach aims to enhance the visual grounding capabilities of MedGemma by providing both localized visual evidence and structured semantic context. In particular, we investigate the effectiveness of combining segmented visual regions with automatically generated descriptions that are conditioned on the identified anatomical or pathological areas.
+
+Additionally, the study explores data-efficient adaptation strategies for MedGemma under limited labeled data scenarios, which are common in medical domains due to annotation costs and privacy constraints. We evaluate the impact of fine-tuning MedGemma compared with using the pretrained model directly, as well as the influence of different segmentation pipelines based on \gls{SAM} with \gls{LoRA}. Specifically, we compare segmentation obtained from the highest-confidence mask selection strategy against an Automatic Mask Generator combined with a mask selection mechanism.
+
+The main objective of this research is to determine whether segmentation-guided multimodal inputs can improve the reasoning capabilities of MedGemma for \gls{MedVQA} tasks while maintaining strong performance in low-resource settings. To this end, the study addresses the following research questions:
+
+\begin{enumerate}
+
+  \item How does MedGemma perform when provided with multimodal inputs consisting of \gls{SAM}-segmented medical images and segmentation-conditioned textual descriptions for Medical Visual Question Answering?
+
+  \item What is the impact of fine-tuning MedGemma with limited labeled data compared to using the pretrained model without additional training?
+\end{enumerate}
+
+By answering these questions, this work contributes to the growing body of research on multimodal medical foundation models and provides insights into the integration of segmentation-guided visual representations and contextual descriptions for more accurate and interpretable medical question answering systems.
+
+\cite{fallas-moya_squeeze_2025}, \cite{xie-li_simple_2024} has extended the use of SAM for domain transfer applications, then used for classification, as a step by step pipeline.
+
+\cite{pmlr-v136-oala20a}
+
+% --------------------------------------------------
+% Related Works
+% --------------------------------------------------
+\section{Related Work}
+
+\todo{Samir}
+
+hola
+
+\subsection{Ophthalmic Image Segmentation}
+
+Ophthalmic image segmentation remains constrained by the high cost of acquiring pixel-wise annotations in clinical settings, a challenge extensively documented by \hl{Wang et al.} \cite{wang2021annotation_efficient}. \hl{The Retinal Fundus Glaucoma Challenge (REFUGE)} benchmark defined an influential evaluation protocol for optic disc and cup segmentation under realistic class imbalance, establishing the dataset used in this work \cite{orlando2020refuge}. \hl{Foundation models, particularly the Segment Anything Model and its derivatives, have subsequently attracted considerable interest for their prompt-based, zero-shot generalization.} A systematic study by \hl{Huang et al} confirmed that SAM achieves satisfactory outcomes on targets with clear boundaries but degrades significantly on amorphous or low-contrast lesions, especially in the absence of manual prompts \cite{huang2024sam_medical}. \hl{Zhang et al.} extended this picture with a comprehensive survey of \hl{SAM's} current applications and future directions in medical image segmentation, highlighting the persistent domain gap between natural-image pretraining and clinical photographic data \cite{zhang2024sam_survey}. \hl{Ma et al.}\ addressed this gap by releasing \hl{MedSAM,} fine-tuned on over 1.5 million medical image-mask pairs, demonstrating improved robustness across \hl{CT, MRI,} and histopathology \cite{ma2024medsam}. In the ophthalmic domain specifically, \hl{Li et al.}\ adapted SAM for multi-modal retinal anomaly detection via a modality-shared decoder with task-specific tokens, illustrating that task-oriented fine-tuning is necessary to handle the unique photometric characteristics of fundus and OCT imaging \cite{li2025adapting}. Ali et al.\ provided a comprehensive review of SAM adaptations in medical imaging more broadly, consolidating findings from the past two years and outlining remaining challenges \cite{ali2025sam_review}. Building directly on these foundations, Ibba et al.\ proposed a weakly supervised pipeline leveraging Grad-CAM and SAM-based mask selection for anterior lens cataract segmentation \cite{ibba_weakly_2025}, Abreu-Cárdenas et al.\ benchmarked weak supervision, few-shot learning and LoRA-adapted SAM under limited annotations \cite{abreu-cardenas_benchmark_2025}, and Cárdenas et al.\ demonstrated few-shot cataract detection via kernel density estimation on SAM embeddings \cite{cardenas_few-shot_2025}.
+
+\subsection{Medical Large Language Models}
+The adaptation of large language models to clinical tasks has advanced rapidly, progressing from domain-specific pretraining to multimodal reasoning over combined textual and visual inputs. A foundational milestone was established by Singhal et al., who introduced Med-PaLM and demonstrated that instruction-tuned LLMs can encode clinical knowledge at levels approaching expert physicians, setting a benchmark for medical language understanding \cite{singhal2023medpalm}. The theoretical basis for resource-efficient adaptation was subsequently formalized by Ding et al., who showed that parameter-efficient fine-tuning (PEFT) preserves general model capabilities while enabling task-specific specialization with orders-of-magnitude fewer trainable parameters \cite{ding2023peft}. A comprehensive empirical audit by Dutt et al.\ evaluated 17 PEFT algorithms across six medical imaging datasets and over 700 controlled experiments, establishing PEFT as particularly effective in the low-data regimes characteristic of clinical practice, with performance gains of up to 22\% \cite{dutt2024peft_midl}. In the ophthalmic domain, a systematic review by Thirunavukarasu et al.\ surveyed the growing literature on LLM evaluations in ophthalmology and found that while LLMs are approaching expert-level performance on text-based clinical questions, multimodal tasks and non-English contexts remain substantially underexplored \cite{thirunavukarasu2025llm_ophthalmology}. More recently, Google Research released MedGemma, a family of multimodal foundation models built on the Gemma 3 architecture, reporting improvements of 2.6--10\% on multimodal medical question answering and 15.5--18.1\% on chest X-ray classification compared to the base model, making it the strongest openly accessible baseline for medical multimodal reasoning at the time of this work \cite{sellergren2025medgemma}.
+
+\subsection{Medical Visual Question Answering (MedVQA)}
+\hl{Medical Visual Question Answering (MedVQA)} has emerged as a paradigmatic multimodal task that jointly demands image understanding and clinical reasoning.\hl{ Lin et al.\ }provided the first comprehensive survey of the field, categorizing datasets, architectures, and evaluation metrics, and identifying visual grounding and interpretability as the two most persistent open challenges \cite{lin2023medvqa_survey}. \hl{The dominant limitation across architectures is that models process entire images, without attending explicitly to diagnostically relevant regions, which degrades answer accuracy in the presence of localized pathologies.} A large-scale dataset effort by \hl{Li et al.} \hl{(PMC-VQA)} demonstrated that scale and instruction tuning are critical drivers of generalization, achieving state-of-the-art performance across diverse medical imaging modalities \cite{li2024pmcvqa}. A recent review by \hl{Pellegrini et al.} systematically documented the transition from discriminative, closed-vocabulary models toward generative vision-language architectures in medical report generation and \hl{VQA}, highlighting how cross-modal alignment strategies increasingly approximate clinical narrative quality \cite{pellegrini2024vlm_review}. \hl{Thirunavukarasu et al.} further showed, through head-to-head comparisons in ophthalmology, that state-of-the-art \hl{LLMs} are approaching expert-level performance on text-based clinical reasoning while remaining below standard on image-dependent questions \cite{thirunavukarasu2024llm_ophthalm}. These observations collectively motivate the segmentation-guided approach proposed in this work: by providing a model with localized visual regions derived from \hl{SAM} rather than entire images, the visual grounding bottleneck is directly addressed at the input level.
+
+\subsection{Foundation Segmentation Models in Healthcare}
+\hl{Foundation segmentation models have fundamentally altered the paradigm in medical image analysis by enabling prompt-driven, zero-shot segmentation without task-specific training}. \hl{Huang et al.} conducted a rigorous multi-modality evaluation of SAM on 17 medical imaging datasets, confirming that while the model performs well on targets with distinct boundaries, performance degrades substantially on irregular lesions and in the absence of explicit user prompts \cite{huang2024sam_medical}. \hl{Zhang et al.} systematically surveyed current applications of SAM in medical image segmentation, covering empirical benchmarking, methodological adaptations, and open research directions, providing the most comprehensive state-of-the-art picture at the time of this work \cite{zhang2024sam_survey}.\hl{ Ma et al.} introduced MedSAM, demonstrating that fine-tuning \hl{SAM} on a curated corpus of over 1.5 million image-mask pairs yields markedly improved robustness across \hl{CT, MRI}, and histopathology, while retaining zero-shot generalization to novel anatomies \cite{ma2024medsam}. \hl{Ali et al.} extended this analysis with a systematic review of SAM adaptations developed over 2023--2024, assessing multimodal fusion frameworks, volumetric extensions, and domain adaptation strategies, and identifying parameter-efficient fine-tuning as the dominant adaptation paradigm \cite{ali2025sam_review}. In the weakly supervised direction most relevant to this work, \hl{Wang et al.} proposed WeakMedSAM, which combines sub-class exploration with prompt affinity mining to refine class activation maps, enabling weakly supervised segmentation without pixel-level annotations across brain tumor and cardiac \hl{MRI} datasets \cite{wang2025weakmedsam}. Collectively, these works establish the boundary of current capability and motivate the integration of \hl{SAM} with MedGemma's visual reasoning in this work.
+
+\subsection{Image Captioning and Vision-to-Language Mapping}
+\hl{Automated image captioning in the medical domain has progressed from encoder-decoder architectures producing fixed radiology summaries toward flexible vision-language models capable of generating open-ended, contextually rich clinical descriptions.} \hl{Dalla Serra et al.} demonstrated that combining an attention-based captioning model with GPT-3 and structured patient metadata substantially improves the semantic accuracy of generated radiology reports \cite{dalla_serra2023captioning}. A major advance in clinical captioning came with the work of \hl{Tanno et al.}, who built Flamingo-CXR, a large vision-language model for chest X-ray report generation, and evaluated it via expert radiologist panels; their results showed that AI-generated reports were rated as equivalent or preferable to clinician-written reports in 77.7\% of in/out patient cases, establishing a landmark for clinical deployment readiness \cite{tanno2025flamingo}. A comprehensive review by\hl{Pellegrini et al.} documented the broader landscape of vision-language models for medical report generation and VQA, noting that cross-modal alignment remains the primary bottleneck for report quality \cite{pellegrini2024vlm_review}.\hl{Conditioning report generation on segmented regions of interest has been identified as a promising mechanism to improve visual grounding: rather than describing entire images, models that attend to localized anatomical or pathological structures produce more specific and clinically relevant narratives.} \hl{Selvaraju et al.} formalized \hl{gradient-weighted class activation maps (Grad-CAM)} \hl{as an explainability tool that can serve precisely this localization function, providing the prior that SAM then refines into segmentation masks in the pipeline proposed in this work }\cite{selvaraju2020gradcam}. The integration of such segmentation-conditioned descriptions as multimodal input to a downstream MedVQA model constitutes the core architectural contribution of the current paper.
+
+% --------------------------------------------------
+% Methodology
+% --------------------------------------------------
+\section{Methodology}
+
+\subsection{Dataset Overview and Acquisition}
+\todo{Miguel}
+
+The MM-ODIR-129 dataset comprises color fundus photographs exclusively sourced from the ODIR-5K public repository\cite{odir2019}, a widely used benchmark for retinal image analysis. The subset was curated to include a balanced representation of healthy and glaucomatous eyes.
+
+The cohort encompasses \textbf{129 fundus images} that, based on the ODIR-5K file naming convention (\texttt{\{identifier\}\_\{left$|$right\}.jpg}), correspond to \textbf{76 unique identifiers} shared between left and right eyes. Of these 76 identifiers, 53 present bilateral images (both eyes, left and right), while 9 are represented solely by the left eye and 14 solely by the right eye. Notably, 12 identifiers present a mixed-diagnosis profile, with one eye classified as normal and the contralateral eye as glaucomatous, enabling within-subject comparison of pathological versus healthy structural changes. The ODIR-5K naming convention suggests that each numeric identifier corresponds to a unique patient; therefore, the dataset is described as \textbf{129 images from 76 patients}. Table~\ref{tab:demographics} summarizes the identifier- and eye-level demographics.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Identifier- and eye-level demographics of the MM-ODIR-129 dataset.}
+  \label{tab:demographics}
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Characteristic} & \textbf{Count} \\
+    \midrule
+    Unique identifiers (inferred patients) & 76 \\
+    Total images (eyes) & 129 \\
+    Bilateral identifiers (both eyes) & 53 \\
+    Unilateral left-only & 9 \\
+    Unilateral right-only & 14 \\
+    Mixed-diagnosis identifiers (Normal + Glaucoma) & 12 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+A defining feature of the dataset is its heterogeneous spatial resolution, a direct consequence of the un-preprocessed image structure of the root ODIR-5K dataset. We identified 15 distinct resolution configurations across the 129 images. This resolution variability is preserved intentionally in the dataset to maintain pixel-level fidelity and to enable geometric cup-to-disc ratio (CDR) computation at the native scale of each acquisition. No global resizing or standardization was applied to the original captures prior to annotation.
+
+All images were reviewed and labeled by five board-certified ophthalmologists, each of them present as authors of the present paper. The labeling process was conducted through the \textbf{OphthalmoCapture-V1} web-based annotation platform, a custom tool designed for structured ophthalmic data collection. The platform enforces a multi-step annotation pipeline: (i) binary disease classification (Normal vs.~Pathological), (ii) condition-specific structured scoring (seven glaucoma signs), and (iii) free-text clinical transcription. The annotation sessions were tracked via unique session hashes and timestamped to ensure auditability.
+
+Pixel-level segmentation of the optic disc and optic cup was performed independently using \textbf{ImageJ} (National Institutes of Health, USA), following a manual delineation protocol performed by the same ophthalmologists. These tracings were then exported as binary masks and stored as NumPy arrays for downstream computational use. Normal images were not segmented, as the primary objective of the masks is to quantify structural deformation in pathological cases.
+
+\begin{figure}[]
+  \centering\includegraphics[width=0.6\textwidth]{images/fig1_dataset_samples_2.png}
+
+  \caption{Representative samples from the MM-ODIR-129 dataset. \textbf{Top row:} Normal fundus images showing healthy optic discs with preserved neuroretinal rim and small cup-to-disc ratios. \textbf{Bottom row:} Glaucomatous fundus images exhibiting advanced cupping, enlarged optic cups, and vessel bayonetting. The visual contrast highlights the structural hallmarks used by experts for diagnostic classification.}
+  \label{fig:samples}
+\end{figure}
+
+\paragraph{Annotation Schema and Expert Labeling: }
+
+For each image labeled as glaucomatous, experts completed a structured rating across seven clinically validated structural signs. Each sign is encoded on an ordinal Likert scale reflecting increasing severity or presence, grounded in standard glaucoma diagnostic criteria. The seven fields collectively define a \textbf{structural sign vector} that characterizes the visible glaucomatous damage profile of each eye.
+
+%Table~\ref{tab:annotations} presents the complete annotation schema, including field identifiers, scale ranges, and clinical interpretations.
+
+\begin{comment}\begin{table*}[t]
+  \centering
+  \caption{Expert annotation schema for the seven glaucoma structural signs in MM-ODIR-129.}
+  \label{tab:annotations}
+  \small
+  \begin{tabular}{clp{2.2cm}cp{4.5cm}p{5.5cm}}
+    \toprule
+    \textbf{\#} & \textbf{Sign} & \textbf{Field ID} & \textbf{Scale} & \textbf{Levels} & \textbf{Clinical Interpretation} \\
+    \midrule
+    1 & Cup-to-Disc Ratio & \texttt{cup\_to\_disc\_ratio} & 0--4 & 0: $\leq$0.3 (normal); 1: 0.4--0.5 (borderline); 2: 0.6--0.7 (suspicious); 3: 0.8--0.9 (advanced cupping); 4: 1.0 (total cupping) & Quantifies the degree of optic nerve excavation, the primary structural marker for glaucoma progression. \\
+    \midrule
+    2 & Neuroretinal Rim & \texttt{neuroretinal\_rim} & 0--4 & 0: ISNT rule preserved (Inferior $\geq$ Superior $\geq$ Nasal $\geq$ Temporal); 1: ISNT rule violation; 2: Focal notching; 3: Diffuse thinning; 4: Near-total or total rim loss & Assesses the integrity and thickness of the neuroretinal rim, a key predictor of functional visual field loss. \\
+    \midrule
+    3 & Disc Hemorrhage & \texttt{disc\_hemorrhage} & 0--1 & 0: None; 1: Present (splinter hemorrhage at or near disc margin) & Indicates active glaucomatous damage and is a strong risk factor for rapid progression. \\
+    \midrule
+    4 & Peripapillary Atrophy & \texttt{peripapillary\_atrophy} & 0--2 & 0: None; 1: Beta-zone PPA only (atrophy with visible sclera/choroidal vessels); 2: Large or progressive beta-zone PPA & Reflects structural remodeling around the optic disc associated with chronic glaucoma. \\
+    \midrule
+    5 & RNFL Defect & \texttt{rnfl\_defect} & 0--3 & 0: No visible defect; 1: Wedge-shaped RNFL defect (localized); 2: Diffuse RNFL thinning; 3: Both wedge and diffuse thinning & Directly visualizes nerve fiber layer damage, often preceding detectable visual field loss. \\
+    \midrule
+    6 & Optic Disc Pallor & \texttt{disc\_pallor} & 0--2 & 0: Normal color; 1: Mild pallor; 2: Significant pallor (consider other optic neuropathies) & Distinguishes glaucomatous cupping from other optic neuropathies (e.g., ischemic, compressive). \\
+    \midrule
+    7 & Vessel Changes & \texttt{vessel\_changes} & 0--3 & 0: Normal vessel pattern; 1: Bayoneting (vessels deflect at rim edge); 2: Nasalization of vessels; 3: Both bayoneting and nasalization & Secondary vascular signs resulting from rim tissue loss and cup enlargement. \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+\end{comment}
+The structured ratings were complemented by free-text clinical transcriptions, in which annotators described their observational findings in natural language. These textual descriptions provide rich semantic supervision for vision-language model (VLM) training and enable cross-modal alignment between visual patterns and medical terminology. The combination of structured sign vectors and unstructured clinical text constitutes a uniquely multimodal ground truth resource for glaucoma AI research.
+
+\paragraph{Segmentation Masks: }
+
+Pixel-level segmentation masks for the optic disc and optic cup are provided for all 69 glaucomatous images, the 60 normal images do not include masks. The masks were generated through expert manual tracing in \textbf{ImageJ}. These tracings were exported as binary NumPy arrays (\texttt{uint8}, values $\{0, 1\}$) and stored alongside PNG visualizations for qualitative inspection. Both cup and disc masks preserve the native resolution of the original fundus capture, enabling precise area-based CDR computation at the original scale without interpolation artifacts.
+
+%Segmentation masks are available exclusively for the 69 pathological cases, as the primary objective of the segmentation component is to quantify structural deformation and enable objective CDR calculation in diseased eyes. This design choice reflects the clinical workflow, where precise cup delineation is most relevant for glaucoma diagnosis and progression monitoring, whereas normal discs typically require only cursory confirmation of a small CDR.
+
+\begin{figure}[]
+  \centering
+  \includegraphics[width=\textwidth]{images/fig2_segmentation_overlay_2.png}
+  \caption{Example of optic disc and cup segmentation on a glaucomatous fundus image. \textbf{(A)} Original fundus photograph (\texttt{1281\_right.jpg}). \textbf{(B)} Overlay of the manually traced disc mask (green) and cup mask (red) on the original image. The overlap region appears yellow-orange, indicating the neuroretinal rim. \textbf{(C)} Isolated segmentation masks showing the disc and cup boundaries as binary regions.}
+  \label{fig:segmentation}
+\end{figure}
+
+
+%Because the masks retain the native resolution of each source image, their spatial dimensions vary across the dataset. Any computational pipeline utilizing these masks must handle variable input sizes. We explicitly preserve the original dimensions to prevent geometric distortion of the CDR computation that would arise from non-aspect-ratio-preserving resampling.
+
+
+
+\paragraph{Dataset Splits and Class Distribution: }
+
+The dataset was partitioned into training, test, and validation subsets with stratified sampling to preserve the class proportion across all splits. The stratification ensures that the Normal/Glaucoma ratio ($\sim$46.5\% / 53.5\%) is maintained in each partition, preventing distributional shift that could confound model evaluation. Table~\ref{tab:splits} presents the split statistics.
+
+\begin{table}[]
+  \centering
+  \caption{Stratified dataset splits and class distribution.}
+  \label{tab:splits}
+  \begin{tabular}{lcccccc}
+    \toprule
+    \textbf{Partition} & \textbf{Total} & \textbf{Pct.} & \textbf{Normal} & \textbf{Glaucoma} & \textbf{Normal \%} & \textbf{Glaucoma \%} \\
+    \midrule
+    Train & 77 & 59.7\% & 36 & 41 & 46.8\% & 53.2\% \\
+    Test & 26 & 20.2\% & 12 & 14 & 46.2\% & 53.8\% \\
+    Validation & 26 & 20.2\% & 12 & 14 & 46.2\% & 53.8\% \\
+    \midrule
+    \textbf{Total} & \textbf{129} & \textbf{100\%} & \textbf{60} & \textbf{69} & \textbf{46.5\%} & \textbf{53.5\%} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[]
+  \centering
+  \caption{Class distribution by eye laterality.}
+  \label{tab:laterality}
+  \begin{tabular}{lccc}
+    \toprule
+    \textbf{Laterality} & \textbf{Normal} & \textbf{Glaucoma} & \textbf{Total} \\
+    \midrule
+    Left & 29 & 33 & 62 \\
+    Right & 31 & 36 & 67 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+This balance prevents laterality bias in the trained models and ensures that the classifier does not learn spurious correlations between eye side and disease label.
+
+\subsection{Classification Module}
+% Párrafo 1: busca responder la siguiente pregunta ¿qué importancia tiene el clasificador para el pipeline? Considero que este párrafo no debería extenderse mucho. Debe ser directo al grano. (dar contexto sobre al importancia del clasificador en el pipeline)
+To help MedGemma reach a more reliable diagnosis, the pipeline incorporates a
+dedicated classification component: a convolutional neural network (CNN) that takes
+a color fundus photograph and classifies it as either \emph{glaucoma} or
+\emph{normal}. This prediction is then provided to MedGemma as additional context,
+grounding its reasoning on a specialized discriminative model rather than on the
+image alone.
+%% Sub-sección para describir el experimento de selección del mejor CNN
+
+\paragraph{Selecting the Best CNN for the Pipeline:}
+% Párrafo 2: intro del experimento. Debe describir el setup de este: qué CNNs se compararon (esto podría agregarse como tabla, además considero que sería bueno agregar una pequeña descripción de por qué se seleccionaron estas), fórmula utilizada para obtener el score de cada CNN, ¿dónde se corrió el experimento? y dataset utilizado. (dar contexto sobre el experimento)
+This experiment compared ResNet-18, EfficientNet-B0 and DenseNet-121. They were selected because they are well-established and strongly benchmarked
+architectures; they represent three distinct architectural families---residual
+connections (ResNet), dense connectivity (DenseNet), and compound scaling
+(EfficientNet)---so the comparison spans diverse inductive biases; and in their
+small variants they remain compact enough for a deployable pipeline and for use as
+feature extractors in a low-data regime~\cite{resnet,densenet,efficientnet}. All backbones were evaluated on the public REFUGE benchmark~\cite{refuge} of color fundus photographs.
+
+% La seccion que explica la formula podria ser eliminada, en caso de que mi seccion quede muy larga
+Each backbone is summarized by a single scalar that balances three criteria:
+%
+\begin{equation}
+  \mathrm{score} = 0.40\,\overline{\mathrm{F1}}
+  + 0.40\,\mathrm{IoU}_{\text{Grad-CAM}}
+  + 0.20\,\bigl(1 - \mathrm{VRAM}_{\text{norm}}\bigr)
+  \label{eq:score}
+\end{equation}
+%
+where $\overline{\mathrm{F1}}$ is the macro-averaged F1 on the validation split,
+averaged over the few-shot configurations, %(Section~\ref{sec:fewshot});%
+$\mathrm{IoU}_{\text{Grad-CAM}}$ is the intersection-over-union between the
+thresholded Grad-CAM saliency map and the ground-truth optic disc mask, quantifying
+whether the model attends to the clinically relevant region; and
+$\mathrm{VRAM}_{\text{norm}}$ is the peak inference GPU memory, min--max normalized
+across the compared backbones. All experiments were run on a single NVIDIA Tesla V100 GPU (32\,GB). \\
+
+% Párrafo 3: describir brevemente Meta-Learning. (dar contexto sobre por qué Meta Learning se consideró como configuración a comparar)
+Meta-learning trains the backbone episodically---each episode builds class prototypes from a support set and classifies a query set against them~\cite{snell2017prototypical}---so the embedding space is optimized for the few-shot decision itself. We included it because a frozen ImageNet backbone yields generic embeddings that are not specialized to fundus images or to the
+prototype rule, whereas meta-learning adapts the features to make prototypes more separable from very few labels, making it a natural counterpart to the frozen configuration.
+
+% Párrafo 4: describir la dinámica del experimento: explicar detalladamente las configuraciones comparadas (las seeds utilizadas y por qué, los N utilizados para calcular los prototipos y por qué) y terminar con una tabla que muestre los resultados del experimento. (descripción detallada del experimento)
+\paragraph{Configurations and protocol:}
+Each of the three backbones is evaluated under two configurations---a \emph{frozen}
+feature extractor with Euclidean prototypes, and a \emph{meta}-trained variant---for
+a total of six configurations that are ranked by the score of Eq.~\eqref{eq:score}. For a given seed, backbone, configuration, and support size $N$, a class-balanced
+support set of $N$ glaucoma and $N$ normal images is sampled from the REFUGE
+training split. 
+
+In the \emph{meta} configuration the backbone is first episodically
+meta-trained on the training split: each of $100$ episodes draws a $2$-way task with
+$N$ support and $10$ query images per class, forms class prototypes from the
+support, and minimizes the cross-entropy of the nearest-prototype classification of
+the query with respect to the backbone (Adam, learning rate $10^{-3}$, with data
+augmentation). The \emph{frozen} configuration skips this step and uses the
+ImageNet-pretrained backbone as is. In both cases the two class prototypes are then
+computed as the mean support embedding per class, and the \emph{entire} validation
+split is classified by nearest prototype under Euclidean distance, yielding the
+macro-averaged F1. Grad-CAM localization (IoU against the optic disc mask,
+thresholded at the $95$th percentile) and peak inference memory are measured on the
+resulting model.
+
+Because the target scenario is few-shot---only a handful of labeled fundus images
+per class---we probe small, class-balanced support sizes $N\in\{1,\dots,5\}$ and
+report, per configuration, the macro-F1 \emph{averaged over the five sizes}
+($\overline{\mathrm{F1}}$); this rewards backbones that are robust across the
+low-data regime rather than ones that peak at a single $N$. Since the support set is
+drawn at random, each configuration is repeated over five fixed seeds
+($\{42,123,456,789,1024\}$) and all metrics are averaged over them. The seed also
+fixes \emph{which} images are sampled, and within a seed every backbone and
+configuration receives the \emph{same} support, turning the comparison into a paired
+one in which differences are attributable to the model rather than to a fortunate
+draw; fixing the seeds additionally makes the experiment reproducible.
+
+
+\begin{table}[t]
+\centering
+\caption{Backbone selection results on REFUGE. $\overline{\mathrm{F1}}$ is the
+macro-F1 averaged over the support sizes $N\in\{1,\dots,5\}$; IoU is the
+Grad-CAM/optic-disc overlap; VRAM is peak inference memory at batch size~$1$. All
+values are means over five seeds, and $\overline{\mathrm{F1}}$ is reported as
+mean\,$\pm$\,standard deviation across those seeds. The best score (bold) selects
+the backbone.}
+\label{tab:selection-results}
+\begin{tabular}{llcccc}
+\toprule
+Backbone & Config. & $\overline{\mathrm{F1}}$ & IoU & VRAM (MB) & Score \\
+\midrule
+\multirow{2}{*}{ResNet-18} & frozen & $0.448\pm0.127$ & 0.013 & 72.9 & 0.261 \\
+                           & meta   & $0.536\pm0.066$ & 0.037 & 72.9 & 0.306 \\
+\midrule
+\multirow{2}{*}{DenseNet-121} & frozen & $0.398\pm0.172$ & 0.016 & 77.3 & 0.166 \\
+                              & meta   & $0.572\pm0.062$ & 0.056 & 77.3 & 0.251 \\
+\midrule
+\multirow{2}{*}{EfficientNet-B0} & frozen        & $0.537\pm0.054$ & 0.003 & 65.8 & 0.416 \\
+                                 & meta & $0.602\pm0.043$ & 0.036 & 65.8 & \textbf{0.455} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% Sub-sección para describir la inferencia de EfficientNet sobre los datos del dataset privado
+% Párrafo 1: describir el experimento efectuado para obtener la mejor configuración de Few Shot con Meta Learning para EfficientNet (¿cuál N es el mejor para calcular los prototipos?) + los resultados de este experimento. Este párrafo debe ir al grano.
+% Párrafo 2: descripción de las métricas obtenidas sobre la inferencia de EfficientNet en los datos del dataset privado. (describir los resultados de la inferencia de EfficientNet con la configuración ideal según los experimentos efectuados.)
+\paragraph{Pipeline integration and inference on the proposed dataset:}
+The selected backbone (EfficientNet-B0 with meta-training) is transferred to the proposed clinical dataset of $129$ color fundus photographs ($77/26/26$
+train/validation/test, each labeled glaucoma or normal). Its only remaining
+hyperparameter is the number of support examples $N$ per class used to form the
+prototypes, which we select on the validation split (five seeds) by sweeping
+$N\in\{3,6,\dots,21\}$ under the score of Eq.~\eqref{eq:score}. Because the backbone
+is now fixed, the efficiency term is identical for every $N$, so the ranking is
+governed by the validation macro-F1 and the Grad-CAM localization
+(Table~\ref{tab:nshot}). \\
+
+\begin{table}[t]
+\centering
+\caption{Support-size selection for the meta-trained EfficientNet-B0 on the private
+validation split (means $\pm$ std over five seeds). The selected configuration $N=6$ is shown in bold.}
+\label{tab:nshot}
+\begin{tabular}{lccc}
+\toprule
+$N$ & macro-F1 & IoU & Score \\
+\midrule
+3           & $0.791\pm0.040$          & $0.047\pm0.024$ & 0.535 \\
+\textbf{6}  & $\mathbf{0.846\pm0.024}$ & $0.026\pm0.022$ & \textbf{0.549} \\
+9           & $0.783\pm0.053$          & $0.034\pm0.014$ & 0.527 \\
+12          & $0.760\pm0.051$          & $0.046\pm0.026$ & 0.522 \\
+15          & $0.830\pm0.040$          & $0.040\pm0.025$ & 0.548 \\
+18          & $0.789\pm0.054$          & $0.064\pm0.027$ & 0.541 \\
+21          & $0.798\pm0.030$          & $0.038\pm0.027$ & 0.535 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+With $N=6$, the classifier is integrated into the pipeline and run on the held-out
+test split ($26$ images: $14$ glaucoma, $12$ normal). This is not a comparative
+experiment but the operating behavior of the deployed model: each image receives a
+hard label together with a glaucoma probability, and these per-image predictions are
+the classifier output that is forwarded to the downstream MedGemma stage.
+Table~\ref{tab:private-metrics} reports the resulting metrics with two complementary
+$95\%$ confidence intervals---a stratified bootstrap ($5000$ resamples) and, for the
+proportion-based metrics, the exact Clopper--Pearson interval. The model correctly
+identifies $13$ of the $14$ glaucomatous eyes ($\mathrm{TP}=13$, $\mathrm{FN}=1$) and
+$8$ of the $12$ normal eyes ($\mathrm{TN}=8$, $\mathrm{FP}=4$).
+% Esto último (datos de la matriz de confusión) se podría agregar como figura. De momento lo dejo como texto para ahorrar espacio.
+
+\begin{table}[t]
+\centering
+\caption{Deployed classifier (EfficientNet-B0, meta-trained, $N=6$) on the proposed
+test split ($n=26$: $14$ glaucoma, $12$ normal). Point estimates with $95\%$
+confidence intervals from a stratified bootstrap and, for proportions, from
+Clopper--Pearson. Glaucoma is the positive class; PPV and NPV (positive/negative
+predictive value) are the fractions of correct predictions among the images
+predicted as glaucoma and as normal, respectively.}
+\label{tab:private-metrics}
+\begin{tabular}{lccc}
+\toprule
+Metric & Estimate & Bootstrap 95\% CI & Clopper--Pearson 95\% CI \\
+\midrule
+AUC          & 0.833 & [0.637, 0.994] & --- \\
+Accuracy     & 0.808 & [0.654, 0.923] & [0.606, 0.934] \\
+Sensitivity  & 0.929 & [0.786, 1.000] & [0.661, 0.998] \\
+Specificity  & 0.667 & [0.417, 0.917] & [0.349, 0.901] \\
+F1           & 0.839 & [0.727, 0.933] & --- \\
+PPV          & 0.765 & [0.632, 0.933] & [0.501, 0.932] \\
+NPV          & 0.889 & [0.700, 1.000] & [0.518, 0.997] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Segmentation Module}
+\todo{Miguel}
+
+\subsection{Condition Image Language Generation}
+\todo{Pablo}
+
+% --------------------------------------------------
+% Experiments and Results
+% --------------------------------------------------
+\section{Experiments and Results}
+\todo{Miguel}
+
+\section{Qualitative Results}
+
+% --------------------------------------------------
+% Discussion
+% --------------------------------------------------
+\section{Discussion}
+\todo{Todos}
+% --------------------------------------------------
+% Conclusion
+% --------------------------------------------------
+\section{Conclusion}
+\todo{Todos}
+% --------------------------------------------------
+% Ablation Studies
+% --------------------------------------------------
+%\section{Ablation Studies}
+%\todo{Todos}
+% --------------------------------------------------
+% Future Work
+% --------------------------------------------------
+\section{Future Work}
+\todo{Todos}
+
+\begin{credits}
+  \subsubsection{\ackname} The authors gratefully acknowledge the Costa Rica National High Technology Center (Kabré supercomputer) and the University of Costa Rica (Scientific Cluster) for providing the computational resources that supported this research.
+
+  \subsubsection{\discintname}
+  It is now necessary to declare any competing interests or to specifically
+  state that the authors have no competing interests. Please place the
+  statement with a bold run-in heading in small font size beneath the
+  (optional) acknowledgments\footnote{If EquinOCS, our proceedings submission
+  system, is used, then the disclaimer can be provided directly in the system.},
+  for example: The authors have no competing interests to declare that are
+  relevant to the content of this article. Or: Author A has received research
+  grants from Company W. Author B has received a speaker honorarium from
+  Company X and owns stock in Company Y. Author C is a member of committee Z.
+\end{credits}
+%
+% ---- Bibliography ----
+%
+% BibTeX users should specify bibliography style 'splncs04'.
+% References will then be sorted and formatted in the correct style.
+%
+% \bibliographystyle{splncs04}
+% \bibliography{mybibliography}
+%
+\bibliographystyle{splncs04}
+\bibliography{medgemma_segmentation_ciarp_2026,references}
+\end{document}

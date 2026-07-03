@@ -1,8 +1,0 @@
-INFO: Evaluation uses the full test split: 26 samples
-INFO: Model and evaluator load started at 2026-06-26T12:13:48.995971+00:00
-INFO: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:29<00:29, 29.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:49<00:00, 24.14s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:49<00:00, 24.89s/it]
-INFO: Model and evaluator load finished at 2026-06-26T12:15:22.875373+00:00 in 1m 34s
-INFO: Conditioned generation and evaluation started at 2026-06-26T12:15:22.875710+00:00
-INFO: Conditioned generation and evaluation finished at 2026-06-26T12:22:31.426114+00:00 in 7m 09s
-INFO: Wrote results/baseline/conditioned_base.json with 120 generated rows in 8m 43s

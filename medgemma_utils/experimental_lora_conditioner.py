@@ -1,4 +1,4 @@
-"""Non-contractual MedGemma-LoRA extension kept outside public M7."""
+"""Experimental MedGemma-LoRA conditioner: base model plus a PEFT adapter."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from .medgemma_conditioner import MedGemmaConditioner
 
 
 class ExperimentalLoRAMedGemmaConditioner(MedGemmaConditioner):
-    """Load an experimental PEFT adapter on top of the M7 base model."""
+    """Load an experimental PEFT adapter on top of the base MedGemma model."""
 
     def __init__(self, config: dict[str, Any]):
         adapter_path = config.get("adapter_path")

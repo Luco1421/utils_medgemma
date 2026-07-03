@@ -1,0 +1,78 @@
+INFO: Training uses the full train split: 77/77 rows, 77 SFT examples
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/jperez/.netrc.
+wandb: W&B API key is configured. Use `wandb login --relogin` to force relogin
+wandb: setting up run zsedtzt0
+wandb: Tracking run with wandb version 0.28.0
+wandb: Run data is saved locally in /data/jperez/projects/medgemma_CIARP/results/wandb/wandb/run-20260702_202158-zsedtzt0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lora_generic_seed42_584360_0
+wandb: ⭐️ View project at https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma
+wandb: 🚀 View run at https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma/runs/zsedtzt0
+INFO: W&B enabled: project=utils-medgemma entity=<default> mode=online run=lora_generic_seed42_584360_0
+/data/jperez/app_data/miniconda/envs/medgemma/lib/python3.12/site-packages/torch/cuda/__init__.py:371: UserWarning: Found GPU0 Tesla V100-PCIE-32GB which is of compute capability (CC) 7.0.
+The following list shows the CCs this version of PyTorch was built for and the hardware CCs it supports:
+- 7.5 which supports hardware CC >=7.5,<8.0
+- 8.0 which supports hardware CC >=8.0,<9.0 except {8.7}
+- 8.6 which supports hardware CC >=8.6,<9.0 except {8.7}
+- 9.0 which supports hardware CC >=9.0,<10.0
+- 10.0 which supports hardware CC >=10.0,<11.0 except {10.1}
+- 12.0 which supports hardware CC >=12.0,<13.0
+Please follow the instructions at https://pytorch.org/get-started/locally/ to install a PyTorch release that supports one of these CUDA versions: 12.6, 12.8
+  _warn_unsupported_code(d, device_cc, code_ccs)
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+INFO: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:04<?, ?it/s]
+wandb: updating run metadata
+wandb: uploading history steps 0-0, summary, console lines 0-13
+wandb: 
+wandb: Run history:
+wandb: data/full_train_split ▁
+wandb:     data/sft_examples ▁
+wandb: data/train_rows_total ▁
+wandb:  data/train_rows_used ▁
+wandb: 
+wandb: Run summary:
+wandb: data/full_train_split 1
+wandb:     data/sft_examples 77
+wandb: data/train_rows_total 77
+wandb:  data/train_rows_used 77
+wandb: 
+wandb: 🚀 View run lora_generic_seed42_584360_0 at: https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma/runs/zsedtzt0
+wandb: ⭐️ View project at: https://wandb.ai/byluco1421-tecnol-gico-de-costa-rica/utils-medgemma
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./results/wandb/wandb/run-20260702_202158-zsedtzt0/logs
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/data/jperez/projects/medgemma_CIARP/scripts/train_experimental_medgemma_lora.py", line 353, in <module>
+    main()
+  File "/data/jperez/projects/medgemma_CIARP/scripts/train_experimental_medgemma_lora.py", line 278, in main
+    model = AutoModelForImageTextToText.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/jperez/app_data/miniconda/envs/medgemma/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/jperez/app_data/miniconda/envs/medgemma/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/jperez/app_data/miniconda/envs/medgemma/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5048, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/jperez/app_data/miniconda/envs/medgemma/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5468, in _load_pretrained_model
+    _error_msgs, disk_offload_index = load_shard_file(args)
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/jperez/app_data/miniconda/envs/medgemma/lib/python3.12/site-packages/transformers/modeling_utils.py", line 843, in load_shard_file
+    disk_offload_index = _load_state_dict_into_meta_model(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/jperez/app_data/miniconda/envs/medgemma/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/jperez/app_data/miniconda/envs/medgemma/lib/python3.12/site-packages/transformers/modeling_utils.py", line 750, in _load_state_dict_into_meta_model
+    param = param.to(casting_dtype)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: no kernel image is available for execution on the device
+Search for `cudaErrorNoKernelImageForDevice' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

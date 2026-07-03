@@ -16,10 +16,9 @@ from medgemma_utils.oracle_inputs import build_dataset_oracle_inputs
 
 
 class DatasetAdapterTests(unittest.TestCase):
-    def test_project_config_declares_optic_disc_and_normal_bypass(self):
+    def test_project_config_declares_optic_disc(self):
         config = load_project_config()
         self.assertEqual(config["data"]["mask_target"], "optic_disc")
-        self.assertTrue(config["data"]["normal_bypasses_segmentation"])
 
     def _write_dataset(self, root: Path) -> Path:
         records = {
@@ -82,19 +81,18 @@ class DatasetAdapterTests(unittest.TestCase):
 
         self.assertEqual(count, 1)
 
-    def test_oracle_inputs_mark_normal_as_bypassed(self):
+    def test_oracle_inputs_mark_normal_without_mask(self):
         row = {
             "image_id": "normal",
             "image": "normal.jpg",
             "ground_truth_mask": None,
             "target_label": "normal",
             "transcription": "Normal optic nerve.",
-            "mask_target": "optic_disc",
         }
         sample = build_dataset_oracle_inputs([row])[0]
         self.assertIsNone(sample.mask)
-        self.assertEqual(sample.mask_source, "not_applicable_normal")
-        self.assertEqual(sample.segmentation_status, "bypassed_normal")
+        self.assertEqual(sample.mask_source, "none")
+        self.assertEqual(sample.source_data, "dataset")
         self.assertIsNone(sample.ground_truth_mask)
 
     def test_oracle_inputs_can_require_a_mask_when_requested(self):

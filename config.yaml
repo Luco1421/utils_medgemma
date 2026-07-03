@@ -3,24 +3,6 @@ seed: 42
 data:
   split_file: dataset/split.json
   mask_target: optic_disc
-  normal_bypasses_segmentation: true
-  oracle_confidence: 0.80
-  expected_splits:
-    train:
-      total: 77
-      glaucoma: 41
-      normal: 36
-      with_optic_disc_mask: 41
-    validation:
-      total: 26
-      glaucoma: 14
-      normal: 12
-      with_optic_disc_mask: 14
-    test:
-      total: 26
-      glaucoma: 14
-      normal: 12
-      with_optic_disc_mask: 14
 
 medgemma:
   model_name: google/medgemma-1.5-4b-it

@@ -29,7 +29,5 @@ def load_project_config(path: str | Path = "config.yaml") -> dict[str, Any]:
     if "seed" not in config:
         raise ValueError("Project config is missing the global seed")
     if config["data"].get("mask_target") != "optic_disc":
-        raise ValueError("The updated ref contract requires mask_target=optic_disc")
-    if config["data"].get("normal_bypasses_segmentation") is not True:
-        raise ValueError("Normal images must bypass segmentation")
+        raise ValueError("mask_target must be optic_disc")
     return config

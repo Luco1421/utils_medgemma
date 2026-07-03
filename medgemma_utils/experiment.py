@@ -1,4 +1,4 @@
-"""Execute M7 conditions and evaluate them through the public M8 contract."""
+"""Run the conditioning conditions per sample and evaluate the generations."""
 
 from __future__ import annotations
 
@@ -24,24 +24,12 @@ def run_conditioned_experiment(
     evaluator: Evaluator,
     samples: Sequence[ConditioningInput],
     *,
-    pipeline_name: str,
     model_variant: str,
 ) -> dict[str, Any]:
     """Run every M7 condition supported by each sample and evaluate with M8."""
 
     results = []
-    segmentation_by_image: dict[str, dict[str, float] | None] = {}
     for sample in samples:
-        if sample.mask is not None and sample.ground_truth_mask is not None:
-            segmentation_by_image[sample.image_id] = (
-                evaluator.evaluate_segmentation(
-                    sample.mask,
-                    sample.ground_truth_mask,
-                )
-            )
-        else:
-            segmentation_by_image[sample.image_id] = None
-
         for condition, spec in CONDITION_SPECS.items():
             if not condition_applies(
                 spec,
@@ -57,22 +45,17 @@ def run_conditioned_experiment(
             )
             results.append({
                 "image_id": sample.image_id,
-                "pipeline": pipeline_name,
+                "source_data": sample.source_data,
                 "model_variant": model_variant,
-                "input_source": sample.input_source,
                 "mask_source": sample.mask_source,
-                "mask_target": sample.mask_target,
-                "segmentation_status": sample.segmentation_status,
                 "condition": m7_result["condition"],
                 "generated_text": m7_result["text"],
                 "reference_text": sample.reference,
                 "prompt_used": m7_result["prompt_used"],
-                "image_was_overlaid": m7_result["image_was_overlaid"],
                 "classification": {
-                    "prediction": sample.prediction,
+                    "predicted": sample.prediction,
+                    "ground_truth": sample.expected_finding,
                 },
-                "expected_finding": sample.expected_finding,
-                "segmentation_metrics": segmentation_by_image[sample.image_id],
             })
 
     evaluate_generated_texts(results, evaluator=evaluator)
@@ -80,7 +63,7 @@ def run_conditioned_experiment(
     # Conditions are applied per classified label, so no image carries every
     # condition. Comparisons are made against the label-agnostic baseline
     # (``without_overlay``), which each image always receives.
-    baseline_image_ids = sorted(
+    baseline_image_count = len(
         {
             item["image_id"]
             for item in results
@@ -88,17 +71,41 @@ def run_conditioned_experiment(
         }
     )
     return {
-        "baseline_condition": BASELINE_CONDITION,
-        "coverage_summary_by_condition": summarize_by_condition(
-            results,
-            include_delta_vs_baseline=False,
-        ),
-        "baseline_image_count": len(baseline_image_ids),
-        "baseline_image_ids": baseline_image_ids,
+        "baseline_image_count": baseline_image_count,
         "summary_by_condition": summarize_by_condition(results),
         "paired_comparisons_vs_baseline": paired_comparisons_to_baseline(
             results,
             evaluator,
         ),
+        "reference_similarity_baseline": _reference_similarity_baseline(
+            results,
+            evaluator,
+        ),
         "results": results,
     }
+
+
+def _reference_similarity_baseline(
+    results: Sequence[dict[str, Any]],
+    evaluator: Evaluator,
+) -> dict[str, Any]:
+    """In-category vs cross-category baseline over the unique expert references.
+
+    Model-independent (references only), so it is identical across conditions
+    and seeds; computed here because it needs the GPU-backed encoders. Guarded
+    so a failure never aborts a generation run.
+    """
+
+    unique: dict[str, tuple[str, str]] = {}
+    for item in results:
+        label = item["classification"].get("ground_truth")
+        if label in ("glaucoma", "normal") and item["image_id"] not in unique:
+            unique[item["image_id"]] = (item["reference_text"], label)
+    if len(unique) < 2 or len({label for _, label in unique.values()}) < 2:
+        return {"skipped": "need >=2 references spanning both classes"}
+    references = [text for text, _ in unique.values()]
+    labels = [label for _, label in unique.values()]
+    try:
+        return evaluator.reference_baseline(references, labels)
+    except Exception as error:  # noqa: BLE001 - never abort a run for this extra
+        return {"error": str(error)}

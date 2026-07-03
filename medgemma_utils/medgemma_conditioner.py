@@ -1,4 +1,4 @@
-"""M7 implementation compatible with the interface defined in ref."""
+"""MedGemma conditioner: generates a clinical description for one condition."""
 
 from __future__ import annotations
 
@@ -127,7 +127,6 @@ class MedGemmaConditioner:
         spec = self._resolve_condition(condition)
 
         image = self._as_image(image_raw)
-        image_was_overlaid = spec.use_overlay
 
         prompt = spec.prompt
         messages = [{
@@ -172,5 +171,4 @@ class MedGemmaConditioner:
             "text": text,
             "condition": condition,
             "prompt_used": prompt,
-            "image_was_overlaid": image_was_overlaid,
         }

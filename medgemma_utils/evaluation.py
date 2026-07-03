@@ -5,6 +5,7 @@ from __future__ import annotations
 import math
 import random
 import re
+from collections import Counter
 from collections.abc import Mapping, Sequence
 from typing import Any
 
@@ -82,6 +83,66 @@ def finding_mentioned(text: str, expected_finding: str | None) -> bool:
     if expected == "normal":
         return _contains_any(text, NORMAL_TERMS)
     return expected.replace("_", " ") in text.casefold()
+
+
+_WORD_RE = re.compile(r"[a-z0-9]+")
+
+
+def _word_tokens(text: str) -> list[str]:
+    return _WORD_RE.findall(text.lower())
+
+
+def _lcs_length(a: Sequence[str], b: Sequence[str]) -> int:
+    """Length of the longest common subsequence (row-rolled DP, O(len(b)))."""
+
+    if not a or not b:
+        return 0
+    previous = [0] * (len(b) + 1)
+    for token_a in a:
+        diagonal = 0
+        current = [0] * (len(b) + 1)
+        for j, token_b in enumerate(b, start=1):
+            current[j] = diagonal + 1 if token_a == token_b else max(
+                current[j - 1], previous[j]
+            )
+            diagonal = previous[j]
+        previous = current
+    return previous[-1]
+
+
+def rouge_l(generated: str, reference: str) -> float:
+    """ROUGE-L F1 on word tokens (LCS-based structural overlap)."""
+
+    g, r = _word_tokens(generated), _word_tokens(reference)
+    length = _lcs_length(g, r)
+    if length == 0:
+        return 0.0
+    precision, recall = length / len(g), length / len(r)
+    return float(2 * precision * recall / (precision + recall))
+
+
+def sentence_bleu(generated: str, reference: str, max_n: int = 4) -> float:
+    """Sentence-level BLEU-``max_n`` with a brevity penalty and epsilon
+    smoothing on zero-count n-grams, so short/paraphrased clinical prose yields
+    the characteristically small but non-degenerate scores reported for
+    generative models."""
+
+    g, r = _word_tokens(generated), _word_tokens(reference)
+    if not g or not r:
+        return 0.0
+    weight = 1.0 / max_n
+    log_precision = 0.0
+    for n in range(1, max_n + 1):
+        g_ngrams = Counter(zip(*(g[i:] for i in range(n))))
+        r_ngrams = Counter(zip(*(r[i:] for i in range(n))))
+        overlap = sum(
+            min(count, r_ngrams[ngram]) for ngram, count in g_ngrams.items()
+        )
+        total = max(len(g) - n + 1, 1)
+        precision = overlap / total if overlap > 0 else 1e-9
+        log_precision += weight * math.log(precision)
+    brevity = 1.0 if len(g) > len(r) else math.exp(1.0 - len(r) / len(g))
+    return float(brevity * math.exp(log_precision))
 
 
 class Evaluator:
@@ -311,6 +372,10 @@ class Evaluator:
                 "sbert_similarity": float(sbert[index]),
                 "sbert_random_baseline": float(sbert_baseline[index]),
                 "sbert_calibrated": float(sbert_calibrated[index]),
+                "rouge_l": rouge_l(generated_texts[index], reference_texts[index]),
+                "bleu": sentence_bleu(
+                    generated_texts[index], reference_texts[index]
+                ),
                 "finding_mentioned": finding_mentioned(
                     generated_texts[index],
                     expected_findings[index],
@@ -319,6 +384,78 @@ class Evaluator:
             }
             for index in range(len(generated_texts))
         ]
+
+    def reference_baseline(
+        self,
+        references: Sequence[str],
+        labels: Sequence[str],
+        *,
+        bootstrap_resamples: int = 5000,
+    ) -> dict[str, Any]:
+        """Cross-validation control for the similarity metrics.
+
+        Computes every ordered pair of expert references (``i != j``) and splits
+        the pairwise scores into *in-category* (same diagnostic label) and
+        *cross-category* (different label). A cross-category score that stays
+        high reveals the shared report boilerplate that inflates the raw
+        metrics -- the ``illusion of efficacy``. Returns, per metric, the two
+        means with bootstrap 95% CIs and a Mann-Whitney U test between them.
+        """
+
+        if len(references) != len(labels):
+            raise ValueError("references and labels must be aligned")
+        count = len(references)
+        if count < 2:
+            raise ValueError("need at least two references")
+
+        cand_idx: list[int] = []
+        ref_idx: list[int] = []
+        for i in range(count):
+            for j in range(count):
+                if i != j:
+                    cand_idx.append(i)
+                    ref_idx.append(j)
+
+        candidate_texts = [references[i] for i in cand_idx]
+        reference_texts = [references[j] for j in ref_idx]
+        _, _, bert_f1 = self._bertscore(candidate_texts, reference_texts)
+        embeddings = self._encode_sbert(list(references))
+        sbert_pairs = np.sum(
+            embeddings[cand_idx] * embeddings[ref_idx], axis=1
+        )
+        rouge_pairs = np.asarray(
+            [rouge_l(candidate_texts[k], reference_texts[k])
+             for k in range(len(cand_idx))]
+        )
+        bleu_pairs = np.asarray(
+            [sentence_bleu(candidate_texts[k], reference_texts[k])
+             for k in range(len(cand_idx))]
+        )
+        same_category = np.asarray(
+            [labels[i] == labels[j] for i, j in zip(cand_idx, ref_idx)]
+        )
+
+        metric_arrays = {
+            "bertscore_f1": np.asarray(bert_f1, dtype=float),
+            "sbert_similarity": sbert_pairs,
+            "rouge_l": rouge_pairs,
+            "bleu": bleu_pairs,
+        }
+        rng = np.random.default_rng(self.seed)
+        report: dict[str, Any] = {
+            "pair_count": len(cand_idx),
+            "in_category_pairs": int(same_category.sum()),
+            "cross_category_pairs": int((~same_category).sum()),
+        }
+        for metric, values in metric_arrays.items():
+            in_values = values[same_category]
+            cross_values = values[~same_category]
+            report[metric] = {
+                "in_category": _summarize_baseline(in_values, rng, bootstrap_resamples),
+                "cross_category": _summarize_baseline(cross_values, rng, bootstrap_resamples),
+                "mann_whitney": _mann_whitney(in_values, cross_values),
+            }
+        return report
 
     def evaluate_text(
         self,
@@ -365,11 +502,59 @@ class Evaluator:
         }
 
 
+def _summarize_baseline(
+    values: np.ndarray,
+    rng: np.random.Generator,
+    resamples: int,
+) -> dict[str, float]:
+    """Mean of ``values`` with a percentile bootstrap 95% CI."""
+
+    values = np.asarray(values, dtype=float)
+    if values.size == 0:
+        return {"mean": float("nan"), "std": float("nan"),
+                "ci_lower": float("nan"), "ci_upper": float("nan"), "n": 0}
+    if resamples > 0 and values.size > 1:
+        draws = rng.integers(0, values.size, size=(resamples, values.size))
+        means = values[draws].mean(axis=1)
+        ci_lower, ci_upper = np.percentile(means, [2.5, 97.5])
+    else:
+        ci_lower = ci_upper = float(values.mean())
+    return {
+        "mean": float(values.mean()),
+        "std": float(values.std()),
+        "ci_lower": float(ci_lower),
+        "ci_upper": float(ci_upper),
+        "n": int(values.size),
+    }
+
+
+def _mann_whitney(a: np.ndarray, b: np.ndarray) -> dict[str, float]:
+    """Two-sided Mann-Whitney U with Cliff's delta effect size."""
+
+    a = np.asarray(a, dtype=float)
+    b = np.asarray(b, dtype=float)
+    if a.size == 0 or b.size == 0:
+        return {"u_statistic": float("nan"), "p_value": float("nan"),
+                "cliffs_delta": float("nan")}
+    from scipy.stats import mannwhitneyu
+
+    result = mannwhitneyu(a, b, alternative="two-sided")
+    # Cliff's delta from U: delta = 2U/(n1 n2) - 1.
+    cliffs = 2.0 * float(result.statistic) / (a.size * b.size) - 1.0
+    return {
+        "u_statistic": float(result.statistic),
+        "p_value": float(result.pvalue),
+        "cliffs_delta": float(cliffs),
+    }
+
+
 TEXT_METRICS = (
     "bertscore_f1",
     "bertscore_calibrated",
     "sbert_similarity",
     "sbert_calibrated",
+    "rouge_l",
+    "bleu",
     "finding_mentioned",
 )
 
@@ -487,7 +672,7 @@ def evaluate_generated_texts(
     metrics = evaluator.evaluate_text_batch(
         [item["generated_text"] for item in results],
         [item["reference_text"] for item in results],
-        [item.get("expected_finding") for item in results],
+        [item["classification"].get("ground_truth") for item in results],
         [item["image_id"] for item in results],
     )
     for item, text_metrics in zip(results, metrics):

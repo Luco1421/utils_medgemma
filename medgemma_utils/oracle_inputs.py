@@ -17,8 +17,8 @@ def build_dataset_oracle_inputs(
 
     Labels and masks from this provider are oracle signals, not outputs from a
     classifier or SAM. The overlay image is pre-rendered here from the GT disc
-    mask (ref-style red composite) so the conditioner only ever receives final
-    images. Normal images have no GT disc mask, so they get no overlay and the
+    mask (red composite) so the conditioner only ever receives final images.
+    Normal images have no GT disc mask, so they get no overlay and the
     overlay conditions simply do not run for them in this mode.
     """
 
@@ -40,19 +40,9 @@ def build_dataset_oracle_inputs(
                 overlay_image=overlay_image,
                 prediction=prediction,
                 reference=str(row["transcription"]),
-                mask_source=(
-                    "ground_truth_optic_disc"
-                    if has_mask
-                    else "not_applicable_normal"
-                ),
-                input_source="dataset_oracle",
+                mask_source="dataset_GT" if has_mask else "none",
+                source_data="dataset",
                 expected_finding=prediction,
-                mask_target=str(row["mask_target"]),
-                segmentation_status=(
-                    "ground_truth_conditioning"
-                    if has_mask
-                    else "bypassed_normal"
-                ),
             )
         )
     return inputs
