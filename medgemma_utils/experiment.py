@@ -81,8 +81,27 @@ def run_conditioned_experiment(
             results,
             evaluator,
         ),
+        "boilerplate_dilution": _boilerplate_dilution(results, evaluator),
         "results": results,
     }
+
+
+def _unique_references(
+    results: Sequence[dict[str, Any]],
+) -> tuple[list[str], list[str]] | None:
+    """Unique expert references and their labels, or ``None`` if fewer than two
+    references span both classes."""
+
+    unique: dict[str, tuple[str, str]] = {}
+    for item in results:
+        label = item["classification"].get("ground_truth")
+        if label in ("glaucoma", "normal") and item["image_id"] not in unique:
+            unique[item["image_id"]] = (item["reference_text"], label)
+    if len(unique) < 2 or len({label for _, label in unique.values()}) < 2:
+        return None
+    references = [text for text, _ in unique.values()]
+    labels = [label for _, label in unique.values()]
+    return references, labels
 
 
 def _reference_similarity_baseline(
@@ -96,16 +115,27 @@ def _reference_similarity_baseline(
     so a failure never aborts a generation run.
     """
 
-    unique: dict[str, tuple[str, str]] = {}
-    for item in results:
-        label = item["classification"].get("ground_truth")
-        if label in ("glaucoma", "normal") and item["image_id"] not in unique:
-            unique[item["image_id"]] = (item["reference_text"], label)
-    if len(unique) < 2 or len({label for _, label in unique.values()}) < 2:
+    refs = _unique_references(results)
+    if refs is None:
         return {"skipped": "need >=2 references spanning both classes"}
-    references = [text for text, _ in unique.values()]
-    labels = [label for _, label in unique.values()]
     try:
-        return evaluator.reference_baseline(references, labels)
+        return evaluator.reference_baseline(*refs)
+    except Exception as error:  # noqa: BLE001 - never abort a run for this extra
+        return {"error": str(error)}
+
+
+def _boilerplate_dilution(
+    results: Sequence[dict[str, Any]],
+    evaluator: Evaluator,
+) -> dict[str, Any]:
+    """Boilerplate-dilution control (full vs diagnostic-span similarity plus the
+    cup-to-disc class separation) over the unique expert references. Same
+    guarded, model-independent contract as the reference baseline."""
+
+    refs = _unique_references(results)
+    if refs is None:
+        return {"skipped": "need >=2 references spanning both classes"}
+    try:
+        return evaluator.boilerplate_dilution(*refs)
     except Exception as error:  # noqa: BLE001 - never abort a run for this extra
         return {"error": str(error)}

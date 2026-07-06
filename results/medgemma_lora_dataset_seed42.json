@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-03T04:40:44.994893+00:00",
+  "timestamp": "2026-07-05T21:06:38.892685+00:00",
   "model_name": "google/medgemma-1.5-4b-it",
   "adapter_path": "checkpoints/lora/seed42",
   "seed": 42,
@@ -15,24 +15,24 @@
     }
   },
   "runtime": {
-    "started_at": "2026-07-03T04:37:51.698640+00:00",
-    "finished_at": "2026-07-03T04:40:44.994903+00:00",
-    "duration_seconds": 173.296,
-    "duration": "2m 53s",
+    "started_at": "2026-07-05T21:03:41.142046+00:00",
+    "finished_at": "2026-07-05T21:06:38.892695+00:00",
+    "duration_seconds": 177.751,
+    "duration": "2m 58s",
     "stages": [
       {
         "label": "Model and evaluator load",
-        "started_at": "2026-07-03T04:37:55.377994+00:00",
-        "finished_at": "2026-07-03T04:38:19.050705+00:00",
-        "duration_seconds": 23.673,
-        "duration": "24s"
+        "started_at": "2026-07-05T21:03:44.812409+00:00",
+        "finished_at": "2026-07-05T21:04:24.822296+00:00",
+        "duration_seconds": 40.01,
+        "duration": "40s"
       },
       {
         "label": "Conditioned generation and evaluation",
-        "started_at": "2026-07-03T04:38:19.050854+00:00",
-        "finished_at": "2026-07-03T04:40:44.994684+00:00",
-        "duration_seconds": 145.944,
-        "duration": "2m 26s"
+        "started_at": "2026-07-05T21:04:24.822616+00:00",
+        "finished_at": "2026-07-05T21:06:38.892429+00:00",
+        "duration_seconds": 134.07,
+        "duration": "2m 14s"
       }
     ]
   },
@@ -56,58 +56,58 @@
   "summary_by_condition": {
     "with_overlay_glaucoma": {
       "count": 14,
-      "bertscore_f1_mean": 0.938803276845387,
-      "bertscore_f1_std": 0.010020446751900667,
-      "bertscore_calibrated_mean": -0.06236855599230954,
-      "bertscore_calibrated_std": 0.22470092556047333,
-      "sbert_similarity_mean": 0.7602809965610504,
-      "sbert_similarity_std": 0.06972445290623887,
-      "sbert_calibrated_mean": 0.012432394881865807,
-      "sbert_calibrated_std": 0.3622109178710388,
-      "rouge_l_mean": 0.2849788608491179,
-      "rouge_l_std": 0.09311556651529027,
-      "bleu_mean": 0.06928340255058865,
-      "bleu_std": 0.0443918635579758,
+      "bertscore_f1_mean": 0.937582233122417,
+      "bertscore_f1_std": 0.00590381244192695,
+      "bertscore_calibrated_mean": -0.08303991831572992,
+      "bertscore_calibrated_std": 0.16980876732261185,
+      "sbert_similarity_mean": 0.7596022273812976,
+      "sbert_similarity_std": 0.06254783628264583,
+      "sbert_calibrated_mean": 0.004626612558370523,
+      "sbert_calibrated_std": 0.30460316800484877,
+      "rouge_l_mean": 0.28974654570581787,
+      "rouge_l_std": 0.07679198500601903,
+      "bleu_mean": 0.06743350034908238,
+      "bleu_std": 0.042996232453628026,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.013662841948834159,
-      "delta_bertscore_calibrated_vs_baseline": -0.19324913000749364,
-      "delta_sbert_similarity_vs_baseline": -0.037954133290510894,
-      "delta_sbert_calibrated_vs_baseline": -0.10652767482551409,
-      "delta_rouge_l_vs_baseline": -0.19957269506825964,
-      "delta_bleu_vs_baseline": -0.21259062885743854,
+      "delta_bertscore_f1_vs_baseline": -0.014883883379317897,
+      "delta_bertscore_calibrated_vs_baseline": -0.21392032977930464,
+      "delta_sbert_similarity_vs_baseline": -0.03863289788529112,
+      "delta_sbert_calibrated_vs_baseline": -0.11433346574583314,
+      "delta_rouge_l_vs_baseline": -0.19480501021155966,
+      "delta_bleu_vs_baseline": -0.2144405310589448,
       "delta_finding_mentioned_vs_baseline": 0.15384615384615385
     },
     "without_overlay_glaucoma": {
       "count": 14,
-      "bertscore_f1_mean": 0.9446458092757634,
-      "bertscore_f1_std": 0.01118046636908651,
-      "bertscore_calibrated_mean": -0.07385677006095648,
-      "bertscore_calibrated_std": 0.2772565118275833,
-      "sbert_similarity_mean": 0.7738044304507119,
-      "sbert_similarity_std": 0.06223663843772606,
-      "sbert_calibrated_mean": -0.07737823934959513,
-      "sbert_calibrated_std": 0.36731396177195536,
+      "bertscore_f1_mean": 0.9446458050182888,
+      "bertscore_f1_std": 0.011180446217434565,
+      "bertscore_calibrated_mean": -0.07385670646492924,
+      "bertscore_calibrated_std": 0.27725592809704674,
+      "sbert_similarity_mean": 0.7738044261932373,
+      "sbert_similarity_std": 0.06223663677908857,
+      "sbert_calibrated_mean": -0.07737825425075633,
+      "sbert_calibrated_std": 0.3673139482895896,
       "rouge_l_mean": 0.3324659874904435,
       "rouge_l_std": 0.09225687634101029,
       "bleu_mean": 0.09508966661846234,
       "bleu_std": 0.06463278409876415,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.007820309518457802,
-      "delta_bertscore_calibrated_vs_baseline": -0.20473734407614058,
-      "delta_sbert_similarity_vs_baseline": -0.02443069940084941,
-      "delta_sbert_calibrated_vs_baseline": -0.19633830905697502,
+      "delta_bertscore_f1_vs_baseline": -0.007820311483446085,
+      "delta_bertscore_calibrated_vs_baseline": -0.20473711792850396,
+      "delta_sbert_similarity_vs_baseline": -0.02443069907335138,
+      "delta_sbert_calibrated_vs_baseline": -0.19633833255495997,
       "delta_rouge_l_vs_baseline": -0.15208556842693405,
       "delta_bleu_vs_baseline": -0.18678436478956484,
       "delta_finding_mentioned_vs_baseline": 0.15384615384615385
     },
     "without_overlay_normal": {
       "count": 12,
-      "bertscore_f1_mean": 0.9631330668926239,
-      "bertscore_f1_std": 0.022716923062348668,
-      "bertscore_calibrated_mean": 0.37671699685355026,
-      "bertscore_calibrated_std": 0.43540910198760796,
+      "bertscore_f1_mean": 0.9631330718596777,
+      "bertscore_f1_std": 0.022716927373476706,
+      "bertscore_calibrated_mean": 0.37671698691944283,
+      "bertscore_calibrated_std": 0.43540910418219825,
       "sbert_similarity_mean": 0.842271680633227,
       "sbert_similarity_std": 0.12871317455523243,
       "sbert_calibrated_mean": 0.379828586243093,
@@ -118,48 +118,48 @@
       "bleu_std": 0.32193353874313135,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": 0.01066694809840274,
-      "delta_bertscore_calibrated_vs_baseline": 0.24583642283836615,
-      "delta_sbert_similarity_vs_baseline": 0.044036550781665684,
-      "delta_sbert_calibrated_vs_baseline": 0.26086851653571314,
+      "delta_bertscore_f1_vs_baseline": 0.01066695535794282,
+      "delta_bertscore_calibrated_vs_baseline": 0.24583657545586812,
+      "delta_sbert_similarity_vs_baseline": 0.04403655536663831,
+      "delta_sbert_calibrated_vs_baseline": 0.2608685079388894,
       "delta_rouge_l_vs_baseline": 0.18041012365008757,
       "delta_bleu_vs_baseline": 0.25367085570656184,
       "delta_finding_mentioned_vs_baseline": 0.15384615384615385
     },
     "with_overlay": {
       "count": 14,
-      "bertscore_f1_mean": 0.9294584095478058,
-      "bertscore_f1_std": 0.008620114497898132,
-      "bertscore_calibrated_mean": -0.09842636303177901,
-      "bertscore_calibrated_std": 0.17829465259373117,
-      "sbert_similarity_mean": 0.692748853138515,
-      "sbert_similarity_std": 0.06564529216598489,
-      "sbert_calibrated_mean": -0.13124252716079354,
-      "sbert_calibrated_std": 0.27869339968031653,
-      "rouge_l_mean": 0.24565282726543308,
-      "rouge_l_std": 0.08883597692232559,
-      "bleu_mean": 0.07096316733415264,
-      "bleu_std": 0.046926157186300256,
+      "bertscore_f1_mean": 0.9280022084712982,
+      "bertscore_f1_std": 0.007193189313014498,
+      "bertscore_calibrated_mean": -0.12641073470669134,
+      "bertscore_calibrated_std": 0.1642574780382589,
+      "sbert_similarity_mean": 0.6853029174464089,
+      "sbert_similarity_std": 0.059287271836428866,
+      "sbert_calibrated_mean": -0.15950109403846519,
+      "sbert_calibrated_std": 0.2711921500870802,
+      "rouge_l_mean": 0.23545263773688532,
+      "rouge_l_std": 0.08039168900841291,
+      "bleu_mean": 0.0748726439543091,
+      "bleu_std": 0.04909843504005751,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.023007709246415375,
-      "delta_bertscore_calibrated_vs_baseline": -0.22930693704696312,
-      "delta_sbert_similarity_vs_baseline": -0.10548627671304633,
-      "delta_sbert_calibrated_vs_baseline": -0.2502025968681734,
-      "delta_rouge_l_vs_baseline": -0.23889872865194445,
-      "delta_bleu_vs_baseline": -0.21091086407387455,
+      "delta_bertscore_f1_vs_baseline": -0.024463908030436632,
+      "delta_bertscore_calibrated_vs_baseline": -0.25729114617026605,
+      "delta_sbert_similarity_vs_baseline": -0.11293220782017976,
+      "delta_sbert_calibrated_vs_baseline": -0.2784611723426689,
+      "delta_rouge_l_vs_baseline": -0.2490989181804922,
+      "delta_bleu_vs_baseline": -0.2070013874537181,
       "delta_finding_mentioned_vs_baseline": 0.15384615384615385
     },
     "without_overlay": {
       "count": 26,
-      "bertscore_f1_mean": 0.9524661187942212,
-      "bertscore_f1_std": 0.01887588109125327,
-      "bertscore_calibrated_mean": 0.1308805740151841,
-      "bertscore_calibrated_std": 0.4031709507655943,
-      "sbert_similarity_mean": 0.7982351298515613,
-      "sbert_similarity_std": 0.10424798720668173,
-      "sbert_calibrated_mean": 0.11896006970737989,
-      "sbert_calibrated_std": 0.4940234027900024,
+      "bertscore_f1_mean": 0.9524661165017348,
+      "bertscore_f1_std": 0.01887588126189348,
+      "bertscore_calibrated_mean": 0.1308804114635747,
+      "bertscore_calibrated_std": 0.4031710096251499,
+      "sbert_similarity_mean": 0.7982351252665887,
+      "sbert_similarity_std": 0.10424798781858514,
+      "sbert_calibrated_mean": 0.11896007830420366,
+      "sbert_calibrated_std": 0.4940234120508675,
       "rouge_l_mean": 0.48455155591737753,
       "rouge_l_std": 0.25758562567862014,
       "bleu_mean": 0.2818740314080272,
@@ -172,49 +172,49 @@
     "with_overlay_glaucoma": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": -0.005458819014685494,
-        "median_delta": -0.003636270761489868,
-        "improved_fraction": 0.07142857142857142,
-        "statistic": 9.0,
-        "p_value": 0.0040283203125,
+        "mean_delta": -0.006679854222706386,
+        "median_delta": -0.00658649206161499,
+        "improved_fraction": 0.14285714285714285,
+        "statistic": 11.0,
+        "p_value": 0.015906444101703374,
         "significant": true,
-        "effect_size": 0.7686260906639786,
-        "p_value_holm": 0.0120849609375,
+        "effect_size": 0.6443815868826046,
+        "p_value_holm": 0.04771933230511012,
         "significant_holm": true
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.007137679494917393,
-        "median_delta": -0.005967983044683933,
-        "improved_fraction": 0.5,
-        "statistic": 48.0,
-        "p_value": 0.8077392578125,
+        "mean_delta": -0.0278087282287223,
+        "median_delta": -0.0156457694247365,
+        "improved_fraction": 0.42857142857142855,
+        "statistic": 47.0,
+        "p_value": 0.7608642578125,
         "significant": false,
-        "effect_size": 0.06503630361568297,
+        "effect_size": 0.08133990588289373,
         "p_value_holm": 1.0,
         "significant_holm": false
       },
       "sbert_similarity": {
         "paired_count": 14,
-        "mean_delta": -0.009185646261487688,
-        "median_delta": -0.008188337087631226,
+        "mean_delta": -0.00986440692629133,
+        "median_delta": -0.005537539720535278,
         "improved_fraction": 0.2857142857142857,
-        "statistic": 27.0,
-        "p_value": 0.118896484375,
+        "statistic": 28.0,
+        "p_value": 0.221330082993901,
         "significant": false,
-        "effect_size": 0.4167731148922612,
-        "p_value_holm": 0.356689453125,
+        "effect_size": 0.32686022523030667,
+        "p_value_holm": 0.48428838710125,
         "significant_holm": false
       },
       "sbert_calibrated": {
         "paired_count": 14,
-        "mean_delta": 0.07021233339660934,
-        "median_delta": 0.03830895572900772,
-        "improved_fraction": 0.5714285714285714,
-        "statistic": 42.0,
-        "p_value": 0.5416259765625,
+        "mean_delta": 0.062406535107584205,
+        "median_delta": 0.04376903921365738,
+        "improved_fraction": 0.6428571428571429,
+        "statistic": 39.0,
+        "p_value": 0.42626953125,
         "significant": false,
-        "effect_size": 0.16312451538533565,
+        "effect_size": 0.21263076197327946,
         "p_value_holm": 1.0,
         "significant_holm": false
       }
@@ -222,7 +222,7 @@
     "without_overlay_glaucoma": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": 0.00038371341569083076,
+        "mean_delta": 0.00038371767316545757,
         "median_delta": 0.0,
         "improved_fraction": 0.2857142857142857,
         "statistic": 13.0,
@@ -234,8 +234,8 @@
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.018625893563564335,
-        "median_delta": -0.00813358649611473,
+        "mean_delta": -0.018625516377921616,
+        "median_delta": -0.008133243769407272,
         "improved_fraction": 0.5,
         "statistic": 44.0,
         "p_value": 0.625732421875,
@@ -246,20 +246,20 @@
       },
       "sbert_similarity": {
         "paired_count": 14,
-        "mean_delta": 0.004337787628173828,
+        "mean_delta": 0.004337791885648455,
         "median_delta": 0.0,
         "improved_fraction": 0.35714285714285715,
         "statistic": 8.0,
         "p_value": 0.16142946236708333,
         "significant": false,
         "effect_size": 0.3742405942825597,
-        "p_value_holm": 0.356689453125,
+        "p_value_holm": 0.48428838710125,
         "significant_holm": false
       },
       "sbert_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.019598300834851607,
-        "median_delta": 0.02379486709833145,
+        "mean_delta": -0.01959833170154265,
+        "median_delta": 0.023794762790203094,
         "improved_fraction": 0.5714285714285714,
         "statistic": 47.0,
         "p_value": 0.7608642578125,
@@ -285,8 +285,8 @@
       },
       "bertscore_calibrated": {
         "paired_count": 12,
-        "mean_delta": 0.028706397240360577,
-        "median_delta": -0.0003311038017272949,
+        "mean_delta": 0.028706373646855354,
+        "median_delta": -0.00033089518547058105,
         "improved_fraction": 0.5,
         "statistic": 39.0,
         "p_value": 1.0,
@@ -323,8 +323,8 @@
     "with_overlay": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": -0.01480368631226676,
-        "median_delta": -0.013820022344589233,
+        "mean_delta": -0.016259878873825073,
+        "median_delta": -0.01434507966041565,
         "improved_fraction": 0.0,
         "statistic": 0.0,
         "p_value": 0.0001220703125,
@@ -335,20 +335,20 @@
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.04319548653438687,
-        "median_delta": -0.025443632155656815,
+        "mean_delta": -0.0711795446196837,
+        "median_delta": -0.02468184009194374,
         "improved_fraction": 0.42857142857142855,
-        "statistic": 45.0,
-        "p_value": 0.6697998046875,
+        "statistic": 40.0,
+        "p_value": 0.463134765625,
         "significant": false,
-        "effect_size": 0.11396628192307108,
+        "effect_size": 0.1960881846728863,
         "p_value_holm": 1.0,
         "significant_holm": false
       },
       "sbert_similarity": {
         "paired_count": 14,
-        "mean_delta": -0.07671778968402318,
-        "median_delta": -0.07944831252098083,
+        "mean_delta": -0.08416371686117989,
+        "median_delta": -0.07894065976142883,
         "improved_fraction": 0.0,
         "statistic": 0.0,
         "p_value": 0.0001220703125,
@@ -359,8 +359,8 @@
       },
       "sbert_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.07346258864605001,
-        "median_delta": 0.05330567806959152,
+        "mean_delta": -0.10172117148925151,
+        "median_delta": 0.041841648519039154,
         "improved_fraction": 0.5714285714285714,
         "statistic": 43.0,
         "p_value": 0.5830078125,
@@ -377,17 +377,17 @@
     "cross_category_pairs": 336,
     "bertscore_f1": {
       "in_category": {
-        "mean": 0.9598027224753313,
-        "std": 0.0246387647246424,
+        "mean": 0.9598027232346261,
+        "std": 0.024638766878540528,
         "ci_lower": 0.957140053111087,
-        "ci_upper": 0.9625350413760941,
+        "ci_upper": 0.9625350427048601,
         "n": 314
       },
       "cross_category": {
-        "mean": 0.9353256997253213,
-        "std": 0.009583971236432034,
-        "ci_lower": 0.934321423198673,
-        "ci_upper": 0.9363558616843961,
+        "mean": 0.935325700080111,
+        "std": 0.00958397064508843,
+        "ci_lower": 0.9343214230257131,
+        "ci_upper": 0.9363558623718009,
         "n": 336
       },
       "mann_whitney": {
@@ -458,6 +458,203 @@
         "p_value": 5.985503157217132e-39,
         "cliffs_delta": 0.5919301637852594
       }
+    }
+  },
+  "boilerplate_dilution": {
+    "full": {
+      "pair_count": 650,
+      "in_category_pairs": 314,
+      "cross_category_pairs": 336,
+      "bertscore_f1": {
+        "in_category": {
+          "mean": 0.9598027232346261,
+          "std": 0.024638766878540528,
+          "ci_lower": 0.957140053111087,
+          "ci_upper": 0.9625350427048601,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.935325700080111,
+          "std": 0.00958397064508843,
+          "ci_lower": 0.9343214230257131,
+          "ci_upper": 0.9363558623718009,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 85188.0,
+          "p_value": 7.122276053667272e-42,
+          "cliffs_delta": 0.614877161055505
+        }
+      },
+      "sbert_similarity": {
+        "in_category": {
+          "mean": 0.8004576635968154,
+          "std": 0.13695852589214372,
+          "ci_lower": 0.7854143445943571,
+          "ci_upper": 0.8156769669407113,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.6703649814284983,
+          "std": 0.07351680812969444,
+          "ci_lower": 0.6621254944042968,
+          "ci_upper": 0.6781931066774719,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 83148.0,
+          "p_value": 5.5416530750380375e-37,
+          "cliffs_delta": 0.5762056414922656
+        }
+      },
+      "rouge_l": {
+        "in_category": {
+          "mean": 0.5029006782653566,
+          "std": 0.28119360524251774,
+          "ci_lower": 0.47287618622677946,
+          "ci_upper": 0.5343413753966137,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.22470227467946557,
+          "std": 0.08880674725850089,
+          "ci_lower": 0.21512057066086654,
+          "ci_upper": 0.23438252508161989,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 87150.0,
+          "p_value": 6.756406404169194e-47,
+          "cliffs_delta": 0.6520700636942676
+        }
+      },
+      "bleu": {
+        "in_category": {
+          "mean": 0.31684810827135795,
+          "std": 0.29101277744855036,
+          "ci_lower": 0.2846778385280786,
+          "ci_upper": 0.34993689572594616,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.08113016086826577,
+          "std": 0.06366045084752997,
+          "ci_lower": 0.07426383794561423,
+          "ci_upper": 0.08796975526518165,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 83977.5,
+          "p_value": 5.985503157217132e-39,
+          "cliffs_delta": 0.5919301637852594
+        }
+      }
+    },
+    "diagnostic_span": {
+      "pair_count": 650,
+      "in_category_pairs": 314,
+      "cross_category_pairs": 336,
+      "bertscore_f1": {
+        "in_category": {
+          "mean": 0.9512613125287803,
+          "std": 0.031176181960644853,
+          "ci_lower": 0.9479196949939059,
+          "ci_upper": 0.9547450792447777,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.926187493084442,
+          "std": 0.020141944086710793,
+          "ci_lower": 0.9240027057406094,
+          "ci_upper": 0.9283022068529612,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 77980.0,
+          "p_value": 5.357317889679769e-26,
+          "cliffs_delta": 0.4782377919320595
+        }
+      },
+      "sbert_similarity": {
+        "in_category": {
+          "mean": 0.6681041514417928,
+          "std": 0.22909785204166605,
+          "ci_lower": 0.6426394294247411,
+          "ci_upper": 0.6932914091677517,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.48385817535398973,
+          "std": 0.1580127922394821,
+          "ci_lower": 0.46696494484896817,
+          "ci_upper": 0.5002602047375625,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 78380.0,
+          "p_value": 8.93096038191431e-27,
+          "cliffs_delta": 0.48582044282681225
+        }
+      },
+      "rouge_l": {
+        "in_category": {
+          "mean": 0.5001945236751267,
+          "std": 0.28772418959821056,
+          "ci_lower": 0.4689860239620758,
+          "ci_upper": 0.5320593689649382,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.24957951072271906,
+          "std": 0.13932502713109438,
+          "ci_lower": 0.23433517785793068,
+          "ci_upper": 0.2645294358272191,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 81424.0,
+          "p_value": 3.8185314943012485e-33,
+          "cliffs_delta": 0.5435244161358812
+        }
+      },
+      "bleu": {
+        "in_category": {
+          "mean": 0.28025165304432864,
+          "std": 0.2747826186195148,
+          "ci_lower": 0.24998343260758937,
+          "ci_upper": 0.3114479490647737,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.06850378800330267,
+          "std": 0.07847917342365048,
+          "ci_lower": 0.06027581970386032,
+          "ci_upper": 0.07728056404112423,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 79328.0,
+          "p_value": 1.1156170154315281e-28,
+          "cliffs_delta": 0.5037913254473765
+        }
+      }
+    },
+    "span_retained_char_fraction": 0.6108402671247322,
+    "cdr_class_separation": {
+      "stated_fraction": 0.6923076923076923,
+      "glaucoma": {
+        "n": 8,
+        "mean": 0.8562500000000001,
+        "min": 0.7,
+        "max": 0.95
+      },
+      "normal": {
+        "n": 10,
+        "mean": 0.4,
+        "min": 0.1,
+        "max": 0.6
+      },
+      "roc_auc": 1.0
     }
   },
   "results": [
@@ -532,7 +729,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9090976119041443,
-        "bertscore_recall": 0.9209508299827576,
+        "bertscore_recall": 0.9209507703781128,
         "bertscore_f1": 0.9149858355522156,
         "bertscore_random_baseline": 0.9342619776725769,
         "bertscore_calibrated": -0.2932266891002655,
@@ -559,11 +756,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9110286831855774,
+        "bertscore_precision": 0.9110286235809326,
         "bertscore_recall": 0.9259153604507446,
-        "bertscore_f1": 0.9184116125106812,
+        "bertscore_f1": 0.9184116721153259,
         "bertscore_random_baseline": 0.9424232244491577,
-        "bertscore_calibrated": -0.41703641414642334,
+        "bertscore_calibrated": -0.41703537106513977,
         "sbert_similarity": 0.564980149269104,
         "sbert_random_baseline": 0.7579407691955566,
         "sbert_calibrated": -0.7971628308296204,
@@ -587,11 +784,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9676005244255066,
-        "bertscore_recall": 0.9906566143035889,
+        "bertscore_precision": 0.9676004648208618,
+        "bertscore_recall": 0.9906565546989441,
         "bertscore_f1": 0.9789928197860718,
-        "bertscore_random_baseline": 0.9278120994567871,
-        "bertscore_calibrated": 0.7089930772781372,
+        "bertscore_random_baseline": 0.9278122186660767,
+        "bertscore_calibrated": 0.708992600440979,
         "sbert_similarity": 0.9334306716918945,
         "sbert_random_baseline": 0.6879863739013672,
         "sbert_calibrated": 0.7866460680961609,
@@ -643,8 +840,8 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9688906669616699,
-        "bertscore_recall": 0.9926360249519348,
+        "bertscore_precision": 0.9688907265663147,
+        "bertscore_recall": 0.9926360845565796,
         "bertscore_f1": 0.9806196093559265,
         "bertscore_random_baseline": 0.9477114677429199,
         "bertscore_calibrated": 0.6293567419052124,
@@ -671,8 +868,8 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9688906669616699,
-        "bertscore_recall": 0.9926360249519348,
+        "bertscore_precision": 0.9688907265663147,
+        "bertscore_recall": 0.9926360845565796,
         "bertscore_f1": 0.9806196093559265,
         "bertscore_random_baseline": 0.9318782091140747,
         "bertscore_calibrated": 0.7155038118362427,
@@ -691,7 +888,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay_glaucoma",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no optic disc hemorrhage, beta-zone peripapillary atrophy, wedge-shaped defect, optic disc pallor of 1, bayoneting and nasalization of vessels<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no vessel changes, optic disc pallor of 1, no peripapillary atrophy, no optic disc hemorrhage<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing a fundus photograph from a patient with glaucoma. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a glaucoma specialist. Your description should mention relevant findings if any exists.\n        After your description, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved: Inferior \u2265 Superior \u2265 Nasal \u2265 Temporal); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization   \n        Format your response in two parts: (1) the free-text clinical description, and (2) the structured classification with the selected option for each field.",
       "classification": {
@@ -699,16 +896,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9441020488739014,
-        "bertscore_recall": 0.9683197736740112,
-        "bertscore_f1": 0.9560575485229492,
-        "bertscore_random_baseline": 0.937384307384491,
-        "bertscore_calibrated": 0.29821982979774475,
-        "sbert_similarity": 0.8128730058670044,
-        "sbert_random_baseline": 0.6617212891578674,
-        "sbert_calibrated": 0.4468259811401367,
-        "rouge_l": 0.3582089552238806,
-        "bleu": 0.10578557986185744,
+        "bertscore_precision": 0.9392815232276917,
+        "bertscore_recall": 0.9427642822265625,
+        "bertscore_f1": 0.9410197138786316,
+        "bertscore_random_baseline": 0.9322611093521118,
+        "bertscore_calibrated": 0.12929949164390564,
+        "sbert_similarity": 0.7824328541755676,
+        "sbert_random_baseline": 0.6649079322814941,
+        "sbert_calibrated": 0.3507242798805237,
+        "rouge_l": 0.32786885245901637,
+        "bleu": 0.09255435777283394,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -811,7 +1008,7 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9229583144187927,
+        "bertscore_precision": 0.9229583740234375,
         "bertscore_recall": 0.9368471503257751,
         "bertscore_f1": 0.9298508763313293,
         "bertscore_random_baseline": 0.9463785886764526,
@@ -839,11 +1036,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9261259436607361,
+        "bertscore_precision": 0.9261260032653809,
         "bertscore_recall": 0.9392180442810059,
-        "bertscore_f1": 0.9326260089874268,
+        "bertscore_f1": 0.9326260685920715,
         "bertscore_random_baseline": 0.9522721171379089,
-        "bertscore_calibrated": -0.41162747144699097,
+        "bertscore_calibrated": -0.4116262197494507,
         "sbert_similarity": 0.6586403846740723,
         "sbert_random_baseline": 0.8112478256225586,
         "sbert_calibrated": -0.8085069060325623,
@@ -868,7 +1065,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.921521782875061,
-        "bertscore_recall": 0.9250044226646423,
+        "bertscore_recall": 0.9250044822692871,
         "bertscore_f1": 0.9232598543167114,
         "bertscore_random_baseline": 0.9322673082351685,
         "bertscore_calibrated": -0.13298532366752625,
@@ -979,11 +1176,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9341970086097717,
+        "bertscore_precision": 0.9341970682144165,
         "bertscore_recall": 0.9348279237747192,
-        "bertscore_f1": 0.9345123171806335,
+        "bertscore_f1": 0.9345123767852783,
         "bertscore_random_baseline": 0.9396800994873047,
-        "bertscore_calibrated": -0.08567292243242264,
+        "bertscore_calibrated": -0.08567193895578384,
         "sbert_similarity": 0.8068190813064575,
         "sbert_random_baseline": 0.730108380317688,
         "sbert_calibrated": 0.28422778844833374,
@@ -1008,7 +1205,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9410275220870972,
-        "bertscore_recall": 0.9539592266082764,
+        "bertscore_recall": 0.9539592862129211,
         "bertscore_f1": 0.9474492073059082,
         "bertscore_random_baseline": 0.9506805539131165,
         "bertscore_calibrated": -0.06551871448755264,
@@ -1027,7 +1224,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, beta-zone peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 2, bayoneting of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, beta-zone peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 1, bayoneting of 1<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, 360\u00b0 thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, beta peripapillary atrophy",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1035,14 +1232,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9262741804122925,
-        "bertscore_recall": 0.9422634840011597,
-        "bertscore_f1": 0.9342004060745239,
-        "bertscore_random_baseline": 0.9389069676399231,
-        "bertscore_calibrated": -0.07703924924135208,
-        "sbert_similarity": 0.8061829805374146,
-        "sbert_random_baseline": 0.7274274826049805,
-        "sbert_calibrated": 0.2889341115951538,
+        "bertscore_precision": 0.9255200624465942,
+        "bertscore_recall": 0.9420996904373169,
+        "bertscore_f1": 0.933736264705658,
+        "bertscore_random_baseline": 0.938389003276825,
+        "bertscore_calibrated": -0.07551798969507217,
+        "sbert_similarity": 0.8049484491348267,
+        "sbert_random_baseline": 0.724896252155304,
+        "sbert_calibrated": 0.29098913073539734,
         "rouge_l": 0.3235294117647059,
         "bleu": 0.08474005677451944,
         "finding_mentioned": true,
@@ -1064,7 +1261,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9410275220870972,
-        "bertscore_recall": 0.9539592266082764,
+        "bertscore_recall": 0.9539592862129211,
         "bertscore_f1": 0.9474492073059082,
         "bertscore_random_baseline": 0.9497445225715637,
         "bertscore_calibrated": -0.0456729382276535,
@@ -1091,11 +1288,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9298529028892517,
+        "bertscore_precision": 0.9298528432846069,
         "bertscore_recall": 0.9455011487007141,
-        "bertscore_f1": 0.9376116991043091,
+        "bertscore_f1": 0.9376116394996643,
         "bertscore_random_baseline": 0.9448330998420715,
-        "bertscore_calibrated": -0.13090096414089203,
+        "bertscore_calibrated": -0.13090205192565918,
         "sbert_similarity": 0.7848018407821655,
         "sbert_random_baseline": 0.7816365361213684,
         "sbert_calibrated": 0.014495578594505787,
@@ -1120,10 +1317,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9148348569869995,
-        "bertscore_recall": 0.9446008801460266,
-        "bertscore_f1": 0.9294795989990234,
+        "bertscore_recall": 0.9446009397506714,
+        "bertscore_f1": 0.9294796586036682,
         "bertscore_random_baseline": 0.9549258947372437,
-        "bertscore_calibrated": -0.5645435452461243,
+        "bertscore_calibrated": -0.5645422339439392,
         "sbert_similarity": 0.716382622718811,
         "sbert_random_baseline": 0.8229657411575317,
         "sbert_calibrated": -0.6020479798316956,
@@ -1139,7 +1336,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, normal color, no vascular abnormalities<end_of_turn>",
+      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, normal macula, no vascular abnormalities<end_of_turn>",
       "reference_text": "Optic disc with mild increased cupping, with slight thinning of the neuroretinal rim, without optic disc hemorrhages",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1147,14 +1344,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9105442762374878,
-        "bertscore_recall": 0.927632212638855,
-        "bertscore_f1": 0.9190088510513306,
-        "bertscore_random_baseline": 0.9440641403198242,
-        "bertscore_calibrated": -0.44792893528938293,
-        "sbert_similarity": 0.6024225950241089,
-        "sbert_random_baseline": 0.7540589570999146,
-        "sbert_calibrated": -0.6165557503700256,
+        "bertscore_precision": 0.9108088612556458,
+        "bertscore_recall": 0.9279983043670654,
+        "bertscore_f1": 0.9193232655525208,
+        "bertscore_random_baseline": 0.9454289674758911,
+        "bertscore_calibrated": -0.4783802032470703,
+        "sbert_similarity": 0.6205503344535828,
+        "sbert_random_baseline": 0.7685554027557373,
+        "sbert_calibrated": -0.6394838094711304,
         "rouge_l": 0.10256410256410256,
         "bleu": 9.764540896763123e-08,
         "finding_mentioned": true,
@@ -1195,7 +1392,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay_glaucoma",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no optic disc hemorrhage, beta-zone peripapillary atrophy, wedge-shaped defect, optic disc pallor of 1, bayoneting and nasalization of vessels<end_of_turn>",
+      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, optic disc with diffuse thinning, bayoneting and nasalization of vessels, and no visible RNFL defect<end_of_turn>",
       "reference_text": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing a fundus photograph from a patient with glaucoma. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a glaucoma specialist. Your description should mention relevant findings if any exists.\n        After your description, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved: Inferior \u2265 Superior \u2265 Nasal \u2265 Temporal); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization   \n        Format your response in two parts: (1) the free-text clinical description, and (2) the structured classification with the selected option for each field.",
       "classification": {
@@ -1203,16 +1400,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9283627867698669,
-        "bertscore_recall": 0.9263484477996826,
-        "bertscore_f1": 0.9273545145988464,
-        "bertscore_random_baseline": 0.9519124031066895,
-        "bertscore_calibrated": -0.5106906890869141,
-        "sbert_similarity": 0.7886972427368164,
-        "sbert_random_baseline": 0.75568687915802,
-        "sbert_calibrated": 0.13511498272418976,
-        "rouge_l": 0.17721518987341772,
-        "bleu": 8.73208366693211e-06,
+        "bertscore_precision": 0.9313435554504395,
+        "bertscore_recall": 0.930356502532959,
+        "bertscore_f1": 0.9308497905731201,
+        "bertscore_random_baseline": 0.9520334005355835,
+        "bertscore_calibrated": -0.4416325092315674,
+        "sbert_similarity": 0.8058401346206665,
+        "sbert_random_baseline": 0.8058866262435913,
+        "sbert_calibrated": -0.00023950757167767733,
+        "rouge_l": 0.23880597014925375,
+        "bleu": 9.343404383681738e-06,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1234,8 +1431,8 @@
         "bertscore_precision": 0.9313435554504395,
         "bertscore_recall": 0.930356502532959,
         "bertscore_f1": 0.9308497905731201,
-        "bertscore_random_baseline": 0.9420453310012817,
-        "bertscore_calibrated": -0.19317753612995148,
+        "bertscore_random_baseline": 0.9420452117919922,
+        "bertscore_calibrated": -0.19317509233951569,
         "sbert_similarity": 0.8058401346206665,
         "sbert_random_baseline": 0.765766978263855,
         "sbert_calibrated": 0.17108243703842163,
@@ -1260,10 +1457,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.925578236579895,
-        "bertscore_recall": 0.9155282974243164,
-        "bertscore_f1": 0.920525848865509,
-        "bertscore_random_baseline": 0.9380351305007935,
-        "bertscore_calibrated": -0.2825678884983063,
+        "bertscore_recall": 0.9155283570289612,
+        "bertscore_f1": 0.9205257892608643,
+        "bertscore_random_baseline": 0.9380351901054382,
+        "bertscore_calibrated": -0.2825700640678406,
         "sbert_similarity": 0.7146707773208618,
         "sbert_random_baseline": 0.7172107696533203,
         "sbert_calibrated": -0.008981927298009396,
@@ -1371,11 +1568,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9311830401420593,
-        "bertscore_recall": 0.9343873262405396,
-        "bertscore_f1": 0.9327824711799622,
+        "bertscore_precision": 0.9311830997467041,
+        "bertscore_recall": 0.9343873858451843,
+        "bertscore_f1": 0.9327824115753174,
         "bertscore_random_baseline": 0.9285898208618164,
-        "bertscore_calibrated": 0.058712221682071686,
+        "bertscore_calibrated": 0.05871138721704483,
         "sbert_similarity": 0.6734402179718018,
         "sbert_random_baseline": 0.6796783208847046,
         "sbert_calibrated": -0.019474495202302933,
@@ -1404,9 +1601,9 @@
         "bertscore_f1": 0.9484737515449524,
         "bertscore_random_baseline": 0.9481443166732788,
         "bertscore_calibrated": 0.006352917291224003,
-        "sbert_similarity": 0.7409457564353943,
-        "sbert_random_baseline": 0.8006122708320618,
-        "sbert_calibrated": -0.29924866557121277,
+        "sbert_similarity": 0.7409456968307495,
+        "sbert_random_baseline": 0.8006121516227722,
+        "sbert_calibrated": -0.29924818873405457,
         "rouge_l": 0.3859649122807018,
         "bleu": 0.11668694360677034,
         "finding_mentioned": true,
@@ -1432,9 +1629,9 @@
         "bertscore_f1": 0.9454981088638306,
         "bertscore_random_baseline": 0.9439665675163269,
         "bertscore_calibrated": 0.02733263559639454,
-        "sbert_similarity": 0.8059307336807251,
-        "sbert_random_baseline": 0.7405208349227905,
-        "sbert_calibrated": 0.2520815134048462,
+        "sbert_similarity": 0.8059306740760803,
+        "sbert_random_baseline": 0.7405207753181458,
+        "sbert_calibrated": 0.2520814538002014,
         "rouge_l": 0.35087719298245607,
         "bleu": 0.09072069007511598,
         "finding_mentioned": true,
@@ -1455,11 +1652,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9350146055221558,
-        "bertscore_recall": 0.9610249996185303,
-        "bertscore_f1": 0.9478413462638855,
+        "bertscore_precision": 0.935014545917511,
+        "bertscore_recall": 0.9610248804092407,
+        "bertscore_f1": 0.9478412866592407,
         "bertscore_random_baseline": 0.949489951133728,
-        "bertscore_calibrated": -0.032639145851135254,
+        "bertscore_calibrated": -0.032640326768159866,
         "sbert_similarity": 0.7961041927337646,
         "sbert_random_baseline": 0.7881633043289185,
         "sbert_calibrated": 0.03748589754104614,
@@ -1483,11 +1680,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9287969470024109,
-        "bertscore_recall": 0.9395980834960938,
-        "bertscore_f1": 0.9341662526130676,
+        "bertscore_precision": 0.9287970066070557,
+        "bertscore_recall": 0.9395982027053833,
+        "bertscore_f1": 0.9341663718223572,
         "bertscore_random_baseline": 0.9250216484069824,
-        "bertscore_calibrated": 0.1219632625579834,
+        "bertscore_calibrated": 0.12196484953165054,
         "sbert_similarity": 0.7129720449447632,
         "sbert_random_baseline": 0.6305848956108093,
         "sbert_calibrated": 0.2230205237865448,
@@ -1511,11 +1708,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9350146055221558,
-        "bertscore_recall": 0.9610249996185303,
-        "bertscore_f1": 0.9478413462638855,
+        "bertscore_precision": 0.935014545917511,
+        "bertscore_recall": 0.9610248804092407,
+        "bertscore_f1": 0.9478412866592407,
         "bertscore_random_baseline": 0.9464126825332642,
-        "bertscore_calibrated": 0.026660481467843056,
+        "bertscore_calibrated": 0.026659369468688965,
         "sbert_similarity": 0.7961041927337646,
         "sbert_random_baseline": 0.7504396438598633,
         "sbert_calibrated": 0.1829799860715866,
@@ -1567,11 +1764,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9270053505897522,
+        "bertscore_precision": 0.9270052909851074,
         "bertscore_recall": 0.9593453407287598,
-        "bertscore_f1": 0.942898154258728,
+        "bertscore_f1": 0.9428980946540833,
         "bertscore_random_baseline": 0.9520233869552612,
-        "bertscore_calibrated": -0.19020168483257294,
+        "bertscore_calibrated": -0.19020292162895203,
         "sbert_similarity": 0.6790670156478882,
         "sbert_random_baseline": 0.7784844636917114,
         "sbert_calibrated": -0.4488057494163513,
@@ -1595,11 +1792,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9691710472106934,
+        "bertscore_precision": 0.9691711068153381,
         "bertscore_recall": 0.9926340579986572,
-        "bertscore_f1": 0.980762243270874,
-        "bertscore_random_baseline": 0.9242679476737976,
-        "bertscore_calibrated": 0.7459760308265686,
+        "bertscore_f1": 0.9807623028755188,
+        "bertscore_random_baseline": 0.9242680668830872,
+        "bertscore_calibrated": 0.7459763884544373,
         "sbert_similarity": 0.9341310262680054,
         "sbert_random_baseline": 0.6472073793411255,
         "sbert_calibrated": 0.8132926821708679,
@@ -1623,11 +1820,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9691710472106934,
+        "bertscore_precision": 0.9691711068153381,
         "bertscore_recall": 0.9926340579986572,
-        "bertscore_f1": 0.980762243270874,
-        "bertscore_random_baseline": 0.9414277076721191,
-        "bertscore_calibrated": 0.6715553402900696,
+        "bertscore_f1": 0.9807623028755188,
+        "bertscore_random_baseline": 0.9414278268814087,
+        "bertscore_calibrated": 0.6715556979179382,
         "sbert_similarity": 0.9341310262680054,
         "sbert_random_baseline": 0.7403567433357239,
         "sbert_calibrated": 0.7463096976280212,
@@ -1643,7 +1840,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay_glaucoma",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no vessel changes, optic disc pallor of 1, no peripapillary atrophy, no optic disc hemorrhage<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no optic disc hemorrhage, beta-zone peripapillary atrophy, wedge-shaped defect, optic disc pallor of 1, bayoneting and nasalization of vessels<end_of_turn>",
       "reference_text": "Total cupping, mildly pale optic nerve, nasalization of vessels",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing a fundus photograph from a patient with glaucoma. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a glaucoma specialist. Your description should mention relevant findings if any exists.\n        After your description, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved: Inferior \u2265 Superior \u2265 Nasal \u2265 Temporal); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization   \n        Format your response in two parts: (1) the free-text clinical description, and (2) the structured classification with the selected option for each field.",
       "classification": {
@@ -1651,16 +1848,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9168998003005981,
-        "bertscore_recall": 0.9255942106246948,
-        "bertscore_f1": 0.9212265014648438,
-        "bertscore_random_baseline": 0.9412292242050171,
-        "bertscore_calibrated": -0.34035152196884155,
-        "sbert_similarity": 0.5970979332923889,
-        "sbert_random_baseline": 0.781997561454773,
-        "sbert_calibrated": -0.8481539487838745,
-        "rouge_l": 0.0851063829787234,
-        "bleu": 8.517489360780026e-08,
+        "bertscore_precision": 0.9165077209472656,
+        "bertscore_recall": 0.9453639984130859,
+        "bertscore_f1": 0.9307122230529785,
+        "bertscore_random_baseline": 0.9466201663017273,
+        "bertscore_calibrated": -0.2980141043663025,
+        "sbert_similarity": 0.6313325762748718,
+        "sbert_random_baseline": 0.7680054903030396,
+        "sbert_calibrated": -0.5891213417053223,
+        "rouge_l": 0.1509433962264151,
+        "bleu": 0.0005632872111358513,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1735,14 +1932,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9127947092056274,
+        "bertscore_precision": 0.9127946496009827,
         "bertscore_recall": 0.9441506862640381,
         "bertscore_f1": 0.9282079339027405,
         "bertscore_random_baseline": 0.9488120079040527,
         "bertscore_calibrated": -0.40251773595809937,
         "sbert_similarity": 0.6372449398040771,
-        "sbert_random_baseline": 0.7743439674377441,
-        "sbert_calibrated": -0.6075575351715088,
+        "sbert_random_baseline": 0.7743440270423889,
+        "sbert_calibrated": -0.6075579524040222,
         "rouge_l": 0.1951219512195122,
         "bleu": 0.0007200526698549297,
         "finding_mentioned": true,
@@ -1763,14 +1960,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9379723072052002,
-        "bertscore_recall": 0.9401219487190247,
+        "bertscore_precision": 0.9379722476005554,
+        "bertscore_recall": 0.9401220083236694,
         "bertscore_f1": 0.9390459060668945,
         "bertscore_random_baseline": 0.9498888254165649,
         "bertscore_calibrated": -0.21637727320194244,
         "sbert_similarity": 0.7970494031906128,
-        "sbert_random_baseline": 0.8046274185180664,
-        "sbert_calibrated": -0.03878750652074814,
+        "sbert_random_baseline": 0.8046272993087769,
+        "sbert_calibrated": -0.0387868732213974,
         "rouge_l": 0.34375,
         "bleu": 0.09868209342887882,
         "finding_mentioned": true,
@@ -1792,10 +1989,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9451180100440979,
-        "bertscore_recall": 0.9595720767974854,
+        "bertscore_recall": 0.9595721364021301,
         "bertscore_f1": 0.9522902369499207,
-        "bertscore_random_baseline": 0.9358118772506714,
-        "bertscore_calibrated": 0.25671976804733276,
+        "bertscore_random_baseline": 0.9358118176460266,
+        "bertscore_calibrated": 0.2567204535007477,
         "sbert_similarity": 0.7953674793243408,
         "sbert_random_baseline": 0.7194041013717651,
         "sbert_calibrated": 0.2707216143608093,
@@ -1811,7 +2008,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities<end_of_turn>",
+      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, normal color, no vascular abnormalities<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, alpha and beta peripapillary atrophy",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1819,14 +2016,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9294356107711792,
-        "bertscore_recall": 0.925012469291687,
-        "bertscore_f1": 0.9272187948226929,
-        "bertscore_random_baseline": 0.9467466473579407,
-        "bertscore_calibrated": -0.36669716238975525,
-        "sbert_similarity": 0.6717393398284912,
-        "sbert_random_baseline": 0.8047140836715698,
-        "sbert_calibrated": -0.680923342704773,
+        "bertscore_precision": 0.9287105798721313,
+        "bertscore_recall": 0.9245114326477051,
+        "bertscore_f1": 0.9266062378883362,
+        "bertscore_random_baseline": 0.9458934664726257,
+        "bertscore_calibrated": -0.3564676344394684,
+        "sbert_similarity": 0.6542576551437378,
+        "sbert_random_baseline": 0.7936714291572571,
+        "sbert_calibrated": -0.6756881475448608,
         "rouge_l": 0.24999999999999994,
         "bleu": 0.10369153329756328,
         "finding_mentioned": true,
@@ -1848,7 +2045,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9451180100440979,
-        "bertscore_recall": 0.9595720767974854,
+        "bertscore_recall": 0.9595721364021301,
         "bertscore_f1": 0.9522902369499207,
         "bertscore_random_baseline": 0.9361194372177124,
         "bertscore_calibrated": 0.2531411647796631,
@@ -1904,10 +2101,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9516638517379761,
-        "bertscore_recall": 0.9675459265708923,
-        "bertscore_f1": 0.9595392346382141,
+        "bertscore_recall": 0.9675458669662476,
+        "bertscore_f1": 0.9595391750335693,
         "bertscore_random_baseline": 0.9464762806892395,
-        "bertscore_calibrated": 0.24405916035175323,
+        "bertscore_calibrated": 0.2440580427646637,
         "sbert_similarity": 0.8408510684967041,
         "sbert_random_baseline": 0.7818940877914429,
         "sbert_calibrated": 0.2703135311603546,
@@ -1923,7 +2120,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, beta-zone peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 1, bayoneting of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities<end_of_turn>",
       "reference_text": "Optic nerve with a 0.8 cup-to-disc ratio, diffuse thinning of the neuroretinal rim, mild pallor of the optic disc, bayoneting and nasalization of the vessels.",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1931,16 +2128,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9323734045028687,
-        "bertscore_recall": 0.9534395933151245,
-        "bertscore_f1": 0.94278883934021,
-        "bertscore_random_baseline": 0.9338140487670898,
-        "bertscore_calibrated": 0.13559962809085846,
-        "sbert_similarity": 0.7506740689277649,
-        "sbert_random_baseline": 0.7728525996208191,
-        "sbert_calibrated": -0.09763937443494797,
-        "rouge_l": 0.36111111111111116,
-        "bleu": 0.0910591170309184,
+        "bertscore_precision": 0.9322692155838013,
+        "bertscore_recall": 0.9316266179084778,
+        "bertscore_f1": 0.9319477677345276,
+        "bertscore_random_baseline": 0.9367599487304688,
+        "bertscore_calibrated": -0.0760938823223114,
+        "sbert_similarity": 0.7019820213317871,
+        "sbert_random_baseline": 0.7566398978233337,
+        "sbert_calibrated": -0.22459670901298523,
+        "rouge_l": 0.28,
+        "bleu": 0.10082032598091607,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1960,13 +2157,13 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9502825140953064,
-        "bertscore_recall": 0.9633138179779053,
+        "bertscore_recall": 0.9633136987686157,
         "bertscore_f1": 0.9567537903785706,
         "bertscore_random_baseline": 0.9431495666503906,
         "bertscore_calibrated": 0.2392985075712204,
-        "sbert_similarity": 0.8276990056037903,
-        "sbert_random_baseline": 0.7813570499420166,
-        "sbert_calibrated": 0.21195265650749207,
+        "sbert_similarity": 0.8276989459991455,
+        "sbert_random_baseline": 0.781356930732727,
+        "sbert_calibrated": 0.2119528204202652,
         "rouge_l": 0.47457627118644063,
         "bleu": 0.14164741441247905,
         "finding_mentioned": true,
@@ -1987,11 +2184,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9691710472106934,
+        "bertscore_precision": 0.9691711068153381,
         "bertscore_recall": 0.9926340579986572,
-        "bertscore_f1": 0.980762243270874,
+        "bertscore_f1": 0.9807623028755188,
         "bertscore_random_baseline": 0.9421144723892212,
-        "bertscore_calibrated": 0.6676586270332336,
+        "bertscore_calibrated": 0.6676596403121948,
         "sbert_similarity": 0.9341310262680054,
         "sbert_random_baseline": 0.7517027258872986,
         "sbert_calibrated": 0.7347173094749451,
@@ -2015,11 +2212,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9676790833473206,
+        "bertscore_precision": 0.9676791429519653,
         "bertscore_recall": 0.9906169176101685,
-        "bertscore_f1": 0.9790136218070984,
-        "bertscore_random_baseline": 0.9389622807502747,
-        "bertscore_calibrated": 0.6561736464500427,
+        "bertscore_f1": 0.9790136814117432,
+        "bertscore_random_baseline": 0.9389623403549194,
+        "bertscore_calibrated": 0.6561742424964905,
         "sbert_similarity": 0.926971435546875,
         "sbert_random_baseline": 0.7257238626480103,
         "sbert_calibrated": 0.7337407469749451,
@@ -2044,7 +2241,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9675971269607544,
-        "bertscore_recall": 0.9906218647956848,
+        "bertscore_recall": 0.99062180519104,
         "bertscore_f1": 0.9789741039276123,
         "bertscore_random_baseline": 0.9502207040786743,
         "bertscore_calibrated": 0.5776176452636719,
@@ -2072,10 +2269,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9675971269607544,
-        "bertscore_recall": 0.9906218647956848,
+        "bertscore_recall": 0.99062180519104,
         "bertscore_f1": 0.9789741039276123,
-        "bertscore_random_baseline": 0.9283650517463684,
-        "bertscore_calibrated": 0.7064855098724365,
+        "bertscore_random_baseline": 0.9283651113510132,
+        "bertscore_calibrated": 0.7064852714538574,
         "sbert_similarity": 0.931414783000946,
         "sbert_random_baseline": 0.6653529405593872,
         "sbert_calibrated": 0.7950521111488342,
@@ -2099,11 +2296,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9671632051467896,
+        "bertscore_precision": 0.9671630859375,
         "bertscore_recall": 0.9904630184173584,
-        "bertscore_f1": 0.9786744713783264,
+        "bertscore_f1": 0.9786744117736816,
         "bertscore_random_baseline": 0.9423158764839172,
-        "bertscore_calibrated": 0.6303050518035889,
+        "bertscore_calibrated": 0.6303040385246277,
         "sbert_similarity": 0.932763934135437,
         "sbert_random_baseline": 0.7289589047431946,
         "sbert_calibrated": 0.7519340515136719,
@@ -2127,11 +2324,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9671632051467896,
+        "bertscore_precision": 0.9671630859375,
         "bertscore_recall": 0.9904630184173584,
-        "bertscore_f1": 0.9786744713783264,
-        "bertscore_random_baseline": 0.9229381680488586,
-        "bertscore_calibrated": 0.7232673168182373,
+        "bertscore_f1": 0.9786744117736816,
+        "bertscore_random_baseline": 0.9229380488395691,
+        "bertscore_calibrated": 0.7232669591903687,
         "sbert_similarity": 0.932763934135437,
         "sbert_random_baseline": 0.6560428142547607,
         "sbert_calibrated": 0.8045219779014587,
@@ -2155,14 +2352,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9380444288253784,
-        "bertscore_recall": 0.9403412938117981,
-        "bertscore_f1": 0.939191460609436,
-        "bertscore_random_baseline": 0.9324239492416382,
-        "bertscore_calibrated": 0.1001465916633606,
-        "sbert_similarity": 0.8007119297981262,
-        "sbert_random_baseline": 0.6839645504951477,
-        "sbert_calibrated": 0.36941230297088623,
+        "bertscore_precision": 0.9380444884300232,
+        "bertscore_recall": 0.9403413534164429,
+        "bertscore_f1": 0.9391915798187256,
+        "bertscore_random_baseline": 0.9324240684509277,
+        "bertscore_calibrated": 0.10014677047729492,
+        "sbert_similarity": 0.800711989402771,
+        "sbert_random_baseline": 0.6839646100997925,
+        "sbert_calibrated": 0.369412362575531,
         "rouge_l": 0.34375,
         "bleu": 0.09868209342887882,
         "finding_mentioned": true,
@@ -2183,14 +2380,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9449748992919922,
+        "bertscore_precision": 0.944974958896637,
         "bertscore_recall": 0.9597207307815552,
-        "bertscore_f1": 0.9522907733917236,
-        "bertscore_random_baseline": 0.9389914274215698,
-        "bertscore_calibrated": 0.2179914265871048,
-        "sbert_similarity": 0.7980507612228394,
+        "bertscore_f1": 0.9522907137870789,
+        "bertscore_random_baseline": 0.9389915466308594,
+        "bertscore_calibrated": 0.21798892319202423,
+        "sbert_similarity": 0.7980507016181946,
         "sbert_random_baseline": 0.7289408445358276,
-        "sbert_calibrated": 0.2549624741077423,
+        "sbert_calibrated": 0.2549622654914856,
         "rouge_l": 0.3793103448275862,
         "bleu": 0.11481934989482791,
         "finding_mentioned": true,
@@ -2203,7 +2400,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal color, no vascular abnormalities<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, normal color, no vascular abnormalities<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.7, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, alpha and beta peripapillary atrophy",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -2211,14 +2408,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9294079542160034,
-        "bertscore_recall": 0.9253627061843872,
-        "bertscore_f1": 0.9273809194564819,
-        "bertscore_random_baseline": 0.9338895678520203,
-        "bertscore_calibrated": -0.0984511524438858,
-        "sbert_similarity": 0.6576857566833496,
-        "sbert_random_baseline": 0.7079367637634277,
-        "sbert_calibrated": -0.1720552295446396,
+        "bertscore_precision": 0.9290279746055603,
+        "bertscore_recall": 0.9251213669776917,
+        "bertscore_f1": 0.9270705580711365,
+        "bertscore_random_baseline": 0.9339229464530945,
+        "bertscore_calibrated": -0.10370299220085144,
+        "sbert_similarity": 0.6605203151702881,
+        "sbert_random_baseline": 0.71100914478302,
+        "sbert_calibrated": -0.17470736801624298,
         "rouge_l": 0.24999999999999994,
         "bleu": 0.10369153329756328,
         "finding_mentioned": true,
@@ -2267,8 +2464,8 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9640722274780273,
-        "bertscore_recall": 0.9768065214157104,
+        "bertscore_precision": 0.9640722870826721,
+        "bertscore_recall": 0.9768064022064209,
         "bertscore_f1": 0.9703975915908813,
         "bertscore_random_baseline": 0.9306208491325378,
         "bertscore_calibrated": 0.5733241438865662,
@@ -2295,8 +2492,8 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9640722274780273,
-        "bertscore_recall": 0.9768065214157104,
+        "bertscore_precision": 0.9640722870826721,
+        "bertscore_recall": 0.9768064022064209,
         "bertscore_f1": 0.9703975915908813,
         "bertscore_random_baseline": 0.928587794303894,
         "bertscore_calibrated": 0.5854713320732117,
@@ -2323,7 +2520,7 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9269081354141235,
+        "bertscore_precision": 0.9269081950187683,
         "bertscore_recall": 0.9394910335540771,
         "bertscore_f1": 0.933157205581665,
         "bertscore_random_baseline": 0.9586125612258911,
@@ -2352,7 +2549,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9259406328201294,
-        "bertscore_recall": 0.9439677596092224,
+        "bertscore_recall": 0.9439678192138672,
         "bertscore_f1": 0.9348673820495605,
         "bertscore_random_baseline": 0.9514714479446411,
         "bertscore_calibrated": -0.3421504497528076,
@@ -2379,7 +2576,7 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9385489225387573,
+        "bertscore_precision": 0.9385488629341125,
         "bertscore_recall": 0.9533450603485107,
         "bertscore_f1": 0.9458891153335571,
         "bertscore_random_baseline": 0.9436963796615601,
@@ -2408,7 +2605,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9354408383369446,
-        "bertscore_recall": 0.9614773988723755,
+        "bertscore_recall": 0.9614773392677307,
         "bertscore_f1": 0.948280394077301,
         "bertscore_random_baseline": 0.9499999284744263,
         "bertscore_calibrated": -0.034390639513731,
@@ -2435,11 +2632,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9296965599060059,
+        "bertscore_precision": 0.9296965003013611,
         "bertscore_recall": 0.9406282901763916,
-        "bertscore_f1": 0.9351304769515991,
-        "bertscore_random_baseline": 0.9319225549697876,
-        "bertscore_calibrated": 0.04712165519595146,
+        "bertscore_f1": 0.9351304173469543,
+        "bertscore_random_baseline": 0.9319226145744324,
+        "bertscore_calibrated": 0.04711994528770447,
         "sbert_similarity": 0.7221781015396118,
         "sbert_random_baseline": 0.6945599317550659,
         "sbert_calibrated": 0.0904209092259407,
@@ -2464,7 +2661,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9354408383369446,
-        "bertscore_recall": 0.9614773988723755,
+        "bertscore_recall": 0.9614773392677307,
         "bertscore_f1": 0.948280394077301,
         "bertscore_random_baseline": 0.9551722407341003,
         "bertscore_calibrated": -0.15374059975147247,
@@ -2492,10 +2689,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9236674308776855,
-        "bertscore_recall": 0.9319727420806885,
-        "bertscore_f1": 0.9278014898300171,
+        "bertscore_recall": 0.9319726824760437,
+        "bertscore_f1": 0.9278014302253723,
         "bertscore_random_baseline": 0.9346345663070679,
-        "bertscore_calibrated": -0.10453654080629349,
+        "bertscore_calibrated": -0.10453745722770691,
         "sbert_similarity": 0.7178802490234375,
         "sbert_random_baseline": 0.7522324323654175,
         "sbert_calibrated": -0.13864681124687195,
@@ -2519,7 +2716,7 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.921107292175293,
+        "bertscore_precision": 0.9211073517799377,
         "bertscore_recall": 0.9407252073287964,
         "bertscore_f1": 0.9308128952980042,
         "bertscore_random_baseline": 0.9524925351142883,
@@ -2547,7 +2744,7 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9144677519798279,
+        "bertscore_precision": 0.9144678115844727,
         "bertscore_recall": 0.9307198524475098,
         "bertscore_f1": 0.922522246837616,
         "bertscore_random_baseline": 0.9357340931892395,
@@ -2576,10 +2773,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9206482172012329,
-        "bertscore_recall": 0.9353423714637756,
+        "bertscore_recall": 0.9353423118591309,
         "bertscore_f1": 0.9279370903968811,
-        "bertscore_random_baseline": 0.9392417669296265,
-        "bertscore_calibrated": -0.18605999648571014,
+        "bertscore_random_baseline": 0.939241886138916,
+        "bertscore_calibrated": -0.18606232106685638,
         "sbert_similarity": 0.7191745042800903,
         "sbert_random_baseline": 0.7549864649772644,
         "sbert_calibrated": -0.1461631953716278,
@@ -2595,7 +2792,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay_glaucoma",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no optic disc hemorrhage, beta-zone peripapillary atrophy, wedge-shaped defect, optic disc pallor of 1, bayoneting and nasalization of vessels<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no vessel changes, optic disc pallor of 1, no peripapillary atrophy, no optic disc hemorrhage<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing a fundus photograph from a patient with glaucoma. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a glaucoma specialist. Your description should mention relevant findings if any exists.\n        After your description, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved: Inferior \u2265 Superior \u2265 Nasal \u2265 Temporal); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization   \n        Format your response in two parts: (1) the free-text clinical description, and (2) the structured classification with the selected option for each field.",
       "classification": {
@@ -2603,16 +2800,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9441020488739014,
-        "bertscore_recall": 0.9683197736740112,
-        "bertscore_f1": 0.9560575485229492,
-        "bertscore_random_baseline": 0.9350795745849609,
-        "bertscore_calibrated": 0.323133647441864,
-        "sbert_similarity": 0.8128730058670044,
-        "sbert_random_baseline": 0.7193959951400757,
-        "sbert_calibrated": 0.33312785625457764,
-        "rouge_l": 0.3582089552238806,
-        "bleu": 0.10578557986185744,
+        "bertscore_precision": 0.9392815232276917,
+        "bertscore_recall": 0.9427642822265625,
+        "bertscore_f1": 0.9410197138786316,
+        "bertscore_random_baseline": 0.9350966215133667,
+        "bertscore_calibrated": 0.0912601575255394,
+        "sbert_similarity": 0.7824328541755676,
+        "sbert_random_baseline": 0.729303240776062,
+        "sbert_calibrated": 0.19626985490322113,
+        "rouge_l": 0.32786885245901637,
+        "bleu": 0.09255435777283394,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -2651,7 +2848,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, beta-zone peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 1, bayoneting of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -2659,16 +2856,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9302927255630493,
-        "bertscore_recall": 0.9501184225082397,
-        "bertscore_f1": 0.9401010274887085,
-        "bertscore_random_baseline": 0.9375715255737305,
-        "bertscore_calibrated": 0.04051839932799339,
-        "sbert_similarity": 0.7622976899147034,
-        "sbert_random_baseline": 0.7235866785049438,
-        "sbert_calibrated": 0.1400475651025772,
-        "rouge_l": 0.3283582089552239,
-        "bleu": 0.07790345908226491,
+        "bertscore_precision": 0.9325916171073914,
+        "bertscore_recall": 0.9306663870811462,
+        "bertscore_f1": 0.9316279888153076,
+        "bertscore_random_baseline": 0.938713550567627,
+        "bertscore_calibrated": -0.11561384052038193,
+        "sbert_similarity": 0.7045005559921265,
+        "sbert_random_baseline": 0.7338622212409973,
+        "sbert_calibrated": -0.11032505333423615,
+        "rouge_l": 0.2666666666666666,
+        "bleu": 0.1228749228144577,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -2687,11 +2884,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9503622651100159,
+        "bertscore_precision": 0.9503622055053711,
         "bertscore_recall": 0.9694980382919312,
-        "bertscore_f1": 0.9598348140716553,
+        "bertscore_f1": 0.9598347544670105,
         "bertscore_random_baseline": 0.9372299313545227,
-        "bertscore_calibrated": 0.3601219952106476,
+        "bertscore_calibrated": 0.3601210415363312,
         "sbert_similarity": 0.853307843208313,
         "sbert_random_baseline": 0.7077186107635498,
         "sbert_calibrated": 0.4981132447719574,

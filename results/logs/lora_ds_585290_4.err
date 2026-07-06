@@ -1,0 +1,8 @@
+INFO: Evaluation: mode=dataset_oracle samples=26 {'total': 26, 'glaucoma': 14, 'normal': 12}
+INFO: Model and evaluator load started at 2026-07-05T21:10:01.804920+00:00
+INFO: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.17s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.09s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.25s/it]
+INFO: Model and evaluator load finished at 2026-07-05T21:10:27.520367+00:00 in 26s
+INFO: Conditioned generation and evaluation started at 2026-07-05T21:10:27.520527+00:00
+INFO: Conditioned generation and evaluation finished at 2026-07-05T21:13:05.782318+00:00 in 2m 38s
+INFO: Wrote results/medgemma_lora_dataset_seed1024.json with 80 generated rows in 3m 07s

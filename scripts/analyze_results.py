@@ -30,7 +30,11 @@ from typing import Any
 import numpy as np
 
 from medgemma_utils.conditioning import BASELINE_CONDITION, CONDITIONS
-from medgemma_utils.evaluation import GLAUCOMA_TERMS, NORMAL_TERMS
+from medgemma_utils.evaluation import (
+    NORMAL_TERMS,
+    cdr_class_separation,
+    diagnostic_span,
+)
 
 _WORD = re.compile(r"[a-z0-9]+")
 _NEG_CUES = re.compile(
@@ -38,8 +42,34 @@ _NEG_CUES = re.compile(
     r"none|neither|nor|rules? out|ruled out)\b",
     flags=re.IGNORECASE,
 )
-_GLAUCOMA = [re.compile(p, re.IGNORECASE) for p in GLAUCOMA_TERMS]
 _NORMAL = [re.compile(p, re.IGNORECASE) for p in NORMAL_TERMS]
+
+# Pathological signs that genuinely indicate glaucoma. Note we deliberately drop
+# the bare boilerplate terms present in *every* fundus report (``cup-to-disc
+# ratio``, ``neuroretinal rim``): their mere mention is not diagnostic and, if
+# counted, forces every gradeable report to read as glaucoma. Grounding the read
+# on the quantitative cup-to-disc value plus explicit damage descriptors keeps
+# the diagnostic probe clinically meaningful.
+_PATHOLOGICAL_TERMS = (
+    r"\bglaucom\w*",
+    r"\bcupping\b",
+    r"\bbayonet\w*",
+    r"\bnasalization\b",
+    r"\bdisc hemorrhage\b",
+    r"\b(?:rnfl|retinal nerve fiber layer)\s+\w*\s*defect\b",
+    r"\brim\s+(?:thinning|notching|loss)\b",
+    r"\b(?:thinning|notching)\s+of\s+the\s+(?:neuroretinal\s+)?rim\b",
+)
+_PATHOLOGICAL = [re.compile(p, re.IGNORECASE) for p in _PATHOLOGICAL_TERMS]
+# Quantitative cup-to-disc value (ratio 0.x or integer grade 0-4).
+_CDR_RE = re.compile(
+    r"cup[- ]to[- ]disc(?:\s+ratio)?(?:\s*\(cdr\))?\s*"
+    r"(?:of|is|:|=|approximately|~)?\s*(\d(?:\.\d+)?)",
+    re.IGNORECASE,
+)
+# A ratio >= 0.6 (schema grade 2, "suspicious") or grade >= 2 reads as glaucoma.
+_CDR_GLAUCOMA_RATIO = 0.6
+_CDR_GLAUCOMA_GRADE = 2
 
 
 def _tokens(text: str) -> list[str]:
@@ -76,19 +106,43 @@ def _is_negated(text: str, match_start: int, window: int = 45) -> bool:
     return bool(_NEG_CUES.search(text[max(0, match_start - window):match_start]))
 
 
-def predicted_class(text: str) -> str:
-    """Negation-aware extraction of the stated class from a generated report."""
+def _generated_cdr(text: str) -> float | None:
+    """Cup-to-disc read from the text, normalized to a ratio. Integer grades
+    0--4 are mapped to the schema's representative ratios so both formats compare
+    on one scale; returns ``None`` when no cup-to-disc value is stated."""
 
-    glaucoma_positive = any(
+    match = _CDR_RE.search(text)
+    if not match:
+        return None
+    value = float(match.group(1))
+    if "." in match.group(1):
+        return value  # already a ratio
+    # Bare integer: a 0-4 grade (schema) or, rarely, "1.0"-style ratio.
+    if value <= 4:
+        return {0: 0.2, 1: 0.45, 2: 0.65, 3: 0.85, 4: 1.0}[int(value)]
+    return None
+
+
+def predicted_class(text: str) -> str:
+    """Diagnostic read of a generated report, grounded on the quantitative
+    cup-to-disc value and explicit glaucomatous damage rather than on boilerplate
+    terminology. Glaucoma if the stated cup-to-disc is suspicious (>=0.6) or a
+    non-negated damage sign is present; normal if a low cup-to-disc or an explicit
+    normal statement is given without such signs; unknown if the report commits to
+    neither (e.g. a hedge or an off-domain description)."""
+
+    signs = any(
         any(not _is_negated(text, m.start()) for m in pattern.finditer(text))
-        for pattern in _GLAUCOMA
+        for pattern in _PATHOLOGICAL
     )
-    if glaucoma_positive:
+    cdr = _generated_cdr(text)
+    if cdr is not None:
+        if cdr >= _CDR_GLAUCOMA_RATIO or signs:
+            return "glaucoma"
+        return "normal"
+    if signs:
         return "glaucoma"
-    normal_indicated = any(pattern.search(text) for pattern in _NORMAL)
-    # A glaucoma term that is fully negated also implies a normal read.
-    negated_glaucoma = any(pattern.search(text) for pattern in _GLAUCOMA)
-    if normal_indicated or negated_glaucoma:
+    if any(pattern.search(text) for pattern in _NORMAL):
         return "normal"
     return "unknown"
 
@@ -205,12 +259,50 @@ def _diagnostic(payload: dict[str, Any]) -> dict[str, Any]:
         "baseline_recall_glaucoma": rec_g,
         "baseline_recall_normal": rec_n,
         "baseline_unknown": float(np.mean([p == "unknown" for p, _ in a])) if a else float("nan"),
+        "baseline_committal_rate": float(np.mean([p != "unknown" for p, _ in a])) if a else float("nan"),
         "normal_recall_all": _recall(all_normal, "normal"),
         # Publication-grade packaging for the honest (baseline) diagnostic probe.
         "baseline_cohens_kappa": _cohens_kappa(a),
         "baseline_sensitivity_glaucoma": _sensitivity_ci(a, "glaucoma"),
         "baseline_sensitivity_normal": _sensitivity_ci(a, "normal"),
         "baseline_confusion": _confusion(a),
+    }
+
+
+def _boilerplate_dilution_lexical(payload: dict[str, Any]) -> dict[str, Any]:
+    """ROUGE-L in/cross-category over the unique expert references, full text vs
+    diagnostic span (model-free; runs on CPU). If the cross-category score does
+    not fall when the shared template is stripped, the metric was rewarding
+    report structure, not diagnosis. The semantic counterpart (sBERT, BERTScore)
+    is computed at generation time under ``boilerplate_dilution``."""
+
+    unique: dict[str, tuple[str, str]] = {}
+    for row in payload["results"]:
+        label = row["classification"].get("ground_truth")
+        if label in {"glaucoma", "normal"} and row["image_id"] not in unique:
+            unique[row["image_id"]] = (row["reference_text"], label)
+    ids = list(unique)
+    texts = [unique[i][0] for i in ids]
+    labels = [unique[i][1] for i in ids]
+    spans = [diagnostic_span(t) for t in texts]
+
+    def in_out(seq: list[str]) -> dict[str, float]:
+        inc, cro = [], []
+        for i in range(len(ids)):
+            for j in range(len(ids)):
+                if i == j:
+                    continue
+                score = rouge_l(seq[i], seq[j])
+                (inc if labels[i] == labels[j] else cro).append(score)
+        in_mean = float(np.mean(inc)) if inc else float("nan")
+        cro_mean = float(np.mean(cro)) if cro else float("nan")
+        return {"in_category": in_mean, "cross_category": cro_mean,
+                "gap": in_mean - cro_mean}
+
+    return {
+        "rouge_l_full": in_out(texts),
+        "rouge_l_diagnostic_span": in_out(spans),
+        "cdr_class_separation": cdr_class_separation(texts, labels),
     }
 
 
@@ -263,6 +355,14 @@ def main() -> None:
     if reference_baseline:
         summary["reference_similarity_baseline"] = reference_baseline
 
+    # Boilerplate dilution: lexical version recomputed here (CPU); semantic
+    # version passed through from the base run if present.
+    dilution_lexical = _boilerplate_dilution_lexical(models["base"])
+    summary["boilerplate_dilution_lexical"] = dilution_lexical
+    dilution_semantic = models["base"].get("boilerplate_dilution")
+    if dilution_semantic and "full" in dilution_semantic:
+        summary["boilerplate_dilution"] = dilution_semantic
+
     print("\n===================== RECALL@1 (identificacion de imagen) =====================")
     print("¿el texto generado identifica SU imagen entre las referencias? (azar ~ 1/N)")
     for name, payload in models.items():
@@ -295,6 +395,19 @@ def main() -> None:
             print(f"  {metric:16s} in={inc['mean']:.3f} [{inc['ci_lower']:.3f},{inc['ci_upper']:.3f}]  "
                   f"cross={cro['mean']:.3f} [{cro['ci_lower']:.3f},{cro['ci_upper']:.3f}]  "
                   f"p={block['mann_whitney']['p_value']:.1e}  delta={block['mann_whitney']['cliffs_delta']:+.2f}")
+
+    print("\n============ BOILERPLATE DILUTION (ROUGE-L, referencia vs referencia) ============")
+    print("full-text vs solo-diagnostico: si el gap cross no baja, la senal es un escalar (CDR).")
+    full = dilution_lexical["rouge_l_full"]
+    diag = dilution_lexical["rouge_l_diagnostic_span"]
+    print(f"  full-text        in={full['in_category']:.3f}  cross={full['cross_category']:.3f}  gap={full['gap']:+.3f}")
+    print(f"  diagnostic-span  in={diag['in_category']:.3f}  cross={diag['cross_category']:.3f}  gap={diag['gap']:+.3f}")
+    sep = dilution_lexical["cdr_class_separation"]
+    print(f"  CDR value alone: glaucoma mean={sep['glaucoma']['mean']:.2f} "
+          f"[{sep['glaucoma']['min']:.2f},{sep['glaucoma']['max']:.2f}]  "
+          f"normal mean={sep['normal']['mean']:.2f} "
+          f"[{sep['normal']['min']:.2f},{sep['normal']['max']:.2f}]  "
+          f"ROC-AUC={sep['roc_auc']:.3f}  (stated in {sep['stated_fraction']:.0%} of refs)")
 
     Path(args.output).write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(f"\nWrote {args.output}")

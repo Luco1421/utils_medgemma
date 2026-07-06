@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-03T04:51:37.406658+00:00",
+  "timestamp": "2026-07-05T21:11:26.345263+00:00",
   "model_name": "google/medgemma-1.5-4b-it",
   "adapter_path": "checkpoints/lora/seed789",
   "seed": 42,
@@ -15,24 +15,24 @@
     }
   },
   "runtime": {
-    "started_at": "2026-07-03T04:48:53.096262+00:00",
-    "finished_at": "2026-07-03T04:51:37.406665+00:00",
-    "duration_seconds": 164.31,
-    "duration": "2m 44s",
+    "started_at": "2026-07-05T21:08:50.836082+00:00",
+    "finished_at": "2026-07-05T21:11:26.345275+00:00",
+    "duration_seconds": 155.509,
+    "duration": "2m 36s",
     "stages": [
       {
         "label": "Model and evaluator load",
-        "started_at": "2026-07-03T04:48:56.272844+00:00",
-        "finished_at": "2026-07-03T04:49:20.095502+00:00",
-        "duration_seconds": 23.823,
-        "duration": "24s"
+        "started_at": "2026-07-05T21:08:54.314204+00:00",
+        "finished_at": "2026-07-05T21:09:12.143696+00:00",
+        "duration_seconds": 17.829,
+        "duration": "18s"
       },
       {
         "label": "Conditioned generation and evaluation",
-        "started_at": "2026-07-03T04:49:20.095712+00:00",
-        "finished_at": "2026-07-03T04:51:37.406511+00:00",
-        "duration_seconds": 137.311,
-        "duration": "2m 17s"
+        "started_at": "2026-07-05T21:09:12.143906+00:00",
+        "finished_at": "2026-07-05T21:11:26.345097+00:00",
+        "duration_seconds": 134.201,
+        "duration": "2m 14s"
       }
     ]
   },
@@ -56,34 +56,34 @@
   "summary_by_condition": {
     "with_overlay_glaucoma": {
       "count": 14,
-      "bertscore_f1_mean": 0.9363559314182827,
-      "bertscore_f1_std": 0.007689583675749375,
-      "bertscore_calibrated_mean": -0.0743716999755374,
-      "bertscore_calibrated_std": 0.1605934379808571,
-      "sbert_similarity_mean": 0.7532170627798352,
-      "sbert_similarity_std": 0.06829455397974693,
-      "sbert_calibrated_mean": -0.030950531296964203,
-      "sbert_calibrated_std": 0.35376243070492847,
+      "bertscore_f1_mean": 0.9363674521446228,
+      "bertscore_f1_std": 0.007675624700744216,
+      "bertscore_calibrated_mean": -0.07431928673759103,
+      "bertscore_calibrated_std": 0.16056117631567332,
+      "sbert_similarity_mean": 0.7531239858695439,
+      "sbert_similarity_std": 0.06847208307338432,
+      "sbert_calibrated_mean": -0.030844856519252062,
+      "sbert_calibrated_std": 0.35359240064869485,
       "rouge_l_mean": 0.2812138536861521,
       "rouge_l_std": 0.09064244026169752,
       "bleu_mean": 0.06662363085656815,
       "bleu_std": 0.042775095948645106,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.01353034246098861,
-      "delta_bertscore_calibrated_vs_baseline": -0.2009913283553752,
-      "delta_sbert_similarity_vs_baseline": -0.042854042498620015,
-      "delta_sbert_calibrated_vs_baseline": -0.19886969832785345,
+      "delta_bertscore_f1_vs_baseline": -0.013518812564703109,
+      "delta_bertscore_calibrated_vs_baseline": -0.2009391154234226,
+      "delta_sbert_similarity_vs_baseline": -0.04294711940891138,
+      "delta_sbert_calibrated_vs_baseline": -0.1987640235501413,
       "delta_rouge_l_vs_baseline": -0.19084031585744515,
       "delta_bleu_vs_baseline": -0.22119153216718856,
       "delta_finding_mentioned_vs_baseline": 0.0
     },
     "without_overlay_glaucoma": {
       "count": 14,
-      "bertscore_f1_mean": 0.9464487092835563,
-      "bertscore_f1_std": 0.011116788860017018,
-      "bertscore_calibrated_mean": -0.03132527807195272,
-      "bertscore_calibrated_std": 0.2521353179923986,
+      "bertscore_f1_mean": 0.9464486922536578,
+      "bertscore_f1_std": 0.011116793114760125,
+      "bertscore_calibrated_mean": -0.03132547644366111,
+      "bertscore_calibrated_std": 0.25213566096571827,
       "sbert_similarity_mean": 0.7737760628972735,
       "sbert_similarity_std": 0.06758870189059693,
       "sbert_calibrated_mean": 0.009316582764898027,
@@ -94,8 +94,8 @@
       "bleu_std": 0.05470871801795217,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.0034375645957149814,
-      "delta_bertscore_calibrated_vs_baseline": -0.15794490645179055,
+      "delta_bertscore_f1_vs_baseline": -0.003437572455668114,
+      "delta_bertscore_calibrated_vs_baseline": -0.15794530512949267,
       "delta_sbert_similarity_vs_baseline": -0.02229504238118174,
       "delta_sbert_calibrated_vs_baseline": -0.15860258426599122,
       "delta_rouge_l_vs_baseline": -0.15759244638144682,
@@ -104,10 +104,10 @@
     },
     "without_overlay_normal": {
       "count": 12,
-      "bertscore_f1_mean": 0.9631482362747192,
-      "bertscore_f1_std": 0.022684853202095574,
-      "bertscore_calibrated_mean": 0.3763944761206706,
-      "bertscore_calibrated_std": 0.43590724877740306,
+      "bertscore_f1_mean": 0.9631482313076655,
+      "bertscore_f1_std": 0.022684835828322515,
+      "bertscore_calibrated_mean": 0.3763942426691453,
+      "bertscore_calibrated_std": 0.4359070011845188,
       "sbert_similarity_mean": 0.8412190328041712,
       "sbert_similarity_std": 0.13108894573672605,
       "sbert_calibrated_mean": 0.3765806819622715,
@@ -118,8 +118,8 @@
       "bleu_std": 0.32193353874313135,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": 0.013261962395447968,
-      "delta_bertscore_calibrated_vs_baseline": 0.2497748477408328,
+      "delta_bertscore_f1_vs_baseline": 0.013261966598339558,
+      "delta_bertscore_calibrated_vs_baseline": 0.2497744139833137,
       "delta_sbert_similarity_vs_baseline": 0.04514792752571595,
       "delta_sbert_calibrated_vs_baseline": 0.20866151493138227,
       "delta_rouge_l_vs_baseline": 0.19290751002386786,
@@ -128,34 +128,34 @@
     },
     "with_overlay": {
       "count": 14,
-      "bertscore_f1_mean": 0.9278892576694489,
-      "bertscore_f1_std": 0.00706460449043027,
-      "bertscore_calibrated_mean": -0.12799922982230783,
-      "bertscore_calibrated_std": 0.15602880826635462,
-      "sbert_similarity_mean": 0.6859302478177207,
-      "sbert_similarity_std": 0.062468454896088856,
-      "sbert_calibrated_mean": -0.15013329049439303,
-      "sbert_calibrated_std": 0.2712392758234131,
-      "rouge_l_mean": 0.23823754700976293,
-      "rouge_l_std": 0.08414936239067608,
-      "bleu_mean": 0.07896760049593414,
-      "bleu_std": 0.0515118543042616,
+      "bertscore_f1_mean": 0.9275535941123962,
+      "bertscore_f1_std": 0.006459733697027641,
+      "bertscore_calibrated_mean": -0.13360280603436486,
+      "bertscore_calibrated_std": 0.15750145031864893,
+      "sbert_similarity_mean": 0.6814857849052974,
+      "sbert_similarity_std": 0.052482906911292995,
+      "sbert_calibrated_mean": -0.1658421722240746,
+      "sbert_calibrated_std": 0.23955463390444076,
+      "rouge_l_mean": 0.23407167286789843,
+      "rouge_l_std": 0.07742482055560601,
+      "bleu_mean": 0.0772571490600517,
+      "bleu_std": 0.050570766270985223,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.021997016209822418,
-      "delta_bertscore_calibrated_vs_baseline": -0.25461885820214564,
-      "delta_sbert_similarity_vs_baseline": -0.11014085746073454,
-      "delta_sbert_calibrated_vs_baseline": -0.3180524575252823,
-      "delta_rouge_l_vs_baseline": -0.2338166225338343,
-      "delta_bleu_vs_baseline": -0.20884756252782255,
+      "delta_bertscore_f1_vs_baseline": -0.02233267059692967,
+      "delta_bertscore_calibrated_vs_baseline": -0.26022263472019647,
+      "delta_sbert_similarity_vs_baseline": -0.11458532037315783,
+      "delta_sbert_calibrated_vs_baseline": -0.3337613392549639,
+      "delta_rouge_l_vs_baseline": -0.23798249667569882,
+      "delta_bleu_vs_baseline": -0.210558013963705,
       "delta_finding_mentioned_vs_baseline": 0.0
     },
     "without_overlay": {
       "count": 26,
-      "bertscore_f1_mean": 0.9498862738792713,
-      "bertscore_f1_std": 0.02052305776223694,
-      "bertscore_calibrated_mean": 0.1266196283798378,
-      "bertscore_calibrated_std": 0.39656844363798427,
+      "bertscore_f1_mean": 0.9498862647093259,
+      "bertscore_f1_std": 0.020523054298260755,
+      "bertscore_calibrated_mean": 0.12661982868583158,
+      "bertscore_calibrated_std": 0.3965682098415596,
       "sbert_similarity_mean": 0.7960711052784553,
       "sbert_similarity_std": 0.10797867071237317,
       "sbert_calibrated_mean": 0.16791916703088924,
@@ -172,7 +172,7 @@
     "with_overlay_glaucoma": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": -0.002118915319442749,
+        "mean_delta": -0.0021073860781533377,
         "median_delta": 0.0,
         "improved_fraction": 0.14285714285714285,
         "statistic": 6.0,
@@ -184,8 +184,8 @@
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": 0.0357826989410179,
-        "median_delta": 0.037188760470598936,
+        "mean_delta": 0.035834841297141144,
+        "median_delta": 0.03718732623383403,
         "improved_fraction": 0.6428571428571429,
         "statistic": 33.0,
         "p_value": 0.2412109375,
@@ -196,19 +196,19 @@
       },
       "sbert_similarity": {
         "paired_count": 14,
-        "mean_delta": -0.0025198417050497873,
+        "mean_delta": -0.0026129186153411865,
         "median_delta": 0.0,
         "improved_fraction": 0.21428571428571427,
-        "statistic": 13.0,
-        "p_value": 0.4838398513935682,
+        "statistic": 12.0,
+        "p_value": 0.40081416938293446,
         "significant": false,
-        "effect_size": 0.18712029714127995,
-        "p_value_holm": 0.9676797027871364,
+        "effect_size": 0.22454435656953592,
+        "p_value_holm": 0.8016283387658689,
         "significant_holm": false
       },
       "sbert_calibrated": {
         "paired_count": 14,
-        "mean_delta": 0.02299530278625233,
+        "mean_delta": 0.02310097756396447,
         "median_delta": 0.046867335215210915,
         "improved_fraction": 0.6428571428571429,
         "statistic": 48.0,
@@ -222,8 +222,8 @@
     "without_overlay_glaucoma": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": 0.007973862545830863,
-        "median_delta": 0.00693356990814209,
+        "mean_delta": 0.007973854030881609,
+        "median_delta": 0.006933629512786865,
         "improved_fraction": 0.7142857142857143,
         "statistic": 14.0,
         "p_value": 0.013427734375,
@@ -234,8 +234,8 @@
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": 0.07882912084460258,
-        "median_delta": 0.11145078390836716,
+        "mean_delta": 0.07882865159107107,
+        "median_delta": 0.11145086586475372,
         "improved_fraction": 0.6428571428571429,
         "statistic": 33.0,
         "p_value": 0.2412109375,
@@ -273,7 +273,7 @@
     "without_overlay_normal": {
       "bertscore_f1": {
         "paired_count": 12,
-        "mean_delta": -5.1369269688924156e-05,
+        "mean_delta": -5.136430263519287e-05,
         "median_delta": 0.0,
         "improved_fraction": 0.08333333333333333,
         "statistic": 1.0,
@@ -285,8 +285,8 @@
       },
       "bertscore_calibrated": {
         "paired_count": 12,
-        "mean_delta": -0.026461517438292503,
-        "median_delta": -0.013977497816085815,
+        "mean_delta": -0.02646186885734399,
+        "median_delta": -0.013977468013763428,
         "improved_fraction": 0.4166666666666667,
         "statistic": 32.0,
         "p_value": 0.6220703125,
@@ -304,7 +304,7 @@
         "p_value": 0.5,
         "significant": false,
         "effect_size": 0.19470841942067563,
-        "p_value_holm": 0.9676797027871364,
+        "p_value_holm": 0.8016283387658689,
         "significant_holm": false
       },
       "sbert_calibrated": {
@@ -323,8 +323,8 @@
     "with_overlay": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": -0.010585589068276542,
-        "median_delta": -0.010528922080993652,
+        "mean_delta": -0.0109212441103799,
+        "median_delta": -0.010437369346618652,
         "improved_fraction": 0.0,
         "statistic": 0.0,
         "p_value": 0.0014737808438751421,
@@ -335,37 +335,37 @@
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.017844830905752524,
-        "median_delta": 0.042194217443466187,
+        "mean_delta": -0.0234486779996327,
+        "median_delta": 0.042193178087472916,
         "improved_fraction": 0.5714285714285714,
-        "statistic": 52.0,
-        "p_value": 1.0,
+        "statistic": 50.0,
+        "p_value": 0.9031982421875,
         "significant": false,
-        "effect_size": 0.0,
+        "effect_size": 0.03250489642433217,
         "p_value_holm": 1.0,
         "significant_holm": false
       },
       "sbert_similarity": {
         "paired_count": 14,
-        "mean_delta": -0.06980665666716439,
-        "median_delta": -0.06464478373527527,
-        "improved_fraction": 0.07142857142857142,
-        "statistic": 1.0,
-        "p_value": 0.0018714329102470324,
+        "mean_delta": -0.07425111957958766,
+        "median_delta": -0.06750613451004028,
+        "improved_fraction": 0.0,
+        "statistic": 0.0,
+        "p_value": 0.0014737808438751421,
         "significant": true,
-        "effect_size": 0.8311588584427799,
-        "p_value_holm": 0.00748573164098813,
+        "effect_size": 0.8498365855987975,
+        "p_value_holm": 0.0058951233755005685,
         "significant_holm": true
       },
       "sbert_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.0961874564111765,
-        "median_delta": 0.023422010242938995,
-        "improved_fraction": 0.5714285714285714,
-        "statistic": 43.0,
-        "p_value": 0.5830078125,
+        "mean_delta": -0.11189633814085807,
+        "median_delta": -0.018213924020528793,
+        "improved_fraction": 0.5,
+        "statistic": 39.0,
+        "p_value": 0.42626953125,
         "significant": false,
-        "effect_size": 0.14672550168309165,
+        "effect_size": 0.21263076197327946,
         "p_value_holm": 1.0,
         "significant_holm": false
       }
@@ -377,22 +377,22 @@
     "cross_category_pairs": 336,
     "bertscore_f1": {
       "in_category": {
-        "mean": 0.9598027257023344,
-        "std": 0.024638757690070286,
-        "ci_lower": 0.9571400567367199,
-        "ci_upper": 0.9625350455427245,
+        "mean": 0.9598027255125107,
+        "std": 0.02463875984258797,
+        "ci_lower": 0.9571400545300192,
+        "ci_upper": 0.96253504454615,
         "n": 314
       },
       "cross_category": {
-        "mean": 0.9353257066437176,
-        "std": 0.00958397065941566,
-        "ci_lower": 0.934321430294464,
-        "ci_upper": 0.9363558703279566,
+        "mean": 0.9353257054019541,
+        "std": 0.009583970123543515,
+        "ci_lower": 0.9343214296292337,
+        "ci_upper": 0.9363558699376882,
         "n": 336
       },
       "mann_whitney": {
         "u_statistic": 85188.0,
-        "p_value": 7.122347947444008e-42,
+        "p_value": 7.122276053667272e-42,
         "cliffs_delta": 0.614877161055505
       }
     },
@@ -460,6 +460,203 @@
       }
     }
   },
+  "boilerplate_dilution": {
+    "full": {
+      "pair_count": 650,
+      "in_category_pairs": 314,
+      "cross_category_pairs": 336,
+      "bertscore_f1": {
+        "in_category": {
+          "mean": 0.9598027255125107,
+          "std": 0.02463875984258797,
+          "ci_lower": 0.9571400545300192,
+          "ci_upper": 0.96253504454615,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.9353257054019541,
+          "std": 0.009583970123543515,
+          "ci_lower": 0.9343214296292337,
+          "ci_upper": 0.9363558699376882,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 85188.0,
+          "p_value": 7.122276053667272e-42,
+          "cliffs_delta": 0.614877161055505
+        }
+      },
+      "sbert_similarity": {
+        "in_category": {
+          "mean": 0.8004576635968154,
+          "std": 0.13695852589214372,
+          "ci_lower": 0.7854143445943571,
+          "ci_upper": 0.8156769669407113,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.6703649814284983,
+          "std": 0.07351680812969444,
+          "ci_lower": 0.6621254944042968,
+          "ci_upper": 0.6781931066774719,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 83148.0,
+          "p_value": 5.5416530750380375e-37,
+          "cliffs_delta": 0.5762056414922656
+        }
+      },
+      "rouge_l": {
+        "in_category": {
+          "mean": 0.5029006782653566,
+          "std": 0.28119360524251774,
+          "ci_lower": 0.47287618622677946,
+          "ci_upper": 0.5343413753966137,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.22470227467946557,
+          "std": 0.08880674725850089,
+          "ci_lower": 0.21512057066086654,
+          "ci_upper": 0.23438252508161989,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 87150.0,
+          "p_value": 6.756406404169194e-47,
+          "cliffs_delta": 0.6520700636942676
+        }
+      },
+      "bleu": {
+        "in_category": {
+          "mean": 0.31684810827135795,
+          "std": 0.29101277744855036,
+          "ci_lower": 0.2846778385280786,
+          "ci_upper": 0.34993689572594616,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.08113016086826577,
+          "std": 0.06366045084752997,
+          "ci_lower": 0.07426383794561423,
+          "ci_upper": 0.08796975526518165,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 83977.5,
+          "p_value": 5.985503157217132e-39,
+          "cliffs_delta": 0.5919301637852594
+        }
+      }
+    },
+    "diagnostic_span": {
+      "pair_count": 650,
+      "in_category_pairs": 314,
+      "cross_category_pairs": 336,
+      "bertscore_f1": {
+        "in_category": {
+          "mean": 0.9512613096814246,
+          "std": 0.03117617914527586,
+          "ci_lower": 0.9479196916055528,
+          "ci_upper": 0.954745077294339,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.9261874881173883,
+          "std": 0.020141948057861802,
+          "ci_lower": 0.9240027009598202,
+          "ci_upper": 0.9283022003957913,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 77980.0,
+          "p_value": 5.358716484357714e-26,
+          "cliffs_delta": 0.4782377919320595
+        }
+      },
+      "sbert_similarity": {
+        "in_category": {
+          "mean": 0.6681041514417928,
+          "std": 0.22909785204166605,
+          "ci_lower": 0.6426394294247411,
+          "ci_upper": 0.6932914091677517,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.48385817535398973,
+          "std": 0.1580127922394821,
+          "ci_lower": 0.46696494484896817,
+          "ci_upper": 0.5002602047375625,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 78380.0,
+          "p_value": 8.93096038191431e-27,
+          "cliffs_delta": 0.48582044282681225
+        }
+      },
+      "rouge_l": {
+        "in_category": {
+          "mean": 0.5001945236751267,
+          "std": 0.28772418959821056,
+          "ci_lower": 0.4689860239620758,
+          "ci_upper": 0.5320593689649382,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.24957951072271906,
+          "std": 0.13932502713109438,
+          "ci_lower": 0.23433517785793068,
+          "ci_upper": 0.2645294358272191,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 81424.0,
+          "p_value": 3.8185314943012485e-33,
+          "cliffs_delta": 0.5435244161358812
+        }
+      },
+      "bleu": {
+        "in_category": {
+          "mean": 0.28025165304432864,
+          "std": 0.2747826186195148,
+          "ci_lower": 0.24998343260758937,
+          "ci_upper": 0.3114479490647737,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.06850378800330267,
+          "std": 0.07847917342365048,
+          "ci_lower": 0.06027581970386032,
+          "ci_upper": 0.07728056404112423,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 79328.0,
+          "p_value": 1.1156170154315281e-28,
+          "cliffs_delta": 0.5037913254473765
+        }
+      }
+    },
+    "span_retained_char_fraction": 0.6108402671247322,
+    "cdr_class_separation": {
+      "stated_fraction": 0.6923076923076923,
+      "glaucoma": {
+        "n": 8,
+        "mean": 0.8562500000000001,
+        "min": 0.7,
+        "max": 0.95
+      },
+      "normal": {
+        "n": 10,
+        "mean": 0.4,
+        "min": 0.1,
+        "max": 0.6
+      },
+      "roc_auc": 1.0
+    }
+  },
   "results": [
     {
       "image_id": "3231_right",
@@ -476,7 +673,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9673203229904175,
-        "bertscore_recall": 0.9906294345855713,
+        "bertscore_recall": 0.9906294941902161,
         "bertscore_f1": 0.978836178779602,
         "bertscore_random_baseline": 0.9201619029045105,
         "bertscore_calibrated": 0.7349157333374023,
@@ -504,7 +701,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9673203229904175,
-        "bertscore_recall": 0.9906294345855713,
+        "bertscore_recall": 0.9906294941902161,
         "bertscore_f1": 0.978836178779602,
         "bertscore_random_baseline": 0.9296873211860657,
         "bertscore_calibrated": 0.6990041732788086,
@@ -531,11 +728,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9092074632644653,
+        "bertscore_precision": 0.9092075228691101,
         "bertscore_recall": 0.921206533908844,
-        "bertscore_f1": 0.9151676297187805,
+        "bertscore_f1": 0.9151676893234253,
         "bertscore_random_baseline": 0.9345985651016235,
-        "bertscore_calibrated": -0.29710257053375244,
+        "bertscore_calibrated": -0.2971016764640808,
         "sbert_similarity": 0.5422495603561401,
         "sbert_random_baseline": 0.6997429132461548,
         "sbert_calibrated": -0.5245283246040344,
@@ -590,8 +787,8 @@
         "bertscore_precision": 0.9676004648208618,
         "bertscore_recall": 0.9906565546989441,
         "bertscore_f1": 0.9789928197860718,
-        "bertscore_random_baseline": 0.9278122186660767,
-        "bertscore_calibrated": 0.708992600440979,
+        "bertscore_random_baseline": 0.9278120994567871,
+        "bertscore_calibrated": 0.7089930772781372,
         "sbert_similarity": 0.9334306716918945,
         "sbert_random_baseline": 0.6879863739013672,
         "sbert_calibrated": 0.7866460680961609,
@@ -643,11 +840,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9688907861709595,
-        "bertscore_recall": 0.9926360845565796,
-        "bertscore_f1": 0.9806196689605713,
-        "bertscore_random_baseline": 0.9477113485336304,
-        "bertscore_calibrated": 0.6293587684631348,
+        "bertscore_precision": 0.9688906669616699,
+        "bertscore_recall": 0.99263596534729,
+        "bertscore_f1": 0.9806195497512817,
+        "bertscore_random_baseline": 0.9477114677429199,
+        "bertscore_calibrated": 0.6293556094169617,
         "sbert_similarity": 0.9359768033027649,
         "sbert_random_baseline": 0.770283579826355,
         "sbert_calibrated": 0.721294641494751,
@@ -671,11 +868,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9688907861709595,
-        "bertscore_recall": 0.9926360845565796,
-        "bertscore_f1": 0.9806196689605713,
+        "bertscore_precision": 0.9688906669616699,
+        "bertscore_recall": 0.99263596534729,
+        "bertscore_f1": 0.9806195497512817,
         "bertscore_random_baseline": 0.9318782091140747,
-        "bertscore_calibrated": 0.7155046463012695,
+        "bertscore_calibrated": 0.715502917766571,
         "sbert_similarity": 0.9359768033027649,
         "sbert_random_baseline": 0.7031704783439636,
         "sbert_calibrated": 0.7843098640441895,
@@ -699,11 +896,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9392815232276917,
-        "bertscore_recall": 0.9427642822265625,
+        "bertscore_precision": 0.9392815828323364,
+        "bertscore_recall": 0.9427643418312073,
         "bertscore_f1": 0.9410197138786316,
-        "bertscore_random_baseline": 0.9322609901428223,
-        "bertscore_calibrated": 0.1293010264635086,
+        "bertscore_random_baseline": 0.9322611093521118,
+        "bertscore_calibrated": 0.12929949164390564,
         "sbert_similarity": 0.7824328541755676,
         "sbert_random_baseline": 0.6649079322814941,
         "sbert_calibrated": 0.3507242798805237,
@@ -728,10 +925,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9514760971069336,
-        "bertscore_recall": 0.9671704173088074,
-        "bertscore_f1": 0.959259033203125,
+        "bertscore_recall": 0.9671704769134521,
+        "bertscore_f1": 0.9592590928077698,
         "bertscore_random_baseline": 0.9469702839851379,
-        "bertscore_calibrated": 0.2317332625389099,
+        "bertscore_calibrated": 0.23173439502716064,
         "sbert_similarity": 0.8423706293106079,
         "sbert_random_baseline": 0.7627751231193542,
         "sbert_calibrated": 0.3355276584625244,
@@ -747,7 +944,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no vessel changes<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 2, vessel changes of 3<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -755,16 +952,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9380215406417847,
-        "bertscore_recall": 0.9390314817428589,
-        "bertscore_f1": 0.9385262727737427,
-        "bertscore_random_baseline": 0.9391700029373169,
-        "bertscore_calibrated": -0.010582446120679379,
-        "sbert_similarity": 0.7853457927703857,
-        "sbert_random_baseline": 0.7864709496498108,
-        "sbert_calibrated": -0.005269338842481375,
-        "rouge_l": 0.36734693877551017,
-        "bleu": 0.13523285066501545,
+        "bertscore_precision": 0.9313704371452332,
+        "bertscore_recall": 0.9407162070274353,
+        "bertscore_f1": 0.9360199570655823,
+        "bertscore_random_baseline": 0.9356300234794617,
+        "bertscore_calibrated": 0.006057693623006344,
+        "sbert_similarity": 0.7339270114898682,
+        "sbert_random_baseline": 0.7673220038414001,
+        "sbert_calibrated": -0.14352449774742126,
+        "rouge_l": 0.30303030303030304,
+        "bleu": 0.07382955819018527,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -786,8 +983,8 @@
         "bertscore_precision": 0.9392037391662598,
         "bertscore_recall": 0.9427230358123779,
         "bertscore_f1": 0.9409601092338562,
-        "bertscore_random_baseline": 0.9462951421737671,
-        "bertscore_calibrated": -0.09933985769748688,
+        "bertscore_random_baseline": 0.9462950825691223,
+        "bertscore_calibrated": -0.09933863580226898,
         "sbert_similarity": 0.7837891578674316,
         "sbert_random_baseline": 0.8120710253715515,
         "sbert_calibrated": -0.150492325425148,
@@ -803,7 +1000,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay_glaucoma",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no vessel changes, optic disc pallor of 1, no peripapillary atrophy, no optic disc hemorrhage<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no vessel changes, optic disc pallor of 1, no peripapillary atrophy, no optic disc hemorrhage<end_of_turn>",
       "reference_text": "This image has low light, the nerve can be visualized and the cup to disc ratio is 0.7,  there is nasalization of vessels and peripapillary atrophy",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing a fundus photograph from a patient with glaucoma. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a glaucoma specialist. Your description should mention relevant findings if any exists.\n        After your description, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved: Inferior \u2265 Superior \u2265 Nasal \u2265 Temporal); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization   \n        Format your response in two parts: (1) the free-text clinical description, and (2) the structured classification with the selected option for each field.",
       "classification": {
@@ -811,14 +1008,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9243683815002441,
-        "bertscore_recall": 0.9296185970306396,
-        "bertscore_f1": 0.926986038684845,
-        "bertscore_random_baseline": 0.9376834630966187,
-        "bertscore_calibrated": -0.17166268825531006,
-        "sbert_similarity": 0.6233919858932495,
-        "sbert_random_baseline": 0.7647232413291931,
-        "sbert_calibrated": -0.600702166557312,
+        "bertscore_precision": 0.9247440695762634,
+        "bertscore_recall": 0.9295638203620911,
+        "bertscore_f1": 0.9271476864814758,
+        "bertscore_random_baseline": 0.9377819895744324,
+        "bertscore_calibrated": -0.1709200143814087,
+        "sbert_similarity": 0.6220889091491699,
+        "sbert_random_baseline": 0.7636907696723938,
+        "sbert_calibrated": -0.599222719669342,
         "rouge_l": 0.24615384615384617,
         "bleu": 0.0775275441607937,
         "finding_mentioned": true,
@@ -868,7 +1065,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.921521782875061,
-        "bertscore_recall": 0.9250044822692871,
+        "bertscore_recall": 0.9250044226646423,
         "bertscore_f1": 0.9232598543167114,
         "bertscore_random_baseline": 0.9322673082351685,
         "bertscore_calibrated": -0.13298532366752625,
@@ -979,11 +1176,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9341970682144165,
+        "bertscore_precision": 0.9341970086097717,
         "bertscore_recall": 0.9348279237747192,
-        "bertscore_f1": 0.9345123767852783,
+        "bertscore_f1": 0.9345123171806335,
         "bertscore_random_baseline": 0.9396800994873047,
-        "bertscore_calibrated": -0.08567193895578384,
+        "bertscore_calibrated": -0.08567292243242264,
         "sbert_similarity": 0.8068190813064575,
         "sbert_random_baseline": 0.730108380317688,
         "sbert_calibrated": 0.28422778844833374,
@@ -1007,7 +1204,7 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9397534728050232,
+        "bertscore_precision": 0.939753532409668,
         "bertscore_recall": 0.9556257128715515,
         "bertscore_f1": 0.9476231336593628,
         "bertscore_random_baseline": 0.9497306942939758,
@@ -1027,7 +1224,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, beta-zone peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 2, bayoneting of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no vessel changes<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, 360\u00b0 thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, beta peripapillary atrophy",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1035,16 +1232,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9262741804122925,
-        "bertscore_recall": 0.9422634840011597,
-        "bertscore_f1": 0.9342004060745239,
-        "bertscore_random_baseline": 0.9389069676399231,
-        "bertscore_calibrated": -0.07703924924135208,
-        "sbert_similarity": 0.8061829805374146,
-        "sbert_random_baseline": 0.7274274826049805,
-        "sbert_calibrated": 0.2889341115951538,
-        "rouge_l": 0.3235294117647059,
-        "bleu": 0.08474005677451944,
+        "bertscore_precision": 0.9307540655136108,
+        "bertscore_recall": 0.9283596873283386,
+        "bertscore_f1": 0.929555356502533,
+        "bertscore_random_baseline": 0.9427798390388489,
+        "bertscore_calibrated": -0.23111578822135925,
+        "sbert_similarity": 0.759979248046875,
+        "sbert_random_baseline": 0.7689498662948608,
+        "sbert_calibrated": -0.038825418800115585,
+        "rouge_l": 0.32,
+        "bleu": 0.12219667481477892,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1091,11 +1288,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9298529028892517,
+        "bertscore_precision": 0.9298528432846069,
         "bertscore_recall": 0.9455011487007141,
-        "bertscore_f1": 0.9376116991043091,
+        "bertscore_f1": 0.9376116394996643,
         "bertscore_random_baseline": 0.9448330998420715,
-        "bertscore_calibrated": -0.13090096414089203,
+        "bertscore_calibrated": -0.13090205192565918,
         "sbert_similarity": 0.7848018407821655,
         "sbert_random_baseline": 0.7816365361213684,
         "sbert_calibrated": 0.014495578594505787,
@@ -1120,10 +1317,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9243637919425964,
-        "bertscore_recall": 0.9484559297561646,
-        "bertscore_f1": 0.9362549781799316,
+        "bertscore_recall": 0.948455810546875,
+        "bertscore_f1": 0.9362547993659973,
         "bertscore_random_baseline": 0.9540173411369324,
-        "bertscore_calibrated": -0.3862839341163635,
+        "bertscore_calibrated": -0.3862878382205963,
         "sbert_similarity": 0.7440005540847778,
         "sbert_random_baseline": 0.7991613745689392,
         "sbert_calibrated": -0.2746524512767792,
@@ -1175,11 +1372,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9298529028892517,
+        "bertscore_precision": 0.9298528432846069,
         "bertscore_recall": 0.9455011487007141,
-        "bertscore_f1": 0.9376116991043091,
+        "bertscore_f1": 0.9376116394996643,
         "bertscore_random_baseline": 0.9432328343391418,
-        "bertscore_calibrated": -0.09902089089155197,
+        "bertscore_calibrated": -0.09902194142341614,
         "sbert_similarity": 0.7848018407821655,
         "sbert_random_baseline": 0.8023484945297241,
         "sbert_calibrated": -0.08877571672201157,
@@ -1260,10 +1457,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.925578236579895,
-        "bertscore_recall": 0.9155283570289612,
-        "bertscore_f1": 0.9205257892608643,
-        "bertscore_random_baseline": 0.9380351901054382,
-        "bertscore_calibrated": -0.2825700640678406,
+        "bertscore_recall": 0.9155282974243164,
+        "bertscore_f1": 0.920525848865509,
+        "bertscore_random_baseline": 0.9380351305007935,
+        "bertscore_calibrated": -0.2825678884983063,
         "sbert_similarity": 0.7146707773208618,
         "sbert_random_baseline": 0.7172107696533203,
         "sbert_calibrated": -0.008981927298009396,
@@ -1344,10 +1541,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9419604539871216,
-        "bertscore_recall": 0.9633995294570923,
-        "bertscore_f1": 0.9525593519210815,
-        "bertscore_random_baseline": 0.9502642750740051,
-        "bertscore_calibrated": 0.04614543914794922,
+        "bertscore_recall": 0.9633994698524475,
+        "bertscore_f1": 0.9525592923164368,
+        "bertscore_random_baseline": 0.9502641558647156,
+        "bertscore_calibrated": 0.04614652693271637,
         "sbert_similarity": 0.740776538848877,
         "sbert_random_baseline": 0.8000806570053101,
         "sbert_calibrated": -0.29664021730422974,
@@ -1371,11 +1568,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9311830997467041,
-        "bertscore_recall": 0.9343873858451843,
-        "bertscore_f1": 0.9327824115753174,
+        "bertscore_precision": 0.9311830401420593,
+        "bertscore_recall": 0.9343873262405396,
+        "bertscore_f1": 0.9327824711799622,
         "bertscore_random_baseline": 0.9285898208618164,
-        "bertscore_calibrated": 0.05871138721704483,
+        "bertscore_calibrated": 0.058712221682071686,
         "sbert_similarity": 0.6734402179718018,
         "sbert_random_baseline": 0.6796783208847046,
         "sbert_calibrated": -0.019474495202302933,
@@ -1399,11 +1596,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9311830997467041,
-        "bertscore_recall": 0.9343873858451843,
-        "bertscore_f1": 0.9327824115753174,
+        "bertscore_precision": 0.9311830401420593,
+        "bertscore_recall": 0.9343873262405396,
+        "bertscore_f1": 0.9327824711799622,
         "bertscore_random_baseline": 0.9352744221687317,
-        "bertscore_calibrated": -0.03850117325782776,
+        "bertscore_calibrated": -0.03850024938583374,
         "sbert_similarity": 0.6734402179718018,
         "sbert_random_baseline": 0.7089005708694458,
         "sbert_calibrated": -0.1218152642250061,
@@ -1483,11 +1680,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9287970066070557,
-        "bertscore_recall": 0.9395982027053833,
-        "bertscore_f1": 0.9341663718223572,
+        "bertscore_precision": 0.9287968873977661,
+        "bertscore_recall": 0.9395980834960938,
+        "bertscore_f1": 0.9341663122177124,
         "bertscore_random_baseline": 0.9250216484069824,
-        "bertscore_calibrated": 0.12196484953165054,
+        "bertscore_calibrated": 0.12196405231952667,
         "sbert_similarity": 0.7129720449447632,
         "sbert_random_baseline": 0.6305848956108093,
         "sbert_calibrated": 0.2230205237865448,
@@ -1539,7 +1736,7 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9290373921394348,
+        "bertscore_precision": 0.9290372729301453,
         "bertscore_recall": 0.9535356760025024,
         "bertscore_f1": 0.9411270618438721,
         "bertscore_random_baseline": 0.935680091381073,
@@ -1567,11 +1764,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9290373921394348,
+        "bertscore_precision": 0.9290372729301453,
         "bertscore_recall": 0.9535356760025024,
         "bertscore_f1": 0.9411270618438721,
-        "bertscore_random_baseline": 0.9518553018569946,
-        "bertscore_calibrated": -0.22283326089382172,
+        "bertscore_random_baseline": 0.9518551826477051,
+        "bertscore_calibrated": -0.22283023595809937,
         "sbert_similarity": 0.7267043590545654,
         "sbert_random_baseline": 0.7865797877311707,
         "sbert_calibrated": -0.28055182099342346,
@@ -1596,10 +1793,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9691711068153381,
-        "bertscore_recall": 0.9926339983940125,
-        "bertscore_f1": 0.980762243270874,
-        "bertscore_random_baseline": 0.9242679476737976,
-        "bertscore_calibrated": 0.7459760308265686,
+        "bertscore_recall": 0.9926340579986572,
+        "bertscore_f1": 0.9807623028755188,
+        "bertscore_random_baseline": 0.9242680668830872,
+        "bertscore_calibrated": 0.7459763884544373,
         "sbert_similarity": 0.9341310262680054,
         "sbert_random_baseline": 0.6472073793411255,
         "sbert_calibrated": 0.8132926821708679,
@@ -1624,10 +1821,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9691711068153381,
-        "bertscore_recall": 0.9926339983940125,
-        "bertscore_f1": 0.980762243270874,
+        "bertscore_recall": 0.9926340579986572,
+        "bertscore_f1": 0.9807623028755188,
         "bertscore_random_baseline": 0.9414278268814087,
-        "bertscore_calibrated": 0.671554684638977,
+        "bertscore_calibrated": 0.6715556979179382,
         "sbert_similarity": 0.9341310262680054,
         "sbert_random_baseline": 0.7403567433357239,
         "sbert_calibrated": 0.7463096976280212,
@@ -1651,11 +1848,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9168998003005981,
+        "bertscore_precision": 0.9168997406959534,
         "bertscore_recall": 0.9255942106246948,
-        "bertscore_f1": 0.9212265014648438,
+        "bertscore_f1": 0.921226441860199,
         "bertscore_random_baseline": 0.9412292242050171,
-        "bertscore_calibrated": -0.34035152196884155,
+        "bertscore_calibrated": -0.34035253524780273,
         "sbert_similarity": 0.5970978736877441,
         "sbert_random_baseline": 0.781997561454773,
         "sbert_calibrated": -0.8481542468070984,
@@ -1679,11 +1876,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.918226957321167,
+        "bertscore_precision": 0.9182270169258118,
         "bertscore_recall": 0.9453051090240479,
-        "bertscore_f1": 0.9315692782402039,
+        "bertscore_f1": 0.9315693378448486,
         "bertscore_random_baseline": 0.9466436505317688,
-        "bertscore_calibrated": -0.2825225591659546,
+        "bertscore_calibrated": -0.28252142667770386,
         "sbert_similarity": 0.6291155815124512,
         "sbert_random_baseline": 0.748260498046875,
         "sbert_calibrated": -0.47328653931617737,
@@ -1707,11 +1904,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9065805077552795,
+        "bertscore_precision": 0.9065805673599243,
         "bertscore_recall": 0.9194578528404236,
-        "bertscore_f1": 0.9129737615585327,
+        "bertscore_f1": 0.9129738211631775,
         "bertscore_random_baseline": 0.9285110235214233,
-        "bertscore_calibrated": -0.21733787655830383,
+        "bertscore_calibrated": -0.21733704209327698,
         "sbert_similarity": 0.5672996044158936,
         "sbert_random_baseline": 0.6856528520584106,
         "sbert_calibrated": -0.37650492787361145,
@@ -1736,10 +1933,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9139716625213623,
-        "bertscore_recall": 0.9322934150695801,
-        "bertscore_f1": 0.9230416417121887,
+        "bertscore_recall": 0.9322932958602905,
+        "bertscore_f1": 0.923041582107544,
         "bertscore_random_baseline": 0.9474239349365234,
-        "bertscore_calibrated": -0.46375271677970886,
+        "bertscore_calibrated": -0.4637538492679596,
         "sbert_similarity": 0.6189287900924683,
         "sbert_random_baseline": 0.7461553812026978,
         "sbert_calibrated": -0.5011987090110779,
@@ -1763,8 +1960,8 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9379722476005554,
-        "bertscore_recall": 0.9401220083236694,
+        "bertscore_precision": 0.9379723072052002,
+        "bertscore_recall": 0.9401219487190247,
         "bertscore_f1": 0.9390459060668945,
         "bertscore_random_baseline": 0.9498888254165649,
         "bertscore_calibrated": -0.21637727320194244,
@@ -1847,8 +2044,8 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9379722476005554,
-        "bertscore_recall": 0.9401220083236694,
+        "bertscore_precision": 0.9379723072052002,
+        "bertscore_recall": 0.9401219487190247,
         "bertscore_f1": 0.9390459060668945,
         "bertscore_random_baseline": 0.9339559674263,
         "bertscore_calibrated": 0.07706886529922485,
@@ -1923,7 +2120,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities<end_of_turn>",
+      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.3, normal color, no vascular abnormalities<end_of_turn>",
       "reference_text": "Optic nerve with a 0.8 cup-to-disc ratio, diffuse thinning of the neuroretinal rim, mild pallor of the optic disc, bayoneting and nasalization of the vessels.",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1931,14 +2128,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9322692155838013,
-        "bertscore_recall": 0.9316266179084778,
-        "bertscore_f1": 0.9319477677345276,
-        "bertscore_random_baseline": 0.9367599487304688,
-        "bertscore_calibrated": -0.0760938823223114,
-        "sbert_similarity": 0.7019820213317871,
-        "sbert_random_baseline": 0.7566398978233337,
-        "sbert_calibrated": -0.22459670901298523,
+        "bertscore_precision": 0.9315561056137085,
+        "bertscore_recall": 0.930835485458374,
+        "bertscore_f1": 0.9311956167221069,
+        "bertscore_random_baseline": 0.9355658292770386,
+        "bertscore_calibrated": -0.06782445311546326,
+        "sbert_similarity": 0.6981632709503174,
+        "sbert_random_baseline": 0.7437183260917664,
+        "sbert_calibrated": -0.17775385081768036,
         "rouge_l": 0.28,
         "bleu": 0.10082032598091607,
         "finding_mentioned": true,
@@ -1988,10 +2185,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9691711068153381,
-        "bertscore_recall": 0.9926339983940125,
-        "bertscore_f1": 0.980762243270874,
+        "bertscore_recall": 0.9926340579986572,
+        "bertscore_f1": 0.9807623028755188,
         "bertscore_random_baseline": 0.9421144723892212,
-        "bertscore_calibrated": 0.6676586270332336,
+        "bertscore_calibrated": 0.6676596403121948,
         "sbert_similarity": 0.9341310262680054,
         "sbert_random_baseline": 0.7517027258872986,
         "sbert_calibrated": 0.7347173094749451,
@@ -2016,10 +2213,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9691711068153381,
-        "bertscore_recall": 0.9926339983940125,
-        "bertscore_f1": 0.980762243270874,
+        "bertscore_recall": 0.9926340579986572,
+        "bertscore_f1": 0.9807623028755188,
         "bertscore_random_baseline": 0.9392236471176147,
-        "bertscore_calibrated": 0.6834664344787598,
+        "bertscore_calibrated": 0.6834673881530762,
         "sbert_similarity": 0.9341310262680054,
         "sbert_random_baseline": 0.7286670207977295,
         "sbert_calibrated": 0.7572393417358398,
@@ -2043,11 +2240,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9675971865653992,
-        "bertscore_recall": 0.9906219244003296,
-        "bertscore_f1": 0.9789742231369019,
+        "bertscore_precision": 0.9675971269607544,
+        "bertscore_recall": 0.99062180519104,
+        "bertscore_f1": 0.9789741039276123,
         "bertscore_random_baseline": 0.9502207040786743,
-        "bertscore_calibrated": 0.5776200294494629,
+        "bertscore_calibrated": 0.5776176452636719,
         "sbert_similarity": 0.931414783000946,
         "sbert_random_baseline": 0.7777390480041504,
         "sbert_calibrated": 0.691420316696167,
@@ -2071,11 +2268,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9675971865653992,
-        "bertscore_recall": 0.9906219244003296,
-        "bertscore_f1": 0.9789742231369019,
-        "bertscore_random_baseline": 0.9283651113510132,
-        "bertscore_calibrated": 0.7064869403839111,
+        "bertscore_precision": 0.9675971269607544,
+        "bertscore_recall": 0.99062180519104,
+        "bertscore_f1": 0.9789741039276123,
+        "bertscore_random_baseline": 0.9283650517463684,
+        "bertscore_calibrated": 0.7064855098724365,
         "sbert_similarity": 0.931414783000946,
         "sbert_random_baseline": 0.6653529405593872,
         "sbert_calibrated": 0.7950521111488342,
@@ -2099,7 +2296,7 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9671631455421448,
+        "bertscore_precision": 0.9671632051467896,
         "bertscore_recall": 0.9904630184173584,
         "bertscore_f1": 0.9786744713783264,
         "bertscore_random_baseline": 0.9423157572746277,
@@ -2127,11 +2324,11 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9671631455421448,
+        "bertscore_precision": 0.9671632051467896,
         "bertscore_recall": 0.9904630184173584,
         "bertscore_f1": 0.9786744713783264,
-        "bertscore_random_baseline": 0.9229380488395691,
-        "bertscore_calibrated": 0.7232677340507507,
+        "bertscore_random_baseline": 0.9229381680488586,
+        "bertscore_calibrated": 0.7232673168182373,
         "sbert_similarity": 0.932763934135437,
         "sbert_random_baseline": 0.6560428142547607,
         "sbert_calibrated": 0.8045219779014587,
@@ -2155,11 +2352,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9380444884300232,
-        "bertscore_recall": 0.9403413534164429,
-        "bertscore_f1": 0.9391915798187256,
-        "bertscore_random_baseline": 0.9324239492416382,
-        "bertscore_calibrated": 0.10014835745096207,
+        "bertscore_precision": 0.9380444288253784,
+        "bertscore_recall": 0.9403412938117981,
+        "bertscore_f1": 0.939191460609436,
+        "bertscore_random_baseline": 0.9324240684509277,
+        "bertscore_calibrated": 0.10014500468969345,
         "sbert_similarity": 0.8007119297981262,
         "sbert_random_baseline": 0.6839645504951477,
         "sbert_calibrated": 0.36941230297088623,
@@ -2183,11 +2380,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9433512687683105,
-        "bertscore_recall": 0.9632053375244141,
-        "bertscore_f1": 0.9531749486923218,
+        "bertscore_precision": 0.9433513283729553,
+        "bertscore_recall": 0.9632052183151245,
+        "bertscore_f1": 0.953174889087677,
         "bertscore_random_baseline": 0.9404336810112,
-        "bertscore_calibrated": 0.21390053629875183,
+        "bertscore_calibrated": 0.21389953792095184,
         "sbert_similarity": 0.8133279085159302,
         "sbert_random_baseline": 0.7197819352149963,
         "sbert_calibrated": 0.3338327705860138,
@@ -2211,11 +2408,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9290279746055603,
-        "bertscore_recall": 0.9251213669776917,
-        "bertscore_f1": 0.9270705580711365,
+        "bertscore_precision": 0.9290279150009155,
+        "bertscore_recall": 0.9251213073730469,
+        "bertscore_f1": 0.9270704984664917,
         "bertscore_random_baseline": 0.9339229464530945,
-        "bertscore_calibrated": -0.10370299220085144,
+        "bertscore_calibrated": -0.10370390117168427,
         "sbert_similarity": 0.6605203151702881,
         "sbert_random_baseline": 0.71100914478302,
         "sbert_calibrated": -0.17470736801624298,
@@ -2239,11 +2436,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9380444884300232,
-        "bertscore_recall": 0.9403413534164429,
-        "bertscore_f1": 0.9391915798187256,
-        "bertscore_random_baseline": 0.9477993249893188,
-        "bertscore_calibrated": -0.16489720344543457,
+        "bertscore_precision": 0.9380444288253784,
+        "bertscore_recall": 0.9403412938117981,
+        "bertscore_f1": 0.939191460609436,
+        "bertscore_random_baseline": 0.9477992057800293,
+        "bertscore_calibrated": -0.16489683091640472,
         "sbert_similarity": 0.8007119297981262,
         "sbert_random_baseline": 0.7859432101249695,
         "sbert_calibrated": 0.06899440288543701,
@@ -2267,7 +2464,7 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9640722870826721,
+        "bertscore_precision": 0.9640722274780273,
         "bertscore_recall": 0.9768064618110657,
         "bertscore_f1": 0.9703975915908813,
         "bertscore_random_baseline": 0.9306208491325378,
@@ -2295,7 +2492,7 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9640722870826721,
+        "bertscore_precision": 0.9640722274780273,
         "bertscore_recall": 0.9768064618110657,
         "bertscore_f1": 0.9703975915908813,
         "bertscore_random_baseline": 0.928587794303894,
@@ -2323,7 +2520,7 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9269081950187683,
+        "bertscore_precision": 0.9269081354141235,
         "bertscore_recall": 0.9394910335540771,
         "bertscore_f1": 0.933157205581665,
         "bertscore_random_baseline": 0.9586125612258911,
@@ -2351,7 +2548,7 @@
         "ground_truth": "normal"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9282197952270508,
+        "bertscore_precision": 0.9282198548316956,
         "bertscore_recall": 0.9397623538970947,
         "bertscore_f1": 0.9339554309844971,
         "bertscore_random_baseline": 0.9409619569778442,
@@ -2379,7 +2576,7 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9385489225387573,
+        "bertscore_precision": 0.9385488629341125,
         "bertscore_recall": 0.9533450603485107,
         "bertscore_f1": 0.9458891153335571,
         "bertscore_random_baseline": 0.9436963796615601,
@@ -2408,10 +2605,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9389668703079224,
-        "bertscore_recall": 0.9633755087852478,
-        "bertscore_f1": 0.9510146379470825,
+        "bertscore_recall": 0.963375449180603,
+        "bertscore_f1": 0.9510145783424377,
         "bertscore_random_baseline": 0.9514273405075073,
-        "bertscore_calibrated": -0.008496602065861225,
+        "bertscore_calibrated": -0.008497829549014568,
         "sbert_similarity": 0.7754396200180054,
         "sbert_random_baseline": 0.7728298902511597,
         "sbert_calibrated": 0.011487998068332672,
@@ -2435,11 +2632,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9296965599060059,
-        "bertscore_recall": 0.9406282901763916,
-        "bertscore_f1": 0.9351304769515991,
+        "bertscore_precision": 0.9296965003013611,
+        "bertscore_recall": 0.9406282305717468,
+        "bertscore_f1": 0.9351304173469543,
         "bertscore_random_baseline": 0.9319225549697876,
-        "bertscore_calibrated": 0.04712165519595146,
+        "bertscore_calibrated": 0.04712077975273132,
         "sbert_similarity": 0.7221781015396118,
         "sbert_random_baseline": 0.6945599317550659,
         "sbert_calibrated": 0.0904209092259407,
@@ -2463,11 +2660,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9385489225387573,
+        "bertscore_precision": 0.9385488629341125,
         "bertscore_recall": 0.9533450603485107,
         "bertscore_f1": 0.9458891153335571,
-        "bertscore_random_baseline": 0.948442280292511,
-        "bertscore_calibrated": -0.04952051863074303,
+        "bertscore_random_baseline": 0.9484421610832214,
+        "bertscore_calibrated": -0.04951808974146843,
         "sbert_similarity": 0.8131058216094971,
         "sbert_random_baseline": 0.8241645097732544,
         "sbert_calibrated": -0.06289224326610565,
@@ -2492,10 +2689,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9236674308776855,
-        "bertscore_recall": 0.9319727420806885,
-        "bertscore_f1": 0.9278014898300171,
+        "bertscore_recall": 0.9319726824760437,
+        "bertscore_f1": 0.9278014302253723,
         "bertscore_random_baseline": 0.9346345663070679,
-        "bertscore_calibrated": -0.10453654080629349,
+        "bertscore_calibrated": -0.10453745722770691,
         "sbert_similarity": 0.7178802490234375,
         "sbert_random_baseline": 0.7522324323654175,
         "sbert_calibrated": -0.13864681124687195,
@@ -2539,7 +2736,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, beta-zone peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 2, bayoneting of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a right eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, diffuse thinning, no vessel changes, optic disc pallor of 1, no peripapillary atrophy, no drance hemorrhage, wedge-shaped defect<end_of_turn>",
       "reference_text": "Total cupping, mildly pale optic nerve, near-total loss of the neuroretinal rim, nasalization of vessels",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -2547,16 +2744,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9152109622955322,
-        "bertscore_recall": 0.9310487508773804,
-        "bertscore_f1": 0.9230619668960571,
-        "bertscore_random_baseline": 0.9362733960151672,
-        "bertscore_calibrated": -0.20731419324874878,
-        "sbert_similarity": 0.6793389916419983,
-        "sbert_random_baseline": 0.7520588636398315,
-        "sbert_calibrated": -0.29329490661621094,
-        "rouge_l": 0.13333333333333333,
-        "bleu": 7.16988546436005e-06,
+        "bertscore_precision": 0.920708417892456,
+        "bertscore_recall": 0.9324690699577332,
+        "bertscore_f1": 0.9265514016151428,
+        "bertscore_random_baseline": 0.9359489679336548,
+        "bertscore_calibrated": -0.14671997725963593,
+        "sbert_similarity": 0.7124766111373901,
+        "sbert_random_baseline": 0.7391990423202515,
+        "sbert_calibrated": -0.10246293246746063,
+        "rouge_l": 0.14285714285714288,
+        "bleu": 7.52421768074462e-06,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -2575,11 +2772,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9245529770851135,
+        "bertscore_precision": 0.9245530366897583,
         "bertscore_recall": 0.9423388242721558,
-        "bertscore_f1": 0.9333611726760864,
+        "bertscore_f1": 0.9333612322807312,
         "bertscore_random_baseline": 0.9418848156929016,
-        "bertscore_calibrated": -0.14666809141635895,
+        "bertscore_calibrated": -0.14666706323623657,
         "sbert_similarity": 0.7368634939193726,
         "sbert_random_baseline": 0.7519928216934204,
         "sbert_calibrated": -0.061003588140010834,
@@ -2603,8 +2800,8 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9392815232276917,
-        "bertscore_recall": 0.9427642822265625,
+        "bertscore_precision": 0.9392815828323364,
+        "bertscore_recall": 0.9427643418312073,
         "bertscore_f1": 0.9410197138786316,
         "bertscore_random_baseline": 0.9350966215133667,
         "bertscore_calibrated": 0.0912601575255394,
@@ -2631,7 +2828,7 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9512916207313538,
+        "bertscore_precision": 0.9512916803359985,
         "bertscore_recall": 0.9671221375465393,
         "bertscore_f1": 0.9591415524482727,
         "bertscore_random_baseline": 0.947381854057312,
@@ -2651,7 +2848,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal color, no vascular abnormalities<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.3, normal color, no vascular abnormalities<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -2659,14 +2856,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9322365522384644,
-        "bertscore_recall": 0.9301436543464661,
-        "bertscore_f1": 0.9311888813972473,
-        "bertscore_random_baseline": 0.9378829002380371,
-        "bertscore_calibrated": -0.10776451230049133,
-        "sbert_similarity": 0.7002043724060059,
-        "sbert_random_baseline": 0.7230157852172852,
-        "sbert_calibrated": -0.08235636353492737,
+        "bertscore_precision": 0.9319030046463013,
+        "bertscore_recall": 0.9299063086509705,
+        "bertscore_f1": 0.9309036731719971,
+        "bertscore_random_baseline": 0.9381767511367798,
+        "bertscore_calibrated": -0.1176430881023407,
+        "sbert_similarity": 0.7062855362892151,
+        "sbert_random_baseline": 0.7265077829360962,
+        "sbert_calibrated": -0.07394085079431534,
         "rouge_l": 0.2666666666666666,
         "bleu": 0.1228749228144577,
         "finding_mentioned": true,
@@ -2687,8 +2884,8 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9392815232276917,
-        "bertscore_recall": 0.9427642822265625,
+        "bertscore_precision": 0.9392815828323364,
+        "bertscore_recall": 0.9427643418312073,
         "bertscore_f1": 0.9410197138786316,
         "bertscore_random_baseline": 0.9364000558853149,
         "bertscore_calibrated": 0.0726361945271492,

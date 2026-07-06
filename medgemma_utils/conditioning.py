@@ -113,7 +113,13 @@ def load_mask(mask: str | Path | np.ndarray) -> np.ndarray:
     return np.squeeze(array).astype(bool)
 
 
-def make_overlay(image: Any, mask: Any, alpha: float = 0.4) -> Image.Image:
+# Red opacity of the disc overlay, shared by the oracle and pipeline sources so
+# the visual-conditioning axis is composited identically (only the mask's
+# provenance differs). Matches the segmentation module's delivered overlays.
+OVERLAY_RED_ALPHA = 0.5
+
+
+def make_overlay(image: Any, mask: Any, alpha: float = OVERLAY_RED_ALPHA) -> Image.Image:
     if isinstance(image, (str, Path)):
         image_array = np.asarray(Image.open(image).convert("RGB"))
     elif isinstance(image, Image.Image):

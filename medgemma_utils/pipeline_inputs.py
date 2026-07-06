@@ -1,8 +1,13 @@
 """Load conditioning inputs from a pipeline-style folder (classifier + segmentor).
 
 This mirrors what the upstream modules produce: for each fundus image there is
-the raw image, the segmentor's object mask (``<id>_obj_0.png``) and a
-pre-rendered red overlay (``overlays_rojos/Imagenes_overlay/<id>_overlay.jpg``).
+the raw image, the segmentor's object mask (``<id>_obj_0.png``) and the
+pre-rendered red overlay delivered by the segmentation module
+(``overlays_rojos/Imagenes_overlay/<id>_overlay.jpg``, the disc mask composited
+at 50% red). We consume that overlay directly rather than re-render it: the
+overlay is an artifact of the upstream module, and the oracle source composites
+its own overlay from the expert mask at the same blend, so the two sources
+differ only in the provenance of the mask.
 
 The conditioner consumes the same ``ConditioningInput`` contract as the oracle
 provider, so M7/M8 are identical regardless of where the data comes from. The

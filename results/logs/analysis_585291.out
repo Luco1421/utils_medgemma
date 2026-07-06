@@ -1,0 +1,82 @@
+
+===================== RECALL@1 (identificacion de imagen) =====================
+¿el texto generado identifica SU imagen entre las referencias? (azar ~ 1/N)
+  [base        ] ALL=0.087 (azar=0.038)   with_overlay_glaucoma:0.14  without_overlay_glaucoma:0.07  without_overlay_normal:0.00  with_overlay:0.14  without_overlay:0.08
+  [medgemma_lora_dataset_seed1024] ALL=0.034 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  without_overlay_normal:0.17  with_overlay:0.00  without_overlay:0.03
+  [medgemma_lora_dataset_seed123] ALL=0.062 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  without_overlay_normal:0.17  with_overlay:0.00  without_overlay:0.12
+  [medgemma_lora_dataset_seed42] ALL=0.044 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  without_overlay_normal:0.17  with_overlay:0.00  without_overlay:0.06
+  [medgemma_lora_dataset_seed456] ALL=0.037 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  without_overlay_normal:0.17  with_overlay:0.00  without_overlay:0.04
+  [medgemma_lora_dataset_seed789] ALL=0.050 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  without_overlay_normal:0.17  with_overlay:0.00  without_overlay:0.08
+
+============ DIAGNOSTICO por clase (condicion without_overlay, balanceada) ============
+without_overlay no le da la clase al modelo. balanced_acc y recall por clase delatan colapso.
+  [base        ] balanced_acc=0.506  recall[glaucoma]=0.93  recall[normal]=0.08  unknown=0.08  | recall_normal(global)=0.54
+  [medgemma_lora_dataset_seed1024] balanced_acc=0.708  recall[glaucoma]=1.00  recall[normal]=0.42  unknown=0.00  | recall_normal(global)=0.71
+  [medgemma_lora_dataset_seed123] balanced_acc=0.625  recall[glaucoma]=1.00  recall[normal]=0.25  unknown=0.00  | recall_normal(global)=0.62
+  [medgemma_lora_dataset_seed42] balanced_acc=0.833  recall[glaucoma]=1.00  recall[normal]=0.67  unknown=0.00  | recall_normal(global)=0.83
+  [medgemma_lora_dataset_seed456] balanced_acc=0.542  recall[glaucoma]=1.00  recall[normal]=0.08  unknown=0.00  | recall_normal(global)=0.54
+  [medgemma_lora_dataset_seed789] balanced_acc=0.964  recall[glaucoma]=0.93  recall[normal]=1.00  unknown=0.00  | recall_normal(global)=1.00
+
+===================== CONTEXTO M8 (inflado por boilerplate) ====================
+  [base        ] bertF1=0.905  sbert=0.555  rougeL=0.094  bleu=0.010  find=0.938  sbert_calib=+0.013
+  [medgemma_lora_dataset_seed1024] bertF1=0.944  sbert=0.761  rougeL=0.382  bleu=0.192  find=0.912  sbert_calib=+0.049
+  [medgemma_lora_dataset_seed123] bertF1=0.942  sbert=0.762  rougeL=0.359  bleu=0.178  find=0.887  sbert_calib=+0.040
+  [medgemma_lora_dataset_seed42] bertF1=0.946  sbert=0.774  rougeL=0.407  bleu=0.213  find=0.950  sbert_calib=+0.055
+  [medgemma_lora_dataset_seed456] bertF1=0.945  sbert=0.765  rougeL=0.355  bleu=0.171  find=0.900  sbert_calib=+0.043
+  [medgemma_lora_dataset_seed789] bertF1=0.945  sbert=0.771  rougeL=0.398  bleu=0.213  find=1.000  sbert_calib=+0.078
+
+========= CROSS-VALIDATION BASELINE (referencia vs referencia) =========
+in-category vs cross-category: si cross sigue alto, la metrica premia boilerplate.
+  bertscore_f1     in=0.960 [0.957,0.963]  cross=0.935 [0.934,0.936]  p=7.1e-42  delta=+0.61
+  sbert_similarity in=0.800 [0.785,0.816]  cross=0.670 [0.662,0.678]  p=5.5e-37  delta=+0.58
+  rouge_l          in=0.503 [0.473,0.534]  cross=0.225 [0.215,0.234]  p=6.8e-47  delta=+0.65
+  bleu             in=0.317 [0.285,0.350]  cross=0.081 [0.074,0.088]  p=6.0e-39  delta=+0.59
+
+============ BOILERPLATE DILUTION (ROUGE-L, referencia vs referencia) ============
+full-text vs solo-diagnostico: si el gap cross no baja, la senal es un escalar (CDR).
+  full-text        in=0.503  cross=0.225  gap=+0.278
+  diagnostic-span  in=0.500  cross=0.250  gap=+0.251
+  CDR value alone: glaucoma mean=0.86 [0.70,0.95]  normal mean=0.40 [0.10,0.60]  ROC-AUC=1.000  (stated in 69% of refs)
+
+Wrote results/analysis_dataset.json
+
+===================== RECALL@1 (identificacion de imagen) =====================
+¿el texto generado identifica SU imagen entre las referencias? (azar ~ 1/N)
+  [base        ] ALL=0.067 (azar=0.038)   with_overlay_glaucoma:0.06  without_overlay_glaucoma:0.06  with_overlay_normal:0.11  without_overlay_normal:0.00  with_overlay:0.08  without_overlay:0.08
+  [medgemma_lora_pipeline_seed1024] ALL=0.038 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  with_overlay_normal:0.11  without_overlay_normal:0.11  with_overlay:0.05  without_overlay:0.03
+  [medgemma_lora_pipeline_seed123] ALL=0.087 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  with_overlay_normal:0.22  without_overlay_normal:0.22  with_overlay:0.08  without_overlay:0.12
+  [medgemma_lora_pipeline_seed42] ALL=0.077 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  with_overlay_normal:0.22  without_overlay_normal:0.22  with_overlay:0.10  without_overlay:0.06
+  [medgemma_lora_pipeline_seed456] ALL=0.062 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  with_overlay_normal:0.22  without_overlay_normal:0.22  with_overlay:0.06  without_overlay:0.04
+  [medgemma_lora_pipeline_seed789] ALL=0.077 (azar=0.038)   with_overlay_glaucoma:0.00  without_overlay_glaucoma:0.00  with_overlay_normal:0.22  without_overlay_normal:0.22  with_overlay:0.08  without_overlay:0.08
+
+============ DIAGNOSTICO por clase (condicion without_overlay, balanceada) ============
+without_overlay no le da la clase al modelo. balanced_acc y recall por clase delatan colapso.
+  [base        ] balanced_acc=0.506  recall[glaucoma]=0.93  recall[normal]=0.08  unknown=0.08  | recall_normal(global)=0.31
+  [medgemma_lora_pipeline_seed1024] balanced_acc=0.708  recall[glaucoma]=1.00  recall[normal]=0.42  unknown=0.00  | recall_normal(global)=0.67
+  [medgemma_lora_pipeline_seed123] balanced_acc=0.625  recall[glaucoma]=1.00  recall[normal]=0.25  unknown=0.00  | recall_normal(global)=0.52
+  [medgemma_lora_pipeline_seed42] balanced_acc=0.833  recall[glaucoma]=1.00  recall[normal]=0.67  unknown=0.00  | recall_normal(global)=0.75
+  [medgemma_lora_pipeline_seed456] balanced_acc=0.542  recall[glaucoma]=1.00  recall[normal]=0.08  unknown=0.00  | recall_normal(global)=0.46
+  [medgemma_lora_pipeline_seed789] balanced_acc=0.964  recall[glaucoma]=0.93  recall[normal]=1.00  unknown=0.00  | recall_normal(global)=0.85
+
+===================== CONTEXTO M8 (inflado por boilerplate) ====================
+  [base        ] bertF1=0.905  sbert=0.575  rougeL=0.091  bleu=0.009  find=0.942  sbert_calib=+0.020
+  [medgemma_lora_pipeline_seed1024] bertF1=0.948  sbert=0.772  rougeL=0.428  bleu=0.245  find=0.837  sbert_calib=+0.087
+  [medgemma_lora_pipeline_seed123] bertF1=0.946  sbert=0.777  rougeL=0.402  bleu=0.227  find=0.817  sbert_calib=+0.073
+  [medgemma_lora_pipeline_seed42] bertF1=0.949  sbert=0.786  rougeL=0.459  bleu=0.276  find=0.885  sbert_calib=+0.086
+  [medgemma_lora_pipeline_seed456] bertF1=0.946  sbert=0.772  rougeL=0.404  bleu=0.229  find=0.788  sbert_calib=+0.073
+  [medgemma_lora_pipeline_seed789] bertF1=0.948  sbert=0.783  rougeL=0.449  bleu=0.272  find=0.933  sbert_calib=+0.071
+
+========= CROSS-VALIDATION BASELINE (referencia vs referencia) =========
+in-category vs cross-category: si cross sigue alto, la metrica premia boilerplate.
+  bertscore_f1     in=0.960 [0.957,0.962]  cross=0.935 [0.934,0.936]  p=7.1e-42  delta=+0.61
+  sbert_similarity in=0.800 [0.785,0.816]  cross=0.670 [0.663,0.678]  p=5.5e-37  delta=+0.58
+  rouge_l          in=0.503 [0.472,0.534]  cross=0.225 [0.215,0.234]  p=6.8e-47  delta=+0.65
+  bleu             in=0.317 [0.285,0.350]  cross=0.081 [0.074,0.088]  p=6.0e-39  delta=+0.59
+
+============ BOILERPLATE DILUTION (ROUGE-L, referencia vs referencia) ============
+full-text vs solo-diagnostico: si el gap cross no baja, la senal es un escalar (CDR).
+  full-text        in=0.503  cross=0.225  gap=+0.278
+  diagnostic-span  in=0.500  cross=0.250  gap=+0.251
+  CDR value alone: glaucoma mean=0.86 [0.70,0.95]  normal mean=0.40 [0.10,0.60]  ROC-AUC=1.000  (stated in 69% of refs)
+
+Wrote results/analysis_pipeline.json

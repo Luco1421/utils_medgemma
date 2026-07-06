@@ -14,8 +14,11 @@ from medgemma_utils.conditioning import (
 )
 from medgemma_utils.evaluation import (
     Evaluator,
+    cdr_class_separation,
+    diagnostic_span,
     finding_mentioned,
     paired_comparisons_to_baseline,
+    reference_cdr,
     rouge_l,
     sentence_bleu,
     summarize_by_condition,
@@ -171,6 +174,7 @@ class PipelineLoaderTests(unittest.TestCase):
         self.assertEqual(sample.prediction, "glaucoma")
         self.assertEqual(sample.expected_finding, "glaucoma")
         self.assertEqual(sample.reference, "expert reference")
+        # The pipeline overlay is the one delivered by the segmentation module.
         self.assertTrue(sample.overlay_image.endswith("0001_overlay.jpg"))
         self.assertTrue(sample.mask.endswith("0001_obj_0.png"))
         self.assertEqual(sample.source_data, "pipeline")
@@ -439,6 +443,38 @@ class LabelDrivenExperimentTests(unittest.TestCase):
             report["results"][0]["classification"],
             {"predicted": "glaucoma", "ground_truth": "glaucoma"},
         )
+
+
+class BoilerplateDilutionTests(unittest.TestCase):
+    def test_diagnostic_span_keeps_findings_drops_scaffold(self):
+        text = ("color fundus photography of a right eye, cup-to-disc ratio of "
+                "0.9, normal macula, diffuse thinning of the neuroretinal rim")
+        span = diagnostic_span(text)
+        # The graded findings survive; the bare anatomical scaffold is dropped.
+        self.assertIn("cup-to-disc ratio of 0.9", span)
+        self.assertIn("thinning of the neuroretinal rim", span)
+        self.assertNotIn("fundus photography", span)
+        self.assertNotIn("normal macula", span)
+
+    def test_diagnostic_span_does_not_split_decimals(self):
+        # The period in "0.6" must not break the clause.
+        self.assertIn("0.6", diagnostic_span("cup-to-disc ratio of 0.6"))
+
+    def test_reference_cdr_ratio_and_grade(self):
+        self.assertAlmostEqual(reference_cdr("cup-to-disc ratio of 0.8"), 0.8)
+        # A bare integer is read as an ordinal grade (2 -> 0.65).
+        self.assertAlmostEqual(reference_cdr("cup to disc ratio 2"), 0.65)
+        self.assertIsNone(reference_cdr("optic disc with preserved rim"))
+
+    def test_cdr_class_separation(self):
+        refs = ["cup-to-disc ratio of 0.9", "cup-to-disc ratio of 0.8",
+                "cup-to-disc ratio of 0.3", "cup-to-disc ratio of 0.4"]
+        labels = ["glaucoma", "glaucoma", "normal", "normal"]
+        sep = cdr_class_separation(refs, labels)
+        self.assertEqual(sep["glaucoma"]["n"], 2)
+        self.assertEqual(sep["normal"]["n"], 2)
+        self.assertGreater(sep["glaucoma"]["mean"], sep["normal"]["mean"])
+        self.assertEqual(sep["roc_auc"], 1.0)  # perfectly separable
 
 
 if __name__ == "__main__":

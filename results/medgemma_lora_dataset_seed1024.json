@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-03T04:53:02.863390+00:00",
+  "timestamp": "2026-07-05T21:13:05.782567+00:00",
   "model_name": "google/medgemma-1.5-4b-it",
   "adapter_path": "checkpoints/lora/seed1024",
   "seed": 42,
@@ -15,24 +15,24 @@
     }
   },
   "runtime": {
-    "started_at": "2026-07-03T04:50:03.780100+00:00",
-    "finished_at": "2026-07-03T04:53:02.863402+00:00",
-    "duration_seconds": 179.083,
-    "duration": "2m 59s",
+    "started_at": "2026-07-05T21:09:58.583382+00:00",
+    "finished_at": "2026-07-05T21:13:05.782583+00:00",
+    "duration_seconds": 187.199,
+    "duration": "3m 07s",
     "stages": [
       {
         "label": "Model and evaluator load",
-        "started_at": "2026-07-03T04:50:06.908835+00:00",
-        "finished_at": "2026-07-03T04:50:30.018645+00:00",
-        "duration_seconds": 23.11,
-        "duration": "23s"
+        "started_at": "2026-07-05T21:10:01.804920+00:00",
+        "finished_at": "2026-07-05T21:10:27.520367+00:00",
+        "duration_seconds": 25.715,
+        "duration": "26s"
       },
       {
         "label": "Conditioned generation and evaluation",
-        "started_at": "2026-07-03T04:50:30.018799+00:00",
-        "finished_at": "2026-07-03T04:53:02.863119+00:00",
-        "duration_seconds": 152.844,
-        "duration": "2m 33s"
+        "started_at": "2026-07-05T21:10:27.520527+00:00",
+        "finished_at": "2026-07-05T21:13:05.782318+00:00",
+        "duration_seconds": 158.262,
+        "duration": "2m 38s"
       }
     ]
   },
@@ -56,34 +56,34 @@
   "summary_by_condition": {
     "with_overlay_glaucoma": {
       "count": 14,
-      "bertscore_f1_mean": 0.936791296516146,
-      "bertscore_f1_std": 0.008394936699693368,
-      "bertscore_calibrated_mean": -0.05581722498339202,
-      "bertscore_calibrated_std": 0.20428175528756584,
-      "sbert_similarity_mean": 0.7400293775967189,
-      "sbert_similarity_std": 0.06681476609841683,
-      "sbert_calibrated_mean": 0.0012511360858167922,
-      "sbert_calibrated_std": 0.330836981520155,
-      "rouge_l_mean": 0.2922872315504425,
-      "rouge_l_std": 0.06959762918768525,
-      "bleu_mean": 0.07026151833045219,
-      "bleu_std": 0.049797117760532424,
+      "bertscore_f1_mean": 0.9376165611403329,
+      "bertscore_f1_std": 0.008724751512657418,
+      "bertscore_calibrated_mean": -0.05173202527553907,
+      "bertscore_calibrated_std": 0.2016679867590031,
+      "sbert_similarity_mean": 0.7406474139009204,
+      "sbert_similarity_std": 0.06565142987266324,
+      "sbert_calibrated_mean": -0.0007137263725910868,
+      "sbert_calibrated_std": 0.3244650721593976,
+      "rouge_l_mean": 0.2981272225092644,
+      "rouge_l_std": 0.07175199864365592,
+      "bleu_mean": 0.07216994647062204,
+      "bleu_std": 0.050272804061685716,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.009325079865508012,
-      "delta_bertscore_calibrated_vs_baseline": -0.17310215464977363,
-      "delta_sbert_similarity_vs_baseline": -0.029269822351225105,
-      "delta_sbert_calibrated_vs_baseline": -0.08199701509387283,
-      "delta_rouge_l_vs_baseline": -0.10944542510152488,
-      "delta_bleu_vs_baseline": -0.15059560701190866,
+      "delta_bertscore_f1_vs_baseline": -0.00849981294883484,
+      "delta_bertscore_calibrated_vs_baseline": -0.16901691195780186,
+      "delta_sbert_similarity_vs_baseline": -0.028651786047023675,
+      "delta_sbert_calibrated_vs_baseline": -0.08396187755228071,
+      "delta_rouge_l_vs_baseline": -0.10360543414270301,
+      "delta_bleu_vs_baseline": -0.14868717887173882,
       "delta_finding_mentioned_vs_baseline": 0.2692307692307693
     },
     "without_overlay_glaucoma": {
       "count": 14,
-      "bertscore_f1_mean": 0.9452001537595477,
-      "bertscore_f1_std": 0.010440347022084077,
-      "bertscore_calibrated_mean": -0.057048787495919635,
-      "bertscore_calibrated_std": 0.24823715878089664,
+      "bertscore_f1_mean": 0.9452001580170223,
+      "bertscore_f1_std": 0.01044035828604515,
+      "bertscore_calibrated_mean": -0.05704864526965788,
+      "bertscore_calibrated_std": 0.24823726344957125,
       "sbert_similarity_mean": 0.770312317780086,
       "sbert_similarity_std": 0.07397878759278143,
       "sbert_calibrated_mean": -0.02695184028042214,
@@ -94,8 +94,8 @@
       "bleu_std": 0.06338700175632593,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.000916222622106333,
-      "delta_bertscore_calibrated_vs_baseline": -0.17433371716230125,
+      "delta_bertscore_f1_vs_baseline": -0.000916216072145426,
+      "delta_bertscore_calibrated_vs_baseline": -0.17433353195192067,
       "delta_sbert_similarity_vs_baseline": 0.0010131178321419743,
       "delta_sbert_calibrated_vs_baseline": -0.11019999146011178,
       "delta_rouge_l_vs_baseline": -0.06864491523919586,
@@ -118,8 +118,8 @@
       "bleu_std": 0.32634019617994386,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": 0.01720655117279446,
-      "delta_bertscore_calibrated_vs_baseline": 0.26085860253526616,
+      "delta_bertscore_f1_vs_baseline": 0.01720655346528077,
+      "delta_bertscore_calibrated_vs_baseline": 0.260858645519385,
       "delta_sbert_similarity_vs_baseline": 0.07170540017959404,
       "delta_sbert_calibrated_vs_baseline": 0.29255797339077944,
       "delta_rouge_l_vs_baseline": 0.2670169017033765,
@@ -128,34 +128,34 @@
     },
     "with_overlay": {
       "count": 14,
-      "bertscore_f1_mean": 0.9303243798868996,
-      "bertscore_f1_std": 0.008001619118991027,
-      "bertscore_calibrated_mean": -0.08058334687458617,
-      "bertscore_calibrated_std": 0.15196670707997073,
-      "sbert_similarity_mean": 0.7014529364449638,
-      "sbert_similarity_std": 0.06760273711700963,
-      "sbert_calibrated_mean": -0.11963025374071938,
-      "sbert_calibrated_std": 0.24875967695796558,
-      "rouge_l_mean": 0.24055415051920412,
-      "rouge_l_std": 0.08466389170656115,
-      "bleu_mean": 0.061370659123114436,
-      "bleu_std": 0.0427215306207304,
+      "bertscore_f1_mean": 0.9286425071103233,
+      "bertscore_f1_std": 0.006172978763670031,
+      "bertscore_calibrated_mean": -0.10159856483473309,
+      "bertscore_calibrated_std": 0.1484111246216247,
+      "sbert_similarity_mean": 0.690262245280402,
+      "sbert_similarity_std": 0.059229959761394134,
+      "sbert_calibrated_mean": -0.16747592017054558,
+      "sbert_calibrated_std": 0.2598002732688221,
+      "rouge_l_mean": 0.23036449622609398,
+      "rouge_l_std": 0.06915867588282258,
+      "bleu_mean": 0.05559544150883811,
+      "bleu_std": 0.03674529665807631,
       "finding_mentioned_mean": 1.0,
       "finding_mentioned_std": 0.0,
-      "delta_bertscore_f1_vs_baseline": -0.01579199649475438,
-      "delta_bertscore_calibrated_vs_baseline": -0.19786827654096778,
-      "delta_sbert_similarity_vs_baseline": -0.06784626350298029,
-      "delta_sbert_calibrated_vs_baseline": -0.202878404920409,
-      "delta_rouge_l_vs_baseline": -0.16117850613276327,
-      "delta_bleu_vs_baseline": -0.15948646621924642,
+      "delta_bertscore_f1_vs_baseline": -0.017473866978844455,
+      "delta_bertscore_calibrated_vs_baseline": -0.2188834515169959,
+      "delta_sbert_similarity_vs_baseline": -0.07903695466754201,
+      "delta_sbert_calibrated_vs_baseline": -0.2507240713502352,
+      "delta_rouge_l_vs_baseline": -0.1713681604258734,
+      "delta_bleu_vs_baseline": -0.16526168383352274,
       "delta_finding_mentioned_vs_baseline": 0.2692307692307693
     },
     "without_overlay": {
       "count": 26,
-      "bertscore_f1_mean": 0.946116376381654,
-      "bertscore_f1_std": 0.01993517127863561,
-      "bertscore_calibrated_mean": 0.11728492966638161,
-      "bertscore_calibrated_std": 0.3434270749830656,
+      "bertscore_f1_mean": 0.9461163740891677,
+      "bertscore_f1_std": 0.01993517208671174,
+      "bertscore_calibrated_mean": 0.11728488668226279,
+      "bertscore_calibrated_std": 0.34342710644105817,
       "sbert_similarity_mean": 0.769299199947944,
       "sbert_similarity_std": 0.109031412352832,
       "sbert_calibrated_mean": 0.08324815117968963,
@@ -172,58 +172,58 @@
     "with_overlay_glaucoma": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": -0.0010508171149662562,
-        "median_delta": -0.0002529025077819824,
-        "improved_fraction": 0.42857142857142855,
-        "statistic": 39.0,
-        "p_value": 0.6496440323317323,
+        "mean_delta": -0.00022555249077933176,
+        "median_delta": 0.00227963924407959,
+        "improved_fraction": 0.5714285714285714,
+        "statistic": 50.0,
+        "p_value": 0.9031982421875,
         "significant": false,
-        "effect_size": 0.12140522651411394,
-        "p_value_holm": 0.6496440323317323,
+        "effect_size": 0.03250489642433217,
+        "p_value_holm": 0.9031982421875,
         "significant_holm": false
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.0034373994317970107,
+        "mean_delta": 0.0006478061300835439,
         "median_delta": 0.044033746933564544,
         "improved_fraction": 0.5714285714285714,
-        "statistic": 51.0,
-        "p_value": 0.9515380859375,
+        "statistic": 52.0,
+        "p_value": 1.0,
         "significant": false,
-        "effect_size": 0.01624290757803191,
+        "effect_size": 0.0,
         "p_value_holm": 1.0,
         "significant_holm": false
       },
       "sbert_similarity": {
         "paired_count": 14,
-        "mean_delta": 0.0016611559050423758,
-        "median_delta": -0.0025960803031921387,
-        "improved_fraction": 0.42857142857142855,
-        "statistic": 45.0,
-        "p_value": 0.972125329731665,
+        "mean_delta": 0.0022791922092437744,
+        "median_delta": -0.0010661482810974121,
+        "improved_fraction": 0.5,
+        "statistic": 52.0,
+        "p_value": 1.0,
         "significant": false,
-        "effect_size": 0.009338863578008767,
-        "p_value_holm": 0.972125329731665,
+        "effect_size": 0.0,
+        "p_value_holm": 1.0,
         "significant_holm": false
       },
       "sbert_calibrated": {
         "paired_count": 14,
-        "mean_delta": 0.0930983064962285,
-        "median_delta": 0.0755765251815319,
+        "mean_delta": 0.09113344403782062,
+        "median_delta": 0.058489724062383175,
         "improved_fraction": 0.5,
-        "statistic": 31.0,
-        "p_value": 0.1937255859375,
+        "statistic": 33.0,
+        "p_value": 0.2412109375,
         "significant": false,
-        "effect_size": 0.3473424631840039,
-        "p_value_holm": 0.6123046875,
+        "effect_size": 0.3132209351646107,
+        "p_value_holm": 0.7236328125,
         "significant_holm": false
       }
     },
     "without_overlay_glaucoma": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": 0.007358040128435407,
-        "median_delta": 0.006077468395233154,
+        "mean_delta": 0.007358044385910034,
+        "median_delta": 0.006077438592910767,
         "improved_fraction": 0.5714285714285714,
         "statistic": 1.0,
         "p_value": 0.010862224704815628,
@@ -234,8 +234,8 @@
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.00466896194432463,
-        "median_delta": -0.01679816097021103,
+        "mean_delta": -0.004668813864035266,
+        "median_delta": -0.0167975053191185,
         "improved_fraction": 0.42857142857142855,
         "statistic": 52.0,
         "p_value": 1.0,
@@ -273,7 +273,7 @@
     "without_overlay_normal": {
       "bertscore_f1": {
         "paired_count": 12,
-        "mean_delta": 0.0075532446304957075,
+        "mean_delta": 0.0075532495975494385,
         "median_delta": 0.0014188885688781738,
         "improved_fraction": 0.9166666666666666,
         "statistic": 4.0,
@@ -285,7 +285,7 @@
       },
       "bertscore_calibrated": {
         "paired_count": 12,
-        "mean_delta": 0.06291638811429341,
+        "mean_delta": 0.062916474416852,
         "median_delta": 0.019505321979522705,
         "improved_fraction": 0.5833333333333334,
         "statistic": 30.0,
@@ -304,7 +304,7 @@
         "p_value": 0.0048828125,
         "significant": true,
         "effect_size": 0.8125237585687685,
-        "p_value_holm": 0.01953125,
+        "p_value_holm": 0.01854754694475777,
         "significant_holm": true
       },
       "sbert_calibrated": {
@@ -316,57 +316,57 @@
         "p_value": 0.33935546875,
         "significant": false,
         "effect_size": 0.2758116365200946,
-        "p_value_holm": 0.6787109375,
+        "p_value_holm": 0.7236328125,
         "significant_holm": false
       }
     },
     "with_overlay": {
       "bertscore_f1": {
         "paired_count": 14,
-        "mean_delta": -0.007517733744212559,
-        "median_delta": -0.005416125059127808,
+        "mean_delta": -0.00919960652078901,
+        "median_delta": -0.005132734775543213,
         "improved_fraction": 0.2857142857142857,
-        "statistic": 23.0,
-        "p_value": 0.067626953125,
-        "significant": false,
-        "effect_size": 0.48841577969313105,
-        "p_value_holm": 0.13525390625,
+        "statistic": 14.0,
+        "p_value": 0.027660332975047608,
+        "significant": true,
+        "effect_size": 0.5885280812182261,
+        "p_value_holm": 0.055320665950095216,
         "significant_holm": false
       },
       "bertscore_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.028203521322991167,
-        "median_delta": -0.036464391741901636,
-        "improved_fraction": 0.42857142857142855,
-        "statistic": 50.0,
-        "p_value": 0.9031982421875,
+        "mean_delta": -0.04921873342911048,
+        "median_delta": 0.006396960467100143,
+        "improved_fraction": 0.5,
+        "statistic": 43.0,
+        "p_value": 0.5830078125,
         "significant": false,
-        "effect_size": 0.03250489642433217,
+        "effect_size": 0.14672550168309165,
         "p_value_holm": 1.0,
         "significant_holm": false
       },
       "sbert_similarity": {
         "paired_count": 14,
-        "mean_delta": -0.03691528524671282,
-        "median_delta": -0.014836728572845459,
-        "improved_fraction": 0.14285714285714285,
-        "statistic": 12.0,
-        "p_value": 0.008544921875,
+        "mean_delta": -0.0481059764112745,
+        "median_delta": -0.058432042598724365,
+        "improved_fraction": 0.07142857142857142,
+        "statistic": 5.0,
+        "p_value": 0.0046368867361894425,
         "significant": true,
-        "effect_size": 0.7028286139711355,
-        "p_value_holm": 0.025634765625,
+        "effect_size": 0.7566789615662907,
+        "p_value_holm": 0.01854754694475777,
         "significant_holm": true
       },
       "sbert_calibrated": {
         "paired_count": 14,
-        "mean_delta": -0.027783083330307688,
-        "median_delta": 0.07182136178016663,
-        "improved_fraction": 0.6428571428571429,
-        "statistic": 52.0,
-        "p_value": 1.0,
+        "mean_delta": -0.07562874976013388,
+        "median_delta": 0.05155900865793228,
+        "improved_fraction": 0.5714285714285714,
+        "statistic": 50.0,
+        "p_value": 0.9031982421875,
         "significant": false,
-        "effect_size": 0.0,
-        "p_value_holm": 1.0,
+        "effect_size": 0.03250489642433217,
+        "p_value_holm": 0.9031982421875,
         "significant_holm": false
       }
     }
@@ -377,22 +377,22 @@
     "cross_category_pairs": 336,
     "bertscore_f1": {
       "in_category": {
-        "mean": 0.9598027277903952,
-        "std": 0.024638762288538094,
-        "ci_lower": 0.9571400566275712,
-        "ci_upper": 0.9625350481528006,
+        "mean": 0.9598027232346261,
+        "std": 0.02463876593424347,
+        "ci_lower": 0.9571400533009107,
+        "ci_upper": 0.9625350432411122,
         "n": 314
       },
       "cross_category": {
-        "mean": 0.9353257057567438,
-        "std": 0.009583970508943435,
-        "ci_lower": 0.9343214296469732,
-        "ci_upper": 0.936355870279173,
+        "mean": 0.9353257027410325,
+        "std": 0.009583970684701484,
+        "ci_lower": 0.934321427580324,
+        "ci_upper": 0.9363558641989671,
         "n": 336
       },
       "mann_whitney": {
         "u_statistic": 85188.0,
-        "p_value": 7.122276053667272e-42,
+        "p_value": 7.122290432365537e-42,
         "cliffs_delta": 0.614877161055505
       }
     },
@@ -458,6 +458,203 @@
         "p_value": 5.985503157217132e-39,
         "cliffs_delta": 0.5919301637852594
       }
+    }
+  },
+  "boilerplate_dilution": {
+    "full": {
+      "pair_count": 650,
+      "in_category_pairs": 314,
+      "cross_category_pairs": 336,
+      "bertscore_f1": {
+        "in_category": {
+          "mean": 0.9598027232346261,
+          "std": 0.02463876593424347,
+          "ci_lower": 0.9571400533009107,
+          "ci_upper": 0.9625350432411122,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.9353257027410325,
+          "std": 0.009583970684701484,
+          "ci_lower": 0.934321427580324,
+          "ci_upper": 0.9363558641989671,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 85188.0,
+          "p_value": 7.122290432365537e-42,
+          "cliffs_delta": 0.614877161055505
+        }
+      },
+      "sbert_similarity": {
+        "in_category": {
+          "mean": 0.8004576635968154,
+          "std": 0.13695852589214372,
+          "ci_lower": 0.7854143445943571,
+          "ci_upper": 0.8156769669407113,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.6703649814284983,
+          "std": 0.07351680812969444,
+          "ci_lower": 0.6621254944042968,
+          "ci_upper": 0.6781931066774719,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 83148.0,
+          "p_value": 5.5416530750380375e-37,
+          "cliffs_delta": 0.5762056414922656
+        }
+      },
+      "rouge_l": {
+        "in_category": {
+          "mean": 0.5029006782653566,
+          "std": 0.28119360524251774,
+          "ci_lower": 0.47287618622677946,
+          "ci_upper": 0.5343413753966137,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.22470227467946557,
+          "std": 0.08880674725850089,
+          "ci_lower": 0.21512057066086654,
+          "ci_upper": 0.23438252508161989,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 87150.0,
+          "p_value": 6.756406404169194e-47,
+          "cliffs_delta": 0.6520700636942676
+        }
+      },
+      "bleu": {
+        "in_category": {
+          "mean": 0.31684810827135795,
+          "std": 0.29101277744855036,
+          "ci_lower": 0.2846778385280786,
+          "ci_upper": 0.34993689572594616,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.08113016086826577,
+          "std": 0.06366045084752997,
+          "ci_lower": 0.07426383794561423,
+          "ci_upper": 0.08796975526518165,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 83977.5,
+          "p_value": 5.985503157217132e-39,
+          "cliffs_delta": 0.5919301637852594
+        }
+      }
+    },
+    "diagnostic_span": {
+      "pair_count": 650,
+      "in_category_pairs": 314,
+      "cross_category_pairs": 336,
+      "bertscore_f1": {
+        "in_category": {
+          "mean": 0.9512613096814246,
+          "std": 0.03117617914527586,
+          "ci_lower": 0.9479196916055528,
+          "ci_upper": 0.954745077294339,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.9261874881173883,
+          "std": 0.020141948057861802,
+          "ci_lower": 0.9240027009598202,
+          "ci_upper": 0.9283022003957913,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 77980.0,
+          "p_value": 5.358716484357714e-26,
+          "cliffs_delta": 0.4782377919320595
+        }
+      },
+      "sbert_similarity": {
+        "in_category": {
+          "mean": 0.6681041514417928,
+          "std": 0.22909785204166605,
+          "ci_lower": 0.6426394294247411,
+          "ci_upper": 0.6932914091677517,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.48385817535398973,
+          "std": 0.1580127922394821,
+          "ci_lower": 0.46696494484896817,
+          "ci_upper": 0.5002602047375625,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 78380.0,
+          "p_value": 8.93096038191431e-27,
+          "cliffs_delta": 0.48582044282681225
+        }
+      },
+      "rouge_l": {
+        "in_category": {
+          "mean": 0.5001945236751267,
+          "std": 0.28772418959821056,
+          "ci_lower": 0.4689860239620758,
+          "ci_upper": 0.5320593689649382,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.24957951072271906,
+          "std": 0.13932502713109438,
+          "ci_lower": 0.23433517785793068,
+          "ci_upper": 0.2645294358272191,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 81424.0,
+          "p_value": 3.8185314943012485e-33,
+          "cliffs_delta": 0.5435244161358812
+        }
+      },
+      "bleu": {
+        "in_category": {
+          "mean": 0.28025165304432864,
+          "std": 0.2747826186195148,
+          "ci_lower": 0.24998343260758937,
+          "ci_upper": 0.3114479490647737,
+          "n": 314
+        },
+        "cross_category": {
+          "mean": 0.06850378800330267,
+          "std": 0.07847917342365048,
+          "ci_lower": 0.06027581970386032,
+          "ci_upper": 0.07728056404112423,
+          "n": 336
+        },
+        "mann_whitney": {
+          "u_statistic": 79328.0,
+          "p_value": 1.1156170154315281e-28,
+          "cliffs_delta": 0.5037913254473765
+        }
+      }
+    },
+    "span_retained_char_fraction": 0.6108402671247322,
+    "cdr_class_separation": {
+      "stated_fraction": 0.6923076923076923,
+      "glaucoma": {
+        "n": 8,
+        "mean": 0.8562500000000001,
+        "min": 0.7,
+        "max": 0.95
+      },
+      "normal": {
+        "n": 10,
+        "mean": 0.4,
+        "min": 0.1,
+        "max": 0.6
+      },
+      "roc_auc": 1.0
     }
   },
   "results": [
@@ -560,7 +757,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9045590758323669,
-        "bertscore_recall": 0.9246587157249451,
+        "bertscore_recall": 0.9246587753295898,
         "bertscore_f1": 0.9144984483718872,
         "bertscore_random_baseline": 0.934147834777832,
         "bertscore_calibrated": -0.2983863353729248,
@@ -747,7 +944,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, neuroretinal rim of 1, drance hemorrhage of 1, peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 1, vessel changes of 2<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, neuroretinal rim of 1, drance hemorrhage of 1, beta-zone ppa of 1, wedge-shaped defect of 1, optic disc pallor of 1, vessel changes of 1<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, bayoneting of vessels and nasalization of them",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -755,16 +952,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.930750846862793,
-        "bertscore_recall": 0.9403590559959412,
-        "bertscore_f1": 0.9355302453041077,
-        "bertscore_random_baseline": 0.9352861642837524,
-        "bertscore_calibrated": 0.003771697636693716,
-        "sbert_similarity": 0.7295011281967163,
-        "sbert_random_baseline": 0.7637463808059692,
-        "sbert_calibrated": -0.1449512243270874,
-        "rouge_l": 0.30303030303030304,
-        "bleu": 0.07382955819018527,
+        "bertscore_precision": 0.9274811744689941,
+        "bertscore_recall": 0.9411013126373291,
+        "bertscore_f1": 0.9342415928840637,
+        "bertscore_random_baseline": 0.9326032400131226,
+        "bertscore_calibrated": 0.024309074506163597,
+        "sbert_similarity": 0.7409354448318481,
+        "sbert_random_baseline": 0.7655972838401794,
+        "sbert_calibrated": -0.10521140694618225,
+        "rouge_l": 0.2985074626865672,
+        "bleu": 0.07209117403380154,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -859,7 +1056,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal color, no vascular abnormalities<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, neuroretinal rim of 1, drance hemorrhage of 1, peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 1, vessel changes of 2<end_of_turn>",
       "reference_text": "This image has low light, the nerve can be visualized and the cup to disc ratio is 0.7,  there is nasalization of vessels and peripapillary atrophy",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -867,16 +1064,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9221954345703125,
-        "bertscore_recall": 0.9250955581665039,
-        "bertscore_f1": 0.9236432313919067,
-        "bertscore_random_baseline": 0.9320927858352661,
-        "bertscore_calibrated": -0.12442793697118759,
-        "sbert_similarity": 0.6184347867965698,
-        "sbert_random_baseline": 0.6884514689445496,
-        "sbert_calibrated": -0.22473764419555664,
-        "rouge_l": 0.24489795918367346,
-        "bleu": 0.09533797887026658,
+        "bertscore_precision": 0.918190062046051,
+        "bertscore_recall": 0.9266773462295532,
+        "bertscore_f1": 0.9224141240119934,
+        "bertscore_random_baseline": 0.9329312443733215,
+        "bertscore_calibrated": -0.15681102871894836,
+        "sbert_similarity": 0.6421787142753601,
+        "sbert_random_baseline": 0.7108686566352844,
+        "sbert_calibrated": -0.23757348954677582,
+        "rouge_l": 0.22857142857142856,
+        "bleu": 0.06817962292565545,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1010,8 +1207,8 @@
         "bertscore_precision": 0.9406827688217163,
         "bertscore_recall": 0.9538905620574951,
         "bertscore_f1": 0.9472406506538391,
-        "bertscore_random_baseline": 0.9507496953010559,
-        "bertscore_calibrated": -0.07124919444322586,
+        "bertscore_random_baseline": 0.9507495760917664,
+        "bertscore_calibrated": -0.07124660164117813,
         "sbert_similarity": 0.8139790892601013,
         "sbert_random_baseline": 0.8204010128974915,
         "sbert_calibrated": -0.03575701639056206,
@@ -1027,7 +1224,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, beta-zone peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 2, bayoneting of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, neuroretinal rim of 3, drance hemorrhage of 1, beta-zone ppa of 2, wedge-shaped defect of 1, optic disc pallor of 1, vessel changes of 2<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, 360\u00b0 thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, beta peripapillary atrophy",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1035,16 +1232,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9260151386260986,
-        "bertscore_recall": 0.9422390460968018,
-        "bertscore_f1": 0.9340566396713257,
-        "bertscore_random_baseline": 0.939106822013855,
-        "bertscore_calibrated": -0.08293510973453522,
-        "sbert_similarity": 0.805572509765625,
-        "sbert_random_baseline": 0.7240452170372009,
-        "sbert_calibrated": 0.29543715715408325,
-        "rouge_l": 0.3235294117647059,
-        "bleu": 0.08474005677451944,
+        "bertscore_precision": 0.9226672649383545,
+        "bertscore_recall": 0.9311273694038391,
+        "bertscore_f1": 0.926878035068512,
+        "bertscore_random_baseline": 0.9370177984237671,
+        "bertscore_calibrated": -0.16099411249160767,
+        "sbert_similarity": 0.7592644095420837,
+        "sbert_random_baseline": 0.7346227169036865,
+        "sbert_calibrated": 0.09285531938076019,
+        "rouge_l": 0.2647058823529412,
+        "bleu": 0.07209117403380154,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1091,7 +1288,7 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9133189916610718,
+        "bertscore_precision": 0.913318932056427,
         "bertscore_recall": 0.9384909868240356,
         "bertscore_f1": 0.9257338643074036,
         "bertscore_random_baseline": 0.9368242025375366,
@@ -1120,10 +1317,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9196333885192871,
-        "bertscore_recall": 0.9439399242401123,
-        "bertscore_f1": 0.9316281080245972,
+        "bertscore_recall": 0.9439398646354675,
+        "bertscore_f1": 0.9316280484199524,
         "bertscore_random_baseline": 0.9529800415039062,
-        "bertscore_calibrated": -0.45410361886024475,
+        "bertscore_calibrated": -0.4541049003601074,
         "sbert_similarity": 0.6421506404876709,
         "sbert_random_baseline": 0.7718403339385986,
         "sbert_calibrated": -0.56841641664505,
@@ -1139,7 +1336,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal color, with no vascular abnormalities<end_of_turn>",
       "reference_text": "Optic disc with mild increased cupping, with slight thinning of the neuroretinal rim, without optic disc hemorrhages",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1147,16 +1344,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9107177257537842,
-        "bertscore_recall": 0.9281110167503357,
-        "bertscore_f1": 0.9193320870399475,
-        "bertscore_random_baseline": 0.9458001255989075,
-        "bertscore_calibrated": -0.4883413314819336,
-        "sbert_similarity": 0.6250513792037964,
-        "sbert_random_baseline": 0.7650717496871948,
-        "sbert_calibrated": -0.5960133075714111,
-        "rouge_l": 0.10256410256410256,
-        "bleu": 9.764540896763123e-08,
+        "bertscore_precision": 0.9136296510696411,
+        "bertscore_recall": 0.9326419234275818,
+        "bertscore_f1": 0.9230378866195679,
+        "bertscore_random_baseline": 0.9442300796508789,
+        "bertscore_calibrated": -0.3799932599067688,
+        "sbert_similarity": 0.608980119228363,
+        "sbert_random_baseline": 0.7480220198631287,
+        "sbert_calibrated": -0.5518018007278442,
+        "rouge_l": 0.15,
+        "bleu": 1.0686816557985476e-07,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1195,7 +1392,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay_glaucoma",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, optic disc with diffuse thinning, bayoneting and nasalization of vessels, and no visible defect<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, optic disc with diffuse thinning, bayoneting and nasalization of vessels, and no visible RNFL defect<end_of_turn>",
       "reference_text": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing a fundus photograph from a patient with glaucoma. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a glaucoma specialist. Your description should mention relevant findings if any exists.\n        After your description, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved: Inferior \u2265 Superior \u2265 Nasal \u2265 Temporal); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization   \n        Format your response in two parts: (1) the free-text clinical description, and (2) the structured classification with the selected option for each field.",
       "classification": {
@@ -1203,16 +1400,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.932054340839386,
-        "bertscore_recall": 0.9299008846282959,
-        "bertscore_f1": 0.930976390838623,
-        "bertscore_random_baseline": 0.9513405561447144,
-        "bertscore_calibrated": -0.41850385069847107,
-        "sbert_similarity": 0.8118029832839966,
-        "sbert_random_baseline": 0.7977193593978882,
-        "sbert_calibrated": 0.06962417811155319,
-        "rouge_l": 0.27272727272727276,
-        "bleu": 1.114022790420141e-05,
+        "bertscore_precision": 0.932256817817688,
+        "bertscore_recall": 0.9311928749084473,
+        "bertscore_f1": 0.9317245483398438,
+        "bertscore_random_baseline": 0.951633632183075,
+        "bertscore_calibrated": -0.4116307497024536,
+        "sbert_similarity": 0.8061679005622864,
+        "sbert_random_baseline": 0.8035439252853394,
+        "sbert_calibrated": 0.01335654966533184,
+        "rouge_l": 0.26865671641791045,
+        "bleu": 1.1355592118498508e-05,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1232,7 +1429,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.932256817817688,
-        "bertscore_recall": 0.931192934513092,
+        "bertscore_recall": 0.9311928749084473,
         "bertscore_f1": 0.9317245483398438,
         "bertscore_random_baseline": 0.9423017501831055,
         "bertscore_calibrated": -0.18331928551197052,
@@ -1251,7 +1448,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, neuroretinal rim of 1, drance hemorrhage of 1, peripapillary atrophy of 1, wedge-shaped defect of 1, optic disc pallor of 1, vessel changes of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, neuroretinal rim of 1, drance hemorrhage of 1, beta-zone ppa of 1, wedge-shaped defect of 1, optic disc pallor of 1, vessel changes of 1<end_of_turn>",
       "reference_text": "Clinical photograph of the left eye of poor quality; however, the optic nerve head is partially visible, showing advanced cupping (C/D ratio ~0.9), bayonetting of vessels, mild pallor, and a visible lamina cribrosa.",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1259,16 +1456,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9213771820068359,
-        "bertscore_recall": 0.9179604649543762,
-        "bertscore_f1": 0.9196656942367554,
-        "bertscore_random_baseline": 0.936718761920929,
-        "bertscore_calibrated": -0.2694806158542633,
-        "sbert_similarity": 0.7513678669929504,
-        "sbert_random_baseline": 0.7173401117324829,
-        "sbert_calibrated": 0.1203840970993042,
-        "rouge_l": 0.17948717948717952,
-        "bleu": 8.62622066469831e-06,
+        "bertscore_precision": 0.9205880761146545,
+        "bertscore_recall": 0.9204955101013184,
+        "bertscore_f1": 0.9205418229103088,
+        "bertscore_random_baseline": 0.9359952807426453,
+        "bertscore_calibrated": -0.24144247174263,
+        "sbert_similarity": 0.7562202215194702,
+        "sbert_random_baseline": 0.725304126739502,
+        "sbert_calibrated": 0.11254663020372391,
+        "rouge_l": 0.17721518987341772,
+        "bleu": 8.526478807971564e-06,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1315,11 +1512,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9247548580169678,
-        "bertscore_recall": 0.9466507434844971,
-        "bertscore_f1": 0.9355747103691101,
+        "bertscore_precision": 0.9247549176216125,
+        "bertscore_recall": 0.9466508030891418,
+        "bertscore_f1": 0.9355747699737549,
         "bertscore_random_baseline": 0.930444598197937,
-        "bertscore_calibrated": 0.07375577092170715,
+        "bertscore_calibrated": 0.0737566277384758,
         "sbert_similarity": 0.6603502035140991,
         "sbert_random_baseline": 0.7104483842849731,
         "sbert_calibrated": -0.17301985621452332,
@@ -1343,11 +1540,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9423960447311401,
-        "bertscore_recall": 0.9602060317993164,
-        "bertscore_f1": 0.9512176513671875,
+        "bertscore_precision": 0.9423961043357849,
+        "bertscore_recall": 0.9602060914039612,
+        "bertscore_f1": 0.9512177109718323,
         "bertscore_random_baseline": 0.9521461725234985,
-        "bertscore_calibrated": -0.019403278827667236,
+        "bertscore_calibrated": -0.0194020327180624,
         "sbert_similarity": 0.7927191257476807,
         "sbert_random_baseline": 0.8205817937850952,
         "sbert_calibrated": -0.1552945375442505,
@@ -1399,11 +1596,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9225353598594666,
+        "bertscore_precision": 0.9225353002548218,
         "bertscore_recall": 0.938825249671936,
-        "bertscore_f1": 0.9306090474128723,
+        "bertscore_f1": 0.9306089878082275,
         "bertscore_random_baseline": 0.9348589777946472,
-        "bertscore_calibrated": -0.06524199992418289,
+        "bertscore_calibrated": -0.06524290889501572,
         "sbert_similarity": 0.6529243588447571,
         "sbert_random_baseline": 0.7449465990066528,
         "sbert_calibrated": -0.3607959747314453,
@@ -1419,7 +1616,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay_glaucoma",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, neuroretinal rim of 1, drance hemorrhage of 1, beta-zone peripapillary atrophy of 2, wedge-shaped defect of 1, optic disc pallor of 1, bayoneting of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, neuroretinal rim of 1, no disc hemorrhage, beta-zone peripapillary atrophy, wedge-shaped defect, optic disc pallor of 1, bayoneting and nasalization of vessels<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.95, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization of vessels",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing a fundus photograph from a patient with glaucoma. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a glaucoma specialist. Your description should mention relevant findings if any exists.\n        After your description, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved: Inferior \u2265 Superior \u2265 Nasal \u2265 Temporal); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization   \n        Format your response in two parts: (1) the free-text clinical description, and (2) the structured classification with the selected option for each field.",
       "classification": {
@@ -1427,16 +1624,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9245086312294006,
-        "bertscore_recall": 0.9493995308876038,
-        "bertscore_f1": 0.9367887377738953,
-        "bertscore_random_baseline": 0.9375168085098267,
-        "bertscore_calibrated": -0.011652265675365925,
-        "sbert_similarity": 0.7018206119537354,
-        "sbert_random_baseline": 0.6813740730285645,
-        "sbert_calibrated": 0.06417098641395569,
-        "rouge_l": 0.28571428571428575,
-        "bleu": 0.07039372171487215,
+        "bertscore_precision": 0.9337278604507446,
+        "bertscore_recall": 0.9607919454574585,
+        "bertscore_f1": 0.947066605091095,
+        "bertscore_random_baseline": 0.9462124109268188,
+        "bertscore_calibrated": 0.015880879014730453,
+        "sbert_similarity": 0.7130483388900757,
+        "sbert_random_baseline": 0.6971750855445862,
+        "sbert_calibrated": 0.05241726338863373,
+        "rouge_l": 0.36666666666666664,
+        "bleu": 0.09709355995288857,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1568,10 +1765,10 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9188809990882874,
-        "bertscore_recall": 0.9597769975662231,
-        "bertscore_f1": 0.938883900642395,
+        "bertscore_recall": 0.9597769379615784,
+        "bertscore_f1": 0.9388838410377502,
         "bertscore_random_baseline": 0.9423240423202515,
-        "bertscore_calibrated": -0.05964602530002594,
+        "bertscore_calibrated": -0.05964706093072891,
         "sbert_similarity": 0.665093183517456,
         "sbert_random_baseline": 0.7535011768341064,
         "sbert_calibrated": -0.35865482687950134,
@@ -1643,7 +1840,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay_glaucoma",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, optic disc with diffuse thinning, bayoneting and nasalization of vessels, and no visible RNFL defect<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.8, optic disc with diffuse thinning, bayoneting and nasalization of vessels, and no visible defect<end_of_turn>",
       "reference_text": "Total cupping, mildly pale optic nerve, nasalization of vessels",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing a fundus photograph from a patient with glaucoma. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a glaucoma specialist. Your description should mention relevant findings if any exists.\n        After your description, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved: Inferior \u2265 Superior \u2265 Nasal \u2265 Temporal); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization   \n        Format your response in two parts: (1) the free-text clinical description, and (2) the structured classification with the selected option for each field.",
       "classification": {
@@ -1651,16 +1848,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9127111434936523,
-        "bertscore_recall": 0.9440868496894836,
-        "bertscore_f1": 0.9281339645385742,
-        "bertscore_random_baseline": 0.9467537999153137,
-        "bertscore_calibrated": -0.349693238735199,
-        "sbert_similarity": 0.633427619934082,
-        "sbert_random_baseline": 0.7801482081413269,
-        "sbert_calibrated": -0.667361319065094,
-        "rouge_l": 0.1951219512195122,
-        "bleu": 0.0007200526698549297,
+        "bertscore_precision": 0.9127296209335327,
+        "bertscore_recall": 0.9451595544815063,
+        "bertscore_f1": 0.928661584854126,
+        "bertscore_random_baseline": 0.9462370872497559,
+        "bertscore_calibrated": -0.32690754532814026,
+        "sbert_similarity": 0.6364874839782715,
+        "sbert_random_baseline": 0.7765541076660156,
+        "sbert_calibrated": -0.626848042011261,
+        "rouge_l": 0.19999999999999998,
+        "bleu": 0.0007379930300020351,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1680,7 +1877,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9127111434936523,
-        "bertscore_recall": 0.9440868496894836,
+        "bertscore_recall": 0.9440869092941284,
         "bertscore_f1": 0.9281339645385742,
         "bertscore_random_baseline": 0.9482039213180542,
         "bertscore_calibrated": -0.387480229139328,
@@ -1736,7 +1933,7 @@
       },
       "text_metrics": {
         "bertscore_precision": 0.9127111434936523,
-        "bertscore_recall": 0.9440868496894836,
+        "bertscore_recall": 0.9440869092941284,
         "bertscore_f1": 0.9281339645385742,
         "bertscore_random_baseline": 0.9490774869918823,
         "bertscore_calibrated": -0.41128218173980713,
@@ -1763,8 +1960,8 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9287197589874268,
-        "bertscore_recall": 0.9481484293937683,
+        "bertscore_precision": 0.9287198185920715,
+        "bertscore_recall": 0.9481483697891235,
         "bertscore_f1": 0.9383334517478943,
         "bertscore_random_baseline": 0.9437925219535828,
         "bertscore_calibrated": -0.09712355583906174,
@@ -1791,11 +1988,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9433059692382812,
+        "bertscore_precision": 0.943306028842926,
         "bertscore_recall": 0.9633700847625732,
-        "bertscore_f1": 0.95323246717453,
-        "bertscore_random_baseline": 0.9402731657028198,
-        "bertscore_calibrated": 0.21697619557380676,
+        "bertscore_f1": 0.9532325267791748,
+        "bertscore_random_baseline": 0.9402732849121094,
+        "bertscore_calibrated": 0.2169756293296814,
         "sbert_similarity": 0.8128292560577393,
         "sbert_random_baseline": 0.6821768879890442,
         "sbert_calibrated": 0.4110851585865021,
@@ -1811,7 +2008,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal color, bayoneting of vessels, no peripapillary atrophy, no optic disc pallor<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal color, no vascular abnormalities<end_of_turn>",
       "reference_text": "Cup-to-disc ratio 0.9, diffuse thinning of the neuroretinal rim, mildly pale optic nerve, nasalization and bayoneting of vessels, alpha and beta peripapillary atrophy",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1819,16 +2016,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.940508246421814,
-        "bertscore_recall": 0.9511619210243225,
-        "bertscore_f1": 0.9458050727844238,
-        "bertscore_random_baseline": 0.9462758898735046,
-        "bertscore_calibrated": -0.008763608522713184,
-        "sbert_similarity": 0.7936835289001465,
-        "sbert_random_baseline": 0.8236491084098816,
-        "sbert_calibrated": -0.1699202060699463,
-        "rouge_l": 0.3636363636363637,
-        "bleu": 0.13952118378975725,
+        "bertscore_precision": 0.928780198097229,
+        "bertscore_recall": 0.9247410893440247,
+        "bertscore_f1": 0.9267562627792358,
+        "bertscore_random_baseline": 0.9454360008239746,
+        "bertscore_calibrated": -0.3423454761505127,
+        "sbert_similarity": 0.6538561582565308,
+        "sbert_random_baseline": 0.7890524864196777,
+        "sbert_calibrated": -0.6409003138542175,
+        "rouge_l": 0.24999999999999994,
+        "bleu": 0.10369153329756328,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -1847,11 +2044,11 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9243727326393127,
+        "bertscore_precision": 0.9243727922439575,
         "bertscore_recall": 0.9365133047103882,
-        "bertscore_f1": 0.9304034113883972,
+        "bertscore_f1": 0.930403470993042,
         "bertscore_random_baseline": 0.9278977513313293,
-        "bertscore_calibrated": 0.03475148230791092,
+        "bertscore_calibrated": 0.03475230932235718,
         "sbert_similarity": 0.7455303072929382,
         "sbert_random_baseline": 0.6546169519424438,
         "sbert_calibrated": 0.263224720954895,
@@ -1923,7 +2120,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal color, with no vascular abnormalities<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.4, normal macula, no vascular abnormalities<end_of_turn>",
       "reference_text": "Optic nerve with a 0.8 cup-to-disc ratio, diffuse thinning of the neuroretinal rim, mild pallor of the optic disc, bayoneting and nasalization of the vessels.",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -1931,16 +2128,16 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9322001934051514,
-        "bertscore_recall": 0.9321689605712891,
-        "bertscore_f1": 0.9321845769882202,
-        "bertscore_random_baseline": 0.9374055862426758,
-        "bertscore_calibrated": -0.08341014385223389,
-        "sbert_similarity": 0.6952842473983765,
-        "sbert_random_baseline": 0.7417928576469421,
-        "sbert_calibrated": -0.1801213175058365,
-        "rouge_l": 0.27450980392156865,
-        "bleu": 0.10429800872777775,
+        "bertscore_precision": 0.9320042133331299,
+        "bertscore_recall": 0.9316271543502808,
+        "bertscore_f1": 0.9318156242370605,
+        "bertscore_random_baseline": 0.9375196695327759,
+        "bertscore_calibrated": -0.09129345417022705,
+        "sbert_similarity": 0.7015767097473145,
+        "sbert_random_baseline": 0.7572813630104065,
+        "sbert_calibrated": -0.22950299084186554,
+        "rouge_l": 0.28,
+        "bleu": 0.10082032598091607,
         "finding_mentioned": true,
         "likert_score": null
       }
@@ -2539,7 +2736,7 @@
       "model_variant": "medgemma_lora",
       "mask_source": "dataset_GT",
       "condition": "with_overlay",
-      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, neuroretinal rim of 1, drance hemorrhage of 1, beta-zone ppa of 1, wedge-shaped defect of 1, optic disc pallor of 1, vessel changes of 1<end_of_turn>",
+      "generated_text": "color fundus photography of a left eye, cup-to-disc ratio of 0.6, neuroretinal rim of 1, drance hemorrhage of 1, beta-zone ppa of 2, wedge-shaped defect of 1, optic disc pallor of 1, vessel changes of 2<end_of_turn>",
       "reference_text": "Total cupping, mildly pale optic nerve, near-total loss of the neuroretinal rim, nasalization of vessels",
       "prompt_used": "You are a senior ophthalmologist. You are analyzing an eye fundus photograph from a patient. In this image, the optic disc have been pre-segmented.\n        Provide a thorough clinical description of the image, using the terminology and style of a ophthalmologist specialist. Your description should mention relevant findings if any exists.\n        If the image is classified as glaucoma, provide a structured classification using exactly these fields and options:\n        Cup-to-Disc Ratio (CDR): 0 \u2013 \u22640.3 (normal); 1 \u2013 0.4\u20130.5 (borderline); 2 \u2013 0.6\u20130.7 (suspicious); 3 \u2013 0.8\u20130.9 (advanced cupping); 4 \u2013 1.0 (total cupping)\n        Neuroretinal Rim: 0 \u2013 Normal (ISNT rule preserved); 1 \u2013 ISNT rule violation; 2 \u2013 Focal notching; 3 \u2013 Diffuse thinning; 4 \u2013 Near-total or total rim loss\n        Disc Hemorrhage (Drance Hemorrhage): 0 \u2013 None; 1 \u2013 Present (splinter hemorrhage at or near disc margin)\n        Peripapillary Atrophy (PPA): 0 \u2013 None; 1 \u2013 Beta-zone PPA only; 2 \u2013 Large or progressive beta-zone PPA\n        Retinal Nerve Fiber Layer (RNFL) Defect: 0 \u2013 No visible defect; 1 \u2013 Wedge-shaped defect; 2 \u2013 Diffuse thinning; 3 \u2013 Both wedge defect and diffuse thinning\n        Optic Disc Pallor: 0 \u2013 Normal color; 1 \u2013 Mild pallor; 2 \u2013 Significant pallor (consider other optic neuropathies)\n        Vessel Changes: 0 \u2013 Normal vessel pattern; 1 \u2013 Bayoneting (vessels deflect at rim edge); 2 \u2013 Nasalization of vessels; 3 \u2013 Both bayoneting and nasalization         \n        Format your response in two parts: (1) the free-text clinical description, and (2, if the image is classified as glaucoma) the structured classification with the selected option for each field.",
       "classification": {
@@ -2547,14 +2744,14 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9141743183135986,
-        "bertscore_recall": 0.9318610429763794,
-        "bertscore_f1": 0.9229329228401184,
-        "bertscore_random_baseline": 0.9306160807609558,
-        "bertscore_calibrated": -0.1107339859008789,
-        "sbert_similarity": 0.6711378693580627,
-        "sbert_random_baseline": 0.724611759185791,
-        "sbert_calibrated": -0.19417637586593628,
+        "bertscore_precision": 0.9156514406204224,
+        "bertscore_recall": 0.9323370456695557,
+        "bertscore_f1": 0.9239189028739929,
+        "bertscore_random_baseline": 0.9314562082290649,
+        "bertscore_calibrated": -0.10996335744857788,
+        "sbert_similarity": 0.6703518629074097,
+        "sbert_random_baseline": 0.726285457611084,
+        "sbert_calibrated": -0.20435009896755219,
         "rouge_l": 0.13333333333333333,
         "bleu": 7.16988546436005e-06,
         "finding_mentioned": true,
@@ -2575,8 +2772,8 @@
         "ground_truth": "glaucoma"
       },
       "text_metrics": {
-        "bertscore_precision": 0.9141951203346252,
-        "bertscore_recall": 0.9318636655807495,
+        "bertscore_precision": 0.9141950607299805,
+        "bertscore_recall": 0.9318637251853943,
         "bertscore_f1": 0.9229448437690735,
         "bertscore_random_baseline": 0.9276148080825806,
         "bertscore_calibrated": -0.06451546400785446,

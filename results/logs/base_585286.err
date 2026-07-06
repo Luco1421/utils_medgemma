@@ -1,0 +1,7 @@
+INFO: Evaluation: mode=dataset_oracle samples=26 {'total': 26, 'glaucoma': 14, 'normal': 12}
+INFO: Model and evaluator load started at 2026-07-05T20:37:08.303917+00:00
+INFO: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:27<00:27, 27.80s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:47<00:00, 23.12s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:47<00:00, 23.83s/it]
+INFO: Model and evaluator load finished at 2026-07-05T20:42:24.706537+00:00 in 5m 16s
+INFO: Conditioned generation and evaluation started at 2026-07-05T20:42:24.706828+00:00
+slurmstepd: error: *** JOB 585286 ON nukwa-09.cnca CANCELLED AT 2026-07-05T14:49:00 ***

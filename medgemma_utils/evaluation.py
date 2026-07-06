@@ -145,6 +145,101 @@ def sentence_bleu(generated: str, reference: str, max_n: int = 4) -> float:
     return float(brevity * math.exp(log_precision))
 
 
+# Cup-to-disc value, the single scalar that carries most of the glaucoma
+# diagnosis in these reports (a shared phrase whose *number* differs by class).
+_CDR_VALUE_RE = re.compile(
+    r"cup[- ]to[- ]disc(?:\s+ratio)?(?:\s*\(cdr\))?\s*"
+    r"(?:of|is|:|=|approximately|~)?\s*(\d(?:\.\d+)?)",
+    re.IGNORECASE,
+)
+# Clauses that carry graded diagnostic content rather than shared anatomy.
+_DIAGNOSTIC_MARKERS = (
+    _CDR_VALUE_RE,
+    re.compile(r"\bcupping\b", re.IGNORECASE),
+    re.compile(r"\bbayonet\w*", re.IGNORECASE),
+    re.compile(r"\bnasalization\b", re.IGNORECASE),
+    re.compile(r"\bdisc hemorrhage\b", re.IGNORECASE),
+    re.compile(r"\b(?:rnfl|retinal nerve fiber layer)\b", re.IGNORECASE),
+    re.compile(r"\brim\b[^,.;]*\b(?:thinning|notch\w*|loss)\b", re.IGNORECASE),
+    re.compile(r"\b(?:thinning|notch\w*|loss)\b[^,.;]*\brim\b", re.IGNORECASE),
+    re.compile(r"\bpallor\b", re.IGNORECASE),
+    re.compile(r"\bperipapillary atroph\w*", re.IGNORECASE),
+    re.compile(r"\bISNT\b", re.IGNORECASE),
+    re.compile(r"\bpreserved (?:neuroretinal )?rim\b", re.IGNORECASE),
+    re.compile(r"\bno (?:vascular )?abnormalit\w*", re.IGNORECASE),
+    re.compile(r"\bno signs? of glaucoma\b", re.IGNORECASE),
+    re.compile(r"\bwithout glaucomatous\b", re.IGNORECASE),
+    re.compile(r"\bglaucom\w*", re.IGNORECASE),
+)
+# Split on comma/semicolon/newline, and on a period only when it is not a
+# decimal point, so a value such as "0.6" is never broken across clauses.
+_CLAUSE_SPLIT = re.compile(r"(?<!\d)\.(?!\d)|[,;\n]")
+
+_CDR_GRADE_TO_RATIO = {0: 0.2, 1: 0.45, 2: 0.65, 3: 0.85, 4: 1.0}
+
+
+def diagnostic_span(text: str) -> str:
+    """Return the diagnostic clauses of a report, dropping the shared template.
+
+    Each report is split into clauses; a clause is kept only if it states a
+    cup-to-disc value or an explicit finding (rim thinning, RNFL defect,
+    bayoneting, an ``ISNT``/normal statement, etc.). The anatomical scaffold
+    present in every report -- bare mentions of the disc, macula or vessels --
+    is discarded. Restricting a similarity metric to this span isolates how much
+    of its score reflects clinical content rather than report structure.
+    """
+
+    clauses = [c.strip() for c in _CLAUSE_SPLIT.split(text) if c.strip()]
+    kept = [c for c in clauses if any(p.search(c) for p in _DIAGNOSTIC_MARKERS)]
+    return ", ".join(kept)
+
+
+def reference_cdr(text: str) -> float | None:
+    """Cup-to-disc value stated in a report, normalized to a 0--1 ratio; integer
+    grades 0--4 are mapped to their schema ratios. ``None`` if none is stated."""
+
+    match = _CDR_VALUE_RE.search(text)
+    if not match:
+        return None
+    raw = match.group(1)
+    value = float(raw)
+    if "." in raw:
+        return value
+    return _CDR_GRADE_TO_RATIO.get(int(value)) if value <= 4 else None
+
+
+def cdr_class_separation(references: Sequence[str], labels: Sequence[str]) -> dict[str, Any]:
+    """How well the stated cup-to-disc value alone separates the two classes.
+
+    Reports the per-class value distribution and the rank-based separability
+    (the probability that a random glaucoma report states a higher value than a
+    random normal one -- equivalently the ROC AUC of the scalar), evidence that
+    the diagnostic signal these similarity metrics ignore is a single number.
+    """
+
+    values = [(reference_cdr(t), l) for t, l in zip(references, labels)]
+    per_class: dict[str, list[float]] = {"glaucoma": [], "normal": []}
+    for value, label in values:
+        if value is not None and label in per_class:
+            per_class[label].append(value)
+    g, n = per_class["glaucoma"], per_class["normal"]
+    if g and n:
+        wins = sum((gv > nv) + 0.5 * (gv == nv) for gv in g for nv in n)
+        auc = float(wins / (len(g) * len(n)))
+    else:
+        auc = float("nan")
+    return {
+        "stated_fraction": float(np.mean([v is not None for v, _ in values])) if values else float("nan"),
+        "glaucoma": {"n": len(g), "mean": float(np.mean(g)) if g else float("nan"),
+                     "min": float(min(g)) if g else float("nan"),
+                     "max": float(max(g)) if g else float("nan")},
+        "normal": {"n": len(n), "mean": float(np.mean(n)) if n else float("nan"),
+                   "min": float(min(n)) if n else float("nan"),
+                   "max": float(max(n)) if n else float("nan")},
+        "roc_auc": auc,
+    }
+
+
 class Evaluator:
     """Reference-compatible M8 evaluator with lazy model loading."""
 
@@ -404,10 +499,20 @@ class Evaluator:
 
         if len(references) != len(labels):
             raise ValueError("references and labels must be aligned")
-        count = len(references)
-        if count < 2:
+        if len(references) < 2:
             raise ValueError("need at least two references")
+        return self._pairwise_baseline(
+            list(references), list(labels), bootstrap_resamples=bootstrap_resamples
+        )
 
+    def _pairwise_baseline(
+        self,
+        references: Sequence[str],
+        labels: Sequence[str],
+        *,
+        bootstrap_resamples: int,
+    ) -> dict[str, Any]:
+        count = len(references)
         cand_idx: list[int] = []
         ref_idx: list[int] = []
         for i in range(count):
@@ -456,6 +561,44 @@ class Evaluator:
                 "mann_whitney": _mann_whitney(in_values, cross_values),
             }
         return report
+
+    def boilerplate_dilution(
+        self,
+        references: Sequence[str],
+        labels: Sequence[str],
+        *,
+        bootstrap_resamples: int = 5000,
+    ) -> dict[str, Any]:
+        """Quantify how much of the cross-validation similarity is boilerplate.
+
+        Recomputes the pairwise reference baseline on the full text and on the
+        diagnostic span alone (:func:`diagnostic_span`). If the cross-category
+        similarity survives the stripping, the metric was rewarding shared report
+        structure rather than diagnostic content. Also reports how well the
+        stated cup-to-disc value by itself separates the classes, the scalar the
+        similarity metrics are blind to.
+        """
+
+        if len(references) != len(labels):
+            raise ValueError("references and labels must be aligned")
+        if len(references) < 2:
+            raise ValueError("need at least two references")
+        references = list(references)
+        labels = list(labels)
+        spans = [diagnostic_span(text) or "no findings stated" for text in references]
+        retained = float(np.mean([
+            len(diagnostic_span(text)) / max(len(text), 1) for text in references
+        ]))
+        return {
+            "full": self._pairwise_baseline(
+                references, labels, bootstrap_resamples=bootstrap_resamples
+            ),
+            "diagnostic_span": self._pairwise_baseline(
+                spans, labels, bootstrap_resamples=bootstrap_resamples
+            ),
+            "span_retained_char_fraction": retained,
+            "cdr_class_separation": cdr_class_separation(references, labels),
+        }
 
     def evaluate_text(
         self,
